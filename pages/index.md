@@ -7,7 +7,7 @@ research cloud, and experienced staff to help you move your research forward.
 This documentation covers the use of CCR's research computing resources. Not
 sure where to start? Try some of these links to get you started:
 
-- [Logging In](accounts/login.md)
+- [Logging In](hpc/login.md)
 - [Research Computing Filesystems](hpc/storage.md)
 - [Compiling Software](software/building.md)
 - [Batch Jobs](hpc/jobs.md)
