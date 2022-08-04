@@ -1,5 +1,7 @@
 # CCR Research Computing Documentation
 
+[![Documentation Status](https://readthedocs.org/projects/ubccr/badge/?version=latest)](https://ubccr.readthedocs.io/en/latest/?badge=latest)
+
 This is the main repository for CCR's research computing documentation. 
 
 https://ubccr.readthedocs.io
