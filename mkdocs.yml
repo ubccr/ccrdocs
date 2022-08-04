@@ -1,0 +1,71 @@
+site_name: Center for Computational Research
+docs_dir: 'pages'
+site_description: 'Center for Computational Research'
+site_url: 'https://docs.ccr.buffalo.edu'
+copyright: 'Copyright &copy; 2021 Center for Computational Research, University at Buffalo'
+repo_name: 'ubccr/ccrdocs'
+repo_url: 'https://github.com/ubccr/ccrdocs'
+edit_uri: 'blob/main/pages'
+
+theme:
+  name: 'readthedocs'
+  logo: 'images/logo.png'
+  favicon: 'images/favicon.ico'
+  include_homepage_in_sidebar: false
+
+plugins: 
+  - search
+  - awesome-pages
+  - mkdocs-video
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - footnotes
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.arithmatex
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Accessing CCR Resources: 
+    - Logging In: accounts/login.md
+    - Allocations: accounts/allocations.md
+    - Two-Factor Authentication: accounts/2fa.md
+    - Change or reset your password: accounts/password.md
+  - Getting started: 
+    - Prospective Users: getting-started.md
+    - Beginners Guide: new-users.md
+    - Advanced Users: adv-users.md
+    - Tutorials and Workshops: tutorials.md
+    - Frequently Asked Questions: faq.md
+  - High Performance Computing: 
+    - Node Types: hpc/node-types.md
+    - Running jobs: hpc/jobs.md
+    - OnDemand Portal: hpc/ood.md
+    - Data Transfer: hpc/data-transfer.md
+    - Storage: hpc/storage.md
+  - Software: 
+    - Software infrastructure: software/about.md
+    - The Module System: software/modules.md
+    - Building your own software: software/building.md
+  - Cloud: 
+    - LakeEffect (On-Prem Cloud): cloud/lake-effect.md
+    - Instance types: cloud/instance-types.md
+  - Policies: 
+    - Accounts and Data Retention Policy: policies/accounts.md
+    - Batch Scheduler Policy: policies/batch.md
+    - Data Backup Policy: policies/backups.md
+    - Data Ownership Policy: policies/data.md
+    - Email Communications Policy: policies/email.md
