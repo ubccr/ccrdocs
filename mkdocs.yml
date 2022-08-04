@@ -40,22 +40,21 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Accessing CCR Resources: 
-    - Logging In: accounts/login.md
-    - Allocations: accounts/allocations.md
-    - Two-Factor Authentication: accounts/2fa.md
-    - Change or reset your password: accounts/password.md
-  - Getting started: 
-    - Prospective Users: getting-started.md
-    - Beginners Guide: new-users.md
-    - Advanced Users: adv-users.md
-    - Tutorials and Workshops: tutorials.md
+    - Getting Access: getting-access.md
+    - Getting Started: getting-started.md
+    - Two-Factor Authentication: 2fa.md
     - Frequently Asked Questions: faq.md
   - High Performance Computing: 
+    - Logging In: hpc/login.md
     - Node Types: hpc/node-types.md
     - Running jobs: hpc/jobs.md
-    - OnDemand Portal: hpc/ood.md
     - Data Transfer: hpc/data-transfer.md
     - Storage: hpc/storage.md
+  - Gateways & Portals:
+    - IDM (Identity Management Portal): portals/idm.md
+    - ColdFront (Allocations): portals/coldfront.md
+    - OnDemand Portal (Browser based HPC Portal): portals/ood.md
+    - WebMO (Browser based Chemistry Portal): portals/webmo.md
   - Software: 
     - Software infrastructure: software/about.md
     - The Module System: software/modules.md
