@@ -1,7 +1,7 @@
 site_name: Center for Computational Research
 docs_dir: 'pages'
 site_description: 'Center for Computational Research'
-site_url: 'https://ubccr.readthedocs.io'
+site_url: 'https://docs.ccr.buffalo.edu'
 copyright: 'Copyright &copy; 2021 Center for Computational Research, University at Buffalo'
 repo_name: 'ubccr/ccrdocs'
 repo_url: 'https://github.com/ubccr/ccrdocs'

@@ -4,7 +4,7 @@
 
 This is the main repository for CCR's research computing documentation. 
 
-https://ubccr.readthedocs.io
+https://docs.ccr.buffalo.edu
 
 Find an error? Feel free to [submit an issue](https://github.com/ubccr/ccrdocs/issues).
 
