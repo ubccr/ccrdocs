@@ -1,82 +1,69 @@
 # Getting Started
 
-Please watch [this recording](https://ub.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c38946b0-14dd-40a8-88aa-ab9800ff652f)
-to learn who CCR is and what CCR offers to aid your research. 
+The Center for Computational Research (CCR) at the University at Buffalo is a high-performance computing center offering faculty, staff, students, and local businesses access to supercomputing environments, high-end visualization services, an on-premise research cloud environment, and experienced staff to help you move your research forward.
 
+!!! Note  
+    CCR provides UB's research computing resources.  All other IT services and support at UB is provided by [UBIT](https://buffalo.edu/ubit)  
 
-The Center for Computational Research (CCR) at the University at Buffalo is a
-high-performance computing center offering faculty and students access to
-supercomputing environments, high-end visualization services, an on-premise
-research cloud environment, and experienced staff to help you move your
-research forward.
+If you are unfamiliar with CCR and what services and resources we provide, please take a look at our detailed website: [https://buffalo.edu/ccr](https://buffalo.edu/ccr)    
 
+This [20 minute presentation](https://youtu.be/ryBqdeqTO4o) given by the CCR Director in 2020 provides a nice overview as well.  We will not cover that information here as this site is dedicated to documentation for using our resources.
+
+## What do you want to do?  
+- If you don't already have a CCR account, see  
+     - [Getting Access](getting-access.md)  
+     - [Frequently Asked Questions about CCR](faq.md)  
+- If you're an experienced HPC user and ready to log onto a cluster, you probably want to know:
+     - What [clusters](hpc/node-types.md) are available  
+     - What [software is available](software/about.md) and how [environment modules](software/modules.md) work  
+     - How to [submit jobs](hpc/jobs.md)  
+     - How the [file system](hpc/storage.md) is organized
+- If you're new to HPC or would like additional technical background information, you can  
+    - Peruse our [virtual workshops on YouTube](https://www.youtube.com/playlist?list=PL4Z5ac7PLRb1Su9J9BXs_TUXNG_RxOcgM)  
+    - Read about how to connect to our HPC systems with SSH
+    - Learn more about [data transfer](hpc/data-transfer.md) to CCR systems
+    - Read this great [Introduction to Linux systems](https://docs.alliancecan.ca/wiki/Linux_introduction) from Compute Canada  
+    - Check out our Linux & Slurm Cheat Sheet
+- If you want to use software or develop services that aren't conducive to traditional HPC systems, please read about our [on-premise research cloud](cloud/lake-effect.md)  
 
 ## Computing Resources at CCR
 
-The Center for Computational Research has over 30,000 processors in three
-clusters to support faculty and student research as well as local business
-partners.    The computers are organized into a cluster sharing common
-networking and storage.  University researchers use the computers in the
-cluster through the batch scheduling system.  Specialized visualization servers
-within the UB-HPC cluster are available for high end visualization tasks.
-Researchers can utilize the CCR research cloud for projects not typically
-suited for the HPC environment.  Database warehouses, websites, software
-development projects, and other non-HPC scientific applications are examples of
-what currently run in our research cloud.  UB faculty are permitted access to
-the UB-HPC cluster for themselves and their students at no cost.  Additional
-services and resources are available for nominal fees, collected to cover the
-costs of the hardware and staff time.
+**High Performance Computing (HPC)**  
+*What do you need to know?*  
+- HPC resources are available through a cluster environment  
+- Users submit batch jobs to a scheduler to run on servers (nodes) within the cluster  
+- The UB-HPC cluster is available for academic & industry users    
+- CCR also manages a separate cluster for privately purchased faculty nodes   
+- Storage is shared among the clusters  
+- Visualization servers are available for graphically-intense scientific software  
+- Users login using a SSH client or the OnDemand web portal  
+- There is no cost for cluster compute time for UB faculty groups (students must be sponsored by faculty)  
+- 1TB of free storage provided to faculty groups  
 
+**Research Cloud**  
+*What do you need to know?*  
+- Researchers utilize the on-prem cloud for projects not suited for the HPC environment  
+- Examples of cloud uses: database warehouses, websites, container orchestration, software development projects, and other non-HPC scientific applications  
+- Cloud compute time is billed by CPU hour & storage is sold in increments of 1TB  
+- Billing info can be found [here](lake-effect.md)  
 
+!!! Note  
+    You must be on an active allocation for the resource(s) you want to use.  [More info here](getting_access.md)  
 
-## Accounts at CCR
+**What Resources Should I Use?**
+This question is difficult to answer because of the range of needs we serve, disciplines we support, and resources we offer.  If the descriptions above were not sufficient, please contact CCR Help to discuss.  
 
-UB faculty should read the requirements for CCR accounts and follow the
-instructions to create their own.  Once the faculty has setup a project
-following these instructions, he/she may add students, staff, and collaborators
-to their group.  Please follow the instructions here to create and account and
-project
+In order to identify the best resource to use, we may ask specific questions, such as:
 
-Students and UB staff members sponsored by a UB faculty member may create
-themselves an account but will not have access to CCR's servers until added to
-a faculty member's project.  Instructions for that can be found here
-
-External collaborators and industry partners must contact CCR help to request
-an account.
+- What software do you want to use?
+- Does the software require a commercial license?
+- Can the software be used non-interactively? That is, can it be controlled from a file prepared prior to its execution rather than through the graphical interface?
+- Can it run on the Linux operating system?
+- How much memory, time, computing power, accelerators, storage, network bandwidth and so forth --- are required by a typical job? Rough estimates are fine.
+- How frequently will you need to run this type of job?
+You may know the answer to these questions or not. If you do not, our technical support team is there to help you find the answers. Then they will be able to direct you to the most appropriate resources for your needs.
 
 
 ## Application Software Available on the CCR Clusters
 
-There are many scientific, engineering, bioinformatics, and visualization software applications already installed on the clusters.  You are welcome to install software for your own use in your home or project directories, if it doesn't require elevated privileges.   If it does, submit a help ticket to request the installation of the software package and, if it is possible, we will install it for you.  More information about software installations can be found here
-
-
-## Getting Started Using the Cluster
-
-There are several paths to getting started using the cluster.  The User Guide
-provides a step by step guide to understanding and using the cluster.  
-
-In 2020, CCR developed a series of virtual workshops to provide information on
-a variety of topics.  We encourage users to watch the recordings of these
-workshops prior to attempting to use the systems.
-
-CCR staff may be able to provide your group with a private training session.
-We would ask that prior to conducting this all users in the group have active
-accounts, have viewed the virtual workshop recordings related to the work
-they're doing, and logged in to get a feeling for the systems.  If you'd like
-to request a training session for your group, please submit a help ticket via
-this portal or email CCR Help.
-
-Check out the Beginner Information in our knowledgebase
-
-
-## Consulting
-
-As a part of its mission to enable research and scholarship at UB, CCR provides
-a wide range of consulting services in areas that include parallel computing,
-software engineering, scientific and medical visualization, bioinformatics,
-data analytics, urban simulation and modeling, computer animation, and cluster
-management. In addition, the software engineering group have extensive
-experience in custom software development, including GUI and web-based
-interfaces. For additional information on these services, see our consulting
-webpage.  To contact us to learn how CCR can help facilitate your research,
-please submit a help ticket via this portal or email CCR Help. 
+There are many scientific, engineering, bioinformatics, and visualization software applications already installed on the clusters.  You are welcome to install software for your own use in your home or project directories, if it doesn't require elevated privileges.   If it does, submit a help ticket to request the installation of the software package and, if it is possible, we will install it for you.  More information about available software and how to install your own can be [found here](software/about.md)  
