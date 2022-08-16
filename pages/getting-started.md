@@ -7,9 +7,11 @@ The Center for Computational Research (CCR) at the University at Buffalo is a hi
 
 If you are unfamiliar with CCR and what services and resources we provide, please take a look at our detailed website: [https://buffalo.edu/ccr](https://buffalo.edu/ccr)    
 
-This [20 minute presentation](https://youtu.be/ryBqdeqTO4o) given by the CCR Director in 2020 provides a nice overview as well.  We will not cover that information here as this site is dedicated to documentation for using our resources.
+This 20 minute presentation given by the CCR Director in 2020 provides a succinct overview.  We will not cover that information here as this site is dedicated to documentation for using our resources  
+![type:video](https://youtube.com/embed/ryBqdeqTO4o)  
 
 ## What do you want to do?  
+
 - If you don't already have a CCR account, see  
      - [Getting Access](getting-access.md)  
      - [Frequently Asked Questions about CCR](faq.md)  
@@ -30,6 +32,7 @@ This [20 minute presentation](https://youtu.be/ryBqdeqTO4o) given by the CCR Dir
 
 **High Performance Computing (HPC)**  
 *What do you need to know?*  
+
 - HPC resources are available through a cluster environment  
 - Users submit batch jobs to a scheduler to run on servers (nodes) within the cluster  
 - The UB-HPC cluster is available for academic & industry users    
@@ -42,6 +45,7 @@ This [20 minute presentation](https://youtu.be/ryBqdeqTO4o) given by the CCR Dir
 
 **Research Cloud**  
 *What do you need to know?*  
+
 - Researchers utilize the on-prem cloud for projects not suited for the HPC environment  
 - Examples of cloud uses: database warehouses, websites, container orchestration, software development projects, and other non-HPC scientific applications  
 - Cloud compute time is billed by CPU hour & storage is sold in increments of 1TB  
