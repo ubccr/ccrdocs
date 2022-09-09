@@ -51,10 +51,11 @@ nav:
     - Data Transfer: hpc/data-transfer.md
     - Storage: hpc/storage.md
   - Gateways & Portals:
-    - IDM (Identity Management Portal): portals/idm.md
-    - ColdFront (Allocations): portals/coldfront.md
-    - OnDemand Portal (Browser based HPC Portal): portals/ood.md
-    - WebMO (Browser based Chemistry Portal): portals/webmo.md
+    - CCR IDM (Identity Management Portal): portals/idm.md
+    - ColdFront (Allocations Management Portal): portals/coldfront.md
+    - Open OnDemand (Browser based HPC Portal): portals/ood.md
+    - Open XDMoD (Job Metrics Portal): portals/metrics.md
+    - WebMO (Chemistry Portal): portals/webmo.md
   - Software:
     - Software infrastructure: software/about.md
     - The Module System: software/modules.md

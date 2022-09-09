@@ -5,3 +5,10 @@
 ## How do I get access?
 
 ## Why do I get this error message?
+
+## What is my CCR username?
+
+Your CCR username is the same as your UBIT username.  If you do not have a UB account, your CCR username is usually the first letter of your first name plus your last name.  However, if you're unsure, please ask CCR Help.
+
+!!! Note  
+    CCR's help desk portal provided by Freshdesk uses email address as the login name for our accounts.  You can create a Freshdesk account with your preferred email address; however, this is not linked to your CCR system account.  
