@@ -62,7 +62,8 @@ nav:
     - Building your own software: software/building.md
   - Cloud:
     - LakeEffect (On-Prem Cloud): cloud/lake-effect.md
-    - Instance types: cloud/instance-types.md
+    - Using the Cloud: cloud/using.md
+    - Advanced Topics: cloud/advanced.md
   - Policies:
     - Accounts and Data Retention Policy: policies/accounts.md
     - Batch Scheduler Policy: policies/batch.md
