@@ -33,6 +33,8 @@ Features of Lake Effect:
 * Built on Openstack Cloud Software [Openstack](https://www.openstack.org/) 
 * Fault tolerant components to minimize risk of downtime due to underlying hardware failure
 
+!!! Warning
+    CCR does **not** backup LakeEffect Research Cloud. Backup of cloud data and configurations is the user’s responsibility!
 
 ### LakeEffect Resources
 > * 768 total CPU cores
