@@ -49,15 +49,15 @@ Features of Lake Effect:
 
 In order to use LakeEffect Research cloud, you will need to purchase a subscription. 
 
-* Starter Subscription: $558.81/year  
-    * 10 vCPU, 1TB Storage, 1 Floating IP  
-* Standard Subscription: $1117.62/year  
-    * 20 vCPU, 2TB Storage, 2 Floating IP  
-* Advanced Subscription: $2235.24/year  
-    * 40 vCPU, 4TB Storage, Access to Fast-IO VMs, 4 Floating IP  
-* GPU addon : $936.34/year  
-    * 2 vCPU, 1 GPU (Tesla V100 16GB), 1TB Object Storage, 1 Floating IP  
-* Storage addon : $54.36/TB/year  
+
+| Package Name | vCPU | Storage | Other | Price |
+| :--- | ---: | ---: | :----: | ---:| 
+| Starter| 10 vCPU | 1 TB | 1 Floating IP | $558.81/year |
+| Standard| 20 vCPU | 2 TB | 2 Floating IP | $1117.62/year |
+| Advanced| 40 vCPU | 4 TB | 4 Floating IP , Fast-IO VMs | $2235.24/year |
+| GPU Addon| 8 vCPU | 1 TB | 1 Floating IP, Tesla V100 16GB | $936.34/year |
+| Storage addon | | 1 TB | Block Storage | $54.36/TB/year |
+
 * Systems Administration Consulting: $59.97/hour
 
     * Must be purchased in 8 hour increments
