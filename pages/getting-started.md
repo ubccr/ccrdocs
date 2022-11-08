@@ -37,11 +37,11 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
 - Users submit batch jobs to a scheduler to run on servers (nodes) within the cluster  
 - The UB-HPC cluster is available for academic & industry users    
 - CCR also manages a separate cluster for privately purchased faculty nodes   
-- Storage is shared among the clusters  
-- Visualization servers are available for graphically-intense scientific software  
-- Users login using a SSH client or the OnDemand web portal  
+- [Visualization servers](../hpc/viz) are available for graphically-intense scientific software  
+- Users login using a [SSH client](../hpc/login) or the [OnDemand web portal](../portals/ood)  
 - There is no cost for cluster compute time for UB faculty groups (students must be sponsored by faculty)  
-- 1TB of free storage provided to faculty groups  
+- Storage is shared among the clusters. More [details on storage options](../hpc/storage)  
+
 
 **Research Cloud**  
 *What do you need to know?*  

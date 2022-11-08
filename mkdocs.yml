@@ -39,11 +39,11 @@ markdown_extensions:
 # Page tree
 nav:
   - Home: index.md
+  - Frequently Asked Questions: faq.md
   - Accessing CCR Resources:
     - Getting Access: getting-access.md
     - Getting Started: getting-started.md
     - Two-Factor Authentication: 2fa.md
-    - Frequently Asked Questions: faq.md
   - High Performance Computing:
     - Logging In: hpc/login.md
     - Node Types: hpc/node-types.md
