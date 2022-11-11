@@ -106,16 +106,26 @@ Authentication apps that support time-based tokens (TOTP & HOTP) work with CCR a
 ![type:video](https://youtube.com/embed/BDd-J1DAwsw)  
 
 
-1.  Login to the [identity management portal](https://idm.ccr.buffalo.edu) and click on the `OTP Tokens` menu option  
-2.  Click on the `New Token` button and enter a description for the new token.  For example, what device this is being connected to.  Then click the `Add` button.    
-3.  In the authentication app on your smartphone or tablet, click or touch to add a new account.  
-4.  Scan the QR code shown in the CCR IDM portal with your device's camera and update the account name in the app, if desired.  Click `Save` in the authentication app to add the CCR account.  
-5.  Back in the IDM portal, enter the 6 digit one time token presented in your app, to verify the CCR account has been linked properly with your authentication app.  Do not include any spaces between the numbers.  
-6.  If entered correctly, you will see your token listed in the IDM portal and shown as `Enabled`  
+1. Login to the [identity management portal](https://idm.ccr.buffalo.edu) and click on the `OTP Tokens` menu option  
+2. Click on the `New Token` button and enter a description for the new token.  For example, what device this is being connected to.  Then click the `Add` button.  
+
+![2FA](../images/2fa.PNG)  
+3. In the authentication app on your smartphone or tablet, click or touch to add a new account.  
+4. Scan the QR code shown in the CCR IDM portal with your device's camera and update the account name in the app, if desired.  Click `Save` in the authentication app to add the CCR account.  
+5. Back in the IDM portal, enter the 6 digit one time token presented in your app, to verify the CCR account has been linked properly with your authentication app.  Do not include any spaces between the numbers.  
+
+![2FA2](../images/2fa2.PNG)
+
+If entered correctly, you will see your token listed in the IDM portal and shown as `Enabled`
+
+![2FA2](../images/2fa4.PNG)  
 
 **NOTE:**  If this is the first token added to your CCR account, 2FA will be enabled automatically.  Click on the `Security` menu option to see that 2FA is enabled.  You'll receive an email notifying you that 2FA was enabled for your account.   
 
-**_NOTE_**:  If the device you're using doesn't have a camera, click on the `Show URI` link under the QR code displayed in the IDM portal.  This will display a long code.  Copy this code and paste it into your authentication app.  
+![2FA2](../images/2fa3.PNG)
+
+!!! Tip  
+    If the device you're using doesn't have a camera, click on the `Show URI` link under the QR code displayed in the IDM portal.  This will display a long code.  Copy this code and paste it into your authentication app.  
 
 
 ### Logging in with two factor authentication  
@@ -138,7 +148,7 @@ The login process for WebMO is slightly different than the other CCR portals.  F
 
 ### Managing tokens for devices  
 
-You may view all OTP tokens linked to your CCR account by clicking on the `OTP Tokens` menu option. This is where you can delete tokens you no longer need or link additional devices to your account.  To add a new device, click on the `New Token` button and scan the QR code or use the URI link as [described above](#enabling-two-factor-authentication).  To delete a token you no longer need or feel may be compromsied, click the `Delete` button next to it.  When prompted to confirm, click the `Delete` button again.  If you currently have access to the authentication app associated with this token, you will need to remove it from the app manually.  You'll receive an email notifying you that a new token was added to or a token was removed from your account.  
+You may view all OTP tokens linked to your CCR account by clicking on the `OTP Tokens` menu option. This is where you can delete tokens you no longer need or link additional devices to your account.  To add a new device, click on the `New Token` button and scan the QR code or use the URI link as [described above](#enabling-two-factor-authentication).  To delete a token you no longer need or feel may be compromised, click the `Delete` button next to it.  When prompted to confirm, click the `Delete` button again.  If you currently have access to the authentication app associated with this token, you will need to remove it from the app manually.  You'll receive an email notifying you that a new token was added to or a token was removed from your account.  
 
 !!! Warning  
     You will not be allowed to delete the last token on the account as long as 2FA is enabled.  
