@@ -180,8 +180,8 @@ The IDM portal allows users to manage the SSH public keys associated with their 
 
 The creation of a SSH key pair and the method for using it for logins to a linux server are operating system dependent.  We recommend you use your preferred search engine to find one of the many tutorials online for generating and using SSH keys specific to the operating system you're running.  [This site provides everything you could want to know about SSH](https://www.ssh.com/academy).  The CCR cluster login address is `vortex.ccr.buffalo.edu` which is a pool of login servers granting access to our clusters.  
 
-!!! Warning    
-    Windows users will need to to convert the SSH key pair generated into an acceptable OpenSSH format in order to use on CCR's systems.  We recommend using [MobaXterm on Windows](https://mobaxterm.mobatek.net/) for creating, converting, & using SSH keys with your CCR account.  
+!!! Note    
+    Windows users will need to convert the SSH key pair generated into an acceptable OpenSSH format in order to use on CCR's systems.  We recommend using [MobaXterm on Windows](https://mobaxterm.mobatek.net/) for creating, converting, & using SSH keys with your CCR account.  [See below for more details](#special-ssh-key-info-for-windows-users)  
 
 ### Add SSH Public Key  
 
@@ -193,3 +193,29 @@ To add your SSH public key to your CCR account, login to the [identity managemen
 ### Permanently remove SSH keys  
 
 If your key pair is ever compromised or you lose access to it, login to the [identity management portal](https://idm.ccr.buffalo.edu) and delete it, **which will immediately revoke it on all CCR's servers**.  To delete your SSH key from your CCR account, click on the `SSH Keys` option on the menu and click the `Delete` button under the key you want to remove.  You'll be prompted to confirm the deletion request.  You'll receive an email notifying you of the removal of an SSH key to your account.  
+
+### Special SSH Key Info for Windows Users  
+
+CCR recommends Windows users utilize MobaXterm for command line cluster access and small file transfers.  We provide information here on SSH key pair management using MobaXterm; however, there is documentation online for various other SSH clients, if you choose to use an alternate package. Much of the information we provide below translates to other SSH client software.   
+
+##### Generate SSH key pair  
+
+To generate a public/private key pair, start the `MobaXterm SSH Key Generator (MobaKeyGen)` found under the MobaXterm Tools menu.  Under 'type of key to generate' select ED25519.  Click the Generate button and move your mouse around the empty area at the top of the GUI.  As you move your mouse around, you'll see the bar move across the window indicating it's working on generating your random, unique key.
+
+##### Export key pair  
+
+Once the key generation is complete you'll need to save your public and private keys onto your computer.  Before doing so you might want to consider:
+
+- For the utmost in security, you can enter a passphrase for your private key.  This is helpful if your machine is compromised and your key is stolen, the hacker would need the passphrase associated with the key to utilize it.  Every time you use the key, you will need to enter the passphrase.   We don't require it but do recommend it.  If you choose to set one, enter it in the `Key passphrase` box and re-enter it in the `Confirm passphrase` box.  
+- Changing the default `Key comment` may be desirable to you.  Most people enter their email address here or you can enter something that reminds you this was generated for CCR use or what machine you used to generate it on.  This is also optional.
+
+![Moba](../images/mobasshkey.PNG)  
+
+If you've chosen not to save a key passphrase you will be asked again if you're sure.  Click `Yes` or go back and add a key passphrase.
+
+You will be prompted to select a location to save the private key.  **The file location of the private key MUST be a place that only you have access to.  Do not store this on a shared file system or a folder on your computer that is shared.**   
+
+!!! Note  
+    Make sure to save the key with an extension of .ppk - if you don't this won't work when trying to connect using MobaXterm or FileZilla  
+
+Finally, click the `Save public key` button. We recommend you save it with the same name as your private key but ending in .pub.  Before you close this window, you can copy the text from the box labeled `Public key for pasting into OpenSSH server` and paste that into the SSH box in CCR's identity management portal, as [described above](#add-ssh-public-key)

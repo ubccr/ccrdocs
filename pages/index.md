@@ -7,7 +7,7 @@ This documentation covers the use of CCR's research computing and research cloud
 !!! Tip   
     CCR provides UB's research computing and research cloud resources. All other IT services and support at UB are provided by [UBIT](https://buffalo.edu/ubit)  
 
-**Not sure where to start?** These links provide info on the most popular topics while the left navigation provides the full documentation organized by topics.  You can also use the search box at the top left for context searching!  
+**Not sure where to start?** These links provide info on the most popular topics while the left navigation provides the full documentation organized by topics.  You can also use the search box at the top left for context searching.  
 
 - [Getting Access](getting-access.md)  
 - [Getting Started - Once you Have Access](getting-started.md)  
@@ -21,9 +21,14 @@ This documentation covers the use of CCR's research computing and research cloud
 - **Research Computing (HPC) Specific Topics:**  
     - [Batch Job System](hpc/jobs.md)  
     - [Data Transfer Options](hpc/data-transfer.md)  
+    - [Linux and Slurm Cheat Sheet](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n)  
     - [Software Module System](software/modules.md)  
     - [Compiling Software](software/building.md)  
     - [Visualization Servers](hpc/viz.md)  
+- **Research Cloud Specific Topics:**  
+    - [LakeEffect Cloud Quick Start](cloud/lake-effect)  
+    - [Cloud Subscription Costs](cloud/subscriptions)  
+    - [Detailed info on Utilizing the Cloud](cloud/using)  
 
 
 !!! note "Can't find what you need?"

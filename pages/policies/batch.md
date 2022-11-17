@@ -46,8 +46,8 @@ There are scavenger partitions on all CCR clusters.  These partitions provide a 
 
 ## Fairshare Limits  
 
-To keep any one user or group from monopolizing the system when others need the same resources, the scheduler imposes what are known as fairshare limits. If a user or group uses large amounts of computing resources over a period of a month, any new jobs they submit during that period will have reduced priority.  More details on fairshare calculations can be [found here](hpc/jobs.md)  
+To keep any one user or group from monopolizing the system when others need the same resources, the scheduler imposes what are known as fairshare limits. If a user or group uses large amounts of computing resources over a period of a month, any new jobs they submit during that period will have reduced priority.  More details on fairshare calculations can be [found here](../hpc/jobs)  
 
 ## Priority  
 
-The priority of a job is influenced by many factors, including the processor count requested, the length of time the job has been waiting, how much other computing has been done by the user and their group over the last month (fairshare), and if the group has access to a QOS that provides a priority boost. However, having the highest priority does not necessarily mean that a job will run immediately, as there must also be enough processors and memory available to run it.  See our documentation on the [job scheduler](hpc/jobs.md) for more info on how priority is calculated and how to check the priority of your pending job(s)  
+The priority of a job is influenced by many factors, including the processor count requested, the length of time the job has been waiting, how much other computing has been done by the user and their group over the last month (fairshare), and if the group has access to a QOS that provides a priority boost. However, having the highest priority does not necessarily mean that a job will run immediately, as there must also be enough processors and memory available to run it.  See our documentation on the [job scheduler](../hpc/jobs) for more info on how priority is calculated and how to check the priority of your pending job(s)  

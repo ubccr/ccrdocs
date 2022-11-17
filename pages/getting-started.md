@@ -17,18 +17,18 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
      - [Frequently Asked Questions about CCR](faq.md)  
 - If you're an **experienced HPC user** and ready to log onto a cluster, you probably want to know:
      - What [clusters](hpc/node-types.md) are available  
-     - Get instructions for how to [connect to our HPC systems with SSH](../hpc/login.md)
-     - What [software is available](software/about.md) and how [software environment modules](software/modules.md) work  
-     - How to [submit batch jobs](hpc/job.md)  
-     - How the [file systems](hpc/storage.md) are organized  
-     - How to [transfer data](hpc/data-transfer.md) to CCR systems
+     - Get instructions for how to [connect to our HPC systems with SSH](../hpc/login)
+     - What [software is available](../software/about) and how [software environment modules](../software/modules) work  
+     - How to [submit batch jobs](../hpc/jobs)  
+     - How the [file systems](../hpc/storage) are organized  
+     - How to [transfer data](../hpc/data-transfer) to CCR systems
 - If you're **new to high performance computing** or would like additional technical background information, you can:  
     - Learn more about [what resources CCR provides](#computing-resources-at-ccr)
     - Peruse our [virtual workshops on YouTube](https://www.youtube.com/playlist?list=PL4Z5ac7PLRb1Su9J9BXs_TUXNG_RxOcgM)  
-    - Read about our [web-based OnDemand portal](../portals/ood.md) for easy access to our systems
-        - Read this great [Introduction to Linux systems](https://docs.alliancecan.ca/wiki/Linux_introduction) from Compute Canada  
-    - Check out our Linux & Slurm Cheat Sheet
-- If you want to use software or develop services that aren't conducive to traditional HPC systems, please read about our [on-premise research cloud](cloud/lake-effect.md)  
+    - Read about our [web-based OnDemand portal](../portals/ood) for easy access to our systems
+    - Read this great [Introduction to Linux systems](https://docs.alliancecan.ca/wiki/Linux_introduction) from Compute Canada  
+    - Check out our [Linux & Slurm Cheat Sheet](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n)  
+- If you want to use software or develop services that aren't conducive to traditional HPC systems, please read about our [on-premise research cloud](../cloud/lake-effect)  
 
 ## Computing Resources at CCR
 
@@ -39,25 +39,25 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
 - Users submit batch jobs to a scheduler to run on servers (nodes) within the cluster  
 - The UB-HPC cluster is available for academic & industry users    
 - CCR also manages a separate cluster for privately purchased faculty nodes   
-- [Visualization servers](hpc/viz.md) are available for graphically-intense scientific software  
-- Users login using a [SSH client](../hpc/login.md) or the [OnDemand web portal](portals/ood.md)  
-- There is no cost for cluster compute time for UB faculty groups (students must be sponsored by faculty)  
-- Storage is shared among the clusters. More [details on storage options](hpc/storage.md)  
+- [Visualization servers](../hpc/viz) are available for graphically-intense scientific software  
+- Users login using a [SSH client](../hpc/login) or the [OnDemand web portal](../portals/ood)  
+- There is no cost for UB faculty groups to use the UB-HPC cluster (student accounts must be sponsored by faculty)  
+- Storage is shared among the clusters. More [details on storage options](../hpc/storage)  
 
 
 **Research Cloud**  
 *What do you need to know?*  
 
-- Researchers utilize the on-prem cloud for projects not suited for the HPC environment  
-- Examples of cloud uses: database warehouses, websites, container orchestration, software development projects, and other non-HPC scientific applications  
+- Researchers utilize the on-premise cloud for projects not suited for the HPC environment  
+- Examples of cloud uses: database warehouses, websites, container orchestration, software development projects, proof-of-concept testing, and other non-HPC scientific applications  
 - Cloud compute time is billed by CPU hour & storage is sold in increments of 1TB  
-- Billing info can be found [here](cloud/lake-effect.md)  
+- Billing info can be found [here](../cloud/lake-effect)  
 
 !!! Note  
     You must be on an active allocation for the resource(s) you want to use.  [More info here](../getting_access)  
 
 **What Resources Should I Use?**
-This question is difficult to answer because of the range of needs we serve, disciplines we support, and resources we offer.  If the descriptions above were not sufficient, please contact CCR Help to discuss.  
+This question is difficult to answer because of the range of needs we serve, disciplines we support, and resources we offer.  If the descriptions above were not sufficient, please contact [CCR Help](https://ubccr.freshdesk.com) to discuss.  
 
 In order to identify the best resource to use, we may ask specific questions, such as:
 
@@ -66,10 +66,10 @@ In order to identify the best resource to use, we may ask specific questions, su
 - Can the software be used non-interactively? That is, can it be controlled from a file prepared prior to its execution rather than through the graphical interface?
 - Can it run on the Linux operating system?
 - How much memory, time, computing power, accelerators, storage, network bandwidth and so forth --- are required by a typical job? Rough estimates are fine.
-- How frequently will you need to run this type of job?
-You may know the answer to these questions or not. If you do not, our technical support team is there to help you find the answers. Then they will be able to direct you to the most appropriate resources for your needs.
+- How frequently will you need to run this type of job?  
+You may not know the answer to all of these questions. Please provide as much detail as you can and our technical support team will help you determine the most appropriate resources for your needs.
 
 
 ## Application Software Available on the CCR Clusters
 
-There are many scientific, engineering, bioinformatics, and visualization software applications already installed on the clusters.  You are welcome to install software for your own use in your home or project directories, if it doesn't require elevated privileges.   Nearly all software can be installed in a non-standard location (thus not requiring admin privileges) and we offer compilers and scientific libraries as software modules to help in building software.  We can often provide guidance to users via help tickets so if you have questions or run into trouble installing your own software, let us know! If your software has prerequisites not already installed on our systems, submit a help ticket to request the installation of these software packages.  If it is possible, we will install them for you.  More information about available software and how to install your own can be [found here](software/about.md)  
+There are many scientific, engineering, bioinformatics, and visualization software applications already installed on the clusters.  You are welcome to install software for your own use in your home or project directories, if it doesn't require elevated privileges.   Nearly all software can be installed in a non-standard location (thus not requiring admin privileges) and we offer compilers and scientific libraries as software modules to help in building software.  We can often provide guidance to users via help tickets so if you have questions or run into trouble installing your own software, let us know! If your software has prerequisites not already installed on our systems, submit a help ticket to request the installation of these software packages.  If it is possible, we will install them for you.  More information about available software and how to install your own can be [found here](../software/about)  
