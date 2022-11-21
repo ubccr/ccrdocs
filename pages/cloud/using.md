@@ -2,11 +2,11 @@
 
 ### Managing your Project with the Cloud Dashboard
 
-Once you've requested and been granted an account on the Lake Effect cloud, you will be able to login in to the web console.
-Your username and password for Lake Effect are the same as your CCR username and password.  However, you need additional 
+Once you've requested and been granted an account on the LakeEffect cloud, you will be able to login in to the web console.
+Your username and password for LakeEffect are the same as your CCR username and password.  However, you need additional 
 privileges to be allowed to login to the cloud.  You will be informed when your cloud account is ready.
 
-[The Lake Effect Dashboard (Horizon)](https://dashboard.cloud.ccr.buffalo.edu) - simplifies management of your project's cloud resources and provides information on your group's usage.
+[The LakeEffect Dashboard (Horizon)](https://dashboard.cloud.ccr.buffalo.edu) - simplifies management of your project's cloud resources and provides information on your group's usage.
 
 ![](../images/cloud/openid.png)
 
@@ -73,7 +73,7 @@ You can use many different key pairs on your account, if desired. You will be ab
 
 ### Security-Groups
 
-Security groups are an important concept to understand in Openstack.  Security groups define a set of IP filter rules that determine how network traffic flows to and from an instance like a firewall. Because the Cloud needs to be flexible, the Lake Effect public IP address space is not protected by the UB firewall; therefore, it's critical that you setup secure access to your instances. Security groups are the primary method from protecting your VMs from Internet Security Threats. 
+Security groups are an important concept to understand in Openstack.  Security groups define a set of IP filter rules that determine how network traffic flows to and from an instance like a firewall. Because the Cloud needs to be flexible, the LakeEffect public IP address space is not protected by the UB firewall; therefore, it's critical that you setup secure access to your instances. Security groups are the primary method from protecting your VMs from Internet Security Threats. 
 
 #### Creating Security Groups
 
