@@ -39,6 +39,7 @@ markdown_extensions:
 # Page tree
 nav:
   - Home: index.md
+  - CCR Help: help.md
   - Frequently Asked Questions: faq.md
   - Accessing CCR Resources:
     - Getting Access: getting-access.md
@@ -47,6 +48,7 @@ nav:
   - High Performance Computing:
     - Logging In: hpc/login.md
     - Node Types: hpc/node-types.md
+    - Visualization Servers: hpc/viz.md
     - Running jobs: hpc/jobs.md
     - Data Transfer: hpc/data-transfer.md
     - Storage: hpc/storage.md
@@ -75,3 +77,4 @@ nav:
     - Software Installation Policy: policies/softwareinstall.md
     - Support Policy: policies/support.md
     - System Maintenance: policies/maintenance.md
+    - Two Factor Authentication Reset: policies/2fa.md
