@@ -63,8 +63,8 @@ nav:
     - The Module System: software/modules.md
     - Building your own software: software/building.md
   - Cloud:
-    - LakeEffect (On-Prem Cloud): cloud/lake-effect.md
-    - Instance types: cloud/instance-types.md
+    - About LakeEffect Research Cloud: cloud/lake-effect.md
+    - Using LakeEffect: cloud/using.md
   - Policies:
     - Accounts and Data Retention Policy: policies/accounts.md
     - Batch Scheduler Policy: policies/batch.md
