@@ -63,8 +63,8 @@ nav:
     - The Module System: software/modules.md
     - Building your own software: software/building.md
   - Cloud:
-    - About LakeEffect Research Cloud: cloud/lake-effect.md
-    - Using LakeEffect: cloud/using.md
+    - LakeEffect (On-Prem Cloud): cloud/lake-effect.md
+    - Using the Cloud: cloud/using.md
     - Advanced Topics: cloud/advanced.md
   - Policies:
     - Accounts and Data Retention Policy: policies/accounts.md
