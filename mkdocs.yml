@@ -65,6 +65,7 @@ nav:
   - Cloud:
     - About LakeEffect Research Cloud: cloud/lake-effect.md
     - Using LakeEffect: cloud/using.md
+    - Advanced Topics: cloud/advanced.md
   - Policies:
     - Accounts and Data Retention Policy: policies/accounts.md
     - Batch Scheduler Policy: policies/batch.md
