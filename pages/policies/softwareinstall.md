@@ -5,7 +5,7 @@
 
 CCR staff provide a suite of software that is standard for high performance computing environments.  This include compilers, Cuda, Anaconda Python, and some engineering packages such as Gromacs, NAMD, Matlab, Abaqus, Comsol, LSDYNA, and Ansys.
 
-Software that does not require root level (administrative) access should be installed in a user's home directory or a group's project directory.  [More information on installing your own software](software/building.md)  
+Software that does not require root level (administrative) access should be installed in a user's home directory or a group's project directory.  [More information on installing your own software](../software/building.md)  
 
 If your software does require root privileges to be installed or you feel it would benefit other CCR users, you can submit a help ticket requesting the software be installed.  Minimum requirements for software installation on the clusters:
 
