@@ -25,7 +25,7 @@ To create a CCR system account, navigate to the [Identity Management Portal (IDM
 
 1. Click on the `New User? Create Account` link  
 2. Fill out the form.  All fields are required. NOTE: you must use your buffalo.edu or roswellpark.org email address.  
-3. Review the [Terms of Service](../policies/misuse/) agreement.  
+3. Review the [Terms of Service](../policies/misuse.md) agreement.  
 4. Click the `Create Account` button.  
 5. You will be redirected to the `Verify Your Account` page which should display the message `Account created successfully`  This page includes your CCR username and instructions to check your email to activate your account.  If you do not receive this email (check your junk/spam folder!), contact CCR Help for assistance.  
 6.  Click on the link in the email which redirects you back to the CCR IDM portal.  Click on the `Verify Account` button to complete the verification process and activate your account.  

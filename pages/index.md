@@ -2,7 +2,7 @@
 
 The [Center for Computational Research (CCR)](https://buffalo.edu/ccr) at the [University at Buffalo](https://buffalo.edu) is a high-performance research computing center offering faculty, staff, students, and local businesses access to supercomputing environments, high-end visualization services, an on-premise research cloud infrastructure, and experienced staff to help you move your research forward.  
 
-This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Requests for help can be emailed to ccr-help_at_buffalo.edu or submitted via our [Freshdesk help desk portal](https://ubccr.freshdesk.com).   
+This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Information about CCR support services can be [found here](help.md).   
 
 !!! Tip   
     CCR provides UB's research computing and research cloud resources. All other IT services and support at UB are provided by [UBIT](https://buffalo.edu/ubit)  
@@ -26,12 +26,12 @@ This documentation covers the use of CCR's research computing and research cloud
     - [Compiling Software](software/building.md)  
     - [Visualization Servers](hpc/viz.md)  
 - **Research Cloud Specific Topics:**  
-    - [LakeEffect Cloud Quick Start](cloud/lake-effect)  
-    - [Cloud Subscription Costs](cloud/subscriptions)  
-    - [Detailed info on Utilizing the Cloud](cloud/using)  
+    - [LakeEffect Cloud Quick Start](cloud/lake-effect.md#lakeeffect-quick-start)  
+    - [Cloud Subscription Costs](cloud/lake-effect.md#subscriptions)  
+    - [Detailed info on Utilizing the Cloud](cloud/using.md)  
 
 
 !!! note "Can't find what you need?"
     Provide feedback on our github repo!
 
-If you have any questions, please contact ccr-help_at_buffalo.edu or submit a ticket via our [Freshdesk help desk portal](https://ubccr.freshdesk.com)
+If you have any questions, please [contact CCR Help](help.md)

@@ -1,12 +1,12 @@
 # Logging In
 
-**This page specifically refers to logging in to access the HPC clusters and shared storage resources.**  If you are looking for login information for portals that handle accounts, allocation management, cloud, and other services, please see the 'Gateways & Portals' section of the documentation.  Having trouble with your two factor authentication?  [See this page](../2fa)  
+**This page specifically refers to logging in to access the HPC clusters and shared storage resources.**  If you are looking for login information for portals that handle accounts, allocation management, cloud, and other services, please see the 'Gateways & Portals' section of the documentation.  Having trouble with your two factor authentication?  [See this page](../2fa.md)  
 
 To get started with using CCR's clusters and shared storage you need the following:
 
-- A CCR user account - Don't have one?  [See here](../getting-access)  
-- An active allocation for the resource in ColdFront - No allocation?  [See here](getting-access/#requesting-an-allocation-in-coldfront)
-- Two-factor authentication enabled - Not enabled yet?  [See here](../2fa)  
+- A CCR user account - Don't have one?  [See here](../getting-access.md)  
+- An active allocation for the resource in ColdFront - No allocation?  [See here](../getting-access.md#requesting-an-allocation-in-coldfront)
+- Two-factor authentication enabled - Not enabled yet?  [See here](../2fa.md)  
 - A SSH client or web browser  
 
 !!! Warning  
@@ -15,13 +15,13 @@ To get started with using CCR's clusters and shared storage you need the followi
 ## Getting an account & access  
 
 UB faculty, staff, students, those with a UB volunteer appointment, and those with Roswell Park email addresses, can create their own CCR account using the CCR identity
-management portal, [following these instructions](portals/idm/#create-a-ccr-system-account).  Once an account is created, users must be added to an active allocation for one of the CCR clusters in order to access a login node.  Access is managed in CCR's resource and allocation management system, [ColdFront](https://coldfront.ccr.buffalo.edu).  Please refer to [these instructions for more information](getting-access/#requesting-an-allocation-in-coldfront).
+management portal, [following these instructions](../portals/idm.md#create-a-ccr-system-account).  Once an account is created, users must be added to an active allocation for one of the CCR clusters in order to access a login node.  Access is managed in CCR's resource and allocation management system, [ColdFront](https://coldfront.ccr.buffalo.edu).  Please refer to [these instructions for more information](../getting-access.md#requesting-an-allocation-in-coldfront).
 
 ## Using OnDemand for Web-Based Cluster Access  
 
-[Open OnDemand](https://ondemand.ccr.buffalo.edu) provides access to CCR's clusters, storage, visualization servers, and interactive apps.  CCR's OnDemand portal offers Linux desktops for GUI-based applications, software applications like MatLab, RStudio Desktop, and Jupyter Notebook, and vscode, an interactive development environment.  OnDemand can be used in any browser from almost any device.  More information about OnDemand can be [found here](../portals/ood).  
+[Open OnDemand](https://ondemand.ccr.buffalo.edu) provides access to CCR's clusters, storage, visualization servers, and interactive apps.  CCR's OnDemand portal offers Linux desktops for GUI-based applications, software applications like MatLab, RStudio Desktop, and Jupyter Notebook, and vscode, an interactive development environment.  OnDemand can be used in any browser from almost any device.  More information about OnDemand can be [found here](../portals/ood.md).  
 
-[See here for info on using two factor authentication to login](../2fa)  
+[See here for info on using two factor authentication to login](../2fa.md)  
 
 
 ## Command Line SSH Login  
@@ -40,7 +40,7 @@ Users accessing CCR's HPC environment using SSH or SFTP will be connected to a l
 
 Access to most CCR resources is only available through SSH or the OnDemand portal.  If you do not use the OnDemand portal, you must use a SSH client on your computer.  Furthermore, users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Passwords are not accepted.  
 
-SSH key pairs allow us to login without a password using SSH to CCR's login nodes. We keep our private key on our local machine and upload the matching public key to our CCR account. Once uploaded, we can login to any CCR server that supports SSH logins.  Please [follow these instructions to upload your public SSH key](portals/idm/#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
+SSH key pairs allow us to login without a password using SSH to CCR's login nodes. We keep our private key on our local machine and upload the matching public key to our CCR account. Once uploaded, we can login to any CCR server that supports SSH logins.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
 
 ### SSH Agent  
 
@@ -100,7 +100,7 @@ simple file transfer access and [FileZilla](https://filezilla-project.org/) for 
 
 #### Setting up MobaXterm Session  
 
-Follow [these instructions](../portals/idm#special-ssh-key-info-for-windows-users) for creating a SSH key pair using MobaXterm and upload the public key to your CCR account using the identity management portal.  Then setup MobaXterm to use the matching private key when connecting to CCR's login node.  
+Follow [these instructions](../portals/idm.md#special-ssh-key-info-for-windows-users) for creating a SSH key pair using MobaXterm and upload the public key to your CCR account using the identity management portal.  Then setup MobaXterm to use the matching private key when connecting to CCR's login node.  
 
 Launch MobaXterm again and create a new session following these steps:  
 
