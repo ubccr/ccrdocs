@@ -5,7 +5,7 @@
 
 CCR hosts a subscription based on-premise cloud service affectionately known as **"LakeEffect"**, which provides access to virtual servers, storage and networking that users setup and manage themselves. It is what is referred to as Infrastructure as a Service and is equivalent in functionality to Amazon's EC2 Cloud service.
 
-Although high performance computing (HPC) is our largest and most widely used service, CCR recognizes that not all research requires number crunching on large scale computers (clusters). LakeEffect, was put into service to provide flexible infrastructure to support research computing such as webservers, databases, and long-running services that are not suited for HPC clusters. This along with our HPC platform allows us to provide a complete set of tools to support all the different research groups and collaborations througout UB.
+Although high performance computing (HPC) is our largest and most widely used service, CCR recognizes that not all research requires number crunching on large scale computers (clusters). LakeEffect, was put into service to provide flexible infrastructure to support research computing such as webservers, databases, and long-running services that are not suited for HPC clusters. This along with our HPC platform allows us to provide a complete set of tools to support all the different research groups and collaborations throughout UB.
 
 
 ### LakeEffect Quick Start
@@ -13,7 +13,7 @@ Although high performance computing (HPC) is our largest and most widely used se
 1. Details on Pricing and Subscription packages is [here](#subscriptions)
 2. Request access through the [coldfront](../portals/coldfront.md) allocations management portal
 3. Once you have an active allocation, you can access the cloud through the [Dashboard](https://dashboard.cloud.ccr.buffalo.edu)
-4. Documenation on using LakeEffect Cloud and Openstack:
+4. Documentation on using LakeEffect Cloud and Openstack:
 	* [Using LakeEffect Cloud](./using.md)
 	* [OpenStack Documentation](https://docs.openstack.org/)
 
@@ -25,12 +25,12 @@ Features of LakeEffect:
 * Storage volume creation/snapshot
 * VPC Networking with access to public IP address space as well as the ability to create private networks
 * Wide range of Machine Types available inclunding GPUs and IO Optimized Storage
-* Various Linux operating systems are supported.  _**NOTE**: Windows images are not provided be CCR at this time_
+* Various Linux operating systems are supported.  _**NOTE**: Windows images are not provided by CCR at this time_
 * Public Images of opensource Linux Distributions available as well as the ability for users to upload their own
 * Load balancing of virtual resources across multiple physical machines
 * Support for Floating IP addresses
 * Easily manage access to VMs using Security Groups and Rules
-* Built on Openstack Cloud Software [Openstack](https://www.openstack.org/) 
+* Built on [Openstack Cloud Software](https://www.openstack.org/) 
 * Fault tolerant components to minimize risk of downtime due to underlying hardware failure
 
 !!! Warning
@@ -62,10 +62,10 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
 
     * Must be purchased in 8 hour increments
     * Can be used in 30 minute chunks
-    * Contact ccr-help for estimates on required time
+    * [Contact CCR Help](../help.md) for estimates on required time
 
 !!! Note 
-    Pricing is for UB faculty/staff. External (non-UB) users please contact ccr-help@buffalo.edu to discuss your individual needs.
+    Pricing is for UB faculty/staff. External (non-UB) users please [Contact CCR Help](../help.md) to discuss your individual needs.
 
 
 ### Use and Misuse

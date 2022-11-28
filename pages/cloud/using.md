@@ -189,7 +189,7 @@ From the LakeEffect Dashboard go to **Compute -> Instances**
 Click on `Launch Instance` button at the top right corner. This will bring up the instance launcher which will guide you in creating your new instance by selecting your instance source, Flavor, Network, Security groups, and Keypair.
 
 !!! Note
-    _Your project has a quota set for the total number of instances you're permitted to run.  The chart on the right shows the current usage.  If you've hit your limit, please contact ccr-help@buffalo.edu to request assistance._
+    Your project has a quota set for the total number of instances you're permitted to run.  The chart on the right shows the current usage.  If you've hit your limit, please [Contact CCR Help](../help.md) for assistance.
 
 ##### Step 1: Details 
 
@@ -266,7 +266,7 @@ You will need to assign a security group to the instance that allows access via 
 
 ##### Step 6: Key Pair
 
-**Key Pair** allows you to SSH into your instance.  You may select an existing key pair, import a key pair you've already created (see the previous section on [Key Pairs](#keypairs), or generate a new key pair from this tab.
+**Key Pair** allows you to SSH into your instance.  You may select an existing key pair, import a key pair you've already created (see the previous section on [Key Pairs](#keypairs) ), or generate a new key pair from this tab.
 
 ![](../images/cloud/instance-keypair.png)
 
