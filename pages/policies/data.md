@@ -22,7 +22,7 @@ See these links for additional policy information from the University at Buffalo
 
 ## Roswell Park Project Directories  
 
-RPCCC project space located in ``/projects/rpci)`` is managed by RPCCC IT staff.  Please contact them for information on internal allocations/quotas and other policies related to data retention and data ownership.  
+RPCCC project space located in ``/projects/rpci`` is managed by RPCCC IT staff.  Please contact them for information on internal allocations/quotas and other policies related to data retention and data ownership.  
 
 
 ## Industry Cluster Client Data  

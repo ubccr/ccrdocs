@@ -9,4 +9,4 @@ Emergency support is provided off-hours for critical infrastructure outages only
 
 ## Requesting Support  
 
-Requests for support are to be submitted through the [CCR help portal](https://ubccr.freshdesk.com) or by emailing `ccr-help@buffalo.edu` and are handled on a first come, first served basis.  We strive to respond within 2 business days to all requests for help.  Though hardware and software installations and configurations may take longer, they are usually completed within two weeks.  
+Requests for support are to be submitted through the [CCR help portal](https://ubccr.freshdesk.com) or by emailing CCR Help and are handled on a first come, first served basis.  We strive to respond within 2 business days to all requests for help.  Though hardware and software installations and configurations may take longer, they are usually completed within two weeks.  Please see the [CCR Help page for more information](../help.md).  

@@ -7,7 +7,7 @@ Regardless of what resources you want to use, you need to start by:
 - [Get added to an active allocation for the resource(s) you want to use](#requesting-an-allocation-in-coldfront)
 
 !!! Warning  
-    Access to most CCR resources is restricted to UB and Roswell Park networks (either on campus or connected to their VPN services).  Users without access to UB or RPCI accounts should contact CCR Help for VPN access.
+    Access to most CCR resources is restricted to UB and Roswell Park networks (either on campus or connected to their VPN services).  Users without access to UB or RPCI accounts should [contact CCR Help](help.md) for VPN access.
 
 ## Creating a CCR user account
 
@@ -19,5 +19,5 @@ ColdFront is CCR's resource and allocation management system.  ColdFront manages
 
 - If you're a faculty member/PI/professor, [follow these instructions](portals/coldfront.md#project-setup)  
 - If you're a staff member/postdoc/student, contact whomever is sponsoring your account to request that they add you to their project and allocation(s).    
-- If you're an external collaborator, the faculty member you're working with needs to request a CCR account & VPN access via CCR Help  
-- If you're an industry cluster customer, please [submit a ticket to](https://ubccr.freshdesk.com) or email CCR Help (ccr-help @ buffalo.edu) to request access  
+- If you're an external collaborator, the faculty member you're working with needs to request a CCR account & VPN access via [CCR Help](help.md)  
+- If you're an industry cluster customer, please [contact CCR Help](help.md) to request access  

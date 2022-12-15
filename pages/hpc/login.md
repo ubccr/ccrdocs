@@ -10,7 +10,7 @@ To get started with using CCR's clusters and shared storage you need the followi
 - A SSH client or web browser  
 
 !!! Warning  
-    Access to most CCR resources is restricted to UB and Roswell Park networks (either on campus or connected to their VPN services).  Users without access to UB or RPCI accounts should contact CCR Help for VPN access.  
+    Access to most CCR resources is restricted to UB and Roswell Park networks (either on campus or connected to their VPN services).  Users without access to UB or RPCI accounts should [contact CCR Help](../help.md) for VPN access.  
 
 ## Getting an account & access  
 

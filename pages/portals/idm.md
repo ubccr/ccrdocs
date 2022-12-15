@@ -19,7 +19,7 @@ The [Identity Management Portal (IDM)](https://idm.ccr.buffalo.edu) provides use
 UB faculty, staff, students, those with a UB volunteer appointment, and those with Roswell Park email addresses are able to create their own CCR account.  
 
 !!! Note  
-    We can only accept sign-ups from users affiliated with the University at Buffalo and Roswell Park Comprehensive Cancer Center.  All other users must be either an industry cluster client or collaborating with a UB faculty member and those accounts should be requested through CCR Help.
+    We can only accept sign-ups from users affiliated with the University at Buffalo and Roswell Park Comprehensive Cancer Center.  All other users must be either an industry cluster client or collaborating with a UB faculty member and those accounts should be requested through [CCR Help](../help.md).
 
 To create a CCR system account, navigate to the [Identity Management Portal (IDM)](https://idm.ccr.buffalo.edu) and follow these steps:  
 
@@ -27,7 +27,7 @@ To create a CCR system account, navigate to the [Identity Management Portal (IDM
 2. Fill out the form.  All fields are required. NOTE: you must use your buffalo.edu or roswellpark.org email address.  
 3. Review the [Terms of Service](../policies/misuse.md) agreement.  
 4. Click the `Create Account` button.  
-5. You will be redirected to the `Verify Your Account` page which should display the message `Account created successfully`  This page includes your CCR username and instructions to check your email to activate your account.  If you do not receive this email (check your junk/spam folder!), contact CCR Help for assistance.  
+5. You will be redirected to the `Verify Your Account` page which should display the message `Account created successfully`  This page includes your CCR username and instructions to check your email to activate your account.  If you do not receive this email (check your junk/spam folder!), [contact CCR Help](../help.md) for assistance.  
 6.  Click on the link in the email which redirects you back to the CCR IDM portal.  Click on the `Verify Account` button to complete the verification process and activate your account.  
 7.  You should see the message `Your account has been activated successfully. Thank you` indicating the account has been activated
 8.  You will receive a welcome email from CCR with instructions for [enabling two factor authentication](#enabling-two-factor-authentication), which is required, as well as a link to a Getting Started website.    
@@ -83,7 +83,7 @@ You will need to select a strong password (or passphrase) that is at least 8 cha
 We require users to have two factor authentication (2FA) enabled on their CCR account.  The only service you'll be able to login without 2FA enabled is the IDM portal so that you're able to link an authentication app to your account.  Once 2FA is enabled, you'll use the IDM portal for managing your 2FA settings and devices.  
 
 !!! Danger  
-    The UBIT hardware tokens will NOT work with your CCR account  
+    The UBIT hardware tokens will NOT work with your CCR account.  This setup is unique to your CCR account.    
 
 ### Authentication applications supported for 2FA
 
@@ -111,7 +111,7 @@ Authentication apps that support time-based tokens (TOTP & HOTP) work with CCR a
 
 ![2FA](../images/2fa.PNG)  
 3. In the authentication app on your smartphone or tablet, click or touch to add a new account.  
-4. Scan the QR code shown in the CCR IDM portal with your device's camera and update the account name in the app, if desired.  Click `Save` in the authentication app to add the CCR account.  
+4. Scan the QR code shown in the CCR IDM portal with your device's camera and update the account name to 'CCR' in the app, if desired.  Click `Save` in the authentication app to add the CCR account.  
 5. Back in the IDM portal, enter the 6 digit one time token presented in your app, to verify the CCR account has been linked properly with your authentication app.  Do not include any spaces between the numbers.  
 
 ![2FA2](../images/2fa2.PNG)
@@ -156,7 +156,7 @@ You may view all OTP tokens linked to your CCR account by clicking on the `OTP T
 
 ### Lost access to authentication app  
 
-If you can't login because you no longer have access to the authentication app linked to your CCR account, or somehow the token no longer works, you must contact CCR help to have this reset.  You will be required to prove your identity to us.  Details will be provided by CCR staff.
+If you can't login because you no longer have access to the authentication app linked to your CCR account, or somehow the token no longer works, you must [contact CCR help](../help.md) to have this reset.  You will be required to prove your identity to us.  Details will be provided by CCR staff.
 
 
 ### Disable two factor authentication  
@@ -200,7 +200,7 @@ CCR recommends Windows users utilize MobaXterm for command line cluster access a
 
 ##### Generate SSH key pair  
 
-To generate a public/private key pair, start the `MobaXterm SSH Key Generator (MobaKeyGen)` found under the MobaXterm Tools menu.  Under 'type of key to generate' select ED25519.  Click the Generate button and move your mouse around the empty area at the top of the GUI.  As you move your mouse around, you'll see the bar move across the window indicating it's working on generating your random, unique key.
+To generate a public/private key pair, start the `MobaXterm SSH Key Generator (MobaKeyGen)` found under the MobaXterm Tools menu.  Under 'type of key to generate' select EdDSA then ensure the ED25519 (255 bits) curve option is selected from the menu.  Click the Generate button and move your mouse around the empty area at the top of the GUI.  As you move your mouse around, you'll see the bar move across the window indicating it's working on generating your random, unique key.
 
 ##### Export key pair  
 
