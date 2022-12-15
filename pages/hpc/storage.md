@@ -111,7 +111,7 @@ This can be complicated so please contact [CCR Help](https://ubccr.freshdesk.com
 
 ## Checking Quotas
 
-Your user quota (home directory - /user/<username>):
+**Your user quota (home directory - /user/<username>):**
 
 ```
 ccrkinit
@@ -130,66 +130,41 @@ iquota -p /user/username
     See [the FAQ](../faq#kinit-error) for more details  
 
 
-Your group's shared project directory quota:
+**Your group's shared project directory quota:**
 
 NOTE: You must specify the full path of your directory.  Not all project directories are in /projects/academic
 
 
-
+```
 ccrkinit
 NOTE: You will see "Enter OTP Token Value:" - Enter your password AND one-time token all in the same line here
-
 
 
 iquota -p /projects/academic/YourGroupName
 
-
-
 HINT: Do not include the trailing slash in the directory name
+```
 
+**Your group's shared Panasas scratch directory quota:**
 
-
-
-
-
-
-Your group's shared Panasas scratch directory quota:
-
-
-
+```
 ccrkinit
 NOTE: You will see "Enter OTP Token Value:" - Enter your password AND one-time token all in the same line here
 
-
-
 iquota -p /panasas/scratch/grp-YourGroupName
 
-
-
 HINT: Do not include the trailing slash in the directory name
+```
 
+!!! Tip  
+    iquota only reports the total number of files for the group on the Panasas storage. If you're getting 'out of space' or I/O errors and the group is not over the file limit, it could be your individual limit has been reached. Please email CCR help to request a file quota check.
 
-
-NOTE:  iquota only reports the total number of files for the group on the Panasas storage. If you're getting 'out of space' or I/O errors and the group is not over the file limit, it could be your individual limit has been reached. Please email CCR help to request a quota check.
-
-
-
-
-
-
-
-
+```
 iquota usage:
-
-
 
 The iquota command has much more built into it than former versions.  Use iquota -h to see all the options.  
 
-
-
 NOTE: You will need to get a kerberos key before running the command, with:  kinit
-
-
 
 [ccruser@vortex1:~]$ iquota -h
 
@@ -197,25 +172,17 @@ NAME:
 
    iquota - displays CCR quotas
 
-
-
 USAGE:
 
    iquota [global options] command [command options] [arguments...]
-
-
 
 AUTHOR:
 
    Andrew E. Bruno <aebruno2@buffalo.edu>
 
-
-
 COMMANDS:
 
    help, h  Shows a list of commands or help for one command
-
-
 
 GLOBAL OPTIONS:
 
@@ -234,30 +201,21 @@ GLOBAL OPTIONS:
    -p value, --path value, -f value, --filesystem value  report quota for filesystem path
 
    --help, -h                                            show help
+```
 
-
-
-
-
-
-
-
-
-Calculating disk usage at the Linux command line:
-
-
-
-Knowing your quota and how much of it you've used is helpful, but often we want to know where the disk usage is actually taking place.  You can run this command to calculate the total size of each file and sub-directory and then sort it from largest to smallest.  You will only be able to run this where you have permission to read files, so it's appropriate to run in your home directory:  /user/[ubit_username] or your group's project directory.
-
-
-
-ncdu
-
-
-
-
-
-There are many options for sorting as well as the ability to delete files within this interface:
-
-What do quotas limit?  
+### What do quotas limit?  
 These spaces all have a quota for usage AND number of files.  This is to prevent an errant processes from creating so many files it crashes the system or makes it unstable for others.  If you are getting 'out of space' or I/O errors, please verify you are not over quota in either space or number of files.
+
+## Calculating disk usage at the Linux command line:
+
+Knowing your quota and how much of it you've used is helpful, but often we want to know where the disk usage is actually taking place.  You can run the `ncdu` command (NCurses Disk Usage) to calculate the total size of each file and sub-directory and then sort it from largest to smallest.  You will only be able to run this where you have permission to read files, so it's appropriate to run in your home directory:  /user/[ubit_username] or your group's project directory.
+
+`ncdu`
+
+There are many options for sorting as well as the ability to delete files within this interface.  Use the `man` command to see options:  
+
+`man ncdu`
+
+## Alternative Quota Lookup  
+
+Users can access their quota information in [ColdFront](../portals/coldfront.md) as well as on the command line
