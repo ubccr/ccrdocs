@@ -39,7 +39,7 @@ iquota -p /projects/academic/YourGroupName
 
 Every effort will be made to retrieve requested data files from the backups, however we do not guarantee that the data can be recovered.  As stated above, we strongly recommend you keep copies of your important data on your personal machine, external disk, or cloud service.  
 
-To request a file or directory be restored from backup tape, please submit a ticket to CCR help providing the following information:  
+To request a file or directory be restored from backup tape, please [contact CCR help](../help.md) providing the following information:  
 
 - Full file location to be restored,  
 - Name of file(s)/directory(ies) to be restored  

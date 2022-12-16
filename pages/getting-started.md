@@ -30,6 +30,9 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
     - Check out our [Linux & Slurm Cheat Sheet](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n)  
 - If you want to use software or develop services that aren't conducive to traditional HPC systems, please read about our [on-premise research cloud](cloud/lake-effect.md)  
 
+!!! Tip
+    Need more assistance?  [Contact CCR Help](help.md)  
+
 ## Computing Resources at CCR
 
 **High Performance Computing (HPC)**  
@@ -72,4 +75,4 @@ You may not know the answer to all of these questions. Please provide as much de
 
 ## Application Software Available on the CCR Clusters
 
-There are many scientific, engineering, bioinformatics, and visualization software applications already installed on the clusters.  You are welcome to install software for your own use in your home or project directories, if it doesn't require elevated privileges.   Nearly all software can be installed in a non-standard location (thus not requiring admin privileges) and we offer compilers and scientific libraries as software modules to help in building software.  We can often provide guidance to users via help tickets so if you have questions or run into trouble installing your own software, let us know! If your software has prerequisites not already installed on our systems, submit a help ticket to request the installation of these software packages.  If it is possible, we will install them for you.  More information about available software and how to install your own can be [found here](software/about.md)  
+There are many scientific, engineering, bioinformatics, and visualization software applications already installed on the clusters.  You are welcome to install software for your own use in your home or project directories, if it doesn't require elevated privileges.   Nearly all software can be installed in a non-standard location (thus not requiring admin privileges) and we offer compilers and scientific libraries as software modules to help in building software.  We can often provide guidance to users via help tickets so if you have questions or run into trouble installing your own software, let us know! If your software has prerequisites not already installed on our systems, please [contact CCR Help](help.md) to request the installation of these software packages.  If it is possible, we will install them for you.  More information about available software and how to install your own can be [found here](software/about.md)  

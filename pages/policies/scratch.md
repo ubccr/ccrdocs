@@ -14,7 +14,7 @@ What you need to know about local scratch space:
 - For jobs running on more than one node, local scratch on one node is not accessible from another node.  Users should use global scratch for multi-node jobs.  
 
 !!! Note
-    CCR STRONGLY RECOMMENDS using the Slurm environment variable ``$SLURMTMPDIR`` to manage local scratch. Using this variable in your job script will place temporary job data in ``/scratch/<jobid>`` on the node running the job. This data is removed automatically at the completion of your job.
+    **CCR STRONGLY RECOMMENDS** using the Slurm environment variable ``$SLURMTMPDIR`` to manage local scratch. Using this variable in your job script will place temporary job data in ``/scratch/<jobid>`` on the node running the job. This data is removed automatically at the completion of your job.
 
 ### Global Scratch (/panasas/scratch)  
 What you need to know about global scratch space:
@@ -38,4 +38,4 @@ What you need to know about global scratch space:
 - Altering or duplicating files solely to circumvent the scratch cleanup process is against policy.  **Your user account privileges will be revoked if you attempt to get around this rule (i.e. scripting the touching of files to keep them current).**  
 
 !!! Note  
-    Global scratch is a shared resource and policies are set to benefit the entire CCR user community.  If you have any questions about the use of these scratch spaces, please contact CCR help.
+    Global scratch is a shared resource and policies are set to benefit the entire CCR user community.  If you have any questions about the use of these scratch spaces, please [contact CCR Help](../help.md).
