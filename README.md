@@ -13,14 +13,15 @@ Find an error? Feel free to [submit an issue](https://github.com/ubccr/ccrdocs/i
 Contributions and PRs welcome! Follow the instructions below to learn how to
 develop and make changes to the documentation source.
 
-1. Clone the repo:
+1. [Fork this repo](https://github.com/ubccr/ccrdocs/fork)
 
+2. Clone your fork:
 ```
-$ git clone https://github.com/ubccr/ccrdocs.git
+$ git clone https://github.com/YOURUSER/ccrdocs.git
 $ cd ccrdocs
 ```
 
-2. Create a python3 virtual environment and install dependencies:
+3. Create a python3 virtual environment and install dependencies:
 
 ```
 $ python3 -mvenv venv
@@ -29,17 +30,17 @@ $ pip install --upgrade pip
 $ pip install -r requirements.txt
 ```
 
-3. Run mkdocs development server:
+4. Run mkdocs development server:
 
 ```
 $ mkdocs serve
 ```
 
-4. Point your browser at: http://localhost:8000
+5. Point your browser at: http://localhost:8000
 
-5. Start hacking on the markdown in the `pages/` directory
+6. Start hacking on the markdown in the `pages/` directory
 
-6. Submit a [PR](https://github.com/ubccr/ccrdocs/pulls)
+7. Submit a [PR](https://github.com/ubccr/ccrdocs/pulls)
 
 
 ## Coding style, tips and conventions
