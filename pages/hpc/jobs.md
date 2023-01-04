@@ -68,11 +68,11 @@ To get futher info on the running job 10737675 in the default "ub-hpc" cluster:
        MinCPUsNode=40 MinMemoryNode=187000M MinTmpDiskNode=0
        Features=IB DelayBoot=00:00:00
        OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
-       Command=/vscratch/grp-mygroup/pz/BaZrS3/paratec/WFN/job40
-       WorkDir=/vscratch/grp-mygroup/pz/BaZrS3/paratec/WFN
-       StdErr=/vscratch/grp-mygroup/pz/BaZrS3/paratec/WFN/slurm.out
+       Command=/vscratch/grp-mygroup/paratec/WFN/job40
+       WorkDir=/vscratch/grp-mygroup/paratec/WFN
+       StdErr=/vscratch/grp-mygroup/paratec/WFN/slurm.out
        StdIn=/dev/null
-       StdOut=/vscratch/grp-mygroup/pz/BaZrS3/paratec/WFN/slurm.out
+       StdOut=/vscratch/grp-mygroup/paratec/WFN/slurm.out
        Power=
        MailUser=myuser MailType=END
     
@@ -83,8 +83,8 @@ To get futher info on the queued job 12747970 in the "faculty" cluster:
 
     vortex1$ scontrol -M faculty show job 12747970
     JobId=12747970 JobName=CF_Q07283-F1_model1
-       UserId=wmangion(323693) GroupId=wmangion(323693) MCS_label=N/A
-       Priority=1006771 Nice=0 Account=rams QOS=compbio
+       UserId=myuser(123456) GroupId=myuser(123456) MCS_label=N/A
+       Priority=1006771 Nice=0 Account=mygroup QOS=compbio
        JobState=PENDING Reason=Priority Dependency=(null)
        Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
        RunTime=00:00:00 TimeLimit=3-00:00:00 TimeMin=N/A
@@ -101,11 +101,11 @@ To get futher info on the queued job 12747970 in the "faculty" cluster:
        MinCPUsNode=1 MinMemoryNode=32000M MinTmpDiskNode=0
        Features=(null) DelayBoot=00:00:00
        OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
-       Command=/projects/academic/rams/wmangion/proteins/alphafold/uniprot/Q07283-F1/model1/cofactor/CF_Q07283-F1_model1.pl
-       WorkDir=/scratch/wmangion/CH_Q07283-F1_model1
-       StdErr=/projects/academic/rams/wmangion/proteins/alphafold/uniprot/Q07283-F1/model1/cofactor/err_CF_Q07283-F1_model1
+       Command=/panasas/scratch/grp-mygroup/alphafold/CF_Q07283-F1_model1.pl
+       WorkDir=/scratch/12747970/CH_Q07283-F1_model1
+       StdErr=/panasas/scratch/grp-mygroup/alphafold/err_CF_Q07283-F1_model1
        StdIn=/dev/null
-       StdOut=/projects/academic/rams/wmangion/proteins/alphafold/uniprot/Q07283-F1/model1/cofactor/out_CF_Q07283-F1_model1
+       StdOut=/panasas/scratch/grp-mygroup/alphafold/out_CF_Q07283-F1_model1
        Power=
        
     
