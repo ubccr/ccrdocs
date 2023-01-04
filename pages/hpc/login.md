@@ -39,12 +39,9 @@ Using the SSH protocol, you can connect and authenticate to CCR login nodes.
 When you set up SSH, you will need to generate a new public/private SSH key
 pair enabling you to connect to CCR without supplying your username and
 password. When you connect via SSH, you authenticate using a private key file
-on your local machine, password authentication is not allowed.
-
-To set up SSH, you will need to:
-
-1. Generate a new private SSH key and add it to your SSH agent.
-2. Add the public SSH key to your CCR account using the IDM portal.
+on your local machine, password authentication is not allowed. To set up SSH,
+you will need to generate a new SSH key pair and upload the public key to your
+CCR account using the IDM portal.
 
 ### Generate new SSH key
 
@@ -80,7 +77,7 @@ To verify you can ssh into the login node, follow these easy steps:
    Are you sure you want to continue connecting (yes/no/[fingerprint])?
    ```
 2. Verify the fingerprint in the message you see matches [CCR's public key fingerprint](../fingerprints.md). 
-   If it does type, then type `yes`.
+   If it does, then type `yes`.
 3. You should now be at a shell prompt on the login node:
 ```
 [youruser@vortex1:~]$

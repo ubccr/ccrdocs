@@ -1,6 +1,6 @@
-# CCR's SSH key fingerprints
+# CCR's public key fingerprints
 
-These are CCR's public key fingerprints for login nodes:
+These are CCR's ssh public key fingerprints for login nodes:
 
 - `SHA256:QWv17p5d8CnZS7GPummIuLJW7vblXCWvMHlK7jrKtVA` (RSA)
 - `SHA256:6PDsSxEFoBaiPvOWyX8N281imkGaQV81ypJXtSOVX/k` (ECDSA)
