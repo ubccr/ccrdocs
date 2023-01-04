@@ -55,7 +55,7 @@ You can also watch the video below which demonstrates the login process:
 
 If you're still having trouble with two factor authentication, check the following:
 
-- Be sure you enter the six digit code from your authenticator app. Rember they
+- Be sure you enter the six digit code from your authenticator app. Remember they
   change every 30 seconds.
 - If you recently changed phones and did not setup a new OTP token on your new
   device you will be locked out of your account. Please [contact CCR Help](help.md)

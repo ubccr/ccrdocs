@@ -167,7 +167,7 @@ See the highlighted sections in the screenshot below to make sure you enter all 
 [Open OnDemand](https://ondemand.ccr.buffalo.edu) provides access to CCR's
 clusters, storage, visualization servers, and interactive apps.  CCR's OnDemand
 portal offers Linux desktops for GUI-based applications, software applications
-like MatLab, RStudio Desktop, and Jupyter Notebook, and vscode, an interactive
+like MatLab, RStudio Desktop, Jupyter Notebook, and vscode, an interactive
 development environment.  OnDemand can be used in any browser from almost any
 device.  More information about OnDemand can be [found
 here](../portals/ood.md).  

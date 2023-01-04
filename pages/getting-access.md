@@ -64,8 +64,11 @@ allocation.
   is activated, users on that allocation will be able to access the resource.
   More details about ColdFront can be found [here](portals/coldfront.md).
 
-- __Students, postdocs, and external collaborators__ can contact the faculty member
-  (PI) who is sponsoring your account to request that they add you to their
-  project and allocations.
+- __Students and postdocs__ can contact the faculty member (PI) who is
+  sponsoring your account to request that they add you to their project and
+  allocations.
+
+- __External Collaborators__ the faculty member you're working with needs to
+  request a CCR account and VPN access by [contacting CCR Help](help.md)
 
 - __Industry customers__ please [contact CCR Help](help.md) to request access.  
