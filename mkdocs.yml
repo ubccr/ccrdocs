@@ -47,9 +47,8 @@ nav:
     - Two-Factor Authentication: 2fa.md
   - High Performance Computing:
     - Logging In: hpc/login.md
-    - Node Types: hpc/node-types.md
-    - Visualization Servers: hpc/viz.md
-    - Running jobs: hpc/jobs.md
+    - Clusters: hpc/clusters.md
+    - Running Jobs: hpc/jobs.md
     - Data Transfer: hpc/data-transfer.md
     - Storage: hpc/storage.md
   - Gateways & Portals:
