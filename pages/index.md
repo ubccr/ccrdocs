@@ -27,7 +27,7 @@ This documentation covers the use of CCR's research computing and research cloud
     - [Linux and Slurm Cheat Sheet](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n)  
     - [Software Module System](software/modules.md)  
     - [Compiling Software](software/building.md)  
-    - [Visualization Servers](hpc/viz.md)  
+    - [Clusters](hpc/clusters.md)  
 - **Research Cloud Specific Topics:**  
     - [LakeEffect Cloud Quick Start](cloud/lake-effect.md#lakeeffect-quick-start)  
     - [Cloud Subscription Costs](cloud/lake-effect.md#subscriptions)  
