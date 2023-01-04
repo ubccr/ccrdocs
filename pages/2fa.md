@@ -61,4 +61,4 @@ If you're still having trouble with two factor authentication, check the followi
   device you will be locked out of your account. Please [contact CCR Help](help.md)
   to receive instructions on how to proceed.
 - If you forgot your password you can [reset it here](https://idm.ccr.buffalo.edu/auth/forgotpw).
-- Please check the [FAQ](faq.md)
+- Please check the [FAQ](faq.md) for additional help and solutions.

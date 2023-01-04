@@ -41,12 +41,13 @@ nav:
   - Home: index.md
   - CCR Help: help.md
   - Frequently Asked Questions: faq.md
+  - CCR's Public Key Fingerprints: fingerprints.md
   - Accessing CCR Resources:
     - Getting Access: getting-access.md
     - Two Factor Authentication: 2fa.md
     - Getting Started: getting-started.md
   - High Performance Computing:
-    - Logging In: hpc/login.md
+    - Login Node: hpc/login.md
     - Node Types: hpc/node-types.md
     - Visualization Servers: hpc/viz.md
     - Running jobs: hpc/jobs.md
