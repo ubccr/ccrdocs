@@ -26,7 +26,7 @@ following:
 - A CCR user account with two factor authentication enabled and an active
   allocation to HPC resources. For more information see our [getting access](../getting-access.md) guide. 
 - [An SSH Key added to your account](#generate-new-ssh-key)
-- An SSH client. Windows users we recommend using [Git BASH](https://gitforwindows.org/)
+- An SSH client. Windows users we recommend using [Git Bash](https://gitforwindows.org/)
 
 !!! Warning "VPN Required" 
     Access to CCR login nodes is restricted to UB and Roswell Park networks
@@ -48,7 +48,7 @@ You can generate a new SSH key pair on your local machine. After you generate
 the key pair, you can add the public key to your account using [CCR's IDM portal](https://idm.ccr.buffalo.edu/sshkey). 
 Follow these easy steps:
 
-1. Open your terminal or Git BASH if you're on windows
+1. Open your terminal or Git Bash if you're on windows
 2. Run the following command, substituting in your email address:
 ```bash
 $ ssh-keygen -t ed25519 -C "your_ub_itname@buffalo.edu"
@@ -65,7 +65,7 @@ $ ssh-keygen -t ed25519 -C "your_ub_itname@buffalo.edu"
 
 To verify you can ssh into the login node, follow these easy steps:
 
-1. Open your terminal or Git BASH if you're on windows and enter the following:
+1. Open your terminal or Git Bash if you're on windows and enter the following:
    ```bash
    ssh username@vortex.ccr.buffalo.edu.edu`
    ```
@@ -89,7 +89,7 @@ private key one time and it will be used for every SSH login attempt.  This
 allows you to skip entering your passphrase each time you login.  Follow these
 steps to add your key to the ssh-agent:
 
-1. Open your terminal or Git BASH if you're on windows
+1. Open your terminal or Git Bash if you're on windows
 2. Start the ssh-agent in the background:
 ```bash
 $ eval "$(ssh-agent -s)"
