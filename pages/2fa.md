@@ -51,6 +51,47 @@ You can also watch the video below which demonstrates the login process:
 
 ![type:video](https://youtube.com/embed/g6hWYooFKWE)
 
+## Supported authenticator apps
+
+Authenticator apps that support time-based tokens (TOTP & HOTP) work with CCR
+accounts.  Options include:  
+
+- **Duo Mobile (for iOS and Android)** - recommended smartphone app as it is
+  currently in use by UBIT for all faculty/staff/student accounts  
+- Google Authenticator (for iOS and Android)  
+- **_Authy (for iOS, Android, MacOS, Windows, Linux)_** - recommended option for devices other than smartphones  
+- FreeOTP (for iOS and Android)  
+- Microsoft Authenticator (for Windows phones)  
+
+!!! Tip    
+    Install an authentication app FIRST and have it open on your phone or
+    device prior to enabling 2FA on your CCR account  
+
+## Managing tokens for devices  
+
+You may view all OTP tokens linked to your CCR account by logging into the [IDM
+portal here](https://idm.ccr.buffalo.edu) and clicking on the `OTP Tokens` menu
+option. This is where you can add new tokens for additional devices to your
+account or remove tokens you no longer need.  If you currently have
+
+!!! Warning  
+    If you can't login because you no longer have access to the authentication
+    app linked to your CCR account, or somehow the token no longer works, you
+    must [contact CCR help](../help.md) to have this reset.  You will be
+    required to prove your identity to us.  Details will be provided by CCR
+    staff.
+
+## Disable two factor authentication  
+
+To disable 2FA on your CCR account, login to the [identity management
+portal](https://idm.ccr.buffalo.edu) and click on the `Security` menu option.
+Click on the `Enabled` button and when prompted to confirm, click the `Disable`
+button.  You should now see that 2FA is turned off for your account.  You'll
+receive an email notifying you that 2FA was disabled for your account.    
+
+!!! Danger
+    You will not be able to login to any CCR portals, except IDM, without 2FA enabled!  
+
 ## Troubleshooting
 
 If you're still having trouble with two factor authentication, check the following:
