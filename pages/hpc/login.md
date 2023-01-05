@@ -27,6 +27,7 @@ following:
   allocation to HPC resources. For more information see our [getting access](../getting-access.md) guide. 
 - [An SSH Key added to your account](#generate-new-ssh-key)
 - An SSH client. Windows users we recommend using [Git Bash](https://gitforwindows.org/)
+- An SSH client. Linux & MacOS include a terminal app. For Windows users, we recommend using [Git Bash](https://gitforwindows.org/)
 
 !!! Warning "VPN Required" 
     Access to CCR login nodes is restricted to UB and Roswell Park networks
