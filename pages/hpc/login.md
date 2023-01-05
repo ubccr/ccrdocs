@@ -1,4 +1,4 @@
-# Logging In
+# Login Node
 
 Users accessing CCR's HPC resources will be connected to a login node. A login
 node is a outward facing node within CCR's HPC environment that users can connect
@@ -42,7 +42,7 @@ on your local machine, password authentication is not allowed. To set up SSH,
 you will need to generate a new SSH key pair and upload the public key to your
 CCR account using the IDM portal.
 
-### Generate new SSH key
+## Generate new SSH key
 
 You can generate a new SSH key pair on your local machine. After you generate
 the key pair, you can add the public key to your account using [CCR's IDM portal](https://idm.ccr.buffalo.edu/sshkey). 
@@ -61,7 +61,7 @@ $ ssh-keygen -t ed25519 -C "your_ub_itname@buffalo.edu"
 5. Login to the IDM portal and click on [SSH Keys](https://idm.ccr.buffalo.edu/sshkey) in the left nav menu
 6. Click on the "New SSH Key" button, paste the contents of your public key in the text box, and click "Add".
 
-### Logging in
+## Logging in
 
 To verify you can ssh into the login node, follow these easy steps:
 
@@ -82,7 +82,7 @@ To verify you can ssh into the login node, follow these easy steps:
 [youruser@vortex1:~]$
 ```
 
-### Using the SSH Agent  
+## Using the SSH Agent  
 
 Running an SSH agent process on your local machine allows you to load your SSH
 private key one time and it will be used for every SSH login attempt.  This
@@ -108,12 +108,11 @@ $ ssh-add ~/.ssh/id_ed25519
 $ ssh-add -L
 ```
 
-## Using OnDemand for Web-Based Cluster Access  
+## OnDemand for Web-Based Cluster Access  
 
 [Open OnDemand](https://ondemand.ccr.buffalo.edu) provides access to CCR's
 clusters, storage, visualization servers, and interactive apps.  CCR's OnDemand
 portal offers Linux desktops for GUI-based applications, software applications
 like MatLab, RStudio Desktop, Jupyter Notebook, and vscode, an interactive
 development environment.  OnDemand can be used in any browser from almost any
-device.  More information about OnDemand can be [found
-here](../portals/ood.md).  
+device.  More information about OnDemand can be [found here](../portals/ood.md).  
