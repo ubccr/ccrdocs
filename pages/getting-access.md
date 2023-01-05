@@ -65,9 +65,10 @@ allocations management system CCR uses to manage resource allocations for the
 entire center. In order to access CCR resources you must be on an active
 allocation. 
 
-- __Faculty members__ (Principal investigators) can create projects in ColdFront,
-  add group members, and request allocations to resources.  Once an allocation
-  is activated, users on that allocation will be able to access the resource.
+- __Faculty members__ (Principal investigators) can use
+  [ColdFront](https://coldfront.ccr.buffalo.edu) to create projects, add group
+  members, and request allocations to resources.  Once an allocation is
+  activated, users on that allocation will be able to access the resource.
   More details about ColdFront can be found [here](portals/coldfront.md#request-an-allocation).
 
 - __Students and postdocs__ can contact the faculty member (PI) who is
