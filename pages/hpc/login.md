@@ -67,7 +67,7 @@ To verify you can ssh into the login node, follow these easy steps:
 
 1. Open your terminal or Git Bash if you're on windows and enter the following:
    ```bash
-   ssh username@vortex.ccr.buffalo.edu.edu`
+   ssh username@vortex.ccr.buffalo.edu.edu
    ```
    You may see a warning like this:
    ```
@@ -79,7 +79,7 @@ To verify you can ssh into the login node, follow these easy steps:
    If it does, then type `yes`.
 3. You should now be at a shell prompt on the login node:
 ```
-[youruser@vortex1:~]$
+[username@vortex1:~]$
 ```
 
 ## Using the SSH Agent  
