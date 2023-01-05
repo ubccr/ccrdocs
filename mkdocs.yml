@@ -12,6 +12,7 @@ theme:
   logo: 'images/logo.png'
   favicon: 'images/favicon.ico'
   include_homepage_in_sidebar: false
+  custom_dir: 'theme/'
 
 plugins:
   - search
@@ -41,10 +42,11 @@ nav:
   - Home: index.md
   - CCR Help: help.md
   - Frequently Asked Questions: faq.md
+  - CCR's Public Key Fingerprints: fingerprints.md
   - Accessing CCR Resources:
     - Getting Access: getting-access.md
+    - Two Factor Authentication: 2fa.md
     - Getting Started: getting-started.md
-    - Two-Factor Authentication: 2fa.md
   - High Performance Computing:
     - Logging In: hpc/login.md
     - Clusters: hpc/clusters.md
