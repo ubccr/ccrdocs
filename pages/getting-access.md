@@ -50,7 +50,7 @@ To enable two factor authentication on your account, follow these easy steps:
 
 For more details on two factor authentication [see here](2fa.md).
 
-!!! Tip "Faculty accounts and PI status"
+!!! Warning "Faculty accounts and PI status"
     If you are a Faculty member or PI, an additional step is required after
     you have enabled 2FA. You will also need to login to ColdFront
     and request that your account be upgraded to "PI Status" so you can request

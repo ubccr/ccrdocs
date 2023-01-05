@@ -77,7 +77,7 @@ account or remove tokens you no longer need.  If you currently have
 !!! Warning  
     If you can't login because you no longer have access to the authentication
     app linked to your CCR account, or somehow the token no longer works, you
-    must [contact CCR help](../help.md) to have this reset.  You will be
+    must [contact CCR help](help.md) to have this reset.  You will be
     required to prove your identity to us.  Details will be provided by CCR
     staff.
 
