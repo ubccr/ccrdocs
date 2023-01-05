@@ -1,0 +1,17 @@
+<div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    {% if config.repo_name == 'GitHub' %}
+        <span>
+          <a href="{{ config.repo_url }}" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    {% elif config.repo_name == 'Bitbucket' %}
+        <span>
+          <a href="{{ config.repo_url }}" class="icon icon-bitbucket" style="color: #fcfcfc"> BitBucket</a>
+        </span>
+    {% elif config.repo_name == 'GitLab' %}
+        <span>
+          <a href="{{ config.repo_url }}" class="icon icon-gitlab" style="color: #fcfcfc"> GitLab</a>
+        </span>
+    {% endif %}
+  </span>
+</div>

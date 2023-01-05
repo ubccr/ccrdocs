@@ -12,6 +12,7 @@ theme:
   logo: 'images/logo.png'
   favicon: 'images/favicon.ico'
   include_homepage_in_sidebar: false
+  custom_dir: 'theme/'
 
 plugins:
   - search
