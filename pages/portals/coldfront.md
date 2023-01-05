@@ -29,10 +29,10 @@ able to request allocations.
 
 ## Request an Allocation
 
-Access to CCR resources is managed using projects and allocations. 
+Access to CCR resources is managed in ColdFront using Projects and Allocations. 
 
 Projects capture information about your research including your group members
-and allocations to resources. Most PIs have a single project which best
+and any allocations to resources. Most PIs have a single project which best
 describes their research performed at CCR. After logging into ColdFront for the
 first time, you should see the `Add a project` button to create a new project
 for your group.  This is required before requesting allocations. Once your
