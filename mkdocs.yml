@@ -47,7 +47,7 @@ nav:
     - Two Factor Authentication: 2fa.md
     - Getting Started: getting-started.md
   - High Performance Computing:
-    - Loggin Node: hpc/login.md
+    - Logging In: hpc/login.md
     - Clusters: hpc/clusters.md
     - Running Jobs: hpc/jobs.md
     - Data Transfer: hpc/data-transfer.md
