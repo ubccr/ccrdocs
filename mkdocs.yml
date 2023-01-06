@@ -63,6 +63,8 @@ nav:
     - Software infrastructure: software/about.md
     - The Module System: software/modules.md
     - Building your own software: software/building.md
+    - Python Options: software/python.md
+    - Perl & R Libraries: software/perl-R-libraries.md
   - Cloud:
     - LakeEffect (On-Prem Cloud): cloud/lake-effect.md
     - Using the Cloud: cloud/using.md
