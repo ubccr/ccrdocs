@@ -1,28 +1,36 @@
 # Python Options
 
-There are many options for using Python and its derivates on CCR's systems.  CCR provides, at most, two versions of Python and two versions of Anaconda as well as SciPy (Scientific Python libraries) via it's modules system.  These are updated once per year with the oldest version being rotated out.  Users will see a warning when a module is being deprecated giving you advance notice to update your workflow.  
+There are many options for using Python and its derivates on CCR's systems.  CCR provides Python3, Anaconda, and SciPy via it's module system.  These are updated once per year with the oldest version being rotated out.  Users will see a warning when a module is loaded regarding it's planned deprecation, giving you advance notice to update your workflow.  
 
-**This page describes the different options and we recommend you read through it all to determine which is best for your research needs**
 
-## Recommended Organization for Python  
+## Which option to use?  
 
-For these examples, we will assume you have access to a group shared project directory located in `/projects/academic` or `/projects/industry`  If you do not already have a directory for yourself within your group's project directory, create one.  Then we recommend creating a directory structure for your software and Python environments.  We recommend, and use throughout this documentation, this structure where `yourgroup=your group's directory name` and `$USER=your username`  
+This page describes the different Python installations and environments offered by CCR and we recommend you read through it all to determine which is best for your research needs or jump to the section you're interested in:  
 
-```
-ccruser@vortex ~ $ mkdir /projects/academic/yourgroup/$USER  
-ccruser@vortex ~ $ mkdir /projects/academic/yourgroup/$USER/software
-ccruser@vortex ~ $ mkdir /projects/academic/yourgroup/$USER/software/python  
-ccruser@vortex ~ $ mkdir /projects/academic/yourgroup/$USER/software/python/venvs
-ccruser@vortex ~ $ mkdir /projects/academic/yourgroup/$USER/software/anaconda
-ccruser@vortex ~ $ mkdir /projects/academic/yourgroup/$USER/software/anaconda/envs
-```
+- [Use CCR's base python modules](#using-ccrs-python-installation)  
 
-!!! Note  
-    Not all users have access to a shared project directory.  Please verify your access via [ColdFront](../portals/coldfront.md).  
+    * [Using python virtual environments](#python-virtual-environments)  
+
+- [Use CCR's anaconda module](#using-anaconda-python)  
+
+      * [Using CCR's standard conda environment](#using-ccrs-standard-environment)  
+      * [Create your own custom conda environments](#creating-your-own-custom-environment)  
+
+- [Use CCR's SciPy python bundle module](#using-ccrs-scipy-installation) - contains common python scientific libraries pre-installed and may have everything you need to get your project started.  
+<br>
+- [Install your own anaconda or miniconda](#installing-your-own-anaconda-or-miniconda)
+
+
+
+!!! Tip "Nomenclature Used"   
+    For these examples, we assume you have access to a shared group project directory located in `/projects/academic` or `/projects/industry`  If you do not already have a directory for yourself within your group's project directory, we recommend you create one and then create a directory structure for your software and Python or Anaconda environments. However, how you organize your software is up to you and your research group.  Throughout this documentation, we use this structure where `yourgroup=your group's directory name` and `$USER=your username`  
+
+    **Python and Anaconda environments can be quite large so we do not recommend you install these in your home directory.**   
+
 
 ## Using CCR's Python Installation  
 
-CCR provides as part of the currently supported toolchains.  We do not recommend using a version included within the operating system nor the one provided in CCR's compatibility layer.  These can differ across login and compute nodes and can be replaced with newer versions, potentially affecting your project.  These are also compiled to make the best use out of the architecture you're running on rather than offering one solution for the lowest common denominator.  Rather, using one contained in CCR's software repository toolchain provides you the most flexibility and usability across all CCR systems.  We highly recommend using python virtual environments for your projects.  A python virtual environment can be created using a specific version of python and can be used in isolation of other environments.  This is convenient if your projects require different versions of Python packages or have differing dependencies.  Within the virtual environment you can install additional Python packages  These virtual environments can be stored in your home directory or within your group's project directory making them available to other members of your group.  
+CCR provides as python part of our software modules. We highly recommend using python virtual environments for your projects. A python virtual environment can be created using a specific version of python and can be used in isolation of other environments. This is convenient if your projects require different versions of Python packages or have differing dependencies. Within the virtual environment you can install additional Python packages These virtual environments can be stored in your home directory or within your group's project directory making them available to other members of your group.
 
 
 ### Python software modules
@@ -60,9 +68,7 @@ ccruser@vortex ~ $ module spider python/3.9.6
 
       gcccore/11.2.0
 
-    This module provides the following extensions:
-
-       alabaster/0.7.12 (E), appdirs/1.4.4 (E), asn1crypto/1.4.0 (E), atomicwrites/1.4.0 (E), attrs/21.2.0 (E), Babel/2.9.1 (E), backports.entry_points_selectable/1.1.0 (E), backports.functools_lru_cache/1.6.4 (E), bcrypt/3.2.0 (E), bitstring/3.1.9 (E), blist/1.3.6 (E), CacheControl/0.12.6 (E), cachy/0.3.0 (E), certifi/2021.5.30 (E), cffi/1.14.6 (E), chardet/4.0.0 (E), charset-normalizer/2.0.4 (E), cleo/0.8.1 (E), click/8.0.1 (E), clikit/0.6.2 (E), colorama/0.4.4 (E), crashtest/0.3.1 (E), cryptography/3.4.7 (E), Cython/0.29.24 (E), decorator/5.0.9 (E), distlib/0.3.2 (E), docopt/0.6.2 (E), docutils/0.17.1 (E), ecdsa/0.17.0 (E), filelock/3.0.12 (E), flit-core/3.3.0 (E), flit/3.3.0 (E), fsspec/2021.7.0 (E), future/0.18.2 (E), glob2/0.7 (E), html5lib/1.1 (E), idna/3.2 (E), imagesize/1.2.0 (E), importlib_metadata/4.6.3 (E), importlib_resources/5.2.2 (E), iniconfig/1.1.1 (E), intervaltree/3.1.0 (E), intreehooks/1.0 (E), ipaddress/1.0.23 (E), jeepney/0.7.1 (E), Jinja2/3.0.1 (E), joblib/1.0.1 (E), jsonschema/3.2.0 (E), keyring/21.2.0 (E), keyrings.alt/4.1.0 (E), liac-arff/2.5.0 (E), lockfile/0.12.2 (E), MarkupSafe/2.0.1 (E), mock/4.0.3 (E), more-itertools/8.8.0 (E), msgpack/1.0.2 (E), netaddr/0.8.0 (E), netifaces/0.11.0 (E), nose/1.3.7 (E), packaging/20.9 (E), paramiko/2.7.2 (E), pastel/0.2.1 (E), pathlib2/2.3.6 (E), paycheck/1.0.2 (E), pbr/5.6.0 (E), pexpect/4.8.0 (E), pip/21.2.2 (E), pkginfo/1.7.1 (E), platformdirs/2.2.0 (E), pluggy/0.13.1 (E), poetry-core/1.0.3 (E), poetry/1.1.7 (E), psutil/5.8.0 (E), ptyprocess/0.7.0 (E), py/1.10.0 (E), py_expression_eval/0.3.13 (E), pyasn1/0.4.8 (E), pycparser/2.20 (E), pycrypto/2.6.1 (E), Pygments/2.9.0 (E), pylev/1.4.0 (E), PyNaCl/1.4.0 (E), pyparsing/2.4.7 (E), pyrsistent/0.18.0 (E), pytest/6.2.4 (E), python-dateutil/2.8.2 (E), pytoml/0.1.21 (E), pytz/2021.1 (E), regex/2021.8.3 (E), requests-toolbelt/0.9.1 (E), requests/2.26.0 (E), scandir/1.10.0 (E), SecretStorage/3.3.1 (E), semantic_version/2.8.5 (E), setuptools-rust/0.12.1 (E), setuptools/57.4.0 (E), setuptools_scm/6.0.1 (E), shellingham/1.4.0 (E), simplegeneric/0.8.1 (E), simplejson/3.17.3 (E), six/1.16.0 (E), snowballstemmer/2.1.0 (E), sortedcontainers/2.4.0 (E), sphinx-bootstrap-theme/0.7.1 (E), Sphinx/4.1.2 (E), sphinxcontrib-applehelp/1.0.2 (E), sphinxcontrib-devhelp/1.0.2 (E), sphinxcontrib-htmlhelp/2.0.0 (E), sphinxcontrib-jsmath/1.0.1 (E), sphinxcontrib-qthelp/1.0.3 (E), sphinxcontrib-serializinghtml/1.1.5 (E), sphinxcontrib-websupport/1.2.4 (E), tabulate/0.8.9 (E), threadpoolctl/2.2.0 (E), toml/0.10.2 (E), tomlkit/0.7.2 (E), typing_extensions/3.10.0.0 (E), ujson/4.0.2 (E), urllib3/1.26.6 (E), virtualenv/20.7.0 (E), wcwidth/0.2.5 (E), webencodings/0.5.1 (E), wheel/0.36.2 (E), xlrd/2.0.1 (E), zipfile36/0.1.3 (E), zipp/3.5.0 (E)
+    ....
 
 ccruser@vortex ~ $ module load gcccore/11.2.0 python/3.9.6  
 ccruser@vortex ~ $ which python
@@ -152,9 +158,6 @@ style           1.1.0
 update          0.0.1
 
 ```
-
-!!! Tip    
-    There are times when installing one Python package may break your environment.  We strongly recommend making a copy of your virtual environment directory prior to installing additional packages so if something goes wrong you can remove the broken venv and replace it with the backup.  
 
 #### Using your Virtual Environment  
 
@@ -272,7 +275,7 @@ ccruser@vortex ~ $ which python
 /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/anaconda3/2022.05/bin/python
 ```
 
-#### Which environment to use?  
+#### Which conda environment should you use?  
 
 CCR offers a standard Anaconda environment that contains hundreds of packages.  However, there are thousands of conda packages out there and you may need one we don't have installed.  So what do you do?  
 
@@ -344,7 +347,7 @@ NOTE: In this example, we're using the suggestion directory structure as [descri
 
 ```
 ccruser@vortex ~ $ module load anaconda3
-cruser@vortex ~ $ eval "$(/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/anaconda3/2022.05/bin/conda shell.bash hook)"
+ccruser@vortex ~ $ eval "$(/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/anaconda3/2022.05/bin/conda shell.bash hook)"
 
 (base) ccruser@vortex ~ $
 ```
