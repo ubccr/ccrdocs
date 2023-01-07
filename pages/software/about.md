@@ -1,161 +1,143 @@
-# About CCR's Software Infrastructure
+# Available Software
 
-CCR has redesigned how we provide software to our users.  This design is based
-on years of trial & error work already done by [Compute
-Canada](https://docs.alliancecan.ca/wiki/Available_software), [Conseil Européen
-pour la Recherche Nucléaire (CERN)](https://home.web.cern.ch/), the [European
-Environment for Scientific Software Installations
-(EESSI)](https://eessi.github.io/docs/), [Ghent University](https://www.ugent.be/hpc/en), 
-and the [Texas Advanced Computing Center (TACC)](https://www.tacc.utexas.edu/).
-We greatly appreciate their generosity in keeping their codes open source and
-their designs, documentation, and processes transparent.  We could not have
-created the current environment at CCR without this incredible community!
+CCR maintains a suite of software programs, libraries, and toolchains commonly
+used in scientific computing. The HPC clusters can execute most software that
+runs under Linux. In many cases, the software you need will already be
+installed and availabe to you on the compute nodes. You access the software
+using what's called a "module".  If the software you need is not available, you
+can ask our staff to install it for you or [do it yourself](building.md).
 
-CCR's software infrastructure utilizes [EasyBuild](https://easybuild.io/), a
-software and build infrastructure framework for HPC, the [Lmod module
-system](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod),
-the [CernVM-FS file system](https://cernvm.cern.ch/fs/), and a gentoo
-combability layer to allow us and our users the flexibility of underlying
-operating systems.
+!!! Warning "New software infrastructure now available"
+    CCR is moving to a new software infrastructure described in this document.
+    Starting in the Summer of 2023 users will be required to migrate to the
+    system. To start using the new software now, simply run this command `touch ~/.ccrversion`.
+    You will need to logout and log back in for the changes to take effect. If
+    you'd like to temporarily go back to using the old modules in `/util`,
+    simply remove that file `rm ~/.ccrversion`.
 
-Here we provide info about how the software infrastructure is designed and
-implemented
+## Using Modules
 
-## Software Repository
+Modules are simply configuration files that dynamically change your environment
+allowing you to run a particular application or provide access to a particular
+library. The module system allows CCR to provide multiple versions of
+software concurrently and enables users to easily switch between different
+versions without conflicts. Users can also build and maintain their own modules
+for more fine grain control over your groups environment. 
 
-CCR provides a repository of software using the file system called CERN Virtual
-Machine File System (CVMFS).  CCR's CVMFS is mounted as
-`/cvmfs/soft.ccr.buffalo.edu` on all CCR front end login servers and compute
-nodes. You can even mount this on your own desktop or laptop, if you want! More
-on that [here](). Compute Canada provides a great overview of CVMFS
-[here](https://docs.alliancecan.ca/wiki/CVMFS) CernVM-FS website and
-documentation can be found [here](https://cernvm.cern.ch/fs/)
+Modules are managed using a tool called [Lmod](https://lmod.readthedocs.io)
+developed by [TACC](https://www.tacc.utexas.edu/). For a more comprehensive
+overview of Lmod you can read the [user guide here](https://lmod.readthedocs.io/en/latest/010_user.html). 
 
-## Compatibility Layer
-
-The compatibility layer of the CCR software project uses [Gentoo
-Prefix](https://wiki.gentoo.org/wiki/Project:Prefix) to provide a known base on
-top of the host.  This is the foundation we use to build our software stack on.
-Using the Gentoo Prefix allows us to install compilers and other system
-packages in a non-standard location which helps avoid conflicts between
-systems.  It will no longer matter what base operating system CCR runs on our
-nodes or front end servers compared to your own machine as you can use our
-combability layer to level the playing field.  Consider us operating system
-agnostic going forward!  For those of you interested in system level testing,
-we encourage you to check out all the [docs on this prefix
-setup](https://wiki.gentoo.org/wiki/Project:Prefix).  However, the majority of
-CCR users will probably not care one bit nor notice any difference.
-
-## EasyBuild Software Installation
-
-[EasyBuild](https://easybuild.io/) is a software build and installation framework that allows us to
-manage (scientific) software on High Performance Computing (HPC) systems in an
-efficient way.
-
-Easyconfig files are used to specify which software to build, which version of
-the software (and its dependencies), which build parameters to use (e.g., which
-compiler toolchain to use), etc.  Think of them like a recipe that lists out
-what is needed to create a meal.  What ingredients are required and what is
-optional?  What order should the ingredients be added?  What are the steps to
-preparing the meal?  Are there any special instructions we need to know for how
-to properly prepare the dish?  The Easyconfig files list out all of this info
-for installing a software application and then when you run the script to
-install, the recipe is followed.  These "recipes" are provided by the community
-of EasyBuild users and are fully unit tested and vetted.  The EasyBuild
-installations allow for parallel builds, reproducibility of previous builds,
-extensive logging and error reporting (nothing is THAT easy!), automated
-installations, and dependency resolution, among other things.
-
-- [What is EasyBuild?](https://docs.easybuild.io/en/latest/Introduction.html)
-- [EasyBuild Documentation](https://docs.easybuild.io/en/latest/)
-- [EasyConfig library](https://github.com/easybuilders/easybuild-easyconfigs)
-
-CCR staff are working on building up our center's software repository using
-these Easyconfigs.
-
-## Toolchains
-
-[More info on common toolchains and EasyBuild](https://docs.easybuild.io/en/latest/Common-toolchains.html#definition-and-motivation)
-
-## ARCH-specific builds and automatic module detection
-
-CCR has a heterogenous cluster consisting of nodes with various different CPU
-architecture types.  Some codes benefit from special instruction sets specific
-to CPU type.  For some of the software CCR provides, we've built the codes on
-these various CPUs so that you get the best performance.
-
-Previously, CCR users had to know which version of the module to load for the
-various CPUs they ran jobs on.  This is no longer necessary.  The Lmod system
-will auto-detect what type of CPU you're running on and load the module built
-for that architecture.  When you view available modules, you will see the list
-available for the architecture of the machine you're logged into and all the
-modules built to be run anywhere.
-
-CCR currently has the following CPU architectures in our main cluster, UB-HPC:
-
-- avx
-- avx2
-- avx512
-- sse3
-
-!!! danger "sse3 no longer supported"
-    we are not providing separate installations for these very old nodes
-
-This is what it looks like when we run 'module avail' on the cluster front end
-login node:
-
-![Diagram](../images/software/modules.png)
-
-As we build up the software repository, users will see more available software
-packages. These are color coded and labeled by type, where:
+To see what software modules are available, ssh into the login node and run:
 
 ```
-S:        Module is Sticky, requires --force to unload or purge (shown in red)
-
-math:     Mathematical libraries (shown in green)
-
-L:        Module is loaded (shown in yellow)
-
-t:        Tools for development (shown in blue)
-
-Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
-
-D:        Default Module (no need to specify the version if you wish to use the default)
+$ module avail
 ```
 
-Additional types may be added in the future to further classify software.
+This will return a list of modules available to load into your environment.
 
+!!! Note
+    If a module has dependencies you may not see the module listed until
+    dependencies are loaded. For example, software compiled with the gcc
+    toolchain will not be shown until you load gcc or foss modules. See the
+    [hierarchical modules](#hierarchical-modules) section for more information.
 
-## Using the new modules
-
-The new software infrastructure is available for alpha testing now.  Anyone
-interested in trying it out can activate the new environment with the following
-commands:
+If you cannot load a module because of dependencies, you can use the module
+spider command to find what dependencies you need to load the module:
 
 ```
-touch ~/.ccr_new_modules
-logout
-log back in again
-module avail
+module spider some_module
+
+# For example, openmpi requires gcc:
+$ module spider openmpi
+    You will need to load all module(s) on any one of the lines below before 
+    the "openmpi/4.1.1" module is available to load.
+
+      gcc/11.2.0
 ```
 
-!!! note
-    To go back to the old modules, remove `~/.ccr_new_modules` and log out an
-    back in again
+To load your chosen modules into the environment run:
 
-More information on modules and helpful module commands
+```
+$ module load some_module_name
 
+# For example:
+$ module load python
+```
 
-## Automatically loaded modules
+You can specify the version of the software by appending a / with the version
+number:
 
-This is a new concept for CCR users.  We now load several modules by default
-for you when you login.  You should not unload these modules as they provide a
-standard set of configurations and environment for running this software
-infrastructure.  They also allow users to easily setup their own modules.  For
-reference these include:
+```
+module load some_module/version 
 
-| Module      | Description |
-| ----------- | ----------- |
-| CCRconfig      | Sets up environment variables for global scratch, local scratch and util |
-| gentoo/2022.05 | Sets up environment variables for the gentoo prefix version we're using as the base for all software installations.  This will remain in place for standardization and only be upgraded once annually.  This module also points to the Easybuild modules location.  Having multiple prefix environments available going forward will allow users the ability to use up-to-date compilers and other system libraries and not have to remain in older versions provided on the operating system.  We anticipate keeping at most two prefix versions - the current one and one previous version - which will help us purge older versions of software and keep current with new versions |
-| StdEnv/2022.05 | CCR Standard Environment. This loads the CCRconfig and gentoo/2022.05 modules and, like the gentoo prefix will be modified when the prefix is updated |
+# For example:
+$ module load python/3.9.5
+```
+
+## Hierarchical Modules
+
+CCR uses a hierarchical module naming convention to support programs built with
+specific compiler, library, and CPU architecture requirements. For example, when you run
+`module avail` on an Intel Skylake compute node (avx512), you will see three
+hierarchical levels of modules that look like this:
+
+```output
+---------------------------- MPI-dependent avx512 modules -----------------------------
+
+-------------------------- Compiler-dependent avx512 modules --------------------------
+
+------------------------------------ Core modules -------------------------------------
+```
+
+Core modules
+:    compiler and architecture independent
+
+Compiler-dependent modules
+:    depend on a specific CPU architecture and compiler toolchain
+
+MPI-dependent modules
+:    depend on a specific CPU architecture, compiler toolchain, and MPI library
+
+!!! Note "Only core modules are shown by default"
+    When you run `module avail` only the core modules are shown by default. To
+    see modules for a specific compiler toolchain you will need to first load
+    the module for the specific compiler toolchain of interest.
+
+CCR currently supports the following compiler toolchains:
+
+| Toolchain   | Included compiles and libraries                              |
+| ----------- | ------------------------------------------------------------ |
+| **intel**   | Intel compilers, Intel MPI, and Intel MKL                    |
+| **foss**    | GCC, OpenMPI, FlexiBLAS, OpenBLAS, LAPACK, ScaLAPACK, FFTW   |
+| **GCC**     | GCC compiler only                                            |
+
+In addition to the compiler toolchains, the hierarchical module system is also
+"CPU architecture" aware. The module system will auto-detect what type of CPU
+you're running on and display modules built for that specific architecture.
+
+CCR currently supports the following CPU architectures:
+
+| Architecture  | Supported CPUs                                             |
+| ------------- | ---------------------------------------------------------- |
+| avx2          | Intel Haswell, Broadwell                                   |
+| avx512        | Intel Skylake-SP, Skylake-X, Cascade Lake-SP               |
+
+## Loading Modules in a Job Script
+
+Modules in a job script can be loaded after your `#SBATCH` directives and
+before your actual executable is called. A sample job script that loads Python
+into the environment is shown below:
+
+```bash
+#!bin/bash
+#SBATCH --nodes=1
+#SBATCH --time=00:01:00
+#SBATCH --ntasks=1
+#SBATCH --job-name=test-job
+
+# Load your modules here
+module load python
+
+python3 test-program.py
+```
