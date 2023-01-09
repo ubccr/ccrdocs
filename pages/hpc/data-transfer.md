@@ -12,16 +12,18 @@ applications exist. (e.g., WinSCP, FileZilla)
 
 CCR Supported Methods for inbound and outbound Data transfer include:
 
-##### Globus File Transfer Service: 
+** Globus File Transfer Service: **
+
 * This method is for larger file transfers. There is no time limit and this works in the background after you submit the transfer request.
 !!! Note
     Globus is the preferred method for file transfers to and from CCR
-##### Secure Shell Copy (scp/sftp): 
-**to/from the Frontends:**
+** Secure Shell Copy (scp/sftp): **
+
+*to/from the Frontends:*
 
 * This would be for simple file transfers that can complete within a 15 minute timeframe  
 
-**from the Compute Nodes:**
+*from the Compute Nodes:*
 
 * This would be for file transfers that can complete within a 72 hour window
 * This will only work for outbound transfers because compute nodes are not exposed externally
@@ -29,7 +31,8 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 !!! Note
     Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
 
-##### OnDemand File Manager App: 
+** OnDemand File Manager App: **
+
 * This is browser based for simple tranfsers and not recommended for large amounts of data  
 
 !!! Note
@@ -52,8 +55,6 @@ is CCR's recommended way of transferring data.
 
 !!! Note
     The Globus Web App is accessable from everywhere. You do not need to be on the UB or Roswell Park networks to use Globus.
-
-##### Using Globus
 
 [Sign into Globus Connect](https://app.globus.org/) by
 selecting "The State University of New York at Buffalo" from the dropdown menu
@@ -229,7 +230,7 @@ that provide secure drag and drop interfaces for file transfer such as Filezilla
 
 Once installed, follow these steps to connect to CCR resources with Filezilla:
 
-##### Adding CCR as a site:
+** Adding CCR as a site: **
 
 !!! Note
     You will need the SSH Key setup in FileZilla so that it does not try and use a password. CCR will only allow SSH key authentication. 
@@ -298,7 +299,7 @@ This will popup the Site Management Window
 
 After the Site has been added you can connect to CCR by selecting it from the Site Manager Window and clicking `Connect`
 
-### OnDemand File Manager App: 
+### OnDemand File Manager App
 
 This infomation is avalable in our [Open OnDemand Documentation](../portals/ood.md)
 
