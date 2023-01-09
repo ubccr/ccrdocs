@@ -145,6 +145,39 @@ application like [WinSCP](https://winscp.net/eng/docs/protocols).
 For more information on secure copy take a [look at some of our listed
 resources](#more-reading) or consult the scp manual page.
 
+### Interactive file transfer with sftp
+
+The `sftp` utility is an interactive alternative to `scp` that allows
+multiple, bi-directional transfer operations in a single
+session. Within an sftp session, a series of domain-specific file
+system commands can be used to navigate, move, remove, and copy data
+between a local system and CCR resources.
+
+```bash
+sftp <username>@vortex.ccr.buffalo.edu
+```
+
+We can then use various commands to traverse and manipulate both local
+and remote file systems.
+
+Command | Function | Example
+--------|--------------------------------------------------------------------|----------
+cd      | Changes the directory of the remote computer                       | cd remote_directory
+lcd     | Changes the directory of the local computer                        | lcd local_directory
+ls      | Lists the contents of the remote directory                         | ls
+lls     | Lists the contents of the local directory                          | lls
+pwd     | Prints working directory of the remote computer                    | pwd
+lpwd    | Prints working directory of the local computer                     | lpwd
+get     | Copies a file from the remote directory to the local directory     | get remote_file
+put     | Copies a file from the local directory to the remote directory     | put local_file
+exit    | Closes the connection to the remote computer and exits the program | exit
+help    | Displays application information on using commands                 | help
+
+Windows users can access sftp through PowerShell or using a GUI
+application like [WinSCP](https://winscp.net/eng/docs/protocols).
+
+For more information on sftp [check out some of our listed
+resources](#more-reading) or consult the sftp manual page.
 
 ### Rsync
 
@@ -187,41 +220,6 @@ Subsystem for Linux
 
 For more information on rsync [check out some of our listed
 resources](#more-reading) or consult the rsync manual page.
-
-
-### Interactive file transfer with sftp
-
-The `sftp` utility is an interactive alternative to `scp` that allows
-multiple, bi-directional transfer operations in a single
-session. Within an sftp session, a series of domain-specific file
-system commands can be used to navigate, move, remove, and copy data
-between a local system and CCR resources.
-
-```bash
-sftp <username>@vortex.ccr.buffalo.edu
-```
-
-We can then use various commands to traverse and manipulate both local
-and remote file systems.
-
-Command | Function | Example
---------|--------------------------------------------------------------------|----------
-cd      | Changes the directory of the remote computer                       | cd remote_directory
-lcd     | Changes the directory of the local computer                        | lcd local_directory
-ls      | Lists the contents of the remote directory                         | ls
-lls     | Lists the contents of the local directory                          | lls
-pwd     | Prints working directory of the remote computer                    | pwd
-lpwd    | Prints working directory of the local computer                     | lpwd
-get     | Copies a file from the remote directory to the local directory     | get remote_file
-put     | Copies a file from the local directory to the remote directory     | put local_file
-exit    | Closes the connection to the remote computer and exits the program | exit
-help    | Displays application information on using commands                 | help
-
-Windows users can access sftp through PowerShell or using a GUI
-application like [WinSCP](https://winscp.net/eng/docs/protocols).
-
-For more information on sftp [check out some of our listed
-resources](#more-reading) or consult the sftp manual page.
 
 ### Filezilla
 
