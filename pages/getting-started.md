@@ -16,7 +16,7 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
      - [Getting Access](getting-access.md)  
      - [Frequently Asked Questions about CCR](faq.md)  
 - If you're an **experienced HPC user** and ready to log onto a cluster, you probably want to know:
-     - What [clusters](hpc/node-types.md) are available  
+     - What [clusters](hpc/clusters.md) are available  
      - Get instructions for how to [connect to our HPC systems with SSH](hpc/login.md)
      - What [software is available](software/about.md) and how [software environment modules](software/modules.md) work  
      - How to [submit batch jobs](hpc/jobs.md)  
@@ -42,7 +42,7 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
 - Users submit batch jobs to a scheduler to run on servers (nodes) within the cluster  
 - The UB-HPC cluster is available for academic & industry users    
 - CCR also manages a separate cluster for privately purchased faculty nodes   
-- [Visualization servers](hpc/viz.md) are available for graphically-intense scientific software  
+- [Visualization servers](hpc/clusters.md#visualization-nodes) are available for graphically-intense scientific software  
 - Users login using a [SSH client](hpc/login.md) or the [OnDemand web portal](portals/ood.md)  
 - There is no cost for UB faculty groups to use the UB-HPC cluster (student accounts must be sponsored by faculty)  
 - Storage is shared among the clusters. More [details on storage options](hpc/storage.md)  
