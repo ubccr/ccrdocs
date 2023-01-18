@@ -16,7 +16,7 @@ Slurm interactive jobs allow users to interact with applications on the compute 
 
 **Example Interactive Job**
 
-To submit an interactive job to the general-compute partition for a single node with 32 Intel cores and has 50G of memory for 5 hours and 20 minutes, we would specify the general-compute QoS in the command below. We would then wait until a node with the resources we requested becomes available. Once it is available, we would automatically be logged into this node and we can freely complete our work.
+To submit an interactive job to the general-compute partition for a single node with 32 Intel cores and 50GB of memory for 5 hours and 20 minutes, use the salloc command and the appropriate options as shown here:  
 
 ```
 salloc --qos=general-compute --partition=general-compute  --job-name "InteractiveJob" --nodes=1 --ntasks=32 --mem=50G -C INTEL --time=05:20:00
