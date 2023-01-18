@@ -83,7 +83,7 @@ Below is explanation of of the SBATCH options used in our samples. These are Slu
 
 ```
 
-
+Below are several sample scripts which can be submitted using the `sbatch` command to Slurm to run on a compute node.  We use some of the Slurm directives as described above.
 To submit to the **debug partition on the ub-hpc cluster**, the slurm script would look like:
 
 ```
