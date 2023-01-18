@@ -75,7 +75,7 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 
 #SBATCH --mail-type=end
 
-# 	Tell Slurm which cluster,partition and qos schedule this job.
+# 	Tell Slurm which cluster, partition and qos to use to schedule this job.
 
 #SBATCH --partition=debug
 #SBATCH --qos=debug
