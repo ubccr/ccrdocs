@@ -204,7 +204,7 @@ For additional Slurm commands, [visit the Slurm command manual](https://slurm.sc
 
 ## Slurm <sbatch> Job Flags
  
-The `sbatch` command supports many optional flags. To review all the options, please visit the Slurm [sbatch page](http://slurm.schedmd.com/sbatch.html). Below are useful flags: 
+The `sbatch` command supports many optional flags. To review all the options, please visit the Slurm [sbatch page](http://slurm.schedmd.com/sbatch.html). Below are some useful flags for CCR users: 
 
 | Type                   | Description                                         | Flag                       |
 | :--------------------- | :-------------------------------------------------- | :------------------------- |
