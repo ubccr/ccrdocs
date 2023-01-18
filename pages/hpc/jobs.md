@@ -32,7 +32,7 @@ Batch jobs are the most common type of job on HPC systems. Batch jobs are resour
 
 Below are sample script which can be sbatch'd to Slurm to run on a compute node.
 
-Below is explanation of of the SBATCH options used in our samples. These are Slurm directives and should be understood before submitting a job.
+Below is an explanation of the SBATCH options used in our samples. These are Slurm directives and should be understood before submitting a job.  For more information on Slurm directives, partitions, and QOS, [see here](#slurm-directives-partitions-qos).
 
 ```
 #!/bin/sh
