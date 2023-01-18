@@ -1,6 +1,6 @@
 # Running Jobs
 
-Our HPC system is shared among many researchers, CCR manages usage of the system through jobs. Jobs are simply an allotment of resources that can be used to execute processes. CCR uses a program named Slurm, the Simple Linux Utility for Resource Management, to create and manage jobs.
+Our HPC systems are shared among many researchers and CCR manages usage of the systems through jobs. Jobs are simply an allotment of resources that can be used to execute processes. CCR uses a program named Slurm, the Simple Linux Utility for Resource Management, to create and manage jobs.
 
 In order to run a program on a cluster, you must request resources from Slurm to generate a job. Resources are requested from a login node. You must then provide commands to run your program on those requested resources.
 
