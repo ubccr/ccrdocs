@@ -54,7 +54,7 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 #SBATCH --ntasks-per-node=1
 
 # 	How much memory do you need.
-# 	This will define memory this job requires. 
+# 	This will define memory (in MB) this job requires. 
 
 #SBATCH --mem=10000
 
