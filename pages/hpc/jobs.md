@@ -26,7 +26,7 @@ To complete/end this job, we would type `exit` on the command line.
 
 ## Batch Job Submission
 
-Batch jobs are the most common type of job on HPC systems. Batch jobs are resource provisions that run applications on compute nodes and do not require supervision or interaction. Batch jobs are commonly used for applications that run for long periods of time and require no user interaction.
+Batch jobs are the most common type of job on HPC systems. Batch jobs are resource provisions that run applications on compute nodes and do not require supervision or interaction. Batch jobs are commonly used for applications that run for long periods of time and require no manual user input.
 
 ##### Example Job Scripts
 
