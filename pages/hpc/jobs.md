@@ -186,7 +186,7 @@ For more information, [visit the Slurm docs on sbatch](https://slurm.schedmd.com
 
 #### squeue
 
-To see all of your jobs in across all CCR clusters:
+To see all of your jobs across all CCR clusters:
 ````
 squeue -M all -u $LOGNAME
 ````
