@@ -14,7 +14,7 @@ There are two types of jobs, interactive jobs and batch jobs. Interactive jobs, 
 Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job, you will request time and resources. Once available, you will be logged into the assigned node and the job will be ended when you log out or your reqested time limit is reached.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
 
 
-#### Example Interactive Job
+**Example Interactive Job**
 
 To submit an interactive job to the general-compute partition for a single node with 32 Intel cores and has 50G of memory for 5 hours and 20 minutes, we would specify the general-compute QoS in the command below. We would then wait until a node with the resources we requested becomes available. Once it is available, we would automatically be logged into this node and we can freely complete our work.
 
