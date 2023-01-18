@@ -12,31 +12,18 @@ applications exist. (e.g., WinSCP, FileZilla)
 
 CCR Supported Methods for inbound and outbound Data transfer include:
 
-** Globus File Transfer Service: **
+1. ** [Globus File Transfer Service](#globus-transfers) **
 
-* This method is for larger file transfers. There is no time limit and this works in the background after you submit the transfer request.
-!!! Note
-    Globus is the preferred method for file transfers to and from CCR
-** Secure Shell Copy (scp/sftp): **
+2. ** [Secure Shell Copy (scp/sftp)](#secure-shell-copy) **
 
-*to/from the Frontends:*
+3. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
 
-* This would be for simple file transfers that can complete within a 15 minute timeframe  
 
-*from the Compute Nodes:*
+!!! Warning "VPN Required" 
+    Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
+    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
-* This would be for file transfers that can complete within a 72 hour window
-* This will only work for outbound transfers because compute nodes are not exposed externally
-* You must have an active job with an allocated compute node to get access to them
-!!! Note
-    Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
-
-** OnDemand File Manager App: **
-
-* This is browser based for simple tranfsers and not recommended for large amounts of data  
-
-!!! Note
-    You must be on the UB or Roswell Park networks to connect to CCR servers.  If you are off-campus, please use the UB VPN to connect
+**_ * Globus transfers are available from everywhere, You do not need to be on the UB or Roswell Park networks to use Globus._**
 
 ---
 
@@ -51,22 +38,20 @@ across multiple servers, and brokering direct transfers between remote
 computing centers. Globus performs an MD5-Checksum for transfer verification.
 
 Globus can be used on macOS, Linux, and Windows operating systems and
-is CCR's recommended way of transferring data.
+is CCR's recommended way of transferring files, especially for large amounts of data.
 
-!!! Note
-    The Globus Web App is accessable from everywhere. You do not need to be on the UB or Roswell Park networks to use Globus.
 
-[Sign into Globus Connect](https://app.globus.org/) by
+To use Globus, go to the [Globus Web App](https://app.globus.org/) and sign in by
 selecting "The State University of New York at Buffalo" from the dropdown menu
 and by logging in using your UB credentials.
 
-!!! Note 
-    **_non-UB users:_** If you are with an institution other than UB, your institution may still be available for Globus authentication using the InCommon federation. Look for your institution in the dropdown menu and sign in with your local credentials. If your institution is not listed, you will need to [create a Globus account](https://www.globusid.org/create).
+!!! Note "non-UB users:"
+    If you are with an institution other than UB, your institution may still be available for Globus authentication using the InCommon federation. Look for your institution in the dropdown menu and sign in with your local credentials. If your institution is not listed, you will need to [create a Globus account](https://www.globusid.org/create).
 
 ![](../images/globus-login.png)
 
 CCR storage resources are available in Globus as mapped collections.
-You can connect to an CCR endpoint using the "collections"
+You can connect to a CCR endpoint using the "collections"
 field in the Globus web interface and searching for `UBuffalo - Center for Computational Research`. 
 
 CCR Currently has 3 Collections:
@@ -103,18 +88,25 @@ Detailed information on creating Guest Collections is available [at
 docs.globus.org](https://docs.globus.org/how-to/share-files/).
 
 
-### Secure Shell Copy (scp/sftp)
+### Secure Shell Copy
 
 Command line terminal access is provided via the SSH protocol, while command line file transfer 
 is available with sftp (Secure File Transfer Protocol) and scp (Secure Copy).
 The ssh, scp and sftp client software should be available on all Linux distributions 
 as part of the operating system installation.  
 
-!!! Warning
-    Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Passwords are not accepted.
+*to/from the Frontends:*
 
-!!! Note
-    **SSH key-pairs** allow us to login without a password using SSH to CCR's login nodes. We keep our private key on our local machine and upload the matching public key to our CCR account. Once uploaded, we can login to any CCR server that supports SSH logins.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.
+* This would be for simple file transfers that can complete within a 15 minute timeframe  
+
+*from the Compute Nodes:*
+
+* This would be for file transfers that can complete within a 72 hour window
+* This will only work for outbound transfers because compute nodes are not exposed externally
+* You must have an active job with an allocated compute node to get access to them
+
+!!! Note "SSH Keys required"
+    Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
 
 The Secure Copy utility, `scp`, can send data to and fetch data
 from a remote server.
@@ -137,7 +129,7 @@ scp -i <path-to-yourSSHKey> <username>@vortex.ccr.buffalo.edu.edu:<path-to-file>
 ``` 
 
 !!! Note
-    If you are running an SSH Agent locally that manages your private key you will not need to specify the key in the command line.
+    For any of the SSH based transfer methods, If you are running an SSH Agent locally that manages your private key you will not need to specify the key in the command line.
 
 Windows users can access scp through PowerShell or using a GUI
 application like [WinSCP](https://winscp.net/eng/docs/protocols).
@@ -190,7 +182,7 @@ only part of a file has changed). This can be very useful in reducing
 the amount of copies you may perform when synchronizing two
 datasets.
 
-!!! Note
+!!! Warning
     You will need to set the remote shell command to ssh. The default rsh is not secure and will not work at CCR.
 
 In the examples here, replace `<path-to-file>` with the path of the
@@ -210,9 +202,6 @@ rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> <username>@vortex.
 rsync -e 'ssh -i <path-to-yourSSHKey>' -r <username>@vortex.ccr.buffalo.edu:<path-to-directory> <target-path>
 ```
 
-!!! Note
-    If you are running an SSH Agent locally with your private key imported you will not need to specify the key in the command line.
-
 **rsync** is not available on Windows by default, but [may be installed
 individually](https://www.itefix.net/cwrsync) or as part of [Windows
 Subsystem for Linux
@@ -230,13 +219,10 @@ Once installed, follow these steps to connect to CCR resources with Filezilla:
 
 ** Adding CCR as a site: **
 
-!!! Note
+!!! Note "SSH Keys Required"
     You will need the SSH Key setup in FileZilla so that it does not try and use a password. CCR will only allow SSH key authentication. 
 
-**_If you are using an SSH Agent to manage you SSH Keys:_**
-
-!!! Note
-    Verify that your **SSH_AUTH_SOCK** environment variable has been set by the SSH Agent.
+If you are using an SSH Agent to manage you SSH Keys , Verify that your **SSH_AUTH_SOCK** environment variable has been set by the SSH Agent.
 
 ```bash
 $ echo $SSH_AUTH_SOCK
@@ -298,6 +284,8 @@ This will popup the Site Management Window
 After the Site has been added you can connect to CCR by selecting it from the Site Manager Window and clicking `Connect`
 
 ### OnDemand File Manager App
+
+* This is browser based for simple tranfsers and not recommended for large amounts of data  
 
 This infomation is avalable in our [Open OnDemand Documentation](../portals/ood.md)
 
