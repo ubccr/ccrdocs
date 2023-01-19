@@ -1,4 +1,4 @@
-## Data Transfer
+# Data Transfer
 
 
 CCR supports multiple ways to transfer Data in and out of CCR and the method 
@@ -7,7 +7,7 @@ File transfers from a local system can be done through a web-based
 application called _Globus_ or through command-line tools such as
 secure copy (_scp_), secure ftp (_sftp_) and _rsync_. Some
 command-line tools may be unavailable on Windows, though alternative
-applications exist. (e.g., WinSCP, FileZilla)
+applications exist. (e.g., Git Bash, FileZilla)
 
 
 CCR Supported Methods for inbound and outbound Data transfer include:
@@ -27,7 +27,7 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 ---
 
-### Globus transfers
+## Globus transfers
 
 Globus file transfers are typically initiated through an interactive
 web application (command-line access to Globus is also available, but
@@ -40,13 +40,13 @@ computing centers. Globus performs an MD5-Checksum for transfer verification.
 Globus can be used on macOS, Linux, and Windows operating systems and
 is CCR's recommended way of transferring files, especially for large amounts of data.
 
-
+### Globus Web App
 To use Globus, go to the [Globus Web App](https://app.globus.org/) and sign in by
 selecting "The State University of New York at Buffalo" from the dropdown menu
 and by logging in using your UB credentials.
 
 !!! Note "non-UB users:"
-    If you are with an institution other than UB, your institution may still be available for Globus authentication using the InCommon federation. Look for your institution in the dropdown menu and sign in with your local credentials. If your institution is not listed, you will need to [create a Globus account](https://www.globusid.org/create).
+    If you are with an institution other than UB, you will need to [create a Globus account](https://www.globusid.org/create) and contact [CCR Help](../help.md) to map your globusid to your CCR account.
 
 ![](../images/globus-login.png)
 
@@ -88,7 +88,7 @@ Detailed information on creating Guest Collections is available [at
 docs.globus.org](https://docs.globus.org/how-to/share-files/).
 
 
-### Secure Shell Copy
+## Secure Shell Copy
 
 Command line terminal access is provided via the SSH protocol, while command line file transfer 
 is available with sftp (Secure File Transfer Protocol) and scp (Secure Copy).
@@ -108,6 +108,8 @@ as part of the operating system installation.
 !!! Note "SSH Keys required"
     Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
 
+### Command line SCP
+
 The Secure Copy utility, `scp`, can send data to and fetch data
 from a remote server.
 
@@ -122,22 +124,15 @@ would like to send the file to.
 scp -i <path-to-yourSSHKey> <path-to-file> <username>@vortex.ccr.buffalo.edu.edu:<target-path>
 ```
 
-```bash
-# Copying files from CCR Frontend Servers to a local workstation
-
-scp -i <path-to-yourSSHKey> <username>@vortex.ccr.buffalo.edu.edu:<path-to-file> <target-path>
-``` 
-
 !!! Note
     For any of the SSH based transfer methods, If you are running an SSH Agent locally that manages your private key you will not need to specify the key in the command line.
 
-Windows users can access scp through PowerShell or using a GUI
-application like [WinSCP](https://winscp.net/eng/docs/protocols).
+Windows users can access scp through PowerShell or [Git bash](https://gitforwindows.org/) or using a GUI application like [FileZilla](#filezilla).
 
 For more information on secure copy take a [look at some of our listed
 resources](#more-reading) or consult the scp manual page.
 
-### Interactive file transfer with sftp
+### Interactive file transfer with SFTP
 
 The `sftp` utility is an interactive alternative to `scp` that allows
 multiple, bi-directional transfer operations in a single
@@ -165,8 +160,7 @@ put     | Copies a file from the local directory to the remote directory     | p
 exit    | Closes the connection to the remote computer and exits the program | exit
 help    | Displays application information on using commands                 | help
 
-Windows users can access sftp through PowerShell or using a GUI
-application like [WinSCP](https://winscp.net/eng/docs/protocols).
+Windows users can access scp through PowerShell or [Git bash](https://gitforwindows.org/) or using a GUI application like [FileZilla](#filezilla).
 
 For more information on sftp [check out some of our listed
 resources](#more-reading) or consult the sftp manual page.
@@ -196,12 +190,6 @@ would like to send the file to.
 rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> <username>@vortex.ccr.buffalo.edu:<target-path> 
 ```
 
-```bash
-# Synchronizing from CCR to a local workstation
-
-rsync -e 'ssh -i <path-to-yourSSHKey>' -r <username>@vortex.ccr.buffalo.edu:<path-to-directory> <target-path>
-```
-
 **rsync** is not available on Windows by default, but [may be installed
 individually](https://www.itefix.net/cwrsync) or as part of [Windows
 Subsystem for Linux
@@ -222,7 +210,7 @@ Once installed, follow these steps to connect to CCR resources with Filezilla:
 !!! Note "SSH Keys Required"
     You will need the SSH Key setup in FileZilla so that it does not try and use a password. CCR will only allow SSH key authentication. 
 
-If you are using an SSH Agent to manage you SSH Keys , Verify that your **SSH_AUTH_SOCK** environment variable has been set by the SSH Agent.
+If you are using an SSH Agent to manage your SSH Keys , Verify that your **SSH_AUTH_SOCK** environment variable has been set by the SSH Agent.
 
 ```bash
 $ echo $SSH_AUTH_SOCK
@@ -249,7 +237,7 @@ This will popup the Site Management Window
 
 After the Site has been added you can connect to CCR by selecting it from the Site Manager Window and clicking `Connect`
 
-**_If you are NOT using an SSH Agent to manage you SSH Keys:_**
+**_If you are NOT using an SSH Agent to manage your SSH Keys:_**
 
 Open the Filezilla Application
 
@@ -283,13 +271,13 @@ This will popup the Site Management Window
 
 After the Site has been added you can connect to CCR by selecting it from the Site Manager Window and clicking `Connect`
 
-### OnDemand File Manager App
+## OnDemand File Manager App
 
-* This is browser based for simple tranfsers and not recommended for large amounts of data  
+* This is browser based for simple transfers and not recommended for large amounts of data  
 
-This infomation is avalable in our [Open OnDemand Documentation](../portals/ood.md)
+This information is available in our [Open OnDemand Documentation](../portals/ood.md)
 
-### More reading
+## More reading
 
 * [Indiana University Tutorial on SFTP](https://kb.iu.edu/d/akqg)
 * [A Cloud Guru's Tutorial on SSH and SCP](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks)
