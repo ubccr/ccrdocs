@@ -70,15 +70,7 @@ nav:
     - Using the Cloud: cloud/using.md
     - Advanced Topics: cloud/advanced.md
   - Policies:
-    - Accounts and Data Retention Policy: policies/accounts.md
-    - Batch Scheduler Policy: policies/batch.md
-    - Data Backup Policy: policies/backups.md
-    - Data Ownership Policy: policies/data.md
-    - Email Communications Policy: policies/email.md
-    - Password Policy: policies/passwords.md
+    - Accounts & Data Policies: policies/accounts.md
+    - Communications Policy: policies/email.md
     - Permitted Use & Misuse of CCR: policies/misuse.md
-    - Scratch Space Policy: policies/scratch.md
-    - Software Installation Policy: policies/softwareinstall.md
-    - Support Policy: policies/support.md
-    - System Maintenance: policies/maintenance.md
-    - Two Factor Authentication Reset: policies/2fa.md
+    - Support, Maintenance, & Installation Policies: policies/support.md
