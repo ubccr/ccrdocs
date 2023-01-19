@@ -59,3 +59,57 @@ Save the file and then restart your shell or run `source ~/.bashrc` for these ne
 
 
 ## R Library Installation  
+
+You need to begin by loading an R module; there will typically be several versions available and you can see a list of all of them using the command `module spider r`  You can load load a particular R module using a command like: `module load gcc/11.2.0  openmpi/4.1.1 r/4.2.0`  
+
+Start the R interpreter using the command `R`  
+
+Nearly 20,000 packages are available for R.  To see the full list of R packages available, please visit the R project page: https://cran.r-project.org/  If you want to use a package for R that is not already installed by CCR, you can install your own packages by either downloading the package and installing it or pointing to the R package library and installing directly from there.  The two options are shown below.  Many R packages are developed using the GNU family of compilers so we recommend that you load a gcc module before trying to install any R packages, as shown above. Use the same version of the gcc for all packages you install.  
+
+!!! Tip  
+    Make a subdirectory in your home or project directory for R library storage, such as `/user/CCRusername/rlibs` used in our examples    
+
+_**Option 1: Download and install R packages in your home or project directory:**_
+
+Download the R package you want to install.  In this example, we demonstrate the 'readr' package:  
+`[ccruser@vortex ~]$ wget https://cran.r-project.org/src/contrib/readr_2.1.3.tar.gz`
+
+Install the downloaded package using the following command, making sure to point to your rlibs directory.  NOTE: this is done outside of R:  
+`[ccruser@vortex ~]$ R CMD INSTALL -l /user/ccruser/rlibs readr_2.1.3.tar.gz`  
+
+_**Option 2: Install directly from the R Project repository:**_
+
+Load your preferred R module and GCC, then launch R.  In the R session, install the package by specifying the package name, R project repository, and your R library location in your home or project directory.  In this example, we are installing ggplot2:  
+
+`install.packages("ggplot2", repos = "http://cran.r-project.org", lib = "/user/ccruser/rlibs")`  
+
+
+**Common Installation Error**
+
+`ERROR: 'configure' exists but is not executable -- see the 'R Installation and Administration Manual'`
+
+If you are trying to install a R library and see this error, it is trying to create a temporary directory to use during the installation and isn't able to.  To resolve this, create a temporary directory in your home or project directory then, after starting R, set the variable before attempting the installation:
+
+```
+[ccruser@vortex ~]$ R
+> dir.create("/user/username/tmp/")
+> Sys.setenv(TMPDIR="/user/username/tmp/")
+> install.packages(“package_name”)
+```
+The directory will be used during installation and the temporary files removed when the install is complete.  
+
+**To load an R package from user (or projects) space:**  
+```
+[ccruser@vortex ~]$ module load R
+[ccruser@vortex ~]$ R
+library(package_name, lib.loc="/user/ccruser/rlibs/")
+```
+
+**Installing R packages from within the R Studio GUI:**  
+
+Whether using CCR's R Studio app on OnDemand or launching it from the command line, users can install R packages into their home or project directories.  Launch R Studio and navigate to the Tools menu and click on 'Install Packages'
+
+Make sure the installation directory is specifying either your home directory or a subdirectory within your group's shared project directory and check the "Install dependencies" option.
+
+!!! Note  
+    Not all packages or dependencies will work with the version(s) of R CCR provides.  If this is something your research requires and the installation methods above don't work for you, you may need to install your own version of R or use R in a singularity container.  These topics are beyond the scope of this document.  
