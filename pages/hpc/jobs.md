@@ -129,7 +129,7 @@ echo "Hello world from general-compute node: "`/usr/bin/uname -n`
 
 ```
 
-To submit to the privately owned **ezurek partition on the faculty cluster**, the slurm script would look like:
+To submit to the privately owned **ub-laser partition on the faculty cluster**, the slurm script would look like:
 ```
 #!/bin/sh
 #
@@ -141,8 +141,8 @@ To submit to the privately owned **ezurek partition on the faculty cluster**, th
 #SBATCH --output=example-faculty-cluster-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
 #SBATCH --mail-type=end
-#SBATCH --partition=ezurek
-#SBATCH --qos=ezurek
+#SBATCH --partition=ub-laser
+#SBATCH --qos=ub-laser
 #SBATCH --cluster=faculty
 
 #Let's start some work
