@@ -1,6 +1,6 @@
 # Running Jobs
 
-Our HPC systems are shared among many researchers and CCR manages usage of the systems through jobs. Jobs are simply an allotment of resources that can be used to execute processes. CCR uses a program named Slurm, the Simple Linux Utility for Resource Management, to create and manage jobs.
+Our HPC system is shared among many researchers and CCR manages usage of the systems through jobs. Jobs are simply an allotment of resources that can be used to execute processes. CCR uses a program named Slurm, the Simple Linux Utility for Resource Management, to create and manage jobs.
 
 In order to run a program on a cluster, you must request resources from Slurm to generate a job. Resources are requested from a login node. You must then provide commands to run your program on those requested resources.
 
@@ -223,6 +223,30 @@ The `sbatch` command supports many optional flags. To review all the options, pl
 ## Slurm Directives, Partitions & QoS
 
 Slurm allows the use of flags to specify resources needed for a job. Below is a table describing some of the most common Slurm resource flags, followed by tables describing available partitions and Quality of Service (QoS) options.
+
+| Type               | Description                                         | Flag                       |
+| :----------------- | :-------------------------------------------------- | :------------------------- |
+| Partition          | Specify a partition | --partition=partition |
+| Sending email      | Receive email at beginning or end of job completion | --mail-type=type           |
+| Email address      | Email address to receive the email                  | --mail-user=user           |
+| Number of nodes    | The number of nodes needed to run the job           | --nodes=nodes              |
+| Number of tasks    | The ***total*** number of processes needed to run the job | --ntasks=processes   |
+| Tasks per node     | The number of processes you wish to assign to each node | --ntasks-per-node=processes |
+| Total memory       | The total memory (per node requested) required for the job. <br> Using --mem does not alter the number of cores allocated <br> to the job, but you will be charged for the number of cores <br> corresponding to the proportion of total memory requested. <br> Units of --mem can be specified with the suffixes: K,M,G,T (default M)| --mem=memory |
+| Quality of service | Specify a QoS  | --qos=qos               |
+| Wall time          | The max amount of time your job will run for        | --time=wall time           |
+| Job Name           | Name your job so you can identify it in the queue   | --job-name=jobname         |
+
+These are the partitions available at CCR:
+
+| Partition | Default Wall Time | Wall Time Limit | Default # CPUS | Job Submission Limit/User     |
+| :-------- | :---------------- | :-------------- | :------------- | :---------------------------- |
+| debug     | 1 hour            | 1 hour          | 1              |   4        |
+| general-compute     | 24 hour            | 72 hour          | 1              |   1000        |
+| industry     | 24 hour            | 72 hour          | 1              |   1000        |
+| scavenger     | 24 hour            | 72 hour          | 1              |   1000        |
+| viz     | 24 hour            | 72 hour          | 1              |   1        |
+
 
 ## Monitoring Jobs
 
