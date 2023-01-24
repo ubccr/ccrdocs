@@ -245,7 +245,7 @@ These are the partitions available at CCR:
 | general-compute     | 24 hour            | 72 hour          | 1              |   1000        |
 | industry     | 24 hour            | 72 hour          | 1              |   1000        |
 | scavenger     | 24 hour            | 72 hour          | 1              |   1000        |
-| viz     | 24 hour            | 72 hour          | 1              |   1        |
+| viz     | 24 hour            | 24 hour          | 1              |   1        |
 
 
 ## Monitoring Jobs
