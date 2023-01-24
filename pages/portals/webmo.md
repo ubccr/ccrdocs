@@ -2,27 +2,27 @@
 
 WebMO is a web-based interface to computational chemistry packages.
 
-The WebMO portal provides access to GAMESS, NWChem, and GAUSSIAN (license restricted).  The JAVA molecular editor provides an easy interface for model building.  WebMO is integrated with the UB-HPC cluster and several partitions in the Faculty cluster.  The user jobs are automatically submitted to the cluster selected in the WebMO job.
+The WebMO portal provides access to Mopac, Quantum Espresso, and GAUSSIAN (license restricted).  The JAVA molecular editor provides an easy interface for model building.  WebMO is integrated with the UB-HPC cluster and several partitions in the Faculty cluster.  The user jobs are automatically submitted to the cluster selected in the WebMO job.
 
 ## Access to WebMO
 
 A CCR system account and an active allocation to WebMO is required.  [Allocations are managed in ColdFront](coldfront.md) by faculty group leaders or principal investigators  
 
-
-!!! Warning  
-    You must be on the UB campus or connected to the [UB VPN](https://buffalo.edu/ubit) from off campus in order to access CCR's portals  
-
 ## Logging into WebMO  
 
-WebMO accounts use your CCR system account and two factor authentication.
+WebMO accounts use your CCR system account and two factor authentication.  However, they are a separate account so if you believe you should have access to WebMO but can't login, contact [CCR Help](../help.md)
 
-[Access CCR's WebMO portal here](https://webmo.ccr.buffalo.edu/~webmo/cgi-bin/webmo/login.cgi)
+!!! Warning "VPN Required"
+    Access to ColdFront is restricted to UB and Roswell Park networks
+    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
-!!! Note  
-    Logins require password plus the one-time token (OTP) generated from your authentication app.  These are entered back to back with no spaces or extra characters between them.  For example:  
-    Password: BuffaloLove!  
-    OTP code displayed: 123 456  
-    Enter in the WebMO password box:  BuffaloLove!123456  
+[Login to CCR's WebMO Poral](https://webmo.ccr.buffalo.edu/~webmo/cgi-bin/webmo/login.cgi)
+
+!!! Note "Special Login Procedure!"
+    Logins require password plus the one-time token (OTP) generated from your authentication app.  These are entered back to back with no spaces or extra characters between them into the password field.  For example:  
+    _Password:_ BuffaloLove!  
+    _OTP code displayed:_ 123 456  
+    _Enter in the WebMO password box:_  BuffaloLove!123456  
 
 ## WebMO Documentation  
 
