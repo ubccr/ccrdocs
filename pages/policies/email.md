@@ -1,4 +1,4 @@
-# Email Communications Policy
+# Communications Policy
 
 As a user of CCR equipment, you may receive emails from us about emergency outages, major planned outages, or updates to CCR's policies.  Occasionally we will send out an event notice we feel the majority of CCR users would be interested in.  
 
