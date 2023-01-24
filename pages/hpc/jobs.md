@@ -215,7 +215,7 @@ The `sbatch` command supports many optional flags. To review all the options, pl
 | Number of tasks        | The total number of cores needed to run the job     | --ntasks=processes         |
 | Quality of service | Specify a QOS                                       | --qos=qos                  |
 | Wall time              | The max. amount of time your job will run for       | --time=wall time           |
-| Job Name               | Name your job so you can identify in queue          | --job-name=<jobname>       |
+| Job Name               | Name your job so you can identify in queue          | --job-name=`<jobname>`       |
 
 
 
