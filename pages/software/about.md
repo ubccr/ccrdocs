@@ -10,10 +10,10 @@ can ask our staff to install it for you or [do it yourself](building.md).
 !!! Warning "New software infrastructure now available"
     CCR is moving to a new software infrastructure described in this document.
     Starting in the Summer of 2023 users will be required to migrate to the
-    system. To start using the new software now, simply run this command `touch ~/.ccrversion`.
+    system. To start using the new software now, simply run this command `touch ~/.ccr_new_modules`.
     You will need to logout and log back in for the changes to take effect. If
     you'd like to temporarily go back to using the old modules in `/util`,
-    simply remove that file `rm ~/.ccrversion`.
+    simply remove that file `rm ~/.ccr_new_modules`.
 
 ## Using Modules
 
