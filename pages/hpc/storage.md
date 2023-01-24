@@ -127,7 +127,7 @@ iquota -p /user/username
 !!! Tip  
     If you see an error like this it is usually related to conda environments:  
 `kinit: Unknown credential cache type while getting default ccache`  
-    See [the FAQ](../faq#kinit-error) for more details  
+    See [the FAQ](/faq#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
 
 
 **Your group's shared project directory quota:**

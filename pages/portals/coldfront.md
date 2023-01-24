@@ -23,13 +23,25 @@ ColdFront](https://coldfront.ccr.buffalo.edu) and view information about the
 projects you're on and what resources you have access to but you will not be
 able to request allocations.
 
-!!! Warning "VPN Required" 
+## Login to ColdFront    
+
+!!! Warning "VPN Required"
     Access to ColdFront is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
+Two factor authentication must be enabled on your CCR account in order to access ColdFront.  If you do not have 2FA enabled, you will get the error ``You don't have access to this resource`` when attempting to login.  
+
+If you get the error ``invalid login`` you are entering your password, one-time token from your authentication app, or both incorrectly.  
+
+Having trouble with 2FA?  Watch this 50 second video!  
+![type:video](https://www.youtube.com/embed/7DcoWk57mKg)
+
+[More information on two factor authentication](../2fa.md)  
+
+
 ## Request an Allocation
 
-Access to CCR resources is managed in ColdFront using Projects and Allocations. 
+Access to CCR resources is managed in ColdFront using Projects and Allocations.
 
 Projects capture information about your research including your group members
 and any allocations to resources. Most PIs have a single project which best
@@ -63,7 +75,7 @@ members and you will receive an email confirmation once it's approved.
 
 Users can be added or removed to your project in ColdFront. To add a user to
 your project they must already have a CCR account. Please direct them to [these
-instructions](../getting-access.md) to create their own CCR user account. 
+instructions](../getting-access.md) to create their own CCR user account.
 
 To add users to your project, follow these steps:
 

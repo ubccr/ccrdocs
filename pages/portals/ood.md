@@ -8,15 +8,16 @@ _**This product is an open source project developed by [Ohio Supercomputer Cente
 
 ## Login to CCR's OnDemand  
 
-!!! Warning  
-    You must be on the UB campus or connected to the [UB VPN](https://buffalo.edu/ubit) from off campus in order to access CCR's portals  
+!!! Warning "VPN Required"
+    Access to OnDemand is restricted to UB and Roswell Park networks
+    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
 Two factor authentication must be enabled on your CCR account in order to access CCR's OnDemand portal.  If you do not, you will get the error ``You don't have access to this resource`` when attempting to login.  
 
 If you get the error ``invalid login`` you are entering your password, one-time token from your authentication app, or both incorrectly.  
 
 Having trouble with 2FA?  Watch this 50 second video!  
-![type:video](https://www.youtube.com/embed/g6hWYooFKWE)
+![type:video](https://www.youtube.com/embed/7DcoWk57mKg)
 
 [More information on two factor authentication](../2fa.md)  
 

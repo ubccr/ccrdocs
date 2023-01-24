@@ -18,7 +18,7 @@ WebMO accounts use your CCR system account and two factor authentication.
 
 [Access CCR's WebMO portal here](https://webmo.ccr.buffalo.edu/~webmo/cgi-bin/webmo/login.cgi)
 
-!!! Note  
+!!! Note "Special Login Procedure!"
     Logins require password plus the one-time token (OTP) generated from your authentication app.  These are entered back to back with no spaces or extra characters between them.  For example:  
     Password: BuffaloLove!  
     OTP code displayed: 123 456  
