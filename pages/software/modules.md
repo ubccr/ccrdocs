@@ -104,28 +104,26 @@ MPI-dependent modules
     see modules for a specific compiler toolchain you will need to first load
     the module for the specific compiler toolchain of interest.
 
-## Supported compiler toolchains
-
 CCR supports the following compiler toolchains:
 
-| Toolchain   | Version | Included compiles and libraries                              |
-| ----------- | ------- | ------------------------------------------------------------ |
-| **intel**   | 2022.00 | Intel compilers, Intel MPI, and Intel MKL                    |
-| **foss**    | 2021b   | GCC, OpenMPI, FlexiBLAS, OpenBLAS, LAPACK, ScaLAPACK, FFTW   |
-| **GCC**     | 11.2.0  | GCC compiler only                                            |
-
-## Supported CPU architectures
+| Toolchain   | Included compiles and libraries                              |
+| ----------- | ------------------------------------------------------------ |
+| **intel**   | Intel compilers, Intel MPI, and Intel MKL                    |
+| **foss**    | GCC, OpenMPI, FlexiBLAS, OpenBLAS, LAPACK, ScaLAPACK, FFTW   |
+| **GCC**     | GCC compiler only                                            |
 
 In addition to the compiler toolchains, the hierarchical module system is also
 "CPU architecture" aware. The module system will auto-detect what type of CPU
 you're running on and display modules built for that specific architecture.
 
-CCR currently supports the following CPU architectures:
+CCR supports the following CPU architectures:
 
 | Architecture  | Supported CPUs                                             |
 | ------------- | ---------------------------------------------------------- |
 | avx2          | Intel Haswell, Broadwell                                   |
 | avx512        | Intel Skylake-SP, Skylake-X, Cascade Lake-SP               |
+
+For specific compiler versions, [see our releases page](releases.md).
 
 ## Loading Modules in a Job Script
 
@@ -144,4 +142,36 @@ into the environment is shown below:
 module load python
 
 python3 test-program.py
+```
+
+## Python
+
+Several python modules are available for use: `python`, `anaconda3`, and
+`scipy-bundle`. We encourage users to checkout these modules as they include
+lots of common scientific python packages.
+
+| module       | Included python packages                                                                     |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| python       | Bare python3 interpreter only                                                                |
+| scipy-bundle | beniget, Bottleneck, deap, gast, mpi4py, mpmath, numexpr, numpy, pandas, ply, pythran, scipy |
+| anaconda3    | [see here](https://docs.anaconda.com/anaconda/packages/pkg-docs/)                            |
+
+## R
+
+Two R modules are provide: `r` and `r-bundle-bioconductor`, both of which
+include many pre-built R libraries. To see a complete list of R libraries and
+packages included with each module run the spider command:
+
+```
+$ module spider r
+$ module spider r-bundle-bioconductor
+```
+
+## Perl
+
+We provide a `perl` module which includes many pre-build CPAN modules. To see
+the complete list run: 
+
+```
+$ module spider perl
 ```

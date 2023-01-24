@@ -51,7 +51,7 @@ Compiler Version: 11.2.0
 
 When building software with EasyBuild, it's very important to pay attention to
 the compiler and compiler version as it will be much easier to build software
-for [a compiler CCR already supports](modules.md#supported-compiler-toolchains).
+for [a compiler CCR already supports](releases.md).
 
 For more information about EasyBuild [see here](https://docs.easybuild.io/en/latest/).
 
@@ -79,6 +79,9 @@ search for recipes to build. For example:
 
 ```
 $ module load easybuild
+$ eb -S some_package_name
+
+# For example
 $ eb -S samtools
  * $CFGS1/s/SAMtools/SAMtools-1.13-GCC-10.3.0.eb
  * $CFGS1/s/SAMtools/SAMtools-1.13-GCC-11.3.0.eb
@@ -88,11 +91,12 @@ $ eb -S samtools
  * $CFGS1/s/SAMtools/SAMtools-1.16.1-GCC-11.2.0.eb
 ```
 
-Select the recipe [for one of our supported compiler toolchains]((modules.md#supported-compiler-toolchains)
-and build the software by running the following command:
+Select the recipe, be sure to select the one [for a supported compiler
+toolchain](releases.md) if necessary and build the software by running the
+following command:
 
 ```
-$ eb SAMtools-1.16.1-GCC-11.2.0.eb
+$ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb
 ```
 
 Once the above command is complete you should see your new module when you run
@@ -101,5 +105,5 @@ Once the above command is complete you should see your new module when you run
 ```
 $ module avail
 ----- Your personal Compiler-dependent avx512 modules ---------
-   samtools/1.16.1 (bio)
+   samtools/X.X.X (bio)
 ```
