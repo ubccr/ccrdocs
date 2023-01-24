@@ -12,14 +12,7 @@ _**This product is an open source project developed by [Ohio Supercomputer Cente
     Access to OnDemand is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
-Two factor authentication must be enabled on your CCR account in order to access CCR's OnDemand portal.  If you do not have 2FA enabled, you will get the error ``You don't have access to this resource`` when attempting to login.  
-
-If you get the error ``invalid login`` you are entering your password, one-time token from your authentication app, or both incorrectly.  
-
-Having trouble with 2FA?  Watch this 50 second video!  
-![type:video](https://www.youtube.com/embed/7DcoWk57mKg)
-
-[More information on two factor authentication](../2fa.md)  
+Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Don't have one yet? [see here](../getting-access.md)
 
 ## On Demand Features  
 
