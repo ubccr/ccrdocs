@@ -106,7 +106,7 @@ MPI-dependent modules
 
 CCR supports the following compiler toolchains:
 
-| Toolchain   | Included compiles and libraries                              |
+| Toolchain   | Included compilers and libraries                             |
 | ----------- | ------------------------------------------------------------ |
 | **intel**   | Intel compilers, Intel MPI, and Intel MKL                    |
 | **foss**    | GCC, OpenMPI, FlexiBLAS, OpenBLAS, LAPACK, ScaLAPACK, FFTW   |
@@ -158,7 +158,7 @@ lots of common scientific python packages.
 
 ## R
 
-Two R modules are provide: `r` and `r-bundle-bioconductor`, both of which
+Two R modules are provided: `r` and `r-bundle-bioconductor`, both of which
 include many pre-built R libraries. To see a complete list of R libraries and
 packages included with each module run the spider command:
 
