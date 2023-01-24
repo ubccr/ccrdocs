@@ -2,7 +2,8 @@
 
 ### Managing your Project with the Cloud Dashboard
 
-Allocations to the LakeEffect Cloud are requested and managed through the [ColdFront Resource Allocations Management Tool](../portals/coldfront.md).  
+Allocations to the LakeEffect Cloud are requested and managed through the ColdFront Resource Allocations Management Tool. 
+To request an allocation to LakeEffect [see here](../getting-access.md#allocation-requests).  
 Once approved through ColdFront you will be informed when your cloud access is ready and you will be able to login in to the LakeEffect Web Console
 where you can manage your project's cloud resources and view information on your group's usage.  
 
@@ -10,11 +11,9 @@ where you can manage your project's cloud resources and view information on your
     You must be on the UB campus or connected to the [UB VPN](https://buffalo.edu/ubit) from off campus in order to access CCR's portals
 
 
-From the [The LakeEffect Web Console](https://dashboard.cloud.ccr.buffalo.edu), you will need to authenticate using the CCR OpenID Connect option with your CCR username, password and otp.
+From the [The LakeEffect Web Console](https://dashboard.cloud.ccr.buffalo.edu), select CCR OpenID Connect option and authenticate using your CCR account. Don't have an account? [see here](../getting-access.md)
 
 ![](../images/cloud/openid.png)
-
-For more information about logging in with two-factor authentication enabled click [here](../getting-access.md).
 
 After a successful login, you will be redirected to your project **Overview** in the LakeEffect Dashboard:
 
