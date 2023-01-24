@@ -2,25 +2,18 @@
 
 ### Managing your Project with the Cloud Dashboard
 
-Once you've requested and been granted an account on the LakeEffect cloud, you will be able to login in to the web console.
-Your username and password for LakeEffect are the same as your CCR username and password.  However, you need additional 
-privileges to be allowed to login to the cloud.  You will be informed when your cloud account is ready.
+Allocations to the LakeEffect Cloud are requested and managed through the ColdFront Resource Allocations Management Tool. 
+To request an allocation to LakeEffect [see here](../getting-access.md#allocation-requests).  
+Once approved through ColdFront you will be informed when your cloud access is ready and you will be able to login in to the LakeEffect Web Console
+where you can manage your project's cloud resources and view information on your group's usage.  
 
 !!! Warning
     You must be on the UB campus or connected to the [UB VPN](https://buffalo.edu/ubit) from off campus in order to access CCR's portals
 
-[The LakeEffect Dashboard (Horizon)](https://dashboard.cloud.ccr.buffalo.edu) - simplifies management of your project's cloud resources and provides information on your group's usage.
+
+From the [The LakeEffect Web Console](https://dashboard.cloud.ccr.buffalo.edu), select CCR OpenID Connect option and authenticate using your CCR account. Don't have an account? [see here](../getting-access.md)
 
 ![](../images/cloud/openid.png)
-
-Two factor authentication must be enabled on your CCR account in order to access CCR's LakeEffect Dashboard.  If you do not, you will get the error ``You don't have access to this resource`` when attempting to login.
-
-You will need to authenticate to CCR's **Identity Management System** with your CCR username, password and otp.
-For more information about logging in with two-factor authentication enabled click [here](../2fa.md).
-
-![](../images/cloud/ccridm2.png)
-
-[More information on two factor authentication](../2fa.md)
 
 After a successful login, you will be redirected to your project **Overview** in the LakeEffect Dashboard:
 
