@@ -12,6 +12,7 @@ theme:
   logo: 'images/logo.png'
   favicon: 'images/favicon.ico'
   include_homepage_in_sidebar: false
+  custom_dir: 'theme/'
 
 plugins:
   - search
@@ -41,15 +42,15 @@ nav:
   - Home: index.md
   - CCR Help: help.md
   - Frequently Asked Questions: faq.md
+  - CCR's Public Key Fingerprints: fingerprints.md
   - Accessing CCR Resources:
     - Getting Access: getting-access.md
+    - Two Factor Authentication: 2fa.md
     - Getting Started: getting-started.md
-    - Two-Factor Authentication: 2fa.md
   - High Performance Computing:
     - Logging In: hpc/login.md
-    - Node Types: hpc/node-types.md
-    - Visualization Servers: hpc/viz.md
-    - Running jobs: hpc/jobs.md
+    - Clusters: hpc/clusters.md
+    - Running Jobs: hpc/jobs.md
     - Data Transfer: hpc/data-transfer.md
     - Storage: hpc/storage.md
   - Gateways & Portals:
@@ -62,20 +63,14 @@ nav:
     - Software infrastructure: software/about.md
     - The Module System: software/modules.md
     - Building your own software: software/building.md
+    - Python Options: software/python.md
+    - Perl & R Libraries: software/perl-R-libraries.md
   - Cloud:
     - LakeEffect (On-Prem Cloud): cloud/lake-effect.md
     - Using the Cloud: cloud/using.md
     - Advanced Topics: cloud/advanced.md
   - Policies:
-    - Accounts and Data Retention Policy: policies/accounts.md
-    - Batch Scheduler Policy: policies/batch.md
-    - Data Backup Policy: policies/backups.md
-    - Data Ownership Policy: policies/data.md
-    - Email Communications Policy: policies/email.md
-    - Password Policy: policies/passwords.md
+    - Accounts & Data Policies: policies/accounts.md
+    - Communications Policy: policies/email.md
     - Permitted Use & Misuse of CCR: policies/misuse.md
-    - Scratch Space Policy: policies/scratch.md
-    - Software Installation Policy: policies/softwareinstall.md
-    - Support Policy: policies/support.md
-    - System Maintenance: policies/maintenance.md
-    - Two Factor Authentication Reset: policies/2fa.md
+    - Support, Maintenance, & Installation Policies: policies/support.md

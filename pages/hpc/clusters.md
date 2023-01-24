@@ -1,3 +1,16 @@
+# Clusters
+## General Compute
+
+Write me!
+
+## Faculty
+
+Write me!
+
+## Industry 
+
+Write me!
+
 ## Node types
 
 CCR has several node types available on our resources.
