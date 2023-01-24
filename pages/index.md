@@ -29,7 +29,7 @@ search box at the top left for context searching.
     - [Batch Job System](hpc/jobs.md)  
     - [Data Transfer Options](hpc/data-transfer.md)  
     - [Linux and Slurm Cheat Sheet](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n)  
-    - [Available Software](software/about.md)  
+    - [Available Software](software/modules.md)  
     - [Compiling Software](software/building.md)  
     - [Clusters](hpc/clusters.md)  
 - **Research Cloud Specific Topics:**  

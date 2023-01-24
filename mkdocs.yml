@@ -61,8 +61,8 @@ nav:
     - Open XDMoD (Job Metrics Portal): portals/metrics.md
     - WebMO (Chemistry Portal): portals/webmo.md
   - Software:
-    - Available Software: software/about.md
-    - Useful Module Commands: software/modules.md
+    - Available Software: software/modules.md
+    - Useful Module Commands: software/module-commands.md
     - Building your own software: software/building.md
     - Python Options: software/python.md
     - Perl & R Libraries: software/perl-R-libraries.md

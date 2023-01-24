@@ -1,9 +1,9 @@
 # Building your own software
 
 CCR maintains a global suite of software available to all users via
-[Modules](about.md). If you need a particular software package or library
+[Modules](modules.md). If you need a particular software package or library
 that's not available you can [ask us to build it](#software-build-requests) or
-attempt to [build yourself](#building-your-own-modules).  This document
+attempt to [build yourself](#building-a-new-software-module).  This document
 provides some pointers on building custom modules for your group or personal
 use. 
 
@@ -51,57 +51,55 @@ Compiler Version: 11.2.0
 
 When building software with EasyBuild, it's very important to pay attention to
 the compiler and compiler version as it will be much easier to build software
-for a compiler CCR already supports.
+for [a compiler CCR already supports](modules.md#supported-compiler-toolchains).
 
 For more information about EasyBuild [see here](https://docs.easybuild.io/en/latest/).
 
-
-## Building your own modules
-
-We recommend using [EasyBuild](#about-easybuild) to build your own modules.
 EasyBuild will take care of compiling, installing, and creating a Modulefile
 for you. CCR provides EasyBuild as it's own module and has pre-configured
-EasyBuild with the appropriate settings for CCR's environment. 
+EasyBuild with the appropriate settings for CCR's environment. To load CCR's
+easybuild module simply run this:
 
+```
+$ module load easybuild
+```
 
+!!! Note 
+    By default, modules are built in `$HOME/.local/easybuild/$CCR_VERSION`. If
+    you'd like to build modules in another location, for example your project
+    space, simply set the `EASYBUILD_PREFIX` env variable to your desired
+    location. Also remember to add this same path to `~/.ccr/modulepaths` so it
+    will be shown in the menu.
 
-specify which software to build, which version of
-the software (and its dependencies), which build parameters to use (e.g., which
-compiler toolchain to use), etc.  Think of them like a recipe that lists out
-what is needed to create a meal.  What ingredients are required and what is
-optional?  What order should the ingredients be added?  What are the steps to
-preparing the meal?  Are there any special instructions we need to know for how
-to properly prepare the dish?  The Easyconfig files list out all of this info
-for installing a software application and then when you run the script to
-install, the recipe is followed.  These "recipes" are provided by the community
-of EasyBuild users and are fully unit tested and vetted.  The EasyBuild
-installations allow for parallel builds, reproducibility of previous builds,
-extensive logging and error reporting (nothing is THAT easy!), automated
-installations, and dependency resolution, among other things.
+## Building a new software module
 
+If you can't find the software you're looking for from the [available software](modules.md) 
+provided by CCR, you can attempt to build it yourself. You can use easybuild to
+search for recipes to build. For example:
 
-CCR provides a repository of software using the file system called CERN Virtual
-Machine File System (CVMFS).  CCR's CVMFS is mounted as
-`/cvmfs/soft.ccr.buffalo.edu` on all CCR front end login servers and compute
-nodes. You can even mount this on your own desktop or laptop, if you want! More
-on that [here](). Compute Canada provides a great overview of CVMFS
-[here](https://docs.alliancecan.ca/wiki/CVMFS) CernVM-FS website and
-documentation can be found [here](https://cernvm.cern.ch/fs/)
+```
+$ module load easybuild
+$ eb -S samtools
+ * $CFGS1/s/SAMtools/SAMtools-1.13-GCC-10.3.0.eb
+ * $CFGS1/s/SAMtools/SAMtools-1.13-GCC-11.3.0.eb
+ * $CFGS1/s/SAMtools/SAMtools-1.14-GCC-11.2.0.eb
+ * $CFGS1/s/SAMtools/SAMtools-1.15-GCC-11.2.0.eb
+ * $CFGS1/s/SAMtools/SAMtools-1.15.1-GCC-11.2.0.eb
+ * $CFGS1/s/SAMtools/SAMtools-1.16.1-GCC-11.2.0.eb
+```
 
-## Compatibility Layer
+Select the recipe [for one of our supported compiler toolchains]((modules.md#supported-compiler-toolchains)
+and build the software by running the following command:
 
-The compatibility layer of the CCR software project uses [Gentoo
-Prefix](https://wiki.gentoo.org/wiki/Project:Prefix) to provide a known base on
-top of the host.  This is the foundation we use to build our software stack on.
-Using the Gentoo Prefix allows us to install compilers and other system
-packages in a non-standard location which helps avoid conflicts between
-systems.  It will no longer matter what base operating system CCR runs on our
-nodes or front end servers compared to your own machine as you can use our
-combability layer to level the playing field.  Consider us operating system
-agnostic going forward!  For those of you interested in system level testing,
-we encourage you to check out all the [docs on this prefix
-setup](https://wiki.gentoo.org/wiki/Project:Prefix).  However, the majority of
-CCR users will probably not care one bit nor notice any difference.
+```
+$ eb SAMtools-1.16.1-GCC-11.2.0.eb
+```
 
-## EasyBuild Software Installation
+Once the above command is complete you should see your new module when you run
+`module avail` under the `Your Modules` section:
 
+```
+$ module avail
+----- Your personal Compiler-dependent avx512 modules ---------
+   samtools/1.16.1 (bio)
+```
