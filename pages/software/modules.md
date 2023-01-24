@@ -154,7 +154,7 @@ lots of common scientific python packages.
 | ------------ | -------------------------------------------------------------------------------------------- |
 | python       | Bare python3 interpreter only                                                                |
 | scipy-bundle | beniget, Bottleneck, deap, gast, mpi4py, mpmath, numexpr, numpy, pandas, ply, pythran, scipy |
-| anaconda3    | [see here](https://docs.anaconda.com/anaconda/packages/pkg-docs/)                            |
+| anaconda3    | [see here](https://docs.anaconda.com/anaconda/packages/py3.9_linux-64/)                            |
 
 ## R
 
