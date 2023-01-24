@@ -100,7 +100,7 @@ salloc: error: Job submit/allocate failed: Invalid account or account/partition 
 sbatch: error: Batch job submission failed: Invalid partition or qos specification
 ```
 
-CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](../portals/coldfront.md).   More details on QOS and partition limits can be [found here](hpc/jobs/#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
+CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](/portals/coldfront.md).   More details on QOS and partition limits can be [found here](hpc/jobs/#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
 
 ## Why am I getting a QOSMaxSubmitJobPerUserLimit error when I try to submit a job?
 
@@ -110,11 +110,11 @@ sbatch: error: QOSMaxSubmitJobPerUserLimit
 sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)
 ```
 
-You will get this error if you have reached the partition or per user limits as [described here](hpc/jobs/#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
+You will get this error if you have reached the partition or per user limits as [described here](/hpc/jobs/#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
 
 ## How can I check what allocations I am on?  
 
-Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](../portals/coldfront.md)  
+Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](/portals/coldfront.md)  
 
 
 ## How do I acknowledge the use of CCR resources?  
