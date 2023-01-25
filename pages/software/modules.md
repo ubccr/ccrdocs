@@ -22,7 +22,7 @@ allowing you to run a particular application or provide access to a particular
 library. The module system allows CCR to provide multiple versions of
 software concurrently and enables users to easily switch between different
 versions without conflicts. Users can also build and maintain their own modules
-for more fine grain control over your groups environment. 
+for more fine grained control over your groups environment. 
 
 Modules are managed using a tool called [Lmod](https://lmod.readthedocs.io)
 developed by [TACC](https://www.tacc.utexas.edu/). For a more comprehensive

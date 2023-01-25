@@ -4,16 +4,16 @@ The `module` command has a variety of subcommands, outlined in the table below.
 You may shorten the command to `ml`, but the shortened command may require
 specialized syntax.
 
-| Command                 | Description                         |
-| ----------------------- | ----------------------------------- |
-| `module avail`          | List available software.            |
-| `module spider <module>`| Searches for a particular software. |
-| `module load <module>`  | Load a module to use the software.  |
-| `module unload <module>`| Remove or unload a module           |
-| `module purge`          | Remove all modules.                 |
-| `module save <name>`    | Save the state of all loaded module |
-| `module restore <name>` | Restore a state of saved modules.   |
-| `module help`           | Find information about additional   |
+| Command                 | Description                          |
+| ----------------------- | ------------------------------------ |
+| `module avail`          | List available software.             |
+| `module spider <module>`| Searches for a particular software.  |
+| `module load <module>`  | Load a module to use the software.   |
+| `module unload <module>`| Remove or unload a module            |
+| `module purge`          | Remove all modules.                  |
+| `module save <name>`    | Save the state of all loaded modules |
+| `module restore <name>` | Restore a state of saved modules.    |
+| `module help`           | Find information about additional    |
 
 For more information, refer to the [Lmod user guide](https://lmod.readthedocs.io/en/latest/010_user.html#user-s-tour-of-the-module-command)
 

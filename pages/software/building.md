@@ -16,7 +16,7 @@ use.
 
 Users can request software be installed by CCR staff by submitting a new [issue
 on GitHub here](https://github.com/ubccr/software-layer/issues/new). Please
-provide the name of the software or library you're interested and any specific
+provide the name of the software or library you're interested in and any specific
 details such as the URL where the software can be found. We also encourage you
 to [search the issues here](https://github.com/ubccr/software-layer/issues) to
 see if another user has already submitted a request. Users are strongly
@@ -35,7 +35,7 @@ EasyBuild provides a vast repository of build recipes for all kinds of software
 shared with the greater HPC community. There's a good chance that the software
 you're looking for already has an EasyBuild recipe.
 
-EasyBuild recipes, called easyconfigs, are text files (python syntax) used
+EasyBuild recipes, called easyconfigs, are text files (python syntax) used to
 instruct EasyBuild how to build software. You can browse the community
 supported [recipes here](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs).
 
@@ -99,14 +99,15 @@ toolchain](releases.md) if necessary and build the software by running the
 following command:
 
 ```
-# Build software
-$ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb
-
 # Check what are the dependencies
 $ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb -M
 
 # Build the the software and all the dependencies at once
 $ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb --robot
+
+# Build only the software (no deps)
+$ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb
+
 ```
 
 Once the above command is complete you should see your new module when you run
