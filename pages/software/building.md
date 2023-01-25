@@ -70,7 +70,7 @@ $ module load easybuild
 ```
 
 !!! Note 
-    Compiling certain software will be CPU archtecture specific. If you'd like
+    Compiling certain software will be CPU architecture specific. If you'd like
     to build software for a specific CPU architecture, be sure to load the
     corresponding `ccrarch/avx2` or `ccrarch/avx512` module first.
 

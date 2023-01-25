@@ -3,7 +3,7 @@
 CCR maintains a suite of software programs, libraries, and toolchains commonly
 used in scientific computing. The HPC clusters can execute most software that
 runs under Linux. In many cases, the software you need will already be
-installed and availabe to you on the compute nodes. You access the software
+installed and available to you on the compute nodes. You access the software
 using what's called a "module".  If the software you need is not available, you
 can ask our staff to install it for you or [do it yourself](building.md).
 
@@ -143,6 +143,8 @@ module load python
 
 python3 test-program.py
 ```
+
+For more information, see the [Running Jobs section](../hpc/jobs.md).
 
 ## Python
 
