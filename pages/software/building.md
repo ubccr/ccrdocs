@@ -124,7 +124,7 @@ For an excellent tutorial on how to build software with easybuild [see here](htt
 
 By default, easybuild modules are stored in `$HOME/.local/easybuild/$CCR_VERSION`. 
 This should be fine for small software libraries and personal use. However, the
-downsides are other users will not be able to see your modules and you can
+downsides are your group members will not be able to see your modules and you can
 easily fill up your home directory quota.  To build software modules in your
 projects space, simply set the `CCR_BUILD_PREFIX` env variable to your desired
 location [before running easybuild](#building-a-new-software-module). For example:
