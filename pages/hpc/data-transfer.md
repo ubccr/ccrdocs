@@ -18,6 +18,7 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 3. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
 
+4. ** [Transferring Files with UB Box](#transferring-files-with-ub-box) **
 
 !!! Warning "VPN Required" 
     Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
@@ -276,6 +277,42 @@ After the Site has been added you can connect to CCR by selecting it from the Si
 * This is browser based for simple transfers and not recommended for large amounts of data  
 
 This information is available in our [Open OnDemand Documentation](../portals/ood.md)
+
+
+## Transferring Files with UB Box
+
+The UB Information Technology group has recommended using ftps (secure ftp) to transfer files to/from UB Box because 
+it is considerably faster than the alternatives.  To use "ftps" (i.e. ftp over SSL), CCR users can use "lftp" on a CCR 
+login node (if the transfer will take less than 15 minutes), by running an interactive job or using an OnDemand desktop 
+to run for longer periods of time. Prior to doing so, UB users must create an FTP password within Box.  
+
+Please refer the UBit documentation for Using FTP with UBbox found [Here](https://www.buffalo.edu/content/www/ubit/information-for-it-staff-pw/box/ftp.html)
+
+Once your UBbox ftp password is setup, you can transfer files from CCR to UB Box using SFTP. 
+
+To do this, SSH into a CCR Login node and use the following steps substituting in your information:
+
+```bash
+$ lftp
+lftp :~> set ftps:initial-prot ""
+lftp :~> set ftp:ssl-force true
+lftp :~> set ftp:ssl-protect-data true
+lftp :~> open ftps://ftp.box.com:990
+lftp ftp.box.com:~> user UBID@buffalo.edu
+Password: _enter_your_box_ftp_password_here_
+lftp UBID@buffalo.edu@ftp.box.com:~> ls
+drwx------ 1 owner group 0 Mar 24 2020 Your_files
+ [...]
+
+lftp UBID@buffalo.edu@ftp.box.com:~> cd somedir
+lftp UBID@buffalo.edu@ftp.box.com:/somedir~> get somefile
+16063 bytes transferred
+lftp UBID@buffalo.edu@ftp.box.com:/somedir~> exit
+$ lftp
+```
+
+Additional information from Box on using Using Box with FTP or FTPS along with examples is [Here]( https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS)
+
 
 ## More reading
 
