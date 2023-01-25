@@ -1,7 +1,5 @@
 # CCR Research Computing Documentation
 
-==This site is a work in progress.  If you can't find something here, please refer to the [CCR help desk with searchable knowledgebase](https://ubccr.freshdesk.com) for more information==
-
 The [Center for Computational Research (CCR)](https://buffalo.edu/ccr) at the [University at Buffalo](https://buffalo.edu) is a high-performance research computing center offering faculty, staff, students, and local businesses access to supercomputing environments, high-end visualization services, an on-premise research cloud infrastructure, and experienced staff to help you move your research forward.  
 
 This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Information about CCR support services can be [found here](help.md).   
