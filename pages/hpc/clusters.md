@@ -14,7 +14,7 @@ The ub-hpc cluster contains the following partitions:
 * general-compute: Large pool of compute nodes for academic users
 * viz: Hardware Accelerated Graphics compute nodes
 * industry: Compute nodes industry partners pay to use
-* scavenger: Peemptible jobs on all ub-hpc nodes
+* scavenger: Preemptible jobs on all ub-hpc nodes
 
 ###### Faculty Compute Cluster
 
