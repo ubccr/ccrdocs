@@ -1,15 +1,22 @@
-# Clusters
-## General Compute
+# Clusters/Partitions
 
-Write me!
+CCR maintains two clusters; *ub-hpc* and *faculty*. Within each cluster exist partitions (queues) that users can request to have their jobs run on. Not all partitions are available to all users. Below are description of the clusters and the partitions. 
 
-## Faculty
+Examples on how to run on these clusters and partitions can be found [here](https://docs.ccr.buffalo.edu/en/latest/hpc/jobs/).
+ 
+###### UB-HPC Compute Cluster
 
-Write me!
+The ub-hpc cluster contains the following partitions:
 
-## Industry 
+* debug: Dedicated compute nodes to help users debug their workflows  
+* general-compute: Large pool of compute nodes for academic users
+* viz: Hardware Accelerated Graphics compute nodes
+* industry: Compute nodes industry partners pay to use
+* scavenger: Peemptible jobs on all ub-hpc nodes
 
-Write me!
+###### Faculty Compute Cluster
+
+This cluster contains over 50 faculty owned or project specific partitions. Access to these partitions are determined by the owner. Preemptible access done via the faculty cluster scavenger partition.
 
 ## Node types
 
