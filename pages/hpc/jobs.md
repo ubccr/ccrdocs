@@ -2,17 +2,16 @@
 
 Our HPC system is shared among many researchers and CCR manages usage of the systems through jobs. Jobs are simply an allotment of resources that can be used to execute processes. CCR uses a program named Slurm, the Simple Linux Utility for Resource Management, to create and manage jobs.
 
-In order to run a program on a cluster, you must request resources from Slurm to generate a job. Resources are requested from a login node. You must then provide commands to run your program on those requested resources.
+In order to run a program on a cluster, you must request resources from Slurm to generate a job. Resources are requested from a login node. You then provide commands to run your program on those requested resources (compute nodes).
 
 
 ## Running applications with Jobs
 
-There are two types of jobs, interactive jobs and batch jobs. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-containted set of commands in a script which is submitted to the cluster for execution on a compute node. 
+There are two types of jobs, interactive and batch. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-containted set of commands in a script which is submitted to the cluster for execution on a compute node. 
 
 ### Interactive Job Submission
 
 Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job, you will request time and resources. Once available, you will be logged into the assigned node and the job will be ended when you log out or your reqested time limit is reached.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
-
 
 **Example Interactive Job**
 
@@ -29,8 +28,6 @@ To complete/end this job, we would type `exit` on the command line.
 Batch jobs are the most common type of job on HPC systems. Batch jobs are resource provisions that run applications on compute nodes and do not require supervision or interaction. Batch jobs are commonly used for applications that run for long periods of time and require no manual user input.
 
 **Example Job Scripts**
-
-Below are sample script which can be sbatch'd to Slurm to run on a compute node.
 
 Below is an explanation of the SBATCH options used in our samples. These are Slurm directives and should be understood before submitting a job.  For more information on Slurm directives, partitions, and QOS, [see here](#slurm-directives-partitions-qos).
 
@@ -83,7 +80,8 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 
 ```
 
-Below are several sample scripts which can be submitted using the `sbatch` command to Slurm to run on a compute node.  We use some of the Slurm directives as described above.
+Below are several sample scripts which can be submitted to Slurm using the `sbatch` command. Batch scripts should be submitted to from a login node and the commands within the script will be excuted on a compute node.  We use some of the Slurm directives as described above.
+
 To submit to the **debug partition on the ub-hpc cluster**, the slurm script would look like:
 
 ```
@@ -150,6 +148,11 @@ echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
 #Let's finish some work
 
 ```
+!!! Note 
+	Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff.
+!!! Note "Caution: Maintenance Downtimes"
+    Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff on maintenance days.  See the [schedule here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
+
 To submit to the **scavenger partition on the ub-hpc cluster**, the slurm script would look like:
 
 ```
@@ -180,7 +183,7 @@ echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
 To submit a batch script to Slurm for processing:
 
 ````
-sbatch job.slurm.script
+sbatch slurm.script
 ```` 
 For more information, [visit the Slurm docs on sbatch](https://slurm.schedmd.com/sbatch.html)
 
@@ -201,24 +204,6 @@ scancel <job_id>
 For more information, [visit the Slurm docs on scancel](https://slurm.schedmd.com/scancel.html)
 
 For additional Slurm commands, [visit the Slurm command manual](https://slurm.schedmd.com/quickstart.html)
-
-## Slurm <sbatch> Job Flags
- 
-The `sbatch` command supports many optional flags. To review all the options, please visit the Slurm [sbatch page](http://slurm.schedmd.com/sbatch.html). Below are some useful flags for CCR users: 
-
-| Type                   | Description                                         | Flag                       |
-| :--------------------- | :-------------------------------------------------- | :------------------------- |
-| Partitions         | Specify a partition                                 | --partition=partition_name |
-| Sending email          | Receive email at beginning or end of job completion | --mail-type=type           |
-| Email address          | Email address to receive the email                  | --mail-user=user           |
-| Number of nodes        | The number of nodes needed to run the job           | --nodes=nodes              |
-| Number of tasks        | The total number of cores needed to run the job     | --ntasks=processes         |
-| Quality of service | Specify a QOS                                       | --qos=qos                  |
-| Wall time              | The max. amount of time your job will run for       | --time=wall time           |
-| Job Name               | Name your job so you can identify in queue          | --job-name=`<jobname>`       |
-
-
-
 
 ## Slurm Directives, Partitions & QoS
 
