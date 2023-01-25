@@ -57,7 +57,7 @@ nav:
     - CCR IDM (Identity Management Portal): portals/idm.md
     - ColdFront (Allocations Management Portal): portals/coldfront.md
     - Open OnDemand (Browser based HPC Portal): portals/ood.md
-    - Open XDMoD (Job Metrics Portal): portals/metrics.md
+    - UBMoD (Job Metrics Portal): portals/metrics.md
     - WebMO (Chemistry Portal): portals/webmo.md
   - Software:
     - Software infrastructure: software/about.md
