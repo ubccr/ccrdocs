@@ -30,11 +30,17 @@ type and its intended use below.
 
 ### Login Nodes
 
-* Connections are balanced across two physical servers (vortex1 and vortex2) 
+* _Use for_: editing scripts, moving files, small data transfers, submitting jobs
+* _Do not use for_: Heavy computations, building software or long running processes
 * 15 Minute time limit on running processes
-* _Do not use for_: Heavy computations or long running processes
-* _Use for_: editing scripts, moving files, small data transfers, short compiles, scheduling jobs
 * Many users are typically logged into these at the same time
+* Connections are balanced across two physical servers (vortex1 and vortex2) 
+
+### Compile Nodes
+
+* _Use for_: [Building Software](../software/building.md), submitting Jobs
+* _Do not use for_: Heavy computations
+* Access these nodes by typing `ssh compile` from a login node
 
 ### Compute Nodes
 
