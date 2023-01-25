@@ -150,7 +150,8 @@ echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
 ```
 !!! Note 
 	Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff.
-
+!!! Note "Caution: Maintenance Downtimes"
+    Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff on maintenance days.  See the [schedule here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
 
 To submit to the **scavenger partition on the ub-hpc cluster**, the slurm script would look like:
 
