@@ -1,6 +1,8 @@
-# Clusters/Partitions
+# Clusters
 
 CCR maintains two clusters; *ub-hpc* and *faculty*. Within each cluster exist partitions (queues) that users can request to have their jobs run on. Not all partitions are available to all users. Below are description of the clusters and the partitions. 
+
+Compute nodes on all CCR clusters are subject to monthly downtimes. Downtime information can be found [here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
 
 Examples on how to run on these clusters and partitions can be found [here](https://docs.ccr.buffalo.edu/en/latest/hpc/jobs/).
  
