@@ -13,6 +13,10 @@ $ echo $CCR_VERSION
 
 The latest release is [2023.01](#2023.01).
 
+!!! Tip "Pin to a specific release"
+    Users can ensure their environment is always pinned to a supported CCR release by 
+    adding the version string to this file: `~/.ccr/version`
+
 ## 2023.01
 
 Supported compiler toolchains:

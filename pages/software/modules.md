@@ -156,6 +156,8 @@ lots of common scientific python packages.
 | scipy-bundle | beniget, Bottleneck, deap, gast, mpi4py, mpmath, numexpr, numpy, pandas, ply, pythran, scipy |
 | anaconda3    | [see here](https://docs.anaconda.com/anaconda/packages/py3.9_linux-64/)                            |
 
+We also recommend using [virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment).
+
 ## R
 
 Two R modules are provided: `r` and `r-bundle-bioconductor`, both of which
@@ -169,7 +171,7 @@ $ module spider r-bundle-bioconductor
 
 ## Perl
 
-We provide a `perl` module which includes many pre-build CPAN modules. To see
+We provide a `perl` module which includes many pre-built CPAN modules. To see
 the complete list run: 
 
 ```

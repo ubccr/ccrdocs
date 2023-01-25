@@ -7,6 +7,11 @@ attempt to [build yourself](#building-a-new-software-module).  This document
 provides some pointers on building custom modules for your group or personal
 use. 
 
+!!! Warning "You must build software on compile nodes"
+    You will not be able to compile software on the login nodes. You must first
+    ssh into a compile node before building software. After logging in to the
+    login node, simply run `ssh compile`.
+
 ## Software build requests
 
 Users can request software be installed by CCR staff by submitting a new [issue
@@ -65,11 +70,9 @@ $ module load easybuild
 ```
 
 !!! Note 
-    By default, modules are built in `$HOME/.local/easybuild/$CCR_VERSION`. If
-    you'd like to build modules in another location, for example your project
-    space, simply set the `EASYBUILD_PREFIX` env variable to your desired
-    location. Also remember to add this same path to `~/.ccr/modulepaths` so it
-    will be shown in the menu.
+    Compiling certain software will be CPU archtecture specific. If you'd like
+    to build software for a specific CPU architecture, be sure to load the
+    corresponding `ccrarch/avx2` or `ccrarch/avx512` module first.
 
 ## Building a new software module
 
@@ -107,3 +110,39 @@ $ module avail
 ----- Your personal Compiler-dependent avx512 modules ---------
    samtools/X.X.X (bio)
 ```
+
+## Building modules for your group
+
+By default, easybuild modules are stored in `$HOME/.local/easybuild/$CCR_VERSION`. 
+This should be fine for small software libraries and personal use. However, the
+downsides are other users will not be able to see your modules and you can
+easily fill up your home directory quota.  To build software modules in your
+projects space, simply set the `CCR_BUILD_PREFIX` env variable to your desired
+location [before running easybuild](#building-a-new-software-module). For example:
+
+```
+$ module load easybuild
+$ export CCR_BUILD_PREFIX=/projects/academic/grp-ccrstaff/easybuild
+# verify the install path. Note CCR_VERSION will always be appended to the path
+$ eb --show-config | grep installpath
+installpath             (E) = /projects/academic/grp-ccrstaff/easybuild/2023.01
+```
+
+To ensure your new custom modules show up in `module avail`, you can set the
+`CCR_CUSTOM_BUILD_PATHS` env variable. Note: this only has to be done once. 
+
+```
+# Also set the env variable so new modules get picked up in the menu
+$ export CCR_CUSTOM_BUILD_PATHS=$CCR_BUILD_PREFIX
+
+# To ensure this path gets picked up on login
+$ mkdir -p $HOME/.ccr
+$ echo $CCR_CUSTOM_BUILD_PATHS > ~/.ccr/modulepaths
+```
+
+!!! Tip "Multiple custom module paths"
+    You can set multiple custom module paths in this file `~/.ccr/modulepaths`.
+    Paths are colon `:` separated. For example:
+    `/projects/path1:/projects/path2`. It's expected that each path has
+    sub-directories `CCR_VERSION/modules` which contain module files for the
+    specific CCR_VERISON.
