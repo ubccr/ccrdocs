@@ -11,7 +11,7 @@ able to create projects in ColdFront and request allocations to CCR resources
 for themselves and their group members or students.  
 
 Getting started with ColdFront is easy and all you need is a CCR user account.
-Don't have one yet? [see here](../getting-access.md). Faculty members and PI's
+Don't have one yet? [see here](../getting-access.md). Faculty members and principal investigators (PIs)
 can use ColdFront to:
 
 - [Request an Allocation](#request-an-allocation)
@@ -23,13 +23,14 @@ ColdFront](https://coldfront.ccr.buffalo.edu) and view information about the
 projects you're on and what resources you have access to but you will not be
 able to request allocations.
 
-!!! Warning "VPN Required" 
+!!! Warning "VPN Required"
     Access to ColdFront is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
+
 ## Request an Allocation
 
-Access to CCR resources is managed in ColdFront using Projects and Allocations. 
+Access to CCR resources is managed in ColdFront using Projects and Allocations.
 
 Projects capture information about your research including your group members
 and any allocations to resources. Most PIs have a single project which best
@@ -63,7 +64,7 @@ members and you will receive an email confirmation once it's approved.
 
 Users can be added or removed to your project in ColdFront. To add a user to
 your project they must already have a CCR account. Please direct them to [these
-instructions](../getting-access.md) to create their own CCR user account. 
+instructions](../getting-access.md) to create their own CCR user account.
 
 To add users to your project, follow these steps:
 
@@ -77,7 +78,7 @@ To add users to your project, follow these steps:
 You can also remove users from your project by clicking on your project and
 under the `Users` section click on the `Remove User` button.
 
-!!! Tip
+!!! Tip "Delegate Manager Role"
     When adding a user to your project you can optionally designate them as a
     "Manager" by selecting their role using the drop down next to their email.
     A "Manager" is a user who has the same permissions as the PI to add/remove

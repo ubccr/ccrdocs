@@ -23,6 +23,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - footnotes
+  - def_list
   - admonition
   - codehilite:
       guess_lang: false
@@ -60,11 +61,10 @@ nav:
     - Open XDMoD (Job Metrics Portal): portals/metrics.md
     - WebMO (Chemistry Portal): portals/webmo.md
   - Software:
-    - Software infrastructure: software/about.md
-    - The Module System: software/modules.md
+    - Available Software: software/modules.md
+    - Useful Module Commands: software/module-commands.md
     - Building your own software: software/building.md
-    - Python Options: software/python.md
-    - Perl & R Libraries: software/perl-R-libraries.md
+    - Releases: software/releases.md
   - Cloud:
     - LakeEffect (On-Prem Cloud): cloud/lake-effect.md
     - Using the Cloud: cloud/using.md

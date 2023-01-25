@@ -28,7 +28,7 @@ To enable two factor authentication on your account, follow these easy steps:
 
 You can also watch the video below which details the entire process:
 
-![type:video](https://youtube.com/embed/BDd-J1DAwsw)  
+![type:video](https://youtube.com/embed/vBpiNWsAv-8)  
 
 ## Logging In
 
@@ -49,7 +49,7 @@ during login.
 
 You can also watch the video below which demonstrates the login process:
 
-![type:video](https://youtube.com/embed/g6hWYooFKWE)
+![type:video](https://youtube.com/embed/7DcoWk57mKg)
 
 ## Supported authenticator apps
 
