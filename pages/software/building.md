@@ -99,7 +99,14 @@ toolchain](releases.md) if necessary and build the software by running the
 following command:
 
 ```
+# Build software
 $ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb
+
+# Check what are the dependencies
+$ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb -M
+
+# Build the the software and all the dependencies at once
+$ eb SAMtools-X.X.X-GCC-Y.Y.Y.eb --robot
 ```
 
 Once the above command is complete you should see your new module when you run
@@ -110,6 +117,8 @@ $ module avail
 ----- Your personal Compiler-dependent avx512 modules ---------
    samtools/X.X.X (bio)
 ```
+
+For an excellent tutorial on how to build software with easybuild [see here](https://easybuilders.github.io/easybuild-tutorial/).
 
 ## Building modules for your group
 
