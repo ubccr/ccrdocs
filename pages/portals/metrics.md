@@ -1,4 +1,4 @@
-# Open XDMoD Metrics Portal  
+# UBMoD Metrics Portal  
 
 CCR is pleased to provide users with UBMoD - the Open XDMoD web-based tool for monitoring machine utilization and retrieving job statistics.  The interface provides a dashboard overview of resource consumption along with fine-grained control over the time period and resources that are displayed. The information is presented in easy to understand interactive charts, graphs, and tables.
 

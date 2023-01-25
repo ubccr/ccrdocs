@@ -31,8 +31,23 @@ _**Common errors:**_
 
 ## Why am I seeing a 'Home directory missing' error on login?  
 
-This generally means your account has not yet been provisioned.  After you create your CCR account, you must be added to an active allocation that gives you access to CCR's resources.  Once this is done, your account gets provisioned with the appropriate access and a home directory, if you're a new user.  This account provisioning happens at the end of every business day so you may not be able to login immediately after getting added to an allocation.  If it's been several business days since you've been added but you're still seeing this message, please [contact CCR Help](help.md).  For more information on access and allocations, please [see here](/getting-access/#allocation-requests).  
+This usually means your account has not yet been provisioned.  After you create your CCR account, you must be added to an active allocation that gives you access to CCR's resources.  Once this is done, your account gets provisioned with the appropriate access and a home directory, if you're a new user.  This account provisioning happens at the end of every business day so you may not be able to login immediately after getting added to an allocation.  If it's been several business days since you've been added but you're still seeing this message, please [contact CCR Help](help.md).  For more information on access and allocations, please [see here](/getting-access/#allocation-requests).  
 
+## Why is the ColdFront allocation showing active but I can't login?  
+
+This is the same reason as [this](#why-am-i-seeing-a-home-directory-missing-error-on-login) - your account has not yet been provisioned.  
+
+## Why do I get "Fatal system error" or "Account already exists" error when creating a new account?  
+
+When trying to create a new CCR account, you get an error that says "fatal system error" or "account with this username already exists" please contact [CCR help](help.md).  Staff will need to take manual action to rectify the problem.  
+
+## Why can I login to the help portal but not my CCR account?  
+
+The Freshdesk help desk portal accounts are separate from our CCR system accounts.  This allows people who do not yet have a CCR account to request help from CCR staff.  For more info on CCR accounts, see our [Getting Access](getting-access.md) page.  For more info on the help desk portal, [see here](help.md).  
+
+## Can I use something other than a smartphone for two factor authentication?  
+
+Yes!  Though smartphones are the recommended second factor for your CCR account, if you don't have one or done want to use yours, you can utilized a desktop application (i.e. Authy) or a programmable hardware security key.  There are many on the market including Yubico Yubikeys, Google Titan security keys, and others [recommended by UBIT](https://www.buffalo.edu/ubit/services/duo/options/security-key.html).  **CCR is not able to integrate with the hardware security keys provided by UBIT because they are not programmable and we're unable to get the "secret" needed to join them to our authentication system.** Please contact [CCR Help](help.md) for details on how to configure your hardware key.    
 
 ## How can I check how full my directories are?  
 
@@ -55,6 +70,10 @@ Alternatively, you can view this information on the [ColdFront](https://coldfron
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 
 This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!) so we do not recommend loading them in the .bashrc file.   
+
+## How can I transfer my files to UB Box?  
+
+
 
 ## When will my job start?
 
