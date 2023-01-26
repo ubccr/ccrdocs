@@ -48,6 +48,7 @@ nav:
     - Getting Access: getting-access.md
     - Two Factor Authentication: 2fa.md
     - Getting Started: getting-started.md
+    - Available Resources: available-resources.md
   - High Performance Computing:
     - Logging In: hpc/login.md
     - Clusters: hpc/clusters.md
