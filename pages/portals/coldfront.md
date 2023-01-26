@@ -53,7 +53,9 @@ To request an allocation to a CCR resource follow these easy steps:
 Once you submit your allocation request it will be reviewed by center staff
 members and you will receive an email confirmation once it's approved.
 
-!!! Note "Allocation Renewals"
+**Not sure what to request an allocation for?** [Check out this for more information](/getting-access/#available-resources)  
+
+!!! Tip "Allocation Renewals"
     Allocations are approved for a specific time period (most commonly 1 year).
     You will have the option to renew your allocation before the expiration
     date to continue using the resources. If your allocation is not renewed by

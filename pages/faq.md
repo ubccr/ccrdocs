@@ -71,9 +71,9 @@ Alternatively, you can view this information on the [ColdFront](https://coldfron
 
 This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!) so we do not recommend loading them in the .bashrc file.   
 
-## How can I transfer my files to UB Box?  
+## How can I transfer my files to/from UB Box?
 
-
+Please see the [recommended instructions from UBIT here](/hpc/data-transfer/#transferring-files-with-ub-box)  
 
 ## When will my job start?
 
@@ -87,13 +87,11 @@ For more information on the `squeue` command, take a look at our [Useful Slurm C
 
 ## How can I tell what my job's priority is?  
 
-You can check to see what your job's priority is compared to others in the queue, using the `sprio` command:    
-```
-sprio -j jobid  
-sprio -u username
-```  
+For more information on job priority [see here](/hpc/jobs#job-priority).  
 
-To list jobs in the queue based on priority from highest to lowest, use the `sranks` command  
+## Why isn't my job running immediately using a priority boost QOS?
+
+The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.  For more information on job priority and fairshare calculations [see here](/hpc/jobs#job-priority).  
 
 ## Why is my job pending with reason ‘ReqNodeNotAvail’?  
 
@@ -131,9 +129,18 @@ sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (
 
 You will get this error if you have reached the partition or per user limits as [described here](/hpc/jobs/#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
 
+
+
+## How do I know what to request an allocation for?  
+
+Please see [this section of the Getting Access](/getting-access/#available-resources) page for a break down of currently available resources at CCR.
+
 ## How can I check what allocations I am on?  
 
 Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](/portals/coldfront.md)  
+
+## How can I turn off notifications in ColdFront?  
+
 
 
 ## How do I acknowledge the use of CCR resources?  

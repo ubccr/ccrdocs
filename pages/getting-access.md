@@ -22,12 +22,12 @@ If you do not have a UBIT account or a Roswell Park user account please
 CCR resources are freely available to the UB and Roswell Park research
 communities. You must create an individual CCR account and enable two factor
 authentication if you wish to access any CCR resources. Please note that CCR
-user accounts are separate from your UBIT or Roswell Park accounts. 
+user accounts are separate from your UBIT or Roswell Park accounts.
 
 A CCR user account can be created quickly and easily by [by filling out the
 form here](https://idm.ccr.buffalo.edu/signup) using your UB or Roswell Park
 email address. Once your account is created you will need to verify your email
-address and enable two factor authentication. 
+address and enable two factor authentication.
 
 ## Enable Two Factor Authentication
 
@@ -63,7 +63,7 @@ For more details on two factor authentication [see here](2fa.md).
 Access to CCR resources is managed using allocations. ColdFront is the
 allocations management system CCR uses to manage resource allocations for the
 entire center. In order to access CCR resources you must be on an active
-allocation. 
+allocation.
 
 - __Faculty members__ (Principal investigators) can use
   [ColdFront](https://coldfront.ccr.buffalo.edu) to create projects, add group
