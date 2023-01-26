@@ -41,6 +41,9 @@ project has been created take a moment to add any publications, grants, or
 research output which helps us keep track of the scientific impact of our
 center. You can also [add users](#add-or-remove-users) to your project.
 
+!!! Note "New Faculty Must Request PI Status"  
+    If you're a faculty researcher or instructor and new to CCR, you must first login to [ColdFront](https://coldfront.ccr.buffalo.edu), click on your username at the top right and select "User Profile" from the drop down menu.  Click on "Upgrade Account" to initiate the process of verifying your status.  You'll be notified when CCR has upgraded your account and you can proceed with the steps below.  This only needs to be done once.
+
 To request an allocation to a CCR resource follow these easy steps:
 
 1. Login to [ColdFront](https://coldfront.ccr.buffalo.edu)
@@ -53,7 +56,9 @@ To request an allocation to a CCR resource follow these easy steps:
 Once you submit your allocation request it will be reviewed by center staff
 members and you will receive an email confirmation once it's approved.
 
-!!! Note "Allocation Renewals"
+**Not sure what to request an allocation for?** [Check out this for more information](/getting-access/#available-resources)  
+
+!!! Tip "Allocation Renewals"
     Allocations are approved for a specific time period (most commonly 1 year).
     You will have the option to renew your allocation before the expiration
     date to continue using the resources. If your allocation is not renewed by
