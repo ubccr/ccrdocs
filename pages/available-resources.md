@@ -5,7 +5,7 @@ There are many resources available for use at CCR.  These are listed in alphabet
 ## Clusters
 :    **UB-HPC academic partitions** - These partitions in the UB-HPC cluster are available to all UB faculty, their students & collaborators.  This is the primary resource utilized at CCR.  Free for UB faculty groups to use.    
 :    **Industry cluster partition** - Use of this partition in the UB-HPC cluster is restricted to business partners or faculty with a business use case.  Please provide a justification of this use case when requesting the allocation.  Charges are based on a Cooperative Use Agreement signed between the company and UB.    
-:    **Faculty luster partitions** - The faculty cluster is made up of partitions of nodes purchased by faculty members or research groups.  These are not publicly available.  You will only see them in your list of resources to request allocations for if you're the owner or the owner has allowed CCR to share the access with you.  
+:    **Faculty cluster partitions** - The faculty cluster is made up of partitions of nodes purchased by faculty members or research groups.  These are not publicly available.  You will only see them in your list of resources to request allocations for if you're the owner or the owner has allowed CCR to share the access with you.  
 
 [More Info on HPC](hpc/clusters.md)  
 
