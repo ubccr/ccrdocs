@@ -7,7 +7,7 @@ In order to run a program on a cluster, you must request resources from Slurm to
 
 ## Running applications with Jobs
 
-There are two types of jobs, interactive and batch. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-containted set of commands in a script which is submitted to the cluster for execution on a compute node. 
+There are two types of jobs, interactive and batch. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-containted set of commands in a script which is submitted to the cluster for execution on a compute node.
 
 ### Interactive Job Submission
 
@@ -21,7 +21,7 @@ To submit an interactive job to the general-compute partition for a single node 
 salloc --qos=general-compute --partition=general-compute  --job-name "InteractiveJob" --nodes=1 --ntasks=32 --mem=50G -C INTEL --time=05:20:00
 ```
 
-To complete/end this job, we would type `exit` on the command line. 
+To complete/end this job, we would type `exit` on the command line.
 
 ## Batch Job Submission
 
@@ -35,10 +35,10 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 #!/bin/sh
 #
 # 	How long the job will run once it begins. If the job runs longer than what is
-# 	defined here, it will be cancelled by Slurm. 
+# 	defined here, it will be cancelled by Slurm.
 # 	If you make the expected time too long, it will
-# 	take longer for the job to start. 
-# 	Format:	dd:hh:mm:ss 
+# 	take longer for the job to start.
+# 	Format:	dd:hh:mm:ss
 
 #SBATCH --time=00:01:00
 
@@ -51,7 +51,7 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 #SBATCH --ntasks-per-node=1
 
 # 	How much memory do you need.
-# 	This will define memory (in MB) this job requires. 
+# 	This will define memory (in MB) this job requires.
 
 #SBATCH --mem=10000
 
@@ -68,7 +68,7 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 #SBATCH --mail-user=myemailaddress@institution.edu
 
 # 	Tell slurm the types of emails to send.
-# 	Options: NONE, BEGIN, END, FAIL, ALL 
+# 	Options: NONE, BEGIN, END, FAIL, ALL
 
 #SBATCH --mail-type=end
 
@@ -148,7 +148,7 @@ echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
 #Let's finish some work
 
 ```
-!!! Note 
+!!! Note
 	Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff.
 !!! Note "Caution: Maintenance Downtimes"
     Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff on maintenance days.  See the [schedule here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
@@ -184,7 +184,7 @@ To submit a batch script to Slurm for processing:
 
 ````
 sbatch slurm.script
-```` 
+````
 For more information, [visit the Slurm docs on sbatch](https://slurm.schedmd.com/sbatch.html)
 
 #### squeue
@@ -233,6 +233,9 @@ These are the partitions available at CCR:
 | viz     | 24 hour            | 24 hour          | 1              |   1        |
 
 
+**Priority Boosts**  
+Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award and the 2017 NSF MRI award that helped to purchase new equipment are also granted priority boosts for their group.  These allocations have been added to your ColdFront project and are active for a period of 5 years.  The allocations can not be renewed.  Group members should utilize the `mri` or `nih` QOS values to take advantage of the priority boost.  NOTE:  All of these QOS values are only available on the UB-HPC cluster.
+
 ## Monitoring Jobs
 
 ### Active Jobs monitoring via OnDemand
@@ -261,6 +264,3 @@ Slurm account information is also available and useful depending on what informa
 
 ### Metrics OnDemand
 For metrics about job performance and node usage after your job completes, please use the [UBMoD portal](https://ubmod.ccr.buffalo.edu/). Job data is usually available 24 hours after a job completes. [More details about UBMod.](https://ubccr.freshdesk.com/support/solutions/folders/13000014875)
-
-
-

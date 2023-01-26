@@ -71,6 +71,10 @@ Alternatively, you can view this information on the [ColdFront](https://coldfron
 
 This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!) so we do not recommend loading them in the .bashrc file.   
 
+## How can I transfer my files to/from UB Box?
+
+Please see the [recommended instructions from UBIT here](/hpc/data-transfer/#transferring-files-with-ub-box)  
+
 ## When will my job start?
 
 You can list information on your job’s start time using the squeue command:
@@ -126,6 +130,10 @@ sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (
 ```
 
 You will get this error if you have reached the partition or per user limits as [described here](/hpc/jobs/#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
+
+## Why isn't my job running immediately using a priority boost QOS?
+
+The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.
 
 ## How do I know what to request an allocation for?  
 
