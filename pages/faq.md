@@ -87,13 +87,11 @@ For more information on the `squeue` command, take a look at our [Useful Slurm C
 
 ## How can I tell what my job's priority is?  
 
-You can check to see what your job's priority is compared to others in the queue, using the `sprio` command:    
-```
-sprio -j jobid  
-sprio -u username
-```  
+For more information on job priority [see here](/hpc/jobs#job-priority).  
 
-To list jobs in the queue based on priority from highest to lowest, use the `sranks` command  
+## Why isn't my job running immediately using a priority boost QOS?
+
+The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.  For more information on job priority and fairshare calculations [see here](/hpc/jobs#job-priority).  
 
 ## Why is my job pending with reason ‘ReqNodeNotAvail’?  
 
@@ -131,9 +129,7 @@ sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (
 
 You will get this error if you have reached the partition or per user limits as [described here](/hpc/jobs/#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
 
-## Why isn't my job running immediately using a priority boost QOS?
 
-The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.
 
 ## How do I know what to request an allocation for?  
 

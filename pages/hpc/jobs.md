@@ -236,6 +236,56 @@ These are the partitions available at CCR:
 **Priority Boosts**  
 Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award and the 2017 NSF MRI award that helped to purchase new equipment are also granted priority boosts for their group.  These allocations have been added to your ColdFront project and are active for a period of 5 years.  The allocations can not be renewed.  Group members should utilize the `mri` or `nih` QOS values to take advantage of the priority boost.  NOTE:  All of these QOS values are only available on the UB-HPC cluster.
 
+## Job Priority  
+
+Factors that Determine Job Priority:  
+:  **Age** - the amount of time the job has been waiting in the queue  
+:  **Job Size** - number of nodes requested by the job  
+:  **Partition** - priority for a given partition  
+:  **Fairshare** - priority contribution based on compute resources used by members in a research group within the last 30 days. The more jobs that have run on the cluster the lower the priority.  The fewer number of jobs that have run the higher the priority.  
+:  **Quality of Service (QOS)** - supporters of CCR are given a priority boost for their group's jobs.  [Find out how to become a CCR supporter](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost)  
+:  **TRES** -  Each TRES Type has its own priority factor for a job, which represents the amount of TRES Type requested/allocated in a given partition. The more a given TRES Type is requested/allocated on a job, the greater the job priority will be for that job.  CCR weights memory and GPU requests and provides a slightly higher priority for these to allow for proper scheduling of our heterogenous nodes.  
+
+See the Slurm documentation for more details about [SLURM Multifactor Priority Calculations](https://slurm.schedmd.com/priority_multifactor.html) and [Fairshare](https://slurm.schedmd.com/priority_multifactor.html#fairshare)
+
+**Job Priority Formula:**  
+```
+Job_priority =
+(PriorityWeightAge) * (age_factor) +
+(PriorityWeightFairshare) * (fair-share_factor) +
+(PriorityWeightJobSize) * (job_size_factor) +
+(PriorityWeightPartition) * (partition_factor) +
+(PriorityWeightQOS) * (QOS_factor)
+```
+
+**Weights assigned to Priority Factors for UB-HPC cluster:**  
+```
+PriorityWeightAge       = 50000
+PriorityWeightAssoc     = 0
+PriorityWeightFairShare = 80000
+PriorityWeightJobSize   = 200000
+PriorityWeightPartition = 1000000
+PriorityWeightQOS       = 50000
+PriorityWeightTRES      = CPU=0,Mem=.01,GRES/gpu=30000
+```
+
+**To View Fairshare:**  
+```
+sshare <flag>  
+--accounts=group_name  
+--all --accounts=group_name  (Shows fairshare for members of the group)  
+```
+
+**Show Job Priority:**  
+```
+sprio <flag>
+-j jobid
+-u username
+```
+
+**To show Job Priority sorted from highest to lowest:**  Use the `sranks` command  
+
+
 ## Monitoring Jobs
 
 ### Active Jobs monitoring via OnDemand
