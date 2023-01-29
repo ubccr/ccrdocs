@@ -120,6 +120,7 @@ CCR supports the following CPU architectures:
 
 | Architecture  | Supported CPUs                                             |
 | ------------- | ---------------------------------------------------------- |
+| avx           | Intel Sandy Bridge, Ivy Bridge                             |
 | avx2          | Intel Haswell, Broadwell                                   |
 | avx512        | Intel Skylake-SP, Skylake-X, Cascade Lake-SP               |
 
