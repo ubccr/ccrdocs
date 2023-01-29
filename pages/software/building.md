@@ -70,9 +70,8 @@ $ module load easybuild
 ```
 
 !!! Note 
-    Compiling certain software will be CPU architecture specific. If you'd like
-    to build software for a specific CPU architecture, be sure to load the
-    corresponding `ccrarch/avx2` or `ccrarch/avx512` module first.
+    Compiling certain software will be CPU architecture specific. Runing `echo $CCR_ARCH` 
+    will show you what CPU architecture you're currently running on.
 
 ## Building a new software module
 
