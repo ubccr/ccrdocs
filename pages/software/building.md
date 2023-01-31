@@ -70,8 +70,10 @@ $ module load easybuild
 ```
 
 !!! Note 
-    Compiling certain software will be CPU architecture specific. Runing `echo $CCR_ARCH` 
-    will show you what CPU architecture you're currently running on.
+    Compiling certain software will be CPU architecture specific. Runing `echo
+    $CCR_ARCH` will show you what CPU architecture you're currently running on.
+    If you need to build for a specific architecture, you can request a
+    specific compile node by running `ssh compile-avx512` or `ssh compile-avx2`.
 
 ## Building a new software module
 
