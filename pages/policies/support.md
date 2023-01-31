@@ -157,4 +157,4 @@ Cloud environment that provides researchers the ability to launch fully customiz
 - **Pricing:**  
     -  Cloud usage is based on CPU and storage use.  A single cloud subscription covers 1 year of single CPU usage (or 8,760 CPU hours) and 50GB of storage.  
     - Additional storage can be purchased in 1TB chunks paid for annually.  
-    - Details on how CPU usage is calculated as well as pricing for subscriptions, storage, and consulting can be [found here](../cloud/lake-effect.md/#subscriptions).  
+    - Details on how CPU usage is calculated as well as pricing for subscriptions, storage, and consulting can be [found here](../cloud/lake-effect.md#subscriptions).
