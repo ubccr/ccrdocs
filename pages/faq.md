@@ -10,28 +10,28 @@ Your CCR username is the same as your UBIT username.  If you do not have a UB ac
 
 ## I have a new phone, how do I update my two factor authentication?  
 
-We highly recommend if you are switching phones, that you add another device to  your CCR account first.  For example, add a tablet or personal computer as an addition device to your account before getting rid of your old phone.  If you have access to both old and new phone, you can add your new phone to your CCR account prior to removing the token from the old phone. Follow the [instructions here](/2fa/#managing-tokens-for-devices) for adding a new device.   If neither of these options is available and you no longer have access to the only device connected to your CCR account, your account is locked out.  Please contact [CCR Help](help.md) to receive instructions for unlocking the account.
+We highly recommend if you are switching phones, that you add another device to  your CCR account first.  For example, add a tablet or personal computer as an addition device to your account before getting rid of your old phone.  If you have access to both old and new phone, you can add your new phone to your CCR account prior to removing the token from the old phone. Follow the [instructions here](2fa.md#managing-tokens-for-devices) for adding a new device.   If neither of these options is available and you no longer have access to the only device connected to your CCR account, your account is locked out.  Please contact [CCR Help](help.md) to receive instructions for unlocking the account.
 
 ## Why can't I login?  
 
 This is a very generic question that is difficult for us to answer.  CCR supports many services.  If you were to ask this question in a help ticket we would respond with: _**What are you trying to login to?  Are you getting any error messages?**_  So we'll provide links here to the primary services CCR users login to and the corresponding documentation:  
 
-- [OnDemand](/portals/ood/#login-to-ccrs-ondemand)  
-- [HPC clusters command line SSH or SFTP logins](/hpc/login)  
-- [Lake Effect Research Cloud Horizon Dashboard](/cloud/using)
+- [OnDemand](portals/ood.md#login-to-ccrs-ondemand)  
+- [HPC clusters command line SSH or SFTP logins](hpc/login.md)  
+- [Lake Effect Research Cloud Horizon Dashboard](cloud/using.md)
 
 _**Common errors:**_  
 
-- **SSH error "no supported authentication methods available":**  SSH keys are required for command line SSH and SFTP access to CCR's login nodes.  Password logins are not accepted.  Please see [more info here](/hpc/login/#connecting-with-ssh)  
--  **SSH error "Permission denied (publickey)":** You either do not have your SSH public key uploaded to your CCR account (see error above) or you are not specifying the private key on your personal device when trying to login to CCR.  See this [page for more info](/hpc/login/#logging-in)  
+- **SSH error "no supported authentication methods available":**  SSH keys are required for command line SSH and SFTP access to CCR's login nodes.  Password logins are not accepted.  Please see [more info here](hpc/login.md#connecting-with-ssh)  
+-  **SSH error "Permission denied (publickey)":** You either do not have your SSH public key uploaded to your CCR account (see error above) or you are not specifying the private key on your personal device when trying to login to CCR.  See this [page for more info](hpc/login.md#logging-in)  
 -  **Missing home directory:**  Your account hasn't been provisioned yet.  See [here for more info](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
--  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](/portals/idm/#change-your-ccr-password)  
+-  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](portals/idm.md#change-your-ccr-password)  
 -  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly.   
--  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](/2fa/#enabling-two-factor-authentication) to enable it.    
+-  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.    
 
 ## Why am I seeing a 'Home directory missing' error on login?  
 
-This usually means your account has not yet been provisioned.  After you create your CCR account, you must be added to an active allocation that gives you access to CCR's resources.  Once this is done, your account gets provisioned with the appropriate access and a home directory, if you're a new user.  This account provisioning happens at the end of every business day so you may not be able to login immediately after getting added to an allocation.  If it's been several business days since you've been added but you're still seeing this message, please [contact CCR Help](help.md).  For more information on access and allocations, please [see here](/getting-access/#allocation-requests).  
+This usually means your account has not yet been provisioned.  After you create your CCR account, you must be added to an active allocation that gives you access to CCR's resources.  Once this is done, your account gets provisioned with the appropriate access and a home directory, if you're a new user.  This account provisioning happens at the end of every business day so you may not be able to login immediately after getting added to an allocation.  If it's been several business days since you've been added but you're still seeing this message, please [contact CCR Help](help.md).  For more information on access and allocations, please [see here](getting-access.md#allocation-requests).  
 
 ## Why is the ColdFront allocation showing active but I can't login?  
 
@@ -65,7 +65,7 @@ iquota --path /projects/academic/groupname
 iquota --path /panasas/scratch/grp-groupname
 ```
 
-Alternatively, you can view this information on the [ColdFront](https://coldfront.ccr.buffalo.edu) dashboard. More details about storage and quotas can be [found here](/hpc/storage).
+Alternatively, you can view this information on the [ColdFront](https://coldfront.ccr.buffalo.edu) dashboard. More details about storage and quotas can be [found here](hpc/storage.md).
 
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 
@@ -73,7 +73,7 @@ This error is caused by Anaconda conflicting with the Kerberos used by CCR's aut
 
 ## How can I transfer my files to/from UB Box?
 
-Please see the [recommended instructions from UBIT here](/hpc/data-transfer/#transferring-files-with-ub-box)  
+Please see the [recommended instructions from UBIT here](hpc/data-transfer.md#transferring-files-with-ub-box)  
 
 ## When will my job start?
 
@@ -83,15 +83,15 @@ You can list information on your job’s start time using the squeue command:
 
 Note that Slurm’s estimated start time can be a bit inaccurate. This is because Slurm calculates this estimation off the jobs that are currently running or queued in the system. Any job that is submitted after yours with a higher priority may delay your job.  Alternatively, if jobs complete in less time than they've requested, more jobs can start sooner than anticipated.  
 
-For more information on the `squeue` command, take a look at our [Useful Slurm Commands](hpc/jobs/#useful-slurm-commands) information or visit the [Slurm page on squeue](https://slurm.schedmd.com/squeue.html)  
+For more information on the `squeue` command, take a look at our [Useful Slurm Commands](hpc/jobs.md#useful-slurm-commands) information or visit the [Slurm page on squeue](https://slurm.schedmd.com/squeue.html)  
 
 ## How can I tell what my job's priority is?  
 
-For more information on job priority [see here](/hpc/jobs#job-priority).  
+For more information on job priority [see here](hpc/jobs.md#job-priority).  
 
 ## Why isn't my job running immediately using a priority boost QOS?
 
-The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.  For more information on job priority and fairshare calculations [see here](/hpc/jobs#job-priority).  
+The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.  For more information on job priority and fairshare calculations [see here](hpc/jobs.md#job-priority).  
 
 ## Why is my job pending with reason ‘ReqNodeNotAvail’?  
 
@@ -117,7 +117,7 @@ salloc: error: Job submit/allocate failed: Invalid account or account/partition 
 sbatch: error: Batch job submission failed: Invalid partition or qos specification
 ```
 
-CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](/portals/coldfront.md).   More details on QOS and partition limits can be [found here](hpc/jobs/#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
+CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](portals/coldfront.md).   More details on QOS and partition limits can be [found here](hpc/jobs.md#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
 
 ## Why am I getting a QOSMaxSubmitJobPerUserLimit error when I try to submit a job?
 
@@ -127,17 +127,17 @@ sbatch: error: QOSMaxSubmitJobPerUserLimit
 sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)
 ```
 
-You will get this error if you have reached the partition or per user limits as [described here](/hpc/jobs/#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
+You will get this error if you have reached the partition or per user limits as [described here](hpc/jobs.md#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
 
 
 
 ## How do I know what to request an allocation for?  
 
-Please see [this section of the Getting Access](/getting-access/#available-resources) page for a break down of currently available resources at CCR.
+Please see [this section of the Getting Access](getting-access.md#available-resources) page for a break down of currently available resources at CCR.
 
 ## How can I check what allocations I am on?  
 
-Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](/portals/coldfront.md)  
+Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](portals/coldfront.md)  
 
 ## How can I turn off notifications in ColdFront?  
 

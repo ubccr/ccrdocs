@@ -16,7 +16,7 @@ There are many resources available for use at CCR.  These are listed in alphabet
 
 ## Storage  
 :    **Project Storage** - request an allocation for this if you'd like a shared directory created for your group.  This shared directory is available to access from all CCR clusters, login nodes, compile nodes, and the Globus file transfer service.  It is not accessible from the cloud infrastructure.  CCR provides 1TB of storage for free to UB faculty groups.  Faculty can purchase additional storage by the TB annually.  
-:   **Global Scratch** - The Panasas storage system serves global "scratch" directories for cluster users.  Groups must request an allocation and a shared directory will be created with a quota of 10TB.  Scratch file systems have different policies than other storage at CCR.  Please be sure to [view the scratch policy](/policies/misuse/#scratch-usage-policies) before using this resource.
+:   **Global Scratch** - The Panasas storage system serves global "scratch" directories for cluster users.  Groups must request an allocation and a shared directory will be created with a quota of 10TB.  Scratch file systems have different policies than other storage at CCR.  Please be sure to [view the scratch policy](policies/misuse.md#scratch-usage-policies) before using this resource.
 :   **LakeEffect Cloud Storage** -  additional storage you can purchase for the Lake Effect research cloud if you require more than what is provided with the storage included with your subscription.  This is not accessible from the cluster resources, only from the Lake Effect Cloud resource.  
 
 [More Info on Storage](hpc/storage.md)  
