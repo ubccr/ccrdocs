@@ -49,7 +49,7 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
    - Scratch file systems are designed for temporary storage and shorter-term processing of data  
    - Data is not replicated and does not persist if a file server fails  
    - To be used during job runs and moved or deleted at the completion of a job
-   - Data that has not been accessed in more than 60 days is automatically deleted nightly. See [Scratch Usage Policy](/policies/scratch)  
+   - Data that has not been accessed in more than 60 days is automatically deleted nightly. See [Scratch Usage Policy](../policies/misuse.md#scratch-usage-policies)  
    - 10TB provided for free to all groups
    - Use ColdFront to request an allocation for the `Global Scratch Storage` resource
    - Directories found in `/panasas/scratch/grp-groupName`  
@@ -74,7 +74,7 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 - Accessible only from cloud instances  
 - There is no guarantee of uptime or performance on cloud storage  
 - Available only to research groups with active cloud subscriptions  
-- [See cloud subscription information for cloud storage pricing](/cloud/subscriptions)
+- [See cloud subscription information for cloud storage pricing](../cloud/lake-effect.md#subscriptions)
 - **There is NO backup of data for the research cloud**  
 
 ## Purchasing Project Storage  
@@ -134,7 +134,7 @@ iquota -p /user/username
 !!! Tip  
     If you see an error like this it is usually related to conda environments:  
 `kinit: Unknown credential cache type while getting default ccache`  
-    See [the FAQ](/faq#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
+    See [the FAQ](../faq.md#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
 
 
 **Your group's shared project directory quota:**
