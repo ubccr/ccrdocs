@@ -129,8 +129,6 @@ sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (
 
 You will get this error if you have reached the partition or per user limits as [described here](/hpc/jobs/#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
 
-
-
 ## How do I know what to request an allocation for?  
 
 Please see [this section of the Getting Access](/getting-access/#available-resources) page for a break down of currently available resources at CCR.
@@ -141,7 +139,7 @@ Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allo
 
 ## How can I turn off notifications in ColdFront?  
 
-
+Coldfront users are automatically subscribed to receive notifications regarding their project(s) and allocation(s).  These email notifications include things like allocations that are expiring soon and allocation status changes.  Users can turn off these notifications by logging in to [ColdFront](https://coldfront.ccr.buffalo.edu), clicking on your project, and unchecking the check box by your name under the "Enable Notifications" column.  PIs and managers on projects are not able to turn off notifications.  If you're certain you do not want to be reminded of allocation renewals, please [contact CCR Help](help.md) for a manual override.  
 
 ## How do I acknowledge the use of CCR resources?  
 
