@@ -18,8 +18,8 @@ Users can request software be installed by CCR staff by submitting a new [issue
 on GitHub here](https://github.com/ubccr/software-layer/issues/new). Please
 provide the name of the software or library you're interested in and any specific
 details such as the URL where the software can be found. We also encourage you
-to [search the issues here](https://github.com/ubccr/software-layer/issues) to
-see if another user has already submitted a request. Users are strongly
+to [search the issues here](https://github.com/ubccr/software-layer/issues?q=is%3Aissue+is%3Aopen+label%3Abuild-request) 
+to see if another user has already submitted a request. Users are strongly
 encourage to vote on which software is to be installed by adding a "like" or
 "thumbs up" on the issue. Due to limited staffing we'll be installing more
 popular software requests first so it's important you vote.
