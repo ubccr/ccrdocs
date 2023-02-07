@@ -129,6 +129,14 @@ sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (
 
 You will get this error if you have reached the partition or per user limits as [described here](hpc/jobs.md#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
 
+## How do I change my default cluster?  
+
+Do you use the faculty cluster more than the primary and default UB-HPC cluster?  If so, you can change your default cluster so you don't need to specify the cluster name flag when running Slurm commands.  To make the change temporary, for your existing login shell, run: `export SLURM_CONF=/util/software/config/slurm/faculty/slurm.conf`  To make this change permanent, add that to your `~/.bashrc` file under the `User specific aliases and functions` section of the file.  
+
+## Where can I find a list of linux commands?  
+
+There are lots of resources on the internet to learn basic linux commands.  We provide a cheat sheet of useful linux and Slurm commands [here](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n).  
+
 ## How do I know what to request an allocation for?  
 
 Please see [this section of the Getting Access](getting-access.md#available-resources) page for a break down of currently available resources at CCR.
@@ -140,6 +148,10 @@ Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allo
 ## How can I turn off notifications in ColdFront?  
 
 Coldfront users are automatically subscribed to receive notifications regarding their project(s) and allocation(s).  These email notifications include things like allocations that are expiring soon and allocation status changes.  Users can turn off these notifications by logging in to [ColdFront](https://coldfront.ccr.buffalo.edu), clicking on your project, and unchecking the check box by your name under the "Enable Notifications" column.  PIs and managers on projects are not able to turn off notifications.  If you're certain you do not want to be reminded of allocation renewals, please [contact CCR Help](help.md) for a manual override.  
+
+## How can I get my class access to CCR?  
+
+CCR **may** be able to accommodate small classes that require small amounts of cycles on the primary UB-HPC cluster.  Please [contact us](help.md) to discuss your course's needs. If you've already discussed with us, you should create a project and request allocations in ColdFront as [detailed here](portals/coldfront.md).  Students need to have created themselves a [CCR system account](getting-access.md) before you can add them to your ColdFront project.
 
 ## How do I acknowledge the use of CCR resources?  
 
