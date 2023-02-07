@@ -4,7 +4,7 @@ These are CCR's ssh public key fingerprints for login nodes:
 
 - `SHA256:QWv17p5d8CnZS7GPummIuLJW7vblXCWvMHlK7jrKtVA` (RSA)
 - `SHA256:6PDsSxEFoBaiPvOWyX8N281imkGaQV81ypJXtSOVX/k` (ECDSA)
-- `SHA256:QWv17p5d8CnZS7GPummIuLJW7vblXCWvMHlK7jrKtVA` (Ed25519)
+- `SHA256:PxBS1XqDaspSTQYQj+LHHh4YBSN4XvB7P/VcYGxMR8Y` (Ed25519)
 
 To avoid having to manually verify ssh keys for every CCR server you login to,
 you can add our ssh certificate to your `~/.ssh/known_hosts` on your local machine:  
