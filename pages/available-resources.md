@@ -23,7 +23,8 @@ There are many resources available for use at CCR.  These are listed in alphabet
 
 ## Portals    
 :  **WebMO** - Chemistry software portal.  This is accessible to all academic users; however, it is only useful for a handful of Chemistry applications.  You must have an allocation to the "UB-HPC academic partitions" or a faculty cluster partition resource that is enabled in WebMO for this to work.  [More info on WebMO](portals/webmo.md)  
-:  **OnDemand** - Portal for accessing CCR's storage and HPC systems.  No allocation is required.  All CCR users on active allocations to any of the cluster or storage resources may use OnDemand.  [More OnDemand info here](portals/ood.md)
+:  **OnDemand** - Portal for accessing CCR's storage and HPC systems.  No allocation is required.  All CCR users on active allocations to any of the cluster or storage resources may use OnDemand.  [More OnDemand info here](portals/ood.md)  
+:  **Starfish** - Portal for viewing metadata and usage statistics about your group's storage allocation.  [More on Starfish](hpc/storage.md#starfish-storage-usage)  
 
 ## UBVPN  
 :  This is only for external collaborators and industry cluster customers and provides VPN access to the UB network to access CCR services.  Only request an allocation for this if you've been advised by CCR staff to do so.  

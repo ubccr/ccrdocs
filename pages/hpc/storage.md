@@ -133,7 +133,7 @@ iquota -p /user/username
 
 !!! Tip  
     If you see an error like this it is usually related to conda environments:  
-`kinit: Unknown credential cache type while getting default ccache`  
+    `kinit: Unknown credential cache type while getting default ccache`  
     See [the FAQ](../faq.md#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
 
 
