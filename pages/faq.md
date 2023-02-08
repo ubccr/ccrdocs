@@ -27,7 +27,8 @@ _**Common errors:**_
 -  **Missing home directory:**  Your account hasn't been provisioned yet.  See [here for more info](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
 -  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](portals/idm.md#change-your-ccr-password)  
 -  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly.   
--  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.    
+-  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
+- **Bad request** or **Server not available** when trying to login to OnDemand:  These are often caused by corrupted cache files in our browser.  Clear your browser cache and cookies data and restart your browser or try a different browser.  Incognito windows often do not solve this problem.    
 
 ## Why am I seeing a 'Home directory missing' error on login?  
 
@@ -48,6 +49,28 @@ The Freshdesk help desk portal accounts are separate from our CCR system account
 ## Can I use something other than a smartphone for two factor authentication?  
 
 Yes!  Though smartphones are the recommended second factor for your CCR account, if you don't have one or don't want to use yours, you can utilize a desktop application (i.e. Authy) or a programmable hardware security key.  There are many on the market including Yubico Yubikeys, Google Titan security keys, and others [recommended by UBIT](https://www.buffalo.edu/ubit/services/duo/options/security-key.html). Please contact [CCR Help](help.md) for details on how to configure your hardware key. **CCR is not able to integrate with the hardware security keys provided by UBIT because they are not programmable and we're unable to get the "secret" needed to join them to our authentication system.**     
+
+## Why do I see a blank window when starting an OnDemand desktop?  
+
+Occasionally, when users try to start an interactive session in OnDemand, the desktop displays as a blank blue or grey window with no applications menu or way to open a terminal window.  Files get cached when sessions are opened and then either get corrupted or can't be used.  To fix this problem, delete the following hidden subdirectories in your home directory and start a new OnDemand desktop session:  
+
+```
+rm -rf ~/.vnc  
+rm -rf ~/.cache  
+rm -rf ~/.config/xfce4  
+```
+
+## How can I fix the `XFCE PolicyKit Agent` error in OnDemand desktop sessions?  
+
+If you see an error box that says `XFCE PolicyKit Agent` you can click the `Close` button and proceed with using the OnDemand desktop.  
+
+## Why does my OnDemand desktop or app show it's starting but then it immediately ends?  
+
+There are two common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
+
+1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
+2. You have an Anaconda environment loading in your .bashrc environment file or are loading a Python module in your .bashrc file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
+
 
 ## How can I check how full my directories are?  
 
@@ -73,16 +96,29 @@ This error is caused by Anaconda conflicting with the Kerberos used by CCR's aut
 
 ## Why am I getting 'no space left on device' errors?  
 
-If you're sure you're not [over quota](hpc/storage.md) in either file size or number of files, it may be an issue with file permissions.  In the project directories and Panasas scratch directories, users must ensure the group ownership of a file or directory is set to the faculty or project group of that directory.  If you get this error, this is definitely the problem:  
-
+If you're sure you're not [over quota](hpc/storage.md) in either file size or number of files, it may be an issue with file permissions.  In the shared project and Panasas scratch directories, users must ensure the group ownership of a file or directory is set to the faculty or project group of that directory.  This is set automatically for new files and when copying files.  However, sometimes users override these defaults.  If you get this error, this is definitely the problem:  
 `mv: failed to preserve ownership for 'filename': no space left on device`  
 
 **Other possible reasons for this error:**  
 :  **Moving Files:**  If you are trying to move a file from another location, change the group ownership of the file before moving it or use the copy command instead.
 
-:  **Editing or Creating New Files:**  If you get this error when trying to edit an existing file or trying to create a new one, it is because the 'sticky bit' is not set correctly on the subdirectory you are trying to write in.  You must add the sticky bit to the group permissions on the subdirectory to fix this: `chmod g+s directory_name`  
+:  **Editing or Creating New Files:**  If you get this error when trying to edit an existing file or trying to create a new one, it is because the 'sticky bit' is not set correctly on the subdirectory you are trying to write in.  You must add the sticky bit to the group permissions on the subdirectory to fix this: `chmod g+s directory_name` NOTE: You will NOT have to do this if you do not alter the default permissions within the project or scratch directory.  This is only if you copy over subdirectories that do not have this set or accidentally change the permissions and want to set them back.
 
-:  **Compiling Code:**  It could be that your permissions are correct but the code you're compiling is using your primary unix group when creating new files.
+:  **Compiling Code:**  It could be that your permissions are correct but the code you're compiling is using your primary unix group when creating new files.  When running `make install` you may see an error like `file INSTALL cannot copy file` or when trying to install a conda package you may see ` An error occurred while installing package 'None'. OSError(28, 'No space left on device'` As a work around, switch to your research group unix group using the command `newgrp group-name` and then proceed with the install.  
+
+## How can I see what the file permissions are?  
+
+The `getfacl` command is an easy way to see the permissions of a file or directory.  It will display the file/directory name, owner of the file/directory, group name that owns the file/directory, and the detailed permissions of the file/directory.  See also: `man getfacl` or `getfacl --help`  
+
+## Why am I getting "error while loading shared libraries" when trying to install Anaconda?  
+
+During installation you may see an error such as `"conda.exe: error while loading shared libraries: libz.so.1: failed to map segment from shared object: Operation not permitted"`  
+
+This relates to an issue storing temporary files created during installation. Please create a temporary directory within your project or Panasas scratch directory and specify that location in the installation command. For example:
+```
+mkdir /projects/academic/<group_name>/condatemp
+TMPDIR=/projects/academic/<group_name>/condatemp ./Anaconda3-2020.02-Linux-x86_64.sh --prefix=/projects/academic/<group_name>/<install_dir>
+```
 
 ## How can I transfer my files to/from UB Box?
 
