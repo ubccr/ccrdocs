@@ -9,7 +9,7 @@ factor to provide increased account security.
 
 ## Enabling Two Factor Authentication
 
-!!! Tip "Changing phones?" 
+!!! Tip "Changing phones?"
     You can add multiple OTP tokens to your account. Be sure
     to add a token for your new phone before you get rid of your old phone. If
     you won't have access to both devices, disable 2FA on your CCR account
@@ -49,7 +49,7 @@ during login.
 
 You can also watch the video below which demonstrates the login process:
 
-![type:video](https://youtube.com/embed/7DcoWk57mKg)
+![type:video](https://youtube.com/embed/3FLnCQ54xrk)
 
 ## Supported authenticator apps
 
