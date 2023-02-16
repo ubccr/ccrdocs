@@ -23,7 +23,7 @@ salloc --qos=general-compute --partition=general-compute  --job-name "Interactiv
 
 To complete/end this job, we would type `exit` on the command line.
 
-## Batch Job Submission
+### Batch Job Submission
 
 Batch jobs are the most common type of job on HPC systems. Batch jobs are resource provisions that run applications on compute nodes and do not require supervision or interaction. Batch jobs are commonly used for applications that run for long periods of time and require no manual user input.
 
@@ -175,6 +175,25 @@ echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
 #Let's finish some work
 
 ```
+
+### Job Arrays  
+
+A job array is a group of nearly identical jobs submitted with 1 SLURM script.  Use the `--array=<indexes>` Slurm directive within your batch script.  See the [Slurm documentation](https://slurm.schedmd.com/job_array.html) for more information    
+
+This example submits 16 jobs:  
+```
+#SBATCH <array flag>
+--array=1-16
+```
+
+This example submits 16 jobs, with a limit of 4 jobs running simultaneously:  
+```
+#SBATCH --array=0-15%4
+```
+
+**Job Array Job Number:**  `%A` - job array master job ID
+
+**Job Array Index Number:** `%a` - individual job index number  
 
 ## Useful Slurm Commands
 

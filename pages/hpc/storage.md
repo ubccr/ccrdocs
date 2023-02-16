@@ -96,9 +96,6 @@ Additional storage for shared project directories can be purchased in 1 terabyte
 - External collaborators, groups and industry partners are charged **_$100/TB per year_**  
 - Invoices are sent by CCR as requested by the external user and quotas are increased when the funds have arrived at UB/CCR.  This can often take months so we recommend users keep track of the payment to ensure it is being processed by your organization in a timely fashion.  Often CCR can not tell when a payment from an outside organization has arrived at UB.  If you're waiting for your quota to be increased and know the payment has arrived at UB, let us know and we can verify its arrival.  
 
-**Multiple Year Payments:**  
-It may be possible for you to pre-pay for multiple years, if desired, and the allocation will show the expiration date that you are paid through.  We are able to bill State Sponsored accounts for more than one year at a time; however, you should verify the funding and any requirements prior to submitting the request to CCR.  SPS will not allow us to bill RF accounts for more than one year at a time.  We are also not allowed to bill an RF account if the award expires within the year.  For example, we can not bill for a year of storage if your award ends in 6 months.
-
 !!! Warning  
     We are NOT able to issue refunds should you stop using CCR's storage.  
 
@@ -106,15 +103,7 @@ It may be possible for you to pre-pay for multiple years, if desired, and the al
 
 ==New Rates Coming Early 2023==
 
-To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  In the box labeled `justification for changes` please enter:
-
-- How many years do you want to purchase this for?  We can bill annually or for multiple years (depending on funding source - [see above](#multiple-year-payments)) at a time, up to 3 (as of 2023).  The storage retires in 2026 so we can not bill passed that point.
-- What type of account are you paying with?  This determines the cost:  
-    - UB internal funds: State, RF, UBF, FSA ($60.27/TB/year)  
-    - Other internal funds ($69.28/TB/year)  
-    - External funds ($100/TB/year)  
-
-This can be complicated so please contact [CCR Help](https://ubccr.freshdesk.com) if you have questions.  
+To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  
 
 ## Checking Quotas
 
@@ -133,7 +122,7 @@ iquota -p /user/username
 
 !!! Tip  
     If you see an error like this it is usually related to conda environments:  
-`kinit: Unknown credential cache type while getting default ccache`  
+    `kinit: Unknown credential cache type while getting default ccache`  
     See [the FAQ](../faq.md#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
 
 
