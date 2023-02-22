@@ -18,8 +18,6 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 3. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
 
-4. ** [Using Globus to transfer files to and from UB Box](#using-globus-to-transfer-files-to-and-from-ub-box) **
-
 !!! Warning "VPN Required" 
     Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
