@@ -18,7 +18,7 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 3. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
 
-4. ** [Transferring Files with UB Box](#transferring-files-with-ub-box) **
+4. ** [Using Globus to transfer files to and from UB Box](#using-globus-to-transfer-files-to-and-from-ub-box) **
 
 !!! Warning "VPN Required" 
     Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
@@ -55,7 +55,7 @@ CCR storage resources are available in Globus as mapped collections.
 You can connect to a CCR endpoint using the "collections"
 field in the Globus web interface and searching for `UBuffalo - Center for Computational Research`. 
 
-CCR Currently has 3 Collections:
+CCR Currently has 3 Mapped Collections:
 
 * UBuffalo - Center for Computational Research Project Directories
 * UBuffalo - Center for Computational Research Home Directories
@@ -87,6 +87,54 @@ data sharing is necessary.
 
 Detailed information on creating Guest Collections is available [at
 docs.globus.org](https://docs.globus.org/how-to/share-files/).
+
+### Using Globus to transfer files to and from UB Box
+
+CCR users are able to use the Globus Transfer service to move data between CCR and UB Box.
+
+
+!!! Note 
+    Globus uses a Connector App registered with Box in order to Connect to UB Box on your behalf. You will need to grant access for this app to be able to do so in order to connect to your UB Box account from within Globus.
+
+To transfer data to or from UB Box, log onto the [Globus Web App](#globus-web-app) as instructed above.
+Go to the File Manager tab and search for the "UBuffalo-CCR Box Collection" in the Collection search bar.
+
+When you click on the UBuffalo-CCR Box Collection for the first time, you will be prompted to Authenticate to the UB Box service.
+
+![](../images/globus-ubbox-fm-1.png)
+
+Click `Continue` and you will be directed to the "Registering a Credential" Page. 
+
+![](../images/globus-ubbox-cred-1.png)
+
+This screen shows which Account globus will use to Connect to the CCR UB Box Collection.  
+If this is all correct Click `Continue`
+
+You will then be directed to the "Box Login Page"
+
+![](../images/globus-ubbox-access-1.png)
+
+Verify the account that will be used to log into UB Box is correct and Click `Authorize`
+
+This will take you to the normal UB Single Sign On (SSO) login page where you will log in using your UB credentials and Duo 2 Factor if prompted.
+
+After sucessfully logging into UB SSO you will be prompted with one more screen to Grant access to the "UBuffalo-CCR Globus Box Connector"
+
+![](../images/globus-ubbox-access-2.png)
+
+Click `Grant access to Box` and you will now be authenticated to your UB Box account from within Globus. You will then be sent back to the File manager screen.
+
+If the panel is blank, you will need to search again for the "UBuffalo-CCR Box Collection" in the Collection search bar. This time you will see all your Box contents.
+
+From the filemanager in the second window of the split screen, you can connect to one of the the CCR Mapped collections (ex. UBuffalo - Center for Computational Research Project Directories)
+listed above it will appear in the other panel.
+
+![](../images/globus-ubbox-fm-2.png)
+
+From here you can initiate a file transfer by clicking your source files or directories and click `Start`
+
+!!! Note 
+    The Box API implements rate limiting so depending on the type of transfer and number of files you may get connection resets in the transfer log. These will not stop the transfer because Globus will just retry the connection until the transfer is complete.
 
 
 ## Secure Shell Copy
@@ -279,6 +327,8 @@ After the Site has been added you can connect to CCR by selecting it from the Si
 This information is available in our [Open OnDemand Documentation](../portals/ood.md)
 
 
+
+<!--
 ## Transferring Files with UB Box
 
 The UB Information Technology group has recommended using ftps (secure ftp) to transfer files to/from UB Box because 
@@ -312,6 +362,7 @@ $ lftp
 ```
 
 Additional information from Box on using Using Box with FTP or FTPS along with examples is [Here]( https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS)
+-->
 
 
 ## More reading
