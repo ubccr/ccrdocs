@@ -83,18 +83,22 @@ any file or folder that you have access to with anyone who
 has a Globus account. This is particularly useful for external collaborations in which
 data sharing is necessary.  
 
-Detailed information on creating Guest Collections is available [at
-docs.globus.org](https://docs.globus.org/how-to/share-files/).
+Detailed information on creating Guest Collections is available at
+[docs.globus.org](https://docs.globus.org/how-to/share-files/)
 
 ### Using Globus to transfer files to and from UB Box
 
-CCR users are able to use the Globus Transfer service to move data between CCR and UB Box.
+CCR users are able move data between CCR and UB Box within Globus using an integrated Box Connector App (UBuffalo-CCR Globus Box Connector). Intial setup will require you to log into UB Box and give the App consent to access UB Box on your behalf.
 
+!!! Note
+    The UB Box Collection is accessed the same way the CCR Mapped collections are as described in the [Globus Web App](#globus-web-app) section above with one notable exception: you will be prompted to grant access to UB Box the first time you access the collection.
 
-!!! Note 
-    Globus uses a Connector App registered with Box in order to Connect to UB Box on your behalf. You will need to grant access for this app to be able to do so in order to connect to your UB Box account from within Globus.
+#### Grant Access to the UBuffalo-CCR Globus Box Connector App
 
-To transfer data to or from UB Box, log onto the [Globus Web App](#globus-web-app) as instructed above.
+*These steps are only needed when accessing the UB Box Collection for the first time:*
+
+Log onto the [Globus Web App](#globus-web-app)
+
 Go to the File Manager tab and search for the "UBuffalo-CCR Box Collection" in the Collection search bar.
 
 When you click on the UBuffalo-CCR Box Collection for the first time, you will be prompted to Authenticate to the UB Box service.
@@ -122,7 +126,11 @@ After sucessfully logging into UB SSO you will be prompted with one more screen 
 
 Click `Grant access to Box` and you will now be authenticated to your UB Box account from within Globus. You will then be sent back to the File manager screen.
 
-If the panel is blank, you will need to search again for the "UBuffalo-CCR Box Collection" in the Collection search bar. This time you will see all your Box contents.
+If the panel is blank, you will need to search again for the "UBuffalo-CCR Box Collection" in the Collection search bar. If you have properly granted consent to the Globus Box App, then you should see the contents of your UB Box account.
+
+Once you have completed the Access Consent steps above, you should now be able to access UB Box just like any of the other CCR Mapped Collections.
+
+#### To transfer files to or from UB Box to CCR Collections:
 
 From the filemanager in the second window of the split screen, you can connect to one of the the CCR Mapped collections (ex. UBuffalo - Center for Computational Research Project Directories)
 listed above it will appear in the other panel.
