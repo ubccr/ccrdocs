@@ -12,7 +12,10 @@ _**This product is an open source project developed by [Ohio Supercomputer Cente
     Access to OnDemand is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
-Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Don't have one yet? [See here](../getting-access.md)
+Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Don't have one yet? [See here](../getting-access.md)  
+
+!!! Tip "First Login - Additional Steps"
+    On first login your home directory will need to be created.  Follow the instructions provided after login to create your home directory and run the script to generate a SSH key pair for use on the cluster and within the OnDemand terminal app.  If, after completing the steps, the OnDemand dashboard does not reload, log out and back in again.  
 
 **OnDemand Features**  
 

@@ -30,10 +30,6 @@ _**Common errors:**_
 -  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
 - **Bad request** or **Server not available** when trying to login to OnDemand:  These are often caused by corrupted cache files in our browser.  Clear your browser cache and cookies data and restart your browser or try a different browser.  Incognito windows often do not solve this problem.    
 
-## Why am I seeing a 'Home directory missing' error on login?  
-
-This usually means your account has not yet been provisioned.  After you create your CCR account, you must be added to an active allocation that gives you access to CCR's resources.  Once this is done, your account gets provisioned with the appropriate access and a home directory, if you're a new user.  This account provisioning happens at the end of every business day so you may not be able to login immediately after getting added to an allocation.  If it's been several business days since you've been added but you're still seeing this message, please [contact CCR Help](help.md).  For more information on access and allocations, please [see here](getting-access.md#allocation-requests).  
-
 ## Why is the ColdFront allocation showing active but I can't login?  
 
 This is the same reason as [this](#why-am-i-seeing-a-home-directory-missing-error-on-login) - your account has not yet been provisioned.  

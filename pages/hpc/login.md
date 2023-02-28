@@ -83,6 +83,10 @@ To verify you can ssh into the login node, follow these easy steps:
 [username@vortex1:~]$
 ```
 
+!!! Tip "First Login - Additional Step"
+    On first login your home directory will be created automatically.  You will see a message prompting you to run a script to generate a SSH key pair for use on the cluster and within the OnDemand terminal app.  After login, run ``/util/ccr/sbin/ssh_no_password.sh``
+
+
 ## Using the SSH Agent  
 
 Running an SSH agent process on your local machine allows you to load your SSH
