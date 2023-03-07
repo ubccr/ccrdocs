@@ -64,8 +64,8 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
     * Can be used in 30 minute chunks
     * [Contact CCR Help](../help.md) for estimates on required time
 
-!!! Note 
-    Pricing is for UB faculty/staff. [GUSF](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/general-univ-service-fee.html) will be added when applicable. External (non-UB) users please [Contact CCR Help](../help.md) to discuss your individual needs.
+!!! Note "Rate Fineprint"
+    These are internal rates for UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds.   UB users using alternate funding are subject to the addition of the [GUSF](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/general-univ-service-fee.html) fee.  External users please [Contact CCR Help](../help.md) to discuss your individual needs.
 
 
 ### Use and Misuse
