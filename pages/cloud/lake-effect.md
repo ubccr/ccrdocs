@@ -30,7 +30,7 @@ Features of LakeEffect:
 * Load balancing of virtual resources across multiple physical machines
 * Support for Floating IP addresses
 * Easily manage access to VMs using Security Groups and Rules
-* Built on [Openstack Cloud Software](https://www.openstack.org/) 
+* Built on [Openstack Cloud Software](https://www.openstack.org/)
 * Fault tolerant components to minimize risk of downtime due to underlying hardware failure
 
 !!! Warning
@@ -41,14 +41,15 @@ Features of LakeEffect:
 > * 8.8TB RAM (4GB per vCPU core)
 > * 1.7PB of object-oriented storage
 > * NVidia V100 vGPUs
-> * NVME Ephemeral Storage 
-> * Persistant Memory (PMEM) Storage 
+> * NVME Ephemeral Storage
+> * Persistant Memory (PMEM) Storage
 
 
 ### Subscriptions
 
-In order to use LakeEffect Research cloud, you will need to purchase a subscription. 
+In order to use LakeEffect Research cloud, you will need to purchase a subscription.  Current pricing can be [found here](https://ubccr.freshdesk.com/en/support/solutions/articles/5000680817-cloud-access-and-subscriptions)  
 
+==New Rates and Package Structure Coming Soon:==  
 
 | Package Name | vCPU | Storage | Other | Price |
 | :--- | ---: | ---: | :----: | ---:| 
@@ -67,11 +68,15 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
 !!! Note "Rate Fineprint"
     These are internal rates for UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds.   UB users using alternate funding are subject to the addition of the [GUSF](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/general-univ-service-fee.html) fee.  External users please [Contact CCR Help](../help.md) to discuss your individual needs.
 
+### How to Initiate a Purchase  
+
+To initiate the purchase of additional cloud storage or compute time, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `Cloud Storage` or `Cloud Compute` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  
+
 ### Use and Misuse
 
 CCR Staff manages and maintains the Cloud platform, both the physical ifrastructure and openstack software. Users are expected to deploy and manage their cloud instances, including network security and protocols, installing and maintaining software, and running computational workflows. Users are “system administrators” of their cloud instance(s) and are responsible to ensure that [UB Minimum Server Security and Hardening Standards](https://www.buffalo.edu/ubit/policies/guidance-documents/server-security-and-hardening.html) are deployed.
 
-!!! Note 
+!!! Note
     System administration within LakeEffect cloud instances by CCR staff requires the purchase of custom consulting time.
 
 #### Appropriate use cases:
@@ -80,7 +85,7 @@ CCR Staff manages and maintains the Cloud platform, both the physical ifrastruct
 * Running a research database/website application that interacts with the CCR Compute Clusters.
 * Testing and development of software or products
 
-#### Inappropriate use cases: 
+#### Inappropriate use cases:
 * Personal websites or websites unrelated to research
 * Infrastructure that should be provided by IT Department
 * Running workflows that can more efficiently be run through Slurm on our clusters
@@ -88,5 +93,3 @@ CCR Staff manages and maintains the Cloud platform, both the physical ifrastruct
 
 !!! Warning
     LakeEffect Research Cloud is **NOT** HIPPA compliant, storing any sensitive or identifiable data is strictly prohibited.
-
-
