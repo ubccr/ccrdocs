@@ -330,7 +330,7 @@ After the Site has been added you can connect to CCR by selecting it from the Si
 
 ## rclone
 
-**rclone** is a tool that can be used to transfer files to/from cloud storage such as Microsoft OneDrive and Box from the command line. The following are instructions on how to use rclone transfer data to/from OneDrive. For instructions with other cloud storage, check [**rclone** Online documentation](https://rclone.org/docs/)
+**rclone** is a tool that can be used to transfer files to/from cloud storage such as Microsoft OneDrive and Box from the command line. The following are instructions on how to use rclone to transfer data to/from OneDrive. For instructions with other cloud storage, check [**rclone** Online documentation](https://rclone.org/docs/)
 
 
 **rclone** is available as a module at CCR and needs to be loaded in the users environment first.
