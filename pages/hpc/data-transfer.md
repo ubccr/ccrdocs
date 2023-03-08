@@ -16,7 +16,9 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 2. ** [Secure Shell Copy (scp/sftp)](#secure-shell-copy) **
 
-3. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
+3. ** [rclone](#rclone) **
+
+4. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
 
 !!! Warning "VPN Required" 
     Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
@@ -325,6 +327,111 @@ This will popup the Site Management Window
 > * Click `OK` to add the site.
 
 After the Site has been added you can connect to CCR by selecting it from the Site Manager Window and clicking `Connect`
+
+## rclone
+
+**rclone** is a tool that can be used to transfer files to/from cloud storage such as Microsoft OneDrive and Box from the command line. The following are instructions on how to use rclone to transfer data to/from OneDrive. For instructions with other cloud storage, check [**rclone** Online documentation](https://rclone.org/docs/)
+
+
+**rclone** is available as a module at CCR and needs to be loaded in the users environment first.
+See [here](../software/modules.md#using-modules) for information on using CCR's modules system.
+
+!!! Note
+    OneDrive requires an Internet connected web browser to obtain an authentication token from Microsoft. CCR compute nodes do not have browsers, so you will need access to a machine with rclone and a web browser. **rclone** is available for almost any platform [here](https://rclone.org/downloads/) 
+
+
+### Using rclone with OneDrive
+
+```bash
+$ module load rclone
+```
+
+```bash
+$ rclone config
+
+No remotes found, make a new one?
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q> 
+```
+
+>> * answer **n** for new remote
+
+> * "**name>**" (the name for the new remote) 
+>> * Give it a name such as "OneDrive"
+
+> * "**Storage>**" (the storage type of the new remote)
+>> * Select the number that corresponds to "Microsoft OneDrive"
+
+> * "**client_id>**" (OAuth Client Id.) 
+>> *  Press Enter to leave empty.
+
+> * "**client_secret>**" (OAuth Client Secret.)
+>> *  Press Enter to leave empty.
+
+> * "**region>**"
+>> * Press Enter for the default (global).
+
+> * "**Edit advanced config?**"
+>> * Enter 'n' No (default)
+
+> * "**Use auto config?**"
+>> * Enter 'n' for machine without web browser access
+
+You will then be prompted with the following:
+```
+Execute the following on the machine with the web browser (same rclone
+version recommended):
+	rclone authorize "onedrive"
+Then paste the result.
+Enter a value.
+```
+
+As mentioned in the previous Note, You will need to run the authorize command on a system that can open up a browser window which will take you through the authentication steps to access your OneDrive. This includes UB's Single Sign On system if you are a UB Faculty or Staff member.
+Once those steps have been completed you can paste the token into the config_token prompt.
+
+
+> * "**config_token>**"
+>> * Paste the token from the authorize step above.
+
+> * "**config_type>**"
+>> * Press Enter for the default (onedrive)
+
+> * "**config_driveid>**" (Choose drive to use )
+>> *  Select the one that corresponds to OneDrive (business)
+
+> * "**Drive OK?**"
+>> * Type "**y**" to confirm the drive you wish to use is correct.
+
+> * "**Keep this "OneDrive" remote?**"
+>> * Type "**y**" for Yes this is OK (default)
+
+For additional information on remote setup including additional options see [here](https://rclone.org/remote_setup/)
+
+!!! Error "Security Warning"
+    **rclone** stores your access tokens and information about your cloud services in your configuration file. You should keep your rclone.conf file in a secure location with proper permissions set.
+    As added protection, we recommend encrypting your configuration file. Information on how to do this can be found [here](https://rclone.org/docs/#configuration-encryption)
+
+To test the connection, create a file with the touch command or copy an existing file to your OneDrive
+
+```
+$ touch somefile.txt
+$ rclone copy somefile.txt OneDrive:/test
+```
+This will copy the test file to a test directory, you can verify the copy was successful by using `rclone ls` or logging into OneDrive in a web browser 
+
+```
+$ rclone ls OneDrive:/test
+0 somefile.txt
+```
+
+**Additional rclone information:**
+
+> * [rclone Online documentation](https://rclone.org/docs/)   
+> * [rclone OneDrive setup instruction](https://rclone.org/onedrive/)  
+> * [rclone Box setup instruction](https://rclone.org/box/)  
+
 
 ## OnDemand File Manager App
 
