@@ -52,21 +52,21 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
 ==New Rates and Package Structure Coming Soon:==  
 
 | Package Name | vCPU | Storage | Other | Price |
-| :--- | ---: | ---: | :----: | ---:|
-| Starter| 10 vCPU | 1 TB | 1 Floating IP | $558.81/year |
-| Standard| 20 vCPU | 2 TB | 2 Floating IP | $1117.62/year |
-| Advanced| 40 vCPU | 4 TB | 4 Floating IP , Fast-IO VMs | $2235.24/year |
-| GPU Addon| 8 vCPU | 1 TB | 1 Floating IP, Tesla V100 16GB | $936.34/year |
-| Storage addon | | 1 TB | Block Storage | $54.36/TB/year |
+| :--- | ---: | ---: | :----: | ---:| 
+| Starter| 10 vCPU | 1 TB | 1 Floating IP | $500/year |
+| Standard| 20 vCPU | 2 TB | 2 Floating IP | $1000/year |
+| Advanced| 40 vCPU | 4 TB | 4 Floating IP , Fast-IO VMs | $2000/year |
+| GPU Addon| 8 vCPU | 1 TB | 1 Floating IP, Tesla V100 16GB | $880/year |
+| Storage addon | | 1 TB | Block Storage | $55/TB/year |
 
-* Systems Administration Consulting: $59.97/hour
+* Systems Administration Consulting: $63/hour
 
     * Must be purchased in 8 hour increments
     * Can be used in 30 minute chunks
     * [Contact CCR Help](../help.md) for estimates on required time
 
-!!! Note
-    Pricing is for UB faculty/staff. External (non-UB) users please [Contact CCR Help](../help.md) to discuss your individual needs.
+!!! Note "Rate Fineprint"
+    These are internal rates for UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds.   UB users using alternate funding are subject to the addition of the [GUSF](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/general-univ-service-fee.html) fee.  External users please [Contact CCR Help](../help.md) to discuss your individual needs.
 
 ### How to Initiate a Purchase  
 
