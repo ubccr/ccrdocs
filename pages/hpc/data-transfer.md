@@ -379,7 +379,7 @@ n/s/q>
 > * "**Use auto config?**"
 >> * Enter 'n' for machine without web browser access
 
-You will then be propted the following:
+You will then be prompted with the following:
 ```
 Execute the following on the machine with the web browser (same rclone
 version recommended):
@@ -388,7 +388,7 @@ Then paste the result.
 Enter a value.
 ```
 
-As mentioned in the previous Note, You will need to run the authorize command on a system that can openup a browser window because it will take you through the authentication steps to access your OneDrive. This includes UB's Single Sign On system if you are a UB Faculty or Staff.
+As mentioned in the previous Note, You will need to run the authorize command on a system that can open up a browser window which will take you through the authentication steps to access your OneDrive. This includes UB's Single Sign On system if you are a UB Faculty or Staff member.
 Once those steps have been completed you can paste the token into the config_token prompt.
 
 
@@ -409,7 +409,7 @@ Once those steps have been completed you can paste the token into the config_tok
 
 For additional information on remote setup including additional options see [here](https://rclone.org/remote_setup/)
 
-To test the connection, create a file with the touch command or copy and exiting file to your OneDrive
+To test the connection, create a file with the touch command or copy an exiting file to your OneDrive
 
 ```
 $ touch somefile.txt
