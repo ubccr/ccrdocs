@@ -409,7 +409,11 @@ Once those steps have been completed you can paste the token into the config_tok
 
 For additional information on remote setup including additional options see [here](https://rclone.org/remote_setup/)
 
-To test the connection, create a file with the touch command or copy an exiting file to your OneDrive
+!!! Error "Security Warning"
+    **rclone** stores your access tokens and information about your cloud services in your configuration file. You should keep your rclone.conf file in a secure location with proper permissions set.
+    As added protection, we recommend encrypting your configuration file. Information on how to do this can be found [here](https://rclone.org/docs/#configuration-encryption)
+
+To test the connection, create a file with the touch command or copy an existing file to your OneDrive
 
 ```
 $ touch somefile.txt
