@@ -47,9 +47,9 @@ Features of LakeEffect:
 
 ### Subscriptions
 
-In order to use LakeEffect Research cloud, you will need to purchase a subscription. 
+In order to use LakeEffect Research cloud, you will need to purchase a subscription.  Current pricing can be [found here](https://ubccr.freshdesk.com/en/support/solutions/articles/5000680817-cloud-access-and-subscriptions)  
 
-==New Rates and Package Structure - Available April 1, 2023:==  
+==New Rates and Package Structure Coming Soon:==  
 
 | Package Name | vCPU | Storage | Other | Price |
 | :--- | ---: | ---: | :----: | ---:|
@@ -59,13 +59,14 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
 | GPU Addon| 8 vCPU | 1 TB | 1 Floating IP, Tesla V100 16GB | $936.34/year |
 | Storage addon | | 1 TB | Block Storage | $54.36/TB/year |
 
-* **Systems Administration Consulting:** $63/hour  
+* Systems Administration Consulting: $59.97/hour
+
     * Must be purchased in 8 hour increments
     * Can be used in 30 minute chunks
     * [Contact CCR Help](../help.md) for estimates on required time
 
-!!! Note "Rate Fineprint"
-    These are internal rates for UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds.  External users & UB users using alternate funding please [Contact CCR Help](../help.md) to discuss your individual needs.
+!!! Note
+    Pricing is for UB faculty/staff. External (non-UB) users please [Contact CCR Help](../help.md) to discuss your individual needs.
 
 ### How to Initiate a Purchase  
 
