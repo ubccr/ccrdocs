@@ -242,7 +242,6 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Number of tasks    | The ***total*** number of processes needed to run the job | --ntasks=processes   |
 | Tasks per node     | The number of processes you wish to assign to each node | --ntasks-per-node=processes |
 | Total memory       | The total memory (per node requested) required for the job. <br> Using --mem does not alter the number of cores allocated <br> to the job, but you will be charged for the number of cores <br> corresponding to the proportion of total memory requested. <br> Units of --mem can be specified with the suffixes: K,M,G,T (default M)| --mem=memory |
-
 | Wall time          | The max amount of time your job will run for        | --time=wall time           |
 | Job Name           | Name your job so you can identify it in the queue   | --job-name=jobname         |
 
@@ -257,17 +256,17 @@ These are the partitions available on the UB-HPC cluster:
 | viz     | 24 hour            | 24 hour          | 1              |   1        |
 
 **Faculty Cluster Partitions**   
-There are over 50 partitions in the faculty cluster all have with a default of 1 CPU, default wall time of 24 hours and a maximum number of jobs per user of 1000.  The maximum wall time of these partitions range from 72 hours to 30 days.  To view details about a particular partition use the `scontrol` command, for example:  `scontrol show partition ub-laser -M faculty`
+There are over 50 partitions in the faculty cluster all of which have a default of 1 CPU, wall time of 24 hours and a maximum number of jobs per user of 1000.  The maximum wall time of these partitions ranges from 72 hours to 30 days.  To view details about a particular partition use the `scontrol` command; for example:  `scontrol show partition ub-laser -M faculty`
 
 **Priority Boosts**  
 Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award and the 2017 NSF MRI award that helped to purchase new equipment are also granted priority boosts for their group.  These allocations have been added to your ColdFront project and are active for a period of 5 years.  The allocations can not be renewed.  Group members should utilize the `mri` or `nih` QOS values to take advantage of the priority boost.  NOTE:  All of these QOS values are only available on the UB-HPC cluster.
 
 ## Node Features    
 
-Users do not need to specify much information if they do not care where their job runs or on what hardware.  Slurm uses the default information from your account, the cluster, and the partition to run a job.  If you need more than the default, you can specify hardware requirements using the Slurm `--constraint` directive in a batch script or using the `Node Features` field in OnDemand app forms.  You can specify CPU type such as `INTEL` or `AMD` or more specific CPU models such as `CPU-Gold-6230`.  GPU types can be specified with `V100` or `P100` or more specific GPUs like `gpu:tesla_v100-pcie-32gb:1`  High speed interconnect networks can be requested with `IB` (Infiniband) or `OPA` (OmniPath).  Additional node features include machine room rack locations and funding sources (i.e. NIH and MRI).  To specify more than one feature, use the `&` sign between them (i.e. `--constraint=INTEL&IB` will request nodes with Intel CPUs and the Infiniband high speed network).  To request a node with one feature or another, use the `|` symbol between them (i.e. `--constraint=IB|OPA` will request nodes with either of the two high speed network options).  
+Users do not need to specify much information if they do not care where their job runs or on what hardware.  Slurm uses the default information from your account, the cluster, and the partition to run a job.  If you need more than the default, you can specify hardware requirements using the Slurm `--constraint` directive in a batch script or using the `Node Features` field in OnDemand app forms.  You can specify CPU type such as `INTEL` or `AMD` or more specific CPU models such as `CPU-Gold-6230`.  GPU types can be specified with `V100` or `P100` or more specific GPUs like `gpu:tesla_v100-pcie-32gb:1`  High speed interconnect networks can be requested with either `IB` (Infiniband) or `OPA` (OmniPath).  Additional node features include machine room rack locations and funding sources (i.e. NIH and MRI).  To specify more than one feature, use the `&` sign between them (i.e. `--constraint=INTEL&IB` will request nodes with Intel CPUs and the Infiniband high speed network).  To request a node with one feature or another, use the `|` symbol between them (i.e. `--constraint=IB|OPA` will request nodes with either of the two high speed network options).  
 
 !!! Tip  
-    The less you specify, the sooner your job is likely to run because it will run on the first available node.  
+    The less you specify, the sooner your job is likely to run because you are not narrowing your pool of compute nodes to run on with specific criteria.  
 
 The best way to see all the Slurm features offered and what is currently available, is by running the `snodes` command in the terminal on one of the cluster login servers.   
 
