@@ -118,7 +118,7 @@ TMPDIR=/projects/academic/<group_name>/condatemp ./Anaconda3-2020.02-Linux-x86_6
 
 ## How can I transfer my files to/from UB Box?
 
-Please see the [recommended instructions from UBIT here](hpc/data-transfer.md#transferring-files-with-ub-box)  
+Please see [these instructions](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) and utilize Globus to transfer files to UB Box. 
 
 ## When will my job start?
 

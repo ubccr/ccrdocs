@@ -82,11 +82,15 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.   
 
 ### Rates  
+
+==New Rates in Effect April 1, 2023==  
+
 **Internal Rates:**
 
 - **_$60.27 per terabyte per year_**
+- **_As of April 1, 2023: $72 per terabyte per year_**  
 - This is an internal rate for internal UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds
-- Internal UB users paying with funds other than those listed above are charged an additional fee to cover the processing fee UB charges CCR.  This makes the cost **_$69.28/TB per year_**  
+- Internal UB users paying with funds other than those listed above are charged an additional fee to cover the processing fee UB charges CCR.  This makes the cost **_$69.28/TB per year (After April 1, 2023 - $82.76 per TB per year)_** 
 
 !!! Tip  
     Faculty with joint positions at UB and Roswell can only qualify for the UB internal rate if they use UB funds to purchase the storage.  RPCI users should check with RPCI IT for access to the storage allocation RPCI purchased from CCR before making a purchase of their own.
@@ -100,8 +104,6 @@ Additional storage for shared project directories can be purchased in 1 terabyte
     We are NOT able to issue refunds should you stop using CCR's storage.  
 
 ### How to Initiate a Purchase  
-
-==New Rates Coming Early 2023==
 
 To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  
 

@@ -148,8 +148,7 @@ echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
 #Let's finish some work
 
 ```
-!!! Note
-	Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff.
+
 !!! Note "Caution: Maintenance Downtimes"
     Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff on maintenance days.  See the [schedule here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
 
@@ -175,6 +174,8 @@ echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
 #Let's finish some work
 
 ```
+
+[Learn more](#scavenging-idle-cycles) about scavenging idle cycles.  
 
 ### Job Arrays  
 
@@ -219,8 +220,10 @@ To cancel a job you have submitted:
 ````
 scancel <job_id>
 ````
-
 For more information, [visit the Slurm docs on scancel](https://slurm.schedmd.com/scancel.html)
+
+!!! Tip "Slurm Default Cluster"
+    Slurm commands default to the UB-HPC cluster.  To specify the faculty cluster use either the `-M faculty` or `--clusters=faculty` option.  
 
 For additional Slurm commands, [visit the Slurm command manual](https://slurm.schedmd.com/quickstart.html)
 
@@ -230,18 +233,19 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 
 | Type               | Description                                         | Flag                       |
 | :----------------- | :-------------------------------------------------- | :------------------------- |
+| Clusters          | Specify a cluster (ub-hpc or faculty) | --clusters=cluster |
 | Partition          | Specify a partition | --partition=partition |
+| Quality of service | Specify a QoS (usually same as partition or priority boost) | --qos=qos               |
 | Sending email      | Receive email at beginning or end of job completion | --mail-type=type           |
 | Email address      | Email address to receive the email                  | --mail-user=user           |
 | Number of nodes    | The number of nodes needed to run the job           | --nodes=nodes              |
 | Number of tasks    | The ***total*** number of processes needed to run the job | --ntasks=processes   |
 | Tasks per node     | The number of processes you wish to assign to each node | --ntasks-per-node=processes |
 | Total memory       | The total memory (per node requested) required for the job. <br> Using --mem does not alter the number of cores allocated <br> to the job, but you will be charged for the number of cores <br> corresponding to the proportion of total memory requested. <br> Units of --mem can be specified with the suffixes: K,M,G,T (default M)| --mem=memory |
-| Quality of service | Specify a QoS  | --qos=qos               |
 | Wall time          | The max amount of time your job will run for        | --time=wall time           |
 | Job Name           | Name your job so you can identify it in the queue   | --job-name=jobname         |
 
-These are the partitions available at CCR:
+These are the partitions available on the UB-HPC cluster:
 
 | Partition | Default Wall Time | Wall Time Limit | Default # CPUS | Job Submission Limit/User     |
 | :-------- | :---------------- | :-------------- | :------------- | :---------------------------- |
@@ -251,9 +255,51 @@ These are the partitions available at CCR:
 | scavenger     | 24 hour            | 72 hour          | 1              |   1000        |
 | viz     | 24 hour            | 24 hour          | 1              |   1        |
 
+**Faculty Cluster Partitions**   
+There are over 50 partitions in the faculty cluster all of which have a default of 1 CPU, wall time of 24 hours and a maximum number of jobs per user of 1000.  The maximum wall time of these partitions ranges from 72 hours to 30 days.  To view details about a particular partition use the `scontrol` command; for example:  `scontrol show partition ub-laser -M faculty`
 
 **Priority Boosts**  
 Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award and the 2017 NSF MRI award that helped to purchase new equipment are also granted priority boosts for their group.  These allocations have been added to your ColdFront project and are active for a period of 5 years.  The allocations can not be renewed.  Group members should utilize the `mri` or `nih` QOS values to take advantage of the priority boost.  NOTE:  All of these QOS values are only available on the UB-HPC cluster.
+
+## Node Features    
+
+Users do not need to specify much information if they do not care where their job runs or on what hardware.  Slurm uses the default information from your account, the cluster, and the partition to run a job.  If you need more than the default, you can specify hardware requirements using the Slurm `--constraint` directive in a batch script or using the `Node Features` field in OnDemand app forms.  You can specify CPU type such as `INTEL` or `AMD` or more specific CPU models such as `CPU-Gold-6230`.  GPU types can be specified with `V100` or `P100` or more specific GPUs like `gpu:tesla_v100-pcie-32gb:1`  High speed interconnect networks can be requested with either `IB` (Infiniband) or `OPA` (OmniPath).  Additional node features include machine room rack locations and funding sources (i.e. NIH and MRI).  To specify more than one feature, use the `&` sign between them (i.e. `--constraint=INTEL&IB` will request nodes with Intel CPUs and the Infiniband high speed network).  To request a node with one feature or another, use the `|` symbol between them (i.e. `--constraint=IB|OPA` will request nodes with either of the two high speed network options).  
+
+!!! Tip  
+    The less you specify, the sooner your job is likely to run because you are not narrowing your pool of compute nodes to run on with specific criteria.  
+
+The best way to see all the Slurm features offered and what is currently available, is by running the `snodes` command in the terminal on one of the cluster login servers.   
+
+```` 
+[ccruser@vortex2:~]$ snodes --help
+==============================================================
+Display information about one or more nodes, possibly filtered
+by partition and/or state.
+
+If no node arg or 'all' is provided, all nodes will be
+summarized. Similar behavior exists for the partition and
+state(s) args
+
+Usage:   snodes [node1,node2,etc.] [cluster/partition] [state(s)]
+
+==============================================================
+[ccruser@vortex2:~]$ snodes all ub-hpc/general-compute |grep gpu
+cpn-h22-29    mix      56   2:28:1   48/8/0/56       3.10     512000   gpu:a100-pcie-40gb:2                general-compute*   INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB,A100
+cpn-h22-31    mix      56   2:28:1   48/8/0/56       3.06     512000   gpu:a100-pcie-40gb:2                general-compute*   INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB,A100
+cpn-h22-33    mix      56   2:28:1   48/8/0/56       2.99     512000   gpu:a100-pcie-40gb:2                general-compute*   INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB,A100
+
+[djm29@vortex2:~]$ snodes all ub-hpc/industry |grep IB
+cpn-h22-04    alloc    56   2:28:1   56/0/0/56       56.16    1000000  (null)                              industry           INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB
+cpn-h22-05    alloc    56   2:28:1   56/0/0/56       56.18    1000000  (null)                              industry           INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB
+cpn-h22-06    mix      56   2:28:1   48/8/0/56       168.08   1000000  
+
+[djm29@vortex2:~]$ snodes all faculty/scavenger |grep idle
+cpn-f11-03    idle     24   2:12:1   0/24/0/24       0.01     256000   (null)                              scavenger          FACULTY,AVX2,CPU-E5-2650v4,INTEL
+cpn-f11-04    idle     24   2:12:1   0/24/0/24       0.02     256000   (null)                              scavenger          FACULTY,AVX2,CPU-E5-2650v4,INTEL
+cpn-f11-05    idle     24   2:12:1   0/24/0/24       0.05     256000   (null)                              scavenger          FACULTY,AVX2,CPU-E5-2650v4,INTEL
+
+````
+The format of the Slurm features (last column) in snodes command output is:  `CLUSTER, CPU_ARCHITECTURE, CPU_MODEL, CPU_MANUFACTURER, RACK,[FUNDING SOURCE, INTERCONNECT, GPU_MODEL]`  Anything in `[ ]` is optional and may be dependent on what hardware is in the node. 
 
 ## Job Priority  
 
@@ -329,7 +375,29 @@ Then you would paste the outputed link into your browser. For example:
 [Click here for example Grafana output](https://dashboard.ccr.buffalo.edu/grafana/d/Vi3oi5gohz/hpc-job-metrics?orgId=1&theme=light&from=1669820527000&to=1669820600000&var-cluster=ub-hpc&var-host=cpn-k08-34-01&var-jobid=10457965)
 
 ### Slurm Accounting
-Slurm account information is also available and useful depending on what information you're looking for regarding your jobs.  We provide some suggested commands [here](https://ubccr.freshdesk.com/support/solutions/articles/5000686909-how-to-retrieve-job-history-and-accounting).
+Slurm account information is also available and useful depending on what information you're looking for regarding your jobs.  
+
+**Show job account information for a specific job:**  
+If the job is currently running, you will get node information.  If it has completed, you will not. 
+````
+sacct -j jobid --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,nnodes,ncpus,nodelist
+````
+or `slist jobid`  
+
+**Show all job information starting from a specific date for a specific user:**   
+````
+sacct -S start-date -u username
+````
+
 
 ### Metrics OnDemand
-For metrics about job performance and node usage after your job completes, please use the [UBMoD portal](https://ubmod.ccr.buffalo.edu/). Job data is usually available 24 hours after a job completes. [More details about UBMod.](https://ubccr.freshdesk.com/support/solutions/folders/13000014875)
+For metrics about job performance and node usage after your job completes, please use the [UBMoD portal](https://ubmod.ccr.buffalo.edu/). Job data is usually available 24 hours after a job completes. [More details about UBMod.](../portals/metrics.md)  
+
+## Scavenging Idle Cycles  
+
+In an effort to maximize the use of all available cores within our center, we provide access to all compute nodes whenever they are idle.  This means that academic UB-HPC users will have access to idle nodes on the industry partition as well as nodes in the faculty cluster.  These idle nodes are available through the scavenger partitions on the UB-HPC and faculty clusters and jobs are allowed to run on them when there are no other pending jobs scheduled for them.  Once a user with access to the partition submits a job requesting resources, jobs in the scavenger partition are stopped and re-queued.  This means if you're running a job in the scavenger partition on the industry cluster and an industry user submits a job requiring the resources you're consuming, your job will be stopped.  
+
+*  **Requirements for using the scavenger partitions:**  
+    * Your jobs MUST be able to checkpoint otherwise you'll lose any work when your jobs are stopped and re-queued.    
+    * You must be an advanced user that understands the queuing system, runs efficient jobs, and can get checkpointing working on your jobs independently.  CCR staff can not devote the time to helping you write your code.  
+    * If your jobs are determined to cause problems on any of the private cluster nodes and we receive complaints from the owners of those nodes, your access to the scavenger partitions will be removed.  

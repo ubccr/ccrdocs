@@ -18,7 +18,7 @@ The ub-hpc cluster contains the following partitions:
 
 ###### Faculty Compute Cluster
 
-This cluster contains over 50 faculty owned or project specific partitions. Access to these partitions are determined by the owner. Preemptible access done via the faculty cluster scavenger partition.
+This cluster contains over 50 faculty owned or project specific partitions. Access to these partitions is determined by the owner and managed via allocations in [ColdFront](../portals/coldfront.md). All idle nodes in the faculty cluster are accessible to UB-HPC users in the scavenger partition.  Scavenger jobs will be preemptively canceled when jobs are submitted by members of the group that owns the node.  
 
 ## Node types
 
