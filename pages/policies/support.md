@@ -72,26 +72,22 @@ CCR is able to provide the following options to faculty groups:
 **Comparing the Options:**  
 
 - Dedicated compute nodes  
-    - Cost: $163.79/u one time fee PLUS the cost of the compute node ==(see rate info below)==
-    - PI responsibility: None, except facilitating the compute node purchase with your department  
+    - Cost: One time co-location fee **PLUS the cost of the compute node** ==(see rate info below)==
+    - PI responsibility: None, except facilitating the compute node purchase and delivery with your department  
     - CCR responsibility: Physical hardware install/maintenance/repairs, operating system and software install, updates, security
     - Pros/Cons:  Same setup as compute nodes in UB academic cluster, access to CCR’s network attached storage (home & project directories, high speed scratch space), no long term storage on local disks, no local software installations, maximum job runtime of 30 days, maintenance downtimes every 30 days, no local hardware backups, no administrative access  
 
 - Lake Effect IAAS Research Cloud  
-    - Cost: - $480.82 per 8760 CPU hours (approximately 1 year of 1 CPU), $100/TB of storage - $59.97/hr consulting fee [optional] ==(see rate info below)==
+    - Cost: - Usage based subscription, optional fees for additional storage and consulting ==(see rate info below)==
     - PI responsibility: Faculty group is entirely responsible for OS & software install, setup, updates & security    
     - CCR responsibility: Responsible for cloud infrastructure only  
     - Pros/Cons:  No backups provided, no maximum run time, 1-2 annual maintenance downtimes, full administrative access, NO access to CCR’s network attached storage (home & project directories, high speed scratch space)    
 
-==**2021 Rates - based on the type of account they're paid out of:**==  
+==**Rates beginning April 1, 2023 - based on the type of account they're paid out of:**==  
 
-- Rack fee: $163.79/u, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $188.27/u.  External rate is $350/u  
-- Cloud subscription: $480.82, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $552.67/subscription.  External rate is $660/subscription  
-- Consulting fee:  $59.97/hr, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $68.93/hour.  External rates are $85-125/hour.  
-
-!!! Warning "Rate Change Expected in 2023"  
-    UB Financial services is working to publish new rates for CCR services in 2023.  Please contact [CCR Help](../help.md) to receive estimated costs for planning purchases.  
-
+- Rack fee: $315/u*, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $362.07/u.  External rate is $590/u  
+- Cloud subscriptions - purchased in packs ([more info here](../cloud/lake-effect.md#subscriptions))  
+- Consulting fee:  $63/hr, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $72.41/hour.  **Purchased in 8 hour increments.**  External rates - contact CCR Help for quote.  
 
 **The fine print and specifics for each option:**  
 
@@ -104,10 +100,10 @@ Dedicated resources (nodes) for a faculty group or research lab built into the e
     - Once a satisfactory quote is received, the PI will submit that to their department to purchase and have the equipment delivered to CCR's data center.  
     - **NOTE:** We reserve the right to refuse to house hardware from vendors that we have had difficulty working with in the past.  
 
-- **Infrastructure (co-location) fee:**  
+- ***Infrastructure (co-location) fee:**  
     - CCR charges a one-time fee for the infrastructure to run your compute node (rack space, cables, Ethernet network switches, electricity and cooling).
-    - As of 2021 this fee is $163.79* per rack "u" - which is the standard slot in a rack. If machines purchased are more than 1 “u”, the infrastructure charge is multiplied. For example, if the machine you purchase takes up 2 “u” in rack space, the infrastructure charge is $327.58*.
-    - This one-time charge goes towards cost-sharing of the infrastructure used to house and support your equipment.    
+    - The co-location per rack "u" fee is based on the standard slot of a compute rack. If machines purchased are more than 1 “u”, the infrastructure charge is multiplied. For example, if the machine you purchase takes up 2 “u” in rack space, the infrastructure charge is $630.
+    - This one-time charge goes towards cost-sharing of the infrastructure used to house and support your equipment (rack, network switches, cabling, physical installation and maintenance).    
 
 - **Support:**  
     - CCR staff provide support during regular business hours, Monday through Friday 8am-5pm excluding University at Buffalo holidays. No weekend support is provided.

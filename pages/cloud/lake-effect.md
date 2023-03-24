@@ -49,7 +49,7 @@ Features of LakeEffect:
 
 In order to use LakeEffect Research cloud, you will need to purchase a subscription.  Current pricing can be [found here](https://ubccr.freshdesk.com/en/support/solutions/articles/5000680817-cloud-access-and-subscriptions)  
 
-==New Rates and Package Structure Coming Soon:==  
+==New Rates and Package Structure Available April 1, 2023:==  
 
 | Package Name | vCPU | Storage | Other | Price |
 | :--- | ---: | ---: | :----: | ---:| 
