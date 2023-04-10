@@ -8,12 +8,8 @@ using what's called a "module".  If the software you need is not available, you
 [can ask our staff](building.md#software-build-requests) to install it for you or [do it yourself](building.md).
 
 !!! Warning "New software infrastructure now available"
-    CCR is moving to a new software infrastructure described in this document.
-    Starting in the Summer of 2023 users will be required to migrate to the
-    system. To start using the new software now, simply run this command `touch ~/.ccr_new_modules`.
-    You will need to logout and log back in for the changes to take effect. If
-    you'd like to temporarily go back to using the old modules in `/util`,
-    simply remove that file `rm ~/.ccr_new_modules`.
+    CCR has moved to a new software infrastructure described in this document.
+    As of the Summer of 2023 existing users will be required to migrate to the new modules. To start using the new software now, simply run this command `touch ~/.ccr_new_modules`.  You will need to logout and log back in for the changes to take effect. As of April 2023, new users will be automatically setup in this environment and can skip this step.  If you'd like to temporarily go back to using the old modules in `/util`, simply remove that file `rm ~/.ccr_new_modules`.
 
 ## Using Modules
 
