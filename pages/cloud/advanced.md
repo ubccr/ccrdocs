@@ -110,7 +110,7 @@ Upload an Image to Openstack:
 
 ## Private Networking
 
-Creating Private Network:
+Create a Private Network:
 
 ```bash
     $ openstack network create my-private-net
@@ -140,13 +140,13 @@ Connect the router to the public network. This is optional if you want to be abl
     $ openstack router set --external-gateway ccr-public my-private-router
 ```
 
-Create a new VM on the network to test.
+Create a new VM on the network to test:
 
 ```bash
     $ openstack server create --flavor c1.m4 --image 'Ubuntu 22.04 LTS (x86_64) [2022-10-18]' --nic net-id=my-private-net --key-name mykeypair --security-group mysecgroup --wait Test-VM-1
 ```
 
-Attach a Floating IP address to the VM if you want it to have an IP address on the public network.
+Attach a Floating IP address to the VM if you want it to have an IP address on the public network:
 
 ```bash
     $ FIP=`openstack floating ip create -f value -c floating_ip_address ccr-public`
@@ -155,7 +155,7 @@ Attach a Floating IP address to the VM if you want it to have an IP address on t
 
 Ensure the proper security groups are created for SSH access to the VM. You should now be able to SSH into this machine from the public network. This VM has access to both the public and private and will act as the login host for all other VMs on the private network only.
 
-You can now create additional VMs on the Private network and they will all be accessable to each other over this network and have outbound Internet access if you set the --external-gateway.
+You can now create additional VMs on the Private network and they will all be accessible to each other over this network and have outbound Internet access if you set the --external-gateway.
 
 **NOTE: You do not need to create security group rules for private networks.  
 All traffic is allowed by default.**
