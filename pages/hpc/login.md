@@ -12,7 +12,7 @@ number of tasks:
 
 This page covers connecting to a login node using SSH (Secure Shell Protocol).
 When you connect via SSH, you authenticate using a private key file on your
-local machine. For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) 
+local machine. For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)
 on Wikipedia. You can also connect to CCR's login nodes using a web browser with the [OnDemand Portal](../portals/ood.md).
 
 !!! Note  
@@ -24,12 +24,11 @@ To get started connecting to CCR's HPC clusters and shared storage you need the
 following:
 
 - A CCR user account with two factor authentication enabled and an active
-  allocation to HPC resources. For more information see our [getting access](../getting-access.md) guide. 
+  allocation to HPC resources. For more information see our [getting access](../getting-access.md) guide.
 - [An SSH Key added to your account](#generate-new-ssh-key)
-- An SSH client. Windows users we recommend using [Git Bash](https://gitforwindows.org/)
 - An SSH client. Linux & MacOS include a terminal app. For Windows users, we recommend using [Git Bash](https://gitforwindows.org/)
 
-!!! Warning "VPN Required" 
+!!! Warning "VPN Required"
     Access to CCR login nodes is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
@@ -46,7 +45,7 @@ CCR account using the IDM portal.
 ## Generate new SSH key
 
 You can generate a new SSH key pair on your local machine. After you generate
-the key pair, you can add the public key to your account using [CCR's IDM portal](https://idm.ccr.buffalo.edu/sshkey). 
+the key pair, you can add the public key to your account using [CCR's IDM portal](https://idm.ccr.buffalo.edu/sshkey).
 Follow these easy steps:
 
 1. Open your terminal or Git Bash if you're on windows
@@ -55,7 +54,7 @@ Follow these easy steps:
 $ ssh-keygen -t ed25519 -C "your_ub_itname@buffalo.edu"
 ```
 3. At the prompt, type a secure passphrase
-4. Copy the contents of the public key to your clipboard. The file is located here: 
+4. Copy the contents of the public key to your clipboard. The file is located here:
 ```bash
 ~/.ssh/id_ed25519.pub
 ```
@@ -68,7 +67,7 @@ To verify you can ssh into the login node, follow these easy steps:
 
 1. Open your terminal or Git Bash if you're on windows and enter the following:
    ```bash
-   ssh username@vortex.ccr.buffalo.edu.edu
+   ssh username@vortex.ccr.buffalo.edu
    ```
    You may see a warning like this:
    ```
@@ -76,12 +75,16 @@ To verify you can ssh into the login node, follow these easy steps:
    ED25519 key fingerprint is SHA256:PxBS1XqDaspSTQYQj+LHHh4YBSN4XvB7P/VcYGxMR8Y.
    Are you sure you want to continue connecting (yes/no/[fingerprint])?
    ```
-2. Verify the fingerprint in the message you see matches [CCR's public key fingerprint](../fingerprints.md). 
+2. Verify the fingerprint in the message you see matches [CCR's public key fingerprint](../fingerprints.md).
    If it does, then type `yes`.
 3. You should now be at a shell prompt on the login node:
 ```
 [username@vortex1:~]$
 ```
+
+!!! Tip "First Login - Additional Step"
+    On first login your home directory will be created automatically.  You will see a message prompting you to run a script to generate a SSH key pair for use on the cluster and within the OnDemand terminal app.  After login, run ``/util/ccr/sbin/ssh_no_password.sh``
+
 
 ## Using the SSH Agent  
 

@@ -1,15 +1,24 @@
 # Clusters
-## General Compute
 
-Write me!
+CCR maintains two clusters; *ub-hpc* and *faculty*. Within each cluster exist partitions (queues) that users can request to have their jobs run on. Not all partitions are available to all users. Below are descriptions of the clusters and the partitions. 
 
-## Faculty
+Compute nodes on all CCR clusters are subject to monthly downtimes. Downtime information can be found [here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
 
-Write me!
+Examples on how to run on these clusters and partitions can be found [here](https://docs.ccr.buffalo.edu/en/latest/hpc/jobs/).
+ 
+###### UB-HPC Compute Cluster
 
-## Industry 
+The ub-hpc cluster contains the following partitions:
 
-Write me!
+* debug: Dedicated compute nodes to help users debug their workflows  
+* general-compute: Large pool of compute nodes for academic users
+* viz: Hardware Accelerated Graphics compute nodes
+* industry: Compute nodes industry partners pay to use
+* scavenger: Preemptible jobs on all ub-hpc nodes
+
+###### Faculty Compute Cluster
+
+This cluster contains over 50 faculty owned or project specific partitions. Access to these partitions is determined by the owner and managed via allocations in [ColdFront](../portals/coldfront.md). All idle nodes in the faculty cluster are accessible to UB-HPC users in the scavenger partition.  Scavenger jobs will be preemptively canceled when jobs are submitted by members of the group that owns the node.  
 
 ## Node types
 
@@ -21,11 +30,17 @@ type and its intended use below.
 
 ### Login Nodes
 
-* Connections are balanced across two physical servers (vortex1 and vortex2) 
+* _Use for_: editing scripts, moving files, small data transfers, submitting jobs
+* _Do not use for_: Heavy computations, building software or long running processes
 * 15 Minute time limit on running processes
-* _Do not use for_: Heavy computations or long running processes
-* _Use for_: editing scripts, moving files, small data transfers, short compiles, scheduling jobs
 * Many users are typically logged into these at the same time
+* Connections are balanced across two physical servers (vortex1 and vortex2) 
+
+### Compile Nodes
+
+* _Use for_: [Building Software](../software/building.md), submitting Jobs
+* _Do not use for_: Heavy computations
+* Access these nodes by typing `ssh compile` from a login node
 
 ### Compute Nodes
 

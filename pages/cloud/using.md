@@ -2,25 +2,19 @@
 
 ### Managing your Project with the Cloud Dashboard
 
-Once you've requested and been granted an account on the LakeEffect cloud, you will be able to login in to the web console.
-Your username and password for LakeEffect are the same as your CCR username and password.  However, you need additional 
-privileges to be allowed to login to the cloud.  You will be informed when your cloud account is ready.
+Allocations to the LakeEffect Cloud are requested and managed through the ColdFront Resource Allocations Management Tool.
+To request an allocation to LakeEffect [see here](../getting-access.md#allocation-requests).  
+Once approved through ColdFront you will be informed when your cloud access is ready and you will be able to login in to the LakeEffect Web Console
+where you can manage your project's cloud resources and view information on your group's usage.  
 
-!!! Warning
-    You must be on the UB campus or connected to the [UB VPN](https://buffalo.edu/ubit) from off campus in order to access CCR's portals
+!!! Warning "VPN Required"
+    Access to the LakeEffect Dashboard is restricted to UB and Roswell Park networks
+    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
-[The LakeEffect Dashboard (Horizon)](https://dashboard.cloud.ccr.buffalo.edu) - simplifies management of your project's cloud resources and provides information on your group's usage.
+
+From the [The LakeEffect Web Console](https://dashboard.cloud.ccr.buffalo.edu), select CCR OpenID Connect option and authenticate using your CCR account. Don't have an account? [see here](../getting-access.md)
 
 ![](../images/cloud/openid.png)
-
-Two factor authentication must be enabled on your CCR account in order to access CCR's LakeEffect Dashboard.  If you do not, you will get the error ``You don't have access to this resource`` when attempting to login.
-
-You will need to authenticate to CCR's **Identity Management System** with your CCR username, password and otp.
-For more information about logging in with two-factor authentication enabled click [here](../2fa.md).
-
-![](../images/cloud/ccridm2.png)
-
-[More information on two factor authentication](../2fa.md)
 
 After a successful login, you will be redirected to your project **Overview** in the LakeEffect Dashboard:
 
@@ -43,8 +37,8 @@ There are two ways to accomplish this:
 
 !!! Alert
     The Private key of the Keypairs should be stored in a safe place and kept very secure.
-    If these credentials were to be compromised, an attacker would gain full access to your Instances. 
-    Do NOT store these credentials on front end machines of the clusters or shared storage 
+    If these credentials were to be compromised, an attacker would gain full access to your Instances.
+    Do NOT store these credentials on front end machines of the clusters or shared storage
     (such as home or project directories or global scratch).
 
 #### Creating a key pair in Openstack
@@ -52,19 +46,19 @@ There are two ways to accomplish this:
 1. Click on the **Key Pairs** menu
 2. Click on the `+Create Key Pair`
 ![](../images/cloud/keypair-create.png)
-3. Enter a Key Pair Name 
+3. Enter a Key Pair Name
 4. Select "SSH Key" for Key Type
 5. Click on the `Create Key Pair`
 
 Your keypair will be created and your browser will save the private (pem) file locally.
-You will use this pem file to ssh into you instances. 
+You will use this pem file to ssh into you instances.
 
 #### Importing existing key pair in Openstack
 
 1. Click on the **Key Pairs** menu
 2. Click on the `+Import Public Key`
 ![](../images/cloud/keypair-import.png)
-3. Enter a Key Pair Name 
+3. Enter a Key Pair Name
 4. Select "SSH Key" for Key Type
 5. Choose file location of your public key or paste the public key into the form
 6. Click `Import Public Key`
@@ -74,19 +68,19 @@ You can use many different key pairs on your account, if desired. You will be ab
 !!! Tip
     It is recommended that all users in a LakeEffect project have their own keypairs.
     This is much more secure than one shared keypair for the group and provides more
-    accountability. 
+    accountability.
 
 ### Security-Groups
 
-Security groups are an important concept to understand in Openstack.  Security groups define a set of IP filter rules that determine how network traffic flows to and from an instance like a firewall. Because the Cloud needs to be flexible, the LakeEffect public IP address space is not protected by the UB firewall; therefore, it's critical that you setup secure access to your instances. Security groups are the primary method from protecting your VMs from Internet Security Threats. 
+Security groups are an important concept to understand in Openstack.  Security groups define a set of IP filter rules that determine how network traffic flows to and from an instance like a firewall. Because the Cloud needs to be flexible, the LakeEffect public IP address space is not protected by the UB firewall; therefore, it's critical that you setup secure access to your instances. Security groups are the primary method from protecting your VMs from Internet Security Threats.
 
 #### Creating Security Groups
 
 
 !!! Note
-    The **default** rule in LakeEffect only allows outbound (egress) traffic - no inbound (ingress) 
-    traffic is permitted. We recommend you create a new security group and leave the default 
-    group alone. If you remove the default security group you will need to add these rules to your 
+    The **default** rule in LakeEffect only allows outbound (egress) traffic - no inbound (ingress)
+    traffic is permitted. We recommend you create a new security group and leave the default
+    group alone. If you remove the default security group you will need to add these rules to your
     own security group otherwise you will not be able to connect to your instance.
 
 1. Click on the **Network -> Security Groups** menu
@@ -114,7 +108,7 @@ You will now be able to manage the individual rules in the Security group you ju
 
 ### Instances
 
-**Instances** are virtual machines that run inside the cloud, they are the basic units of compute you will use within LakeEffect. An **Instance** is made up of a **Flavor**, an **Image** and it is attached to a **Network** for it to connect to. 
+**Instances** are virtual machines that run inside the cloud, they are the basic units of compute you will use within LakeEffect. An **Instance** is made up of a **Flavor**, an **Image** and it is attached to a **Network** for it to connect to.
 
 For more information about instances, flavors and images please see the official Openstack Guide:  
 > -  [OpenStack Documentation](https://docs.openstack.org/nova/latest/user/launch-instances.html)
@@ -135,12 +129,12 @@ For more information about instances, flavors and images please see the official
 > | c32.m128 | 32 cores | 128 GB | 120 GB |
 
 
-> ###### Advanced 
+> ###### Advanced
 
 !!! Note
     Advanced or GPU Subscription required to access GPU or Fast-IO Flavors
 
->> **GPU** 
+>> **GPU**
 
 > | Instance Type | GPU | vCPU | Memory | Storage |
 > | :---     |  :----: |   ---:  |   ---: |    ---:|
@@ -154,7 +148,7 @@ For more information about instances, flavors and images please see the official
 
 > | Instance Type | vCPU | Memory | NVME Storage | Block Storage |
 > | :---     |    ---: |   ---:  |   ---: |     ---:|
-> | c4.m16.e100   | 8 cores   | 16 GB   | 100 GB | 20 GB  | 
+> | c4.m16.e100   | 8 cores   | 16 GB   | 100 GB | 20 GB  |
 > | c8.m32.e250   | 16 cores  | 32 GB   | 250 GB | 40 GB  |
 > | c16.m64.e500  | 32 cores  | 32 GB   | 500 GB | 60 GB  |
 
@@ -162,7 +156,7 @@ For more information about instances, flavors and images please see the official
 #### Images
 
 An **Image** is a stock copy of an operating system that you will provision your instance with.
-CCR provides a current set of the major Linux distributions which are updated perodically. 
+CCR provides a current set of the major Linux distributions which are updated perodically.
 These are all stock images pulled directly from the various vendor repos. Due to license restrictions, CCR does not provide Microsoft Windows images.
 
 > |Operating System | Version | Build Date |
@@ -191,7 +185,7 @@ Click on `Launch Instance` button at the top right corner. This will bring up th
 !!! Note
     Your project has a quota set for the total number of instances you're permitted to run.  The chart on the right shows the current usage.  If you've hit your limit, please [Contact CCR Help](../help.md) for assistance.
 
-##### Step 1: Details 
+##### Step 1: Details
 
 > * Fill out **instance name** and **description**  
 > * **Availability zone:** can be left as default.  
@@ -202,7 +196,7 @@ Click on `Launch Instance` button at the top right corner. This will bring up th
 
 > * click `Next` when done to go to the ___Source___ screen.
 
-##### Step 2: Source 
+##### Step 2: Source
 
 On the **Source tab**, there are many things you need to consider when deciding how you want your instance created.  
 
@@ -220,7 +214,7 @@ On the **Source tab**, there are many things you need to consider when deciding 
 
 > * click `Next` when done to go to the ___Flavor___ screen.
 
-##### Step 3: Flavor 
+##### Step 3: Flavor
 
 A **Flavor** defines the compute, memory, and storage capacity of our instance.
 > * Choose the most appropriate sizing for your use case from a list of pre-selected resources

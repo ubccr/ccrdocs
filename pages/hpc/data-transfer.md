@@ -16,8 +16,9 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 2. ** [Secure Shell Copy (scp/sftp)](#secure-shell-copy) **
 
-3. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
+3. ** [rclone](#rclone) **
 
+4. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
 
 !!! Warning "VPN Required" 
     Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
@@ -54,7 +55,7 @@ CCR storage resources are available in Globus as mapped collections.
 You can connect to a CCR endpoint using the "collections"
 field in the Globus web interface and searching for `UBuffalo - Center for Computational Research`. 
 
-CCR Currently has 3 Collections:
+CCR Currently has 3 Mapped Collections:
 
 * UBuffalo - Center for Computational Research Project Directories
 * UBuffalo - Center for Computational Research Home Directories
@@ -84,8 +85,64 @@ any file or folder that you have access to with anyone who
 has a Globus account. This is particularly useful for external collaborations in which
 data sharing is necessary.  
 
-Detailed information on creating Guest Collections is available [at
-docs.globus.org](https://docs.globus.org/how-to/share-files/).
+Detailed information on creating Guest Collections is available at
+[docs.globus.org](https://docs.globus.org/how-to/share-files/)
+
+### Using Globus to transfer files to and from UB Box
+
+CCR users are able to move data between CCR and UB Box within Globus using an integrated Box Connector App (UBuffalo-CCR Globus Box Connector). Initial setup will require you to log into UB Box and give the App consent to access UB Box on your behalf.
+
+!!! Note
+    The UB Box Collection is accessed the same way the CCR Mapped collections are as described in the [Globus Web App](#globus-web-app) section above with one notable exception: you will be prompted to grant access to UB Box the first time you access the collection.
+
+#### Grant Access to the UBuffalo-CCR Globus Box Connector App
+
+*These steps are only needed when accessing the UB Box Collection for the first time:*
+
+Log onto the [Globus Web App](#globus-web-app)
+
+Go to the File Manager tab and search for the "UBuffalo-CCR Box Collection" in the Collection search bar.
+
+When you click on the UBuffalo-CCR Box Collection for the first time, you will be prompted to Authenticate to the UB Box service.
+
+![](../images/globus-ubbox-fm-1.png)
+
+Click `Continue` and you will be directed to the "Registering a Credential" Page. 
+
+![](../images/globus-ubbox-cred-1.png)
+
+This screen shows which Account globus will use to Connect to the CCR UB Box Collection.  
+If this is all correct Click `Continue`
+
+You will then be directed to the "Box Login Page"
+
+![](../images/globus-ubbox-access-1.png)
+
+Verify the account that will be used to log into UB Box is correct and Click `Authorize`
+
+This will take you to the normal UB Single Sign On (SSO) login page where you will log in using your UB credentials and Duo 2 Factor if prompted.
+
+After sucessfully logging into UB SSO you will be prompted with one more screen to Grant access to the "UBuffalo-CCR Globus Box Connector"
+
+![](../images/globus-ubbox-access-2.png)
+
+Click `Grant access to Box` and you will now be authenticated to your UB Box account from within Globus. You will then be sent back to the File manager screen.
+
+If the panel is blank, you will need to search again for the "UBuffalo-CCR Box Collection" in the Collection search bar. If you have properly granted consent to the Globus Box App, then you should see the contents of your UB Box account.
+
+Once you have completed the Access Consent steps above, you should now be able to access UB Box just like any of the other CCR Mapped Collections.
+
+#### To transfer files to or from UB Box to CCR Collections:
+
+From the File Manager in the second window of the split screen, you can connect to one of the the CCR Mapped collections (ex. UBuffalo - Center for Computational Research Project Directories)
+listed above it will appear in the other panel.
+
+![](../images/globus-ubbox-fm-2.png)
+
+From here you can initiate a file transfer by clicking your source files or directories and click `Start`
+
+!!! Note 
+    The Box API implements rate limiting so depending on the type of transfer and number of files you may get connection resets in the transfer log. These will not stop the transfer because Globus will just retry the connection until the transfer is complete.
 
 
 ## Secure Shell Copy
@@ -271,11 +328,155 @@ This will popup the Site Management Window
 
 After the Site has been added you can connect to CCR by selecting it from the Site Manager Window and clicking `Connect`
 
+## rclone
+
+**rclone** is a tool that can be used to transfer files to/from cloud storage such as Microsoft OneDrive and Box from the command line. The following are instructions on how to use rclone to transfer data to/from OneDrive. For instructions with other cloud storage, check [**rclone** Online documentation](https://rclone.org/docs/)
+
+
+**rclone** is available as a module at CCR and needs to be loaded in the users environment first.
+See [here](../software/modules.md#using-modules) for information on using CCR's modules system.
+
+!!! Note
+    OneDrive requires an Internet connected web browser to obtain an authentication token from Microsoft. CCR compute nodes do not have browsers, so you will need access to a machine with rclone and a web browser. **rclone** is available for almost any platform [here](https://rclone.org/downloads/) 
+
+
+### Using rclone with OneDrive
+
+```bash
+$ module load rclone
+```
+
+```bash
+$ rclone config
+
+No remotes found, make a new one?
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q> 
+```
+
+>> * answer **n** for new remote
+
+> * "**name>**" (the name for the new remote) 
+>> * Give it a name such as "OneDrive"
+
+> * "**Storage>**" (the storage type of the new remote)
+>> * Select the number that corresponds to "Microsoft OneDrive"
+
+> * "**client_id>**" (OAuth Client Id.) 
+>> *  Press Enter to leave empty.
+
+> * "**client_secret>**" (OAuth Client Secret.)
+>> *  Press Enter to leave empty.
+
+> * "**region>**"
+>> * Press Enter for the default (global).
+
+> * "**Edit advanced config?**"
+>> * Enter 'n' No (default)
+
+> * "**Use auto config?**"
+>> * Enter 'n' for machine without web browser access
+
+You will then be prompted with the following:
+```
+Execute the following on the machine with the web browser (same rclone
+version recommended):
+	rclone authorize "onedrive"
+Then paste the result.
+Enter a value.
+```
+
+As mentioned in the previous Note, You will need to run the authorize command on a system that can open up a browser window which will take you through the authentication steps to access your OneDrive. This includes UB's Single Sign On system if you are a UB Faculty or Staff member.
+Once those steps have been completed you can paste the token into the config_token prompt.
+
+
+> * "**config_token>**"
+>> * Paste the token from the authorize step above.
+
+> * "**config_type>**"
+>> * Press Enter for the default (onedrive)
+
+> * "**config_driveid>**" (Choose drive to use )
+>> *  Select the one that corresponds to OneDrive (business)
+
+> * "**Drive OK?**"
+>> * Type "**y**" to confirm the drive you wish to use is correct.
+
+> * "**Keep this "OneDrive" remote?**"
+>> * Type "**y**" for Yes this is OK (default)
+
+For additional information on remote setup including additional options see [here](https://rclone.org/remote_setup/)
+
+!!! Error "Security Warning"
+    **rclone** stores your access tokens and information about your cloud services in your configuration file. You should keep your rclone.conf file in a secure location with proper permissions set.
+    As added protection, we recommend encrypting your configuration file. Information on how to do this can be found [here](https://rclone.org/docs/#configuration-encryption)
+
+To test the connection, create a file with the touch command or copy an existing file to your OneDrive
+
+```
+$ touch somefile.txt
+$ rclone copy somefile.txt OneDrive:/test
+```
+This will copy the test file to a test directory, you can verify the copy was successful by using `rclone ls` or logging into OneDrive in a web browser 
+
+```
+$ rclone ls OneDrive:/test
+0 somefile.txt
+```
+
+**Additional rclone information:**
+
+> * [rclone Online documentation](https://rclone.org/docs/)   
+> * [rclone OneDrive setup instruction](https://rclone.org/onedrive/)  
+> * [rclone Box setup instruction](https://rclone.org/box/)  
+
+
 ## OnDemand File Manager App
 
 * This is browser based for simple transfers and not recommended for large amounts of data  
 
 This information is available in our [Open OnDemand Documentation](../portals/ood.md)
+
+
+
+<!--
+## Transferring Files with UB Box
+
+The UB Information Technology group has recommended using ftps (secure ftp) to transfer files to/from UB Box because 
+it is considerably faster than the alternatives.  To use "ftps" (i.e. ftp over SSL), CCR users can use "lftp" on a CCR 
+login node (if the transfer will take less than 15 minutes), by running an interactive job or using an OnDemand desktop 
+to run for longer periods of time. Prior to doing so, UB users must create an FTP password within Box.  
+
+Please refer the UBit documentation for Using FTP with UBbox found [Here](https://www.buffalo.edu/content/www/ubit/information-for-it-staff-pw/box/ftp.html)
+
+Once your UBbox ftp password is setup, you can transfer files from CCR to UB Box using SFTP. 
+
+To do this, SSH into a CCR Login node and use the following steps substituting in your information:
+
+```bash
+$ lftp
+lftp :~> set ftps:initial-prot ""
+lftp :~> set ftp:ssl-force true
+lftp :~> set ftp:ssl-protect-data true
+lftp :~> open ftps://ftp.box.com:990
+lftp ftp.box.com:~> user UBID@buffalo.edu
+Password: _enter_your_box_ftp_password_here_
+lftp UBID@buffalo.edu@ftp.box.com:~> ls
+drwx------ 1 owner group 0 Mar 24 2020 Your_files
+ [...]
+
+lftp UBID@buffalo.edu@ftp.box.com:~> cd somedir
+lftp UBID@buffalo.edu@ftp.box.com:/somedir~> get somefile
+16063 bytes transferred
+lftp UBID@buffalo.edu@ftp.box.com:/somedir~> exit
+$ lftp
+```
+
+Additional information from Box on using Using Box with FTP or FTPS along with examples is [Here]( https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS)
+-->
+
 
 ## More reading
 
