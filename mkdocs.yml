@@ -74,3 +74,5 @@ nav:
     - Communications Policy: policies/email.md
     - Permitted Use & Misuse of CCR: policies/misuse.md
     - Support, Maintenance, & Installation Policies: policies/support.md
+  - How To:  
+    - Conda Environments: howto/conda.md  
