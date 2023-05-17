@@ -77,3 +77,4 @@ nav:
     - Support, Maintenance, & Installation Policies: policies/support.md
   - How To:  
     - Conda Environments: howto/conda.md  
+    - Python Best Practices: howto/python.md
