@@ -128,6 +128,11 @@ ccruser@vortex ~ $ eval "$(/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuil
 
 (base) ccruser@vortex ~ $
 ```
+
+!!! Tip "What's the eval statement for?"  
+    From the [conda docs](https://docs.conda.io/projects/conda/en/latest/dev-guide/deep-dives/activation.html#): "The main idea behind initialization is to provide a conda shell function that allows the Python code to interact with the shell context more intimately. It also allows a cleaner PATH manipulation and snappier responses in some conda commands."  On your local machine, you can add the initialization to your environment file but we can't do that on CCR's systems for all the reasons you just saw in the warning above.    
+
+
 **Step 3:**  Create a custom environment  
 
 Here we create a new environment called `mycustomenv` (you can name it whatever you want) and you'll see it's saved to the directory we specify in our `.condarc` file  
@@ -176,6 +181,16 @@ When creating a custom environment you can specify a Python version to use.  For
 (base) ccruser@vortex ~ $ conda create -n mycustomenv python=3.10
 ```
 You will be presented with a list of packages it needs to update or install and given an opportunity to move forward or exit the installation.  
+
+**__Create a conda environment & install packages in one command__**
+
+It can be more convenient to create the environment with the necessary packages in one command. If you want to see what is available, the `conda search [search term]` command will give you a list of packages with that search term in the name, as well as version, build, and channel information.  To create the environment with the desired packages, list the packages you want at the end of the `conda create` command. If you want specific versions of the packages, type `=[version you want]` at the end of the package name. For example:
+
+```
+[ccrgst@vortex:~]$ conda create -n mycustomenv python=3.7 scipy=0.15.0 ipykernel pytorch torchvision cudatoolkit=10.2 -c pytorch
+```
+This will create an environment with version 3.7 of python, version 0.15.0 of scipy, version 10.2 of cudatoolkit, some version of ipykernel, pytorch, and torchvision, `-c pytorch` specifies the channel. If possible, it is best to install all the necessary packages at one time to prevent issues with dependencies.
+
 
 **Step 4:** Activate your new environment  
 
@@ -254,3 +269,18 @@ TMPDIR=/projects/academic/yourgroup/$USER/condatemp ./Anaconda3-xxxx.xx-Linux-x8
     We can't stress that last item enough.  Activating a conda environment in your `.bashrc` file **WILL break** things including, but not limited to, command line quota checking, OnDemand desktops, and Jupyter Notebooks
 
 Refer to the [custom environment section of the Anaconda docs](#creating-your-own-custom-environment) for information on setting up your own environments after installing your personal version of Anaconda.  Once your software is installed, you can create your own private software module for you and/or your group to use.  Please see our [documentation on the module system](/software/modules.md).  
+
+### Using Anaconda Environments in Job Scripts
+
+You've seen the warnings throughout this document not to load modules and conda environments in your `~/.bashrc` file.  In order to use these environments within a Slurm batch script, you should load the appropriate module, run the `eval` statement and then activate your environment.  Here's an example:
+
+```
+#SBATCH --partition=debug --qos=debug  
+#SBATCH --nodes=1  
+#SBATCH --time=01:00:00  
+
+module load anaconda3  
+eval "$(/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/anaconda3/2022.05/bin/conda shell.bash hook)"  
+conda activate mycustomenv  
+```
+NOTE:  If you're using CCR's base environment you do not need to run `conda activate`  
