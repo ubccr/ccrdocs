@@ -1,9 +1,12 @@
 ## Anaconda Python Recommendations  
 
+!!! Tip "Do you really need Anaconda?"
+    If not, we highly recommend using [Python virtual environments](python.md)!
+
 Anaconda Python is a very popular in the scientific community as it provides thousands of packages and an easy method for users to create and distribute their own via the Anaconda repository.  This can be very convenient for novice users and is a useful solution for simplifying the management of Python and scientific libraries on your personal computer or laptop.  However, it may not always be the most efficient way to utilize the high performance computing environment at CCR.  **We encourage users to consider using the Python compiled and optimized for the processor architectures on CCR's compute nodes which will allow for the best efficiency when running jobs regardless of where in the heterogenous clusters your jobs run. The module system takes care of loading the appropriate version based on what node you're running on.**  If you'd like to make use of CCR's Anaconda installation, we provide a base environment, installed via Easy Build, which has the standard Anaconda packages installed.  CCR does not install additional packages into this environment nor are we able to provide support for user installation of packages. However, here we provide a few recommendations for best practices for proper setup of your conda environment, installation of packages into your environment, and using conda environments in batch jobs.  This documentation is provided as is and we highly recommend you refer to [Anaconda's documentation](https://docs.anaconda.com/) for the most up-to-date and accurate information on their software.  
 
-!!! Tip "Your Mileage May Vary" 
-    As CCR's software environment evolves these recommendations may change.  Please check back periodically for updates. The information provided here may not be exactly as you experience it.  Please expect some differences and utilize your favorite search engine for additional assistance.  
+!!! Note "Your Mileage May Vary" 
+    As CCR's software environment evolves these recommendations may change.  Please check back periodically for updates. The information provided here may not be exactly as you experience it.  Please expect some differences and utilize the [Anaconda documentation](https://docs.anaconda.com/) and your favorite search engine for additional assistance.  
 
 
 ### Configuring conda with `.condarc`  
