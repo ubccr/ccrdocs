@@ -45,7 +45,7 @@ Usage - Usage of the cluster by students in a class is reported back to the inst
 
 **Faculty sponsored accounts**  
 
-Account – An account sponsored by a faculty member is terminated when a student leaves the University at Buffalo or when the sponsoring faculty member requests the student’s access to CCR be removed.  If a faculty member wants a student to continue to access CCR resources after leaving the university, a request must be made to [CCR help](../help.md).  The account will then be moved under the “non-UB collaborator” category of accounts (see below).
+Account – An account sponsored by a faculty member is terminated when a student leaves the University at Buffalo or when the sponsoring faculty member requests the student’s access to CCR be removed.  If a faculty member wants a student to continue to access CCR resources after leaving the university, the PI should request an [allocation in ColdFront](../portals/coldfront.md) for the `UBVPN Software` resource, adding just this one user to the allocation.  The account will then be moved under the “non-UB collaborator” category of accounts (see below).  The student will be contacted by CCR staff with information about VPN access.  
 
 Data - Data stored on CCR’s network attached storage systems in the user’s home directory and local compute node scratch directories are deleted when the student’s account is terminated.  If there is data stored by the student in a faculty member’s project directory or cloud project, this data is not removed. It is up to the faculty member to manage the data in their project and global scratch spaces.
 

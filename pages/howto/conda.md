@@ -284,3 +284,7 @@ eval "$(/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/ana
 conda activate mycustomenv  
 ```
 NOTE:  If you're using CCR's base environment you do not need to run `conda activate`  
+
+
+!!! Warning "Support Availability"  
+    CCR supports the base installation of Anaconda Python.  Any modules or packages you install outside of this environment are not supported.  We recommend using resources available on the internet for assistance with any issues you may run into.   

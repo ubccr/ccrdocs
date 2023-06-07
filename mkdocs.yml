@@ -78,8 +78,8 @@ nav:
   - How To:  
     - About: howto/about.md 
     - Conda Environments: howto/conda.md  
-    - Perl Library Install: howto/perl.md
+    - Perl Module Install: howto/perl.md
     - Python Options: howto/python.md
-    - R Package Install: howto/r-stat.md  
+    - R Library Install: howto/r-stat.md  
 
 

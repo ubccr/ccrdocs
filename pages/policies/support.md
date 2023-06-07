@@ -29,7 +29,7 @@ Other CCR services may experience maintenance downtimes several times a year.  N
 
 ## Software Installation Policy  
 
-CCR staff provide a suite of software that is standard for high performance computing environments.  This include compilers, Cuda, Anaconda Python, and some engineering packages such as Gromacs, NAMD, Matlab, Abaqus, Comsol, LSDYNA, and Ansys.
+CCR staff provide a suite of software that is standard for high performance computing environments.  This include compilers, Cuda, Python, and some engineering packages such as Gromacs, NAMD, Matlab, Abaqus, and Ansys/DYNA.
 
 Software that does not require root level (administrative) access should be installed in a user's home directory or a group's project directory.  [More information on installing your own software](../software/building.md)  
 
@@ -37,9 +37,9 @@ If your software does require root privileges to be installed or you feel it wou
 
 1. Must run under Linux operating systems
 
-2. Must be free to use in an academic environment (for the UB-HPC cluster) or the user/group must purchase a license for the software.  The software installation will then be restricted for use only by that group.  (When at all possible, groups should install software in their own project directories)
+2. Must be free to use in an academic environment (for the UB-HPC cluster).  
 
-3. If a license is required, the cluster can only support a floating license, not a node-locked license.  
+3. If a license is required the software needs to be installed in the group's project directory.  The cluster can only support a floating license, not a node-locked license.  
 
 4. Preferably has an Easy Build recipe available.  [Search for one here](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs) and include in your GitHub issue.  
 

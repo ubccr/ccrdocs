@@ -166,6 +166,8 @@ source ENV/bin/activate  # ENV=location of your virtual environment directory
 
 ## Installing Python Packages  
 
+### Within a Virtual Environment  
+
 With your Python virtual environment activated, we recommend using the `pip` package manager to install and uninstall Python packages.  First, install and update pip, then list the currently installed packages within your virtual environment.  At this point, you can install additional packages. Here we show installing the `matplotlib` package as an example, which installs additional packages it depends on.
 
 ```
@@ -232,3 +234,55 @@ style           1.1.0
 update          0.0.1
 
 ```
+
+### Using Python or Scipy Modules  
+
+We recommend using the `pip` package manager to install and uninstall Python packages.  First, install and update pip, then list the currently installed packages.  We highly recommend creating a directory within your project space to store Python packages and libraries, saving space in your home directory.  This also allows for sharing the installations with your group, if desired.  Here we'll use the Python 3.9.6 module and show installing the `matplotlib` package as an example, which installs additional packages it depends on.  We use the `--prefix` option to point to our project directory`:
+
+```
+mkdir /projects/academic/yourgroup/$USER/software/$CCR_VERSION/python/packages
+module load gcccore/11.2.0 python/3.9.6  
+pip install --upgrade pip  
+pip list (lists out all packages currently installed which we show a portion of here)  
+Package                           Version  
+--------------------------------- ---------  
+alabaster                         0.7.12  
+appdirs                           1.4.4  
+asn1crypto                        1.4.0  
+.....  
+
+pip install --prefix=/projects/academic/yourgroup/$USER/software/$CCR_VERSION/python/packages matplotlib  
+Collecting matplotlib
+  Using cached matplotlib-3.7.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
+Collecting contourpy>=1.0.1 (from matplotlib)
+  Using cached contourpy-1.0.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (299 kB)
+Collecting cycler>=0.10 (from matplotlib)
+  Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting fonttools>=4.22.0 (from matplotlib)
+  Downloading fonttools-4.39.4-py3-none-any.whl (1.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 9.6 MB/s eta 0:00:00
+Collecting kiwisolver>=1.0.1 (from matplotlib)
+  Using cached kiwisolver-1.4.4-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+Collecting numpy>=1.20 (from matplotlib)
+  Using cached numpy-1.24.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+Requirement already satisfied: packaging>=20.0 in /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/python/3.9.6/lib/python3.9/site-packages (from matplotlib) (20.9)
+Collecting pillow>=6.2.0 (from matplotlib)
+  Using cached Pillow-9.5.0-cp39-cp39-manylinux_2_28_x86_64.whl (3.4 MB)
+Requirement already satisfied: pyparsing>=2.3.1 in /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/python/3.9.6/lib/python3.9/site-packages (from matplotlib) (2.4.7)
+Requirement already satisfied: python-dateutil>=2.7 in /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/python/3.9.6/lib/python3.9/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: importlib-resources>=3.2.0 in /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/python/3.9.6/lib/python3.9/site-packages (from matplotlib) (5.2.2)
+Requirement already satisfied: zipp>=3.1.0 in /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/python/3.9.6/lib/python3.9/site-packages (from importlib-resources>=3.2.0->matplotlib) (3.5.0)
+Requirement already satisfied: six>=1.5 in /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/python/3.9.6/lib/python3.9/site-packages (from python-dateutil>=2.7->matplotlib) (1.16.0)
+Installing collected packages: pillow, numpy, kiwisolver, fonttools, cycler, contourpy, matplotlib
+Successfully installed contourpy-1.0.7 cycler-0.11.0 fonttools-4.39.4 kiwisolver-1.4.4 matplotlib-3.7.1 numpy-1.24.3 pillow-9.5.0
+```
+
+##  References  
+[Python Packaging](https://packaging.python.org/en/latest/overview/)
+[Pip Documentation](https://pip.pypa.io/en/stable/cli/index.html)  
+[Python Virtual Environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)  
+[SciPy Bundle Documentation](https://docs.scipy.org/doc/scipy/)  
+
+
+!!! Warning "Support Availability"  
+    CCR supports the base installations of Python and SciPy.  Any packages you install outside of these environments are not supported.  We recommend using resources available on the internet for assistance with any issues you may run into.   
