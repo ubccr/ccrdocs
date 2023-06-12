@@ -51,7 +51,7 @@ Follow these easy steps:
 1. Open your terminal or Git Bash if you're on windows
 2. Run the following command, substituting in your email address:
 ```bash
-$ ssh-keygen -t ed25519 -C "your_ub_itname@buffalo.edu"
+$ ssh-keygen -t ed25519 -C "your_email_address"
 ```
 3. At the prompt, type a secure passphrase
 4. Copy the contents of the public key to your clipboard. The file is located here:

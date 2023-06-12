@@ -155,7 +155,7 @@ lots of common scientific python packages.
 | scipy-bundle | beniget, Bottleneck, deap, gast, mpi4py, mpmath, numexpr, numpy, pandas, ply, pythran, scipy |
 | anaconda3    | [see here](https://docs.anaconda.com/anaconda/packages/py3.9_linux-64/)                            |
 
-We also recommend using [virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment).
+We recommend using [virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment) to best manage your python projects.  We provide additional recommendations for using [Python](../howto/python.md) and [Anaconda environments](../howto/conda.md) in our How To section.  
 
 ## R
 
@@ -168,6 +168,8 @@ $ module spider r
 $ module spider r-bundle-bioconductor
 ```
 
+To request additional packages be installed in either of these modules, please submit a request as [detailed here](../software/building.md#software-build-requests) or [follow these recommendations](../howto/r-stat.md) to install your own.
+
 ## Perl
 
 We provide a `perl` module which includes many pre-built CPAN modules. To see
@@ -176,3 +178,5 @@ the complete list run:
 ```
 $ module spider perl
 ```
+
+To request additional packages be installed in this module, please submit a request as [detailed here](../software/building.md#software-build-requests) or [follow these recommendations](../howto/perl.md) to install your own.
