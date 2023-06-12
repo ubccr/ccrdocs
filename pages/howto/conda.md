@@ -1,7 +1,7 @@
 ## Anaconda Python Recommendations  
 
 !!! Tip "Do you really need Anaconda?"
-    If not, we highly recommend using [Python virtual environments](python.md)!
+    If not, we highly recommend using [Python virtual environments](python.md#python-virtual-environments)!
 
 Anaconda Python is a very popular in the scientific community as it provides thousands of packages and an easy method for users to create and distribute their own via the Anaconda repository.  This can be very convenient for novice users and is a useful solution for simplifying the management of Python and scientific libraries on your personal computer or laptop.  However, it may not always be the most efficient way to utilize the high performance computing environment at CCR.  **We encourage users to consider using the Python compiled and optimized for the processor architectures on CCR's compute nodes which will allow for the best efficiency when running jobs regardless of where in the heterogenous clusters your jobs run. The module system takes care of loading the appropriate version based on what node you're running on.**  If you'd like to make use of CCR's Anaconda installation, we provide a base environment, installed via Easy Build, which has the standard Anaconda packages installed.  CCR does not install additional packages into this environment nor are we able to provide support for user installation of packages. However, here we provide a few recommendations for best practices for proper setup of your conda environment, installation of packages into your environment, and using conda environments in batch jobs.  This documentation is provided as is and we highly recommend you refer to [Anaconda's documentation](https://docs.anaconda.com/) for the most up-to-date and accurate information on their software.  
 
@@ -13,7 +13,7 @@ Anaconda Python is a very popular in the scientific community as it provides tho
 
 The conda package manager allows modification of default settings to be done through a text file known as the `.condarc`. This file exists within a user’s `$HOME` directory and can be quickly be accessed using the file’s full path at `~/.condarc`.
 
-Your `$HOME` directory (located in `/user/$USER`) is allotted a [small quota](/hpc/storage#enterprise-level-network-attached-storage). By default, conda puts all package source code and environments in your `$HOME` directory causing you to quickly run out of space. The steps here modify the conda configuration file to change the default locations for packages and environments to your group's shared project directory, as [described above](#recommended-organization-for-python).  
+Your `$HOME` directory (located in `/user/$USER`) is allotted a [small quota](../hpc/storage.md#enterprise-level-network-attached-storage). By default, conda puts all package source code and environments in your `$HOME` directory causing you to quickly run out of space. The steps here modify the conda configuration file to change the default locations for packages and environments to your group's shared project directory, as [described above](#recommended-organization-for-python).  
 
 Open your `.condarc` file in your favorite text editor (e.g., nano, vim, [OnDemand Files app](/portals/ood#files-app)) and paste the following four lines (**modifying directory path names as necessary for your individual setup**) Here we provide a suggested directory layout which keeps things organized by [$CCR_VERSION](../software/releases.md); however, this is not required.  
 
@@ -268,7 +268,7 @@ TMPDIR=/projects/academic/yourgroup/$USER/condatemp ./Anaconda3-xxxx.xx-Linux-x8
 !!! Warning  
     We can't stress that last item enough.  Activating a conda environment in your `.bashrc` file **WILL break** things including, but not limited to, command line quota checking, OnDemand desktops, and Jupyter Notebooks
 
-Refer to the [custom environment section of the Anaconda docs](#creating-your-own-custom-environment) for information on setting up your own environments after installing your personal version of Anaconda.  Once your software is installed, you can create your own private software module for you and/or your group to use.  Please see our [documentation on the module system](/software/modules.md).  
+Refer to the [custom environment section of the Anaconda docs](#creating-your-own-custom-environment) for information on setting up your own environments after installing your personal version of Anaconda.  Once your software is installed, you can create your own private software module for you and/or your group to use.  Please see our [documentation on the module system](../software/modules.md).  
 
 ### Using Anaconda Environments in Job Scripts
 
