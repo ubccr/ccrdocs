@@ -55,7 +55,7 @@ Follow [these instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) 
 **UB Box**  
 Follow [these instructions](https://rclone.org/box/) to complete the initial connection with UB Box using RClone.  
 
-**Globus**
+**Globus**  
 Coming very soon (version 3.1)!  
 
 
