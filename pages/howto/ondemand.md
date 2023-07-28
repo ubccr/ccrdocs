@@ -31,12 +31,19 @@ Previously, CCR provided separate desktop apps for the UB-HPC and Faculty cluste
 
 There are additions to the job cards in OnDemand including a link to submit a help ticket that links directly to the job for easier review by the CCR IT staff.  You'll notice the verbage has changed with respect to actions you can take on a job.  A running or queued job has the `cancel` option which cancels the job and removes it from the queue.  Once a job has been completed, you can `delete` it which removes it from your list of most recent jobs.  This does NOT delete the job data in your home directory so you will need to periodically clean up data you no longer want.  The session ID link will take you directly to the subdirectory where the job's data and output files are stored.  
 
+![](../images/howto/ood3-job.png)
+
 !!! Note "Managing your OnDemand Disk Usage"
     To clear up disk space in your home directory, you can remove directories for completed jobs when you're done retrieving the job output data.  You can find these in subdirectories under: `/user/username/ondemand/data/sys/dashboard/batch_connect/sys`  
 
+Once a job is completed, the job card will display an icon with circular arrows next to the "Completed" status.  To launch another job with the same specifications as the completed job requested, click on the arrow button.  
+
+![](../images/howto/ood3-completed.png)
+
+
 ### Submit a Help Ticket
 
-There are two ways to submit a CCR help ticket directly from OnDemand.  The first is by clicking on the `Submit support ticket` on the job card.  This will include job specific information useful for the IT staff.  Please fill out the form including your email address, anyone you'd like to CC, a subject line, and a description.  Please be as descriptive as possible to speed up our response to you.  If there are any screenshots you'd like to include that will better explain your issues, you may attach up to 3. You can include the full path of your job output in your ticket; however the session ID itself is not useful to IT staff.  If you have a more general issue that's not related to a specific job, you can submit a ticket by going to the `Help` menu and clicking on `Submit support ticket.`  This form has all the same options as what was just described except it doesn't include job specific information.  These forms get submitted to CCR's help desk and you will receive an automated email indicating the request has been submitted along with a ticket number.  You can reply to that email with updated information or access the ticket through [CCR's help portal](https://ubccr.freshdesk.com).  
+There are two ways to submit a CCR help ticket directly from OnDemand.  The first is by clicking on the `Submit support ticket` on the job card.  This will include job specific information useful for the IT staff.  Please fill out the form including your email address, anyone you'd like to CC, a subject line, and a description.  Please be as descriptive as possible to speed up our response to you.  If there are any screenshots you'd like to include that will better explain your issues, you may attach up to 4. You can include the full path of your job output in your ticket; however the session ID itself is not useful to IT staff.  If you have a more general issue that's not related to a specific job, you can submit a ticket by going to the `Help` menu and clicking on `Submit support ticket.`  This form has all the same options as what was just described except it doesn't include job specific information.  These forms get submitted to CCR's help desk and you will receive an automated email indicating the request has been submitted along with a ticket number.  You can reply to that email with updated information or access the ticket through [CCR's help portal](https://ubccr.freshdesk.com).  
 
 ### Files App
 
@@ -49,12 +56,14 @@ Follow [these instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) 
 Follow [these instructions](https://rclone.org/box/) to complete the initial connection with UB Box using RClone.  
 
 **Globus**
-Coming very soon!  
+Coming very soon (version 3.1)!  
 
 
 ## Customization  
 
 ### Building your own interactive app
-Coming soon!
+[See here](../portals/ood.md#develop-sandbox)  
 
+### Using your own Jupyter module  
+Coming soon!
 
