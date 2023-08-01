@@ -78,6 +78,7 @@ nav:
   - How To:  
     - About: howto/about.md 
     - Conda Environments: howto/conda.md  
+    - OnDemand Customization: howto/ondemand.md  
     - Perl Module Install: howto/perl.md
     - Python Options: howto/python.md
     - R Library Install: howto/r-stat.md  
