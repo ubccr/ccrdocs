@@ -15,8 +15,20 @@ Users new to CCR after August 8, 2023 will automatically be put into the new env
 ## Existing Users - How to Transition 
 
 - Create a file in your home directory named .ccr_new_modules.  Log out & back in again.
-- Ensure that nothing has been added to the `.bashrc` file in your home directory.  Comment out or remove anything not provided by CCR.  This is what your `.bashrc` file should look like:  
+- Ensure that nothing has been added to the `.bashrc` file in your home directory.  Command aliases are usually fine; however, comment out or remove anything else not provided by CCR.  This is what your `.bashrc` file should look like:  
 ```
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
 ```
 - Follow the directions [below](#the-new-resources) to access the new resources    
 - If you have existing software modules you or your group have built, they will likely need to be re-built for this environment.  See [here](#existing-modules) for more information    
@@ -55,18 +67,19 @@ The newest compute nodes available at CCR in the UB-HPC cluster have been put in
 #SBATCH --partition=general-compute
 #SBATCH --qos=general-compute
 #SBATCH --reservation=ubhpc-future
-#SBATCH --export=NONE
 ```
 
-**Using `srun`?**  If you use `srun` in your job script you need to change the `--export=NONE` option to `--export=NIL` otherwise your environment will not propogate properly to the compute node.  
-
-**using `salloc`?** If you use `salloc` for interactive jobs, you must specify the reservation in your salloc command and run an additional command after being allocated a node:  
+**Using `salloc`?** If you use `salloc` for interactive jobs, you must specify the reservation in your salloc command and run an additional command after being allocated a node:  
 
 ```
 salloc --reservation=ubhpc-future --qos=general-compute --partition=general-compute  --job-name "MyJob" --nodes=1 --ntasks=1 --mem=8G --time=00:30:00  
 
 srun --pty /bin/bash --login
 ```
+
+!!! Tip "Module command errors"  
+    Users submitting jobs to older avx2 architecture-based nodes in the faculty cluster may run into issues with the login node environment persisting into the job environment.  This may present with the error "module command not found."  Please contact [CCR Help](../help.md) for guidance.  The error "module not found" means the module is not available for the architecture of the node you're running on.  CCR's software modules are architecture dependent and many modules have not been built for avx2 nodes as these older nodes are being removed from the UB-HPC cluster. 
+
 
 ## Existing Modules  
 
