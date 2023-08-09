@@ -1,5 +1,7 @@
 # OnDemand
 
+==As of August 2023, users should begin using [OnDemand 3.0](https://ondemand-future.ccr.buffalo.edu).  See [here](../howto/ondemand.md) for more information==  
+
 Open OnDemand is a browser based single point of access for all of CCR's clusters, shared storage, and remote visualization servers.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, and access interactive applications such as remote desktops to cluster nodes and the visualization servers, as well as GUI-based software like Matlab, Jupyter Notebooks, RStudio Desktop, and vscode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
 
 _**This product is an open source project developed by [Ohio Supercomputer Center](https://openondemand.org).**_
@@ -13,9 +15,10 @@ _**This product is an open source project developed by [Ohio Supercomputer Cente
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
 Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Don't have one yet? [See here](../getting-access.md)  
+New users should use [OnDemand 3.0](https://ondemand-future.ccr.buffalo.edu)   
 
 !!! Tip "First Login - Additional Steps"
-    On first login your home directory will need to be created.  Follow the instructions provided after login to create your home directory and run the script to generate a SSH key pair for use on the cluster and within the OnDemand terminal app.  If, after completing the steps, the OnDemand dashboard does not reload, log out and back in again.  
+    On first login your home directory will need to be created.  Follow the instructions provided after login to initiate the creation of your home directory, SSH key pair for use on the cluster, and setup the new software modules within the OnDemand terminal app.  If, after completing the steps, the OnDemand dashboard does not reload, log out and back in again.  
 
 ## OnDemand Features  
 

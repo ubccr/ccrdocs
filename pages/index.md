@@ -7,6 +7,8 @@ This documentation covers the use of CCR's research computing and research cloud
 !!! Tip   
     CCR provides UB's research computing and research cloud resources. All other IT services and support at UB are provided by [UBIT](https://buffalo.edu/ubit)  
 
+==As of August 2023, new users have access to CCR's new environment.  See [here](howto/newenv.md) for more information==  
+
 ## What do you want to do?
 
 These links provide info on the most popular topics while the left navigation

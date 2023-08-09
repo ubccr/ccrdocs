@@ -9,6 +9,9 @@ If you are unfamiliar with CCR and what services and resources we provide, pleas
 
 This 20 minute presentation given by the CCR Director in 2020 provides a succinct overview.  We will not cover that information here as this site is dedicated to documentation for using our resources  
 ![type:video](https://youtube.com/embed/ryBqdeqTO4o)  
+<br>
+
+==As of August 2023, new users have access to CCR's new environment.  See [here](howto/newenv.md) for more information==  
 
 ## What do you want to do?  
 
