@@ -1,5 +1,7 @@
 # Available Software
 
+==All users have access to CCR's new environment of software and compute nodes.  See [here](../howto/newenv.md) for more information==  
+
 CCR maintains a suite of software programs, libraries, and toolchains commonly
 used in scientific computing. The HPC clusters can execute most software that
 runs under Linux. In many cases, the software you need will already be
@@ -7,9 +9,8 @@ installed and available to you on the compute nodes. You access the software
 using what's called a "module".  If the software you need is not available, you
 [can ask our staff](building.md#software-build-requests) to install it for you or [do it yourself](building.md).
 
-!!! Warning "New software infrastructure now available"
-    CCR has moved to a new software infrastructure described in this document.
-    As of the Summer of 2023 existing users will be required to migrate to the new modules. To start using the new software now, simply run this command `touch ~/.ccr_new_modules`.  You will need to logout and log back in for the changes to take effect. As of April 2023, new users will be automatically setup in this environment and can skip this step.  If you'd like to temporarily go back to using the old modules in `/util`, simply remove that file `rm ~/.ccr_new_modules`.
+!!! Warning "Software Module Transition Required"
+    Existing users can migrate to the new modules simply by running this command:  `touch ~/.ccr_new_modules`.  You will need to logout and log back in for the changes to take effect. As of August 2023, new users will automatically be setup in this environment and can skip this step.  If you'd like to temporarily go back to using the old modules in `/util`, simply remove that file `rm ~/.ccr_new_modules`.  However, the old modules will be decommissioned this fall.  See [here](../howto/newenv.md) for more information.
 
 ## Using Modules
 

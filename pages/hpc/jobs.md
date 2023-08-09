@@ -1,5 +1,7 @@
 # Running Jobs
 
+==As of August 2023, users should be using CCR's new environment.  See [here](../howto/newenv.md) for more information on how to transition==  
+
 Our HPC system is shared among many researchers and CCR manages usage of the systems through jobs. Jobs are simply an allotment of resources that can be used to execute processes. CCR uses a program named Slurm, the Simple Linux Utility for Resource Management, to create and manage jobs.
 
 In order to run a program on a cluster, you must request resources from Slurm to generate a job. Resources are requested from a login node. You then provide commands to run your program on those requested resources (compute nodes).
