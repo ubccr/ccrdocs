@@ -178,7 +178,7 @@ would like to send the file to.
 ```bash
 # Copying files from a local workstation to CCR Frontend Servers
 
-scp -i <path-to-yourSSHKey> <path-to-file> <username>@vortex.ccr.buffalo.edu.edu:<target-path>
+scp -i <path-to-yourSSHKey> <path-to-file> <username>@vortex-future.ccr.buffalo.edu.edu:<target-path>
 ```
 
 !!! Note
@@ -198,7 +198,7 @@ system commands can be used to navigate, move, remove, and copy data
 between a local system and CCR resources.
 
 ```bash
-sftp <username>@vortex.ccr.buffalo.edu
+sftp <username>@vortex-future.ccr.buffalo.edu
 ```
 
 We can then use various commands to traverse and manipulate both local
@@ -244,7 +244,7 @@ would like to send the file to.
 ```bash
 # Synchronizing from a local workstation to CCR
 
-rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> <username>@vortex.ccr.buffalo.edu:<target-path> 
+rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> <username>@vortex-future.ccr.buffalo.edu:<target-path> 
 ```
 
 **rsync** is not available on Windows by default, but [may be installed
@@ -285,7 +285,7 @@ This will popup the Site Management Window
 > * Enter the Following Settings:
 
       - Protocol: SFTP - SSH File Transfer Protocol
-      - Host: vortex.ccr.buffalo.edu
+      - Host: vortex-future.ccr.buffalo.edu
       - Login Type: Normal
       - Username: your-ccr-username
       - Password: Leave Blank
@@ -319,7 +319,7 @@ This will popup the Site Management Window
 > * Enter the Following Settings:
 
       - Protocol: SFTP - SSH File Transfer Protocol
-      - Host: vortex.ccr.buffalo.edu
+      - Host: vortex-future.ccr.buffalo.edu
       - Login Type: keyfile
       - Username: your-ccr-username
       - Key file: Navigate to the Key you converted in previous steps

@@ -10,6 +10,8 @@ number of tasks:
 - Submitting Jobs
 - Access storage resources
 
+==As of August 2023, new users have access to CCR's new environment.  See [here](../howto/newenv.md) for more information==  
+
 This page covers connecting to a login node using SSH (Secure Shell Protocol).
 When you connect via SSH, you authenticate using a private key file on your
 local machine. For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)
@@ -69,21 +71,26 @@ To verify you can ssh into the login node, follow these easy steps:
    ```bash
    ssh username@vortex.ccr.buffalo.edu
    ```
+   New users & those wanting to use [CCR's new environment](../howto/newenv.md) should use:  
+   ```basg
+   ssh username@vortex-future.ccr.buffalo.edu
+   ```
+
    You may see a warning like this:
    ```
-   The authenticity of host 'vortex.ccr.buffalo.edu (128.205.41.13)' can't be established.
+   The authenticity of host 'vortex-future.ccr.buffalo.edu (128.205.41.24)' can't be established.
    ED25519 key fingerprint is SHA256:PxBS1XqDaspSTQYQj+LHHh4YBSN4XvB7P/VcYGxMR8Y.
    Are you sure you want to continue connecting (yes/no/[fingerprint])?
    ```
 2. Verify the fingerprint in the message you see matches [CCR's public key fingerprint](../fingerprints.md).
-   If it does, then type `yes`.
-3. You should now be at a shell prompt on the login node:
+   If it does, then type `yes`.  
+3. You should now be at a shell prompt on the login node:  
 ```
-[username@vortex1:~]$
+username@vortex-future:~$
 ```
 
-!!! Tip "First Login - Additional Step"
-    On first login your home directory will be created automatically.  You will see a message prompting you to run a script to generate a SSH key pair for use on the cluster and within the OnDemand terminal app.  After login, run ``/util/ccr/bin/ssh_no_password.sh``
+!!! Tip "First Login - Additional Setup"  
+    On first login your home directory will be created automatically.  You will see a message indicating this has been done, a SSH key pair gets generated for use on the cluster, and you're given access to [CCR's new software modules](../software/modules.md).  
 
 
 ## Using the SSH Agent  
@@ -114,7 +121,7 @@ $ ssh-add -L
 
 ## OnDemand for Web-Based Cluster Access  
 
-[Open OnDemand](https://ondemand.ccr.buffalo.edu) provides access to CCR's
+[Open OnDemand](https://ondemand-future.ccr.buffalo.edu) provides access to CCR's
 clusters, storage, visualization servers, and interactive apps.  CCR's OnDemand
 portal offers Linux desktops for GUI-based applications, software applications
 like MatLab, RStudio Desktop, Jupyter Notebook, and vscode, an interactive
