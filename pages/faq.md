@@ -148,6 +148,8 @@ If you receive this message, the following solutions are available:
 
 2. Wait until after the maintenance window has finished and your job will resume automatically when there are resources available.   
 
+If this message is not due to an upcoming maintenance downtime, then it means that whatever type of node or feature you requested is not available in the partition you submitted your job to run on.  Users will see this more frequently as CCR moves nodes from the UB-HPC cluster over to the new environment.  These nodes are being reinstalled and are only available in the ubhpc-future reservation.  This reservation is available to all UB-HPC cluster users, however, it must be specified in your job script, `salloc` request, or by using [OnDemand 3](https://ondemand-future.ccr.buffalo.edu).  For more info, see [HERE](howto/newenv.md)  
+
 ## How can I get information on CCR clusters such as how busy they are and wait times?  
 
 From a login node, use the command `sqstat` to see a comprehensive overview of cluster usage.  This information is also displayed on our [cluster status pages](https://www.buffalo.edu/ccr/support/machine-status.html).  To find more detailed information on node availability, use the `snodes` command.  
