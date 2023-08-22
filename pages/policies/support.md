@@ -83,11 +83,11 @@ CCR is able to provide the following options to faculty groups:
     - CCR responsibility: Responsible for cloud infrastructure only  
     - Pros/Cons:  No backups provided, no maximum run time, 1-2 annual maintenance downtimes, full administrative access, NO access to CCR’s network attached storage (home & project directories, high speed scratch space)    
 
-==**Rates beginning April 1, 2023 - based on the type of account they're paid out of:**==  
+==**Rates are based on the type of account they're paid out of:**==  
 
-- Rack fee: $315/u*, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $362.07/u.  External rate is $590/u  
+- Rack fee: $315/u*, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $362.07/u (includes GUSF fee imposed by UB).  External rate is $590/u  
 - Cloud subscriptions - purchased in packs ([more info here](../cloud/lake-effect.md#subscriptions))  
-- Consulting fee:  $63/hr, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $72.41/hour.  **Purchased in 8 hour increments.**  External rates - contact CCR Help for quote.  
+- Consulting fee:  $63/hr, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $72.41/hour (includes GUSF fee imposed by UB).  **Purchased in 8 hour increments.**  External rates - contact [CCR Help](../help.md) for quote.  
 
 **The fine print and specifics for each option:**  
 
@@ -102,7 +102,7 @@ Dedicated resources (nodes) for a faculty group or research lab built into the e
 
 - ***Infrastructure (co-location) fee:**  
     - CCR charges a one-time fee for the infrastructure to run your compute node (rack space, cables, Ethernet network switches, electricity and cooling).
-    - The co-location per rack "u" fee is based on the standard slot of a compute rack. If machines purchased are more than 1 “u”, the infrastructure charge is multiplied. For example, if the machine you purchase takes up 2 “u” in rack space, the infrastructure charge is $630.
+    - The co-location per rack "u" fee is based on the standard slot of a compute rack. If machines purchased are more than 1 “u”, the infrastructure charge is multiplied. For example, if the machine you purchase takes up 2 “u” in rack space, the infrastructure charge is $630 (if paying with internal State, RF, UBF, or FSA funds).
     - This one-time charge goes towards cost-sharing of the infrastructure used to house and support your equipment (rack, network switches, cabling, physical installation and maintenance).    
 
 - **Support:**  
