@@ -95,7 +95,7 @@ Any modules previously created in the old system will need to be reinstalled int
 
 ## What if we installed our own software?  
 
-If you installed your own software without using modules, it is possible it might work.  However, it's the same basic concept as in the above paragraph.  With a new operating system, updated compilers, and the fact that your software was linked against old libraries, it is quite probably it will not work on the newly installed compute nodes.  You are absolutely welcome to try it though and we'll keep our fingers crossed for you that it does!  If your code can make use of different CPU architectures, you will want to optimize it by compiling it in CCR's new environment.
+If you installed your own software without using modules, it is possible it might work.  However, it's the same basic concept as in the above paragraph.  With a new operating system, updated compilers, and the fact that your software was linked against old libraries, it is quite probable it will not work on the newly installed compute nodes.  You are absolutely welcome to try it though and we'll keep our fingers crossed for you that it does!  If your code can make use of different CPU architectures, you will want to optimize it by compiling it in CCR's new environment.
 
 ## Software Installation Requests  
 
