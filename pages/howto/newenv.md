@@ -4,8 +4,16 @@ CCR staff have been working for over a year to provide users with an updated env
 
 This page is intended to provide details to the changes users can expect and break down the experience each user might expect.  Whether you're a long time CCR user or brand new to our center, we hope to smooth out the process of onboarding to the new environment.  Please note this is just an overview document and users should refer to the wealth of information in the rest of our documentation website for all the details of using CCR's resources.  
 
+## Weekly Office Hours  
 
+Beginning August 31, 2023 CCR staff will host weekly office hours from 11am-12pm on Thursdays to provide support to users switching over to the new environment.  The first session will include a short presentation about the new software modules and will be recorded.  Please join us and bring your questions!  
 
+```
+https://buffalo.zoom.us/j/94613848883?pwd=Q2ZjU3VIaWZDZGZPdldjR1JwOUVmZz09 
+Meeting ID: 946 1384 8883 
+Passcode: 497161 
+```
+NOTE:  You must authenticate to Zoom prior to joining the meeting
 
 ## New Users 
 
