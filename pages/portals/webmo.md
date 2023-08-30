@@ -1,32 +1,25 @@
 # WebMO
 
-WebMO is a web-based interface to computational chemistry packages.
-
-The WebMO portal provides access to Mopac, Quantum Espresso, and GAUSSIAN (license restricted).  The JAVA molecular editor provides an easy interface for model building.  WebMO is integrated with the UB-HPC cluster and several partitions in the Faculty cluster.  The user jobs are automatically submitted to the cluster selected in the WebMO job.
+WebMO is a web-based interface to computational chemistry packages.  The WebMO portals provided by CCR include access to Gaussian.  The JAVA molecular editor provides an easy interface for model building.  
 
 ## Access to WebMO
 
-A CCR system account and an active allocation to WebMO is required.  [Allocations are managed in ColdFront](coldfront.md) by faculty group leaders or principal investigators  
+There are two types of WebMO instances available at CCR:  
+
+**Research Groups:**  To request access for your research group or department, please request an allocation for the `WebMO (server)` resource in [ColdFront](https://coldfront.ccr.buffalo.edu).  CCR staff will contact the PI to discuss the anticipated usage by their group in order to appropriately size the cloud instance and provide a cost for the year.  Our prices are based off the [Lake Effect cloud pricing](../cloud/lake-effect.md).  Once the payment is received by CCR, the allocation will be activated and the PI (or trusted group member) will be provided with an administrator acccount to create accounts for their group.  Instructions for user management can be found in the [WebMO documentation](https://www.webmo.net/link/help/UserManager.html).  In order to keep the instance in service for your group, you must renew the allocation and payment annually.  
+
+**Academic Courses:**  To request a WebMO instance for your course, please submit a ticket to [CCR Help](../help.md) **at least two weeks prior to the start of the semester**.  There is no cost for academic usage of WebMO at CCR.  CCR will create a WebMO instance for the class and provide the professor (or trusted TA) with an administrator account to create accounts for their students.  Instructions for user management can be found in the [WebMO documentation](https://www.webmo.net/link/help/UserManager.html).  At the end of the semester, the WebMO instance will be removed from service by CCR.    
+
+!!! Warning "Gaussian License Restrictions"   
+    The University at Buffalo owns a restricted license for Gaussian use on campus.  **The use of this software is permitted for faculty, staff, and students of the University at Buffalo ONLY.  Do NOT provide access to this software to anyone NOT officially affiliated with the University at Buffalo or you risk UB losing access to this license entirely.**  If you are unsure what "affiliated" specifically means for this software license, please contact [CCR Help](../help.md) to be connected with the person who manages this license for UB.
 
 ## Logging into WebMO  
 
-WebMO accounts use your CCR system account and two factor authentication.  However, they are a separate account so if you believe you should have access to WebMO but can't login, contact [CCR Help](../help.md)
-
-!!! Warning "VPN Required"
-    Access to ColdFront is restricted to UB and Roswell Park networks
-    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
-
-[Login to CCR's WebMO Poral](https://webmo.ccr.buffalo.edu/~webmo/cgi-bin/webmo/login.cgi)
-
-!!! Note "Special Login Procedure!"
-    Logins require password plus the one-time token (OTP) generated from your authentication app.  These are entered back to back with no spaces or extra characters between them into the password field.  For example:  
-    _Password:_ BuffaloLove!  
-    _OTP code displayed:_ 123 456  
-    _Enter in the WebMO password box:_  BuffaloLove!123456  
+WebMO accounts are created by your research group leader or your class professor or TA.  Please contact them for your group's portal URL and login instructions.  
 
 ## WebMO Documentation  
 
-CCR staff are unable to provide assistance in using WebMO.  Please refer to the [WebMO Documentation](http://www.webmo.net/download/WebMO_Users_Guide.pdf) for guidance.  
+Please refer to the [WebMO Documentation](http://www.webmo.net/download/WebMO_Users_Guide.pdf) for guidance.  
 
 ## Data Management with WebMO  
 

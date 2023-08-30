@@ -4,8 +4,16 @@ CCR staff have been working for over a year to provide users with an updated env
 
 This page is intended to provide details to the changes users can expect and break down the experience each user might expect.  Whether you're a long time CCR user or brand new to our center, we hope to smooth out the process of onboarding to the new environment.  Please note this is just an overview document and users should refer to the wealth of information in the rest of our documentation website for all the details of using CCR's resources.  
 
+## Weekly Office Hours  
 
+Beginning August 31, 2023 CCR staff will host weekly office hours from 11am-12pm on Thursdays to provide support to users switching over to the new environment.  The first session will include a short presentation about the new software modules and will be recorded.  Please join us and bring your questions!  
 
+```
+https://buffalo.zoom.us/j/94613848883?pwd=Q2ZjU3VIaWZDZGZPdldjR1JwOUVmZz09 
+Meeting ID: 946 1384 8883 
+Passcode: 497161 
+```
+NOTE:  You must authenticate to Zoom prior to joining the meeting
 
 ## New Users 
 
@@ -84,6 +92,10 @@ srun --pty /bin/bash --login
 ## Existing Modules  
 
 Any modules previously created in the old system will need to be reinstalled into the new modules.  We know, this isn't what you wanted to hear.  We feel your pain.  We're currently trying to reconstruct 20+ years of software installations ourselves.  The reason behind this isn't so much a new version of modules but it's more about the operating system, compilers, and linking used to install your old software.  It is unlikely that this will work in the new operating system.  As part of the software infrastructure, CCR provides a compatiblity layer.  Installing software using this will allow software to work on any Linux-based operating system, no longer tying us (or you) to a specific flavor of Linux.  This is especially coming in handy with all the turmoil over RedHat derivatives we've seen lately.  This is future-proofing us and will allow for the testing of cutting edge operating systems in the future, which has been asked of us by researchers over the years.  If your software did not require building (using compilers) or linking to the system libraries (for example: python scripts), it MAY be POSSIBLE to convert them over to the new module directory structure so they are available to you.  At that point, you can test to see if the software works on compute nodes in the new environment.  This is not something CCR can provide support for; however, if you'd like to try it, you'd need your module(s) to be in the directory structure [defined here](../software/building.md#building-modules-for-your-group) (see specifically the tip in green).  
+
+## What if we installed our own software?  
+
+If you installed your own software without using modules, it is possible it might work.  However, it's the same basic concept as in the above paragraph.  With a new operating system, updated compilers, and the fact that your software was linked against old libraries, it is quite probable it will not work on the newly installed compute nodes.  You are absolutely welcome to try it though and we'll keep our fingers crossed for you that it does!  If your code can make use of different CPU architectures, you will want to optimize it by compiling it in CCR's new environment.
 
 ## Software Installation Requests  
 

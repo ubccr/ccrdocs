@@ -83,14 +83,11 @@ Additional storage for shared project directories can be purchased in 1 terabyte
 
 ### Rates  
 
-==New Rates in Effect April 1, 2023==  
-
 **Internal Rates:**
 
-- **_$60.27 per terabyte per year_**
-- **_As of April 1, 2023: $72 per terabyte per year_**  
+- **_$72 per terabyte per year_**  
 - This is an internal rate for internal UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds
-- Internal UB users paying with funds other than those listed above are charged an additional fee to cover the processing fee UB charges CCR.  This makes the cost **_$69.28/TB per year (After April 1, 2023 - $82.76 per TB per year)_** 
+- Internal UB users paying with funds other than those listed above are charged an additional fee to cover the processing fee UB charges CCR.  This makes the cost **_$82.76 per TB per year_** 
 
 !!! Tip  
     Faculty with joint positions at UB and Roswell can only qualify for the UB internal rate if they use UB funds to purchase the storage.  RPCI users should check with RPCI IT for access to the storage allocation RPCI purchased from CCR before making a purchase of their own.
