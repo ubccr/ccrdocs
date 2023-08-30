@@ -22,36 +22,15 @@ There are many resources available for use at CCR.  These are listed in alphabet
 [More Info on Storage](hpc/storage.md)  
 
 ## Portals    
-:  **WebMO** - Chemistry software portal.  This is accessible to all academic users; however, it is only useful for a handful of Chemistry applications.  You must have an allocation to the "UB-HPC academic partitions" or a faculty cluster partition resource that is enabled in WebMO for this to work.  [More info on WebMO](portals/webmo.md)  
+:  **WebMO** - Chemistry software portal offering GUI access to Gaussian and is available on request for research groups and academic courses.  [More info on WebMO](portals/webmo.md)  
 :  **OnDemand** - Portal for accessing CCR's storage and HPC systems.  No allocation is required.  All CCR users on active allocations to any of the cluster or storage resources may use OnDemand.  [More OnDemand info here](portals/ood.md)  
 :  **Starfish** - Portal for viewing metadata and usage statistics about your group's storage allocation.  [More on Starfish](hpc/storage.md#starfish-storage-usage)  
 
 ## UBVPN  
-:  This is only for external collaborators and industry cluster customers and provides VPN access to the UB network to access CCR services.  Only request an allocation for this if you've been advised by CCR staff to do so.  
+This is only for external collaborators and industry cluster customers and provides VPN access to the UB network to access CCR services.  Only request an allocation for this if you've been advised by CCR staff to do so.  
 
 ## Software Licenses    
-If access to a software license is not universally available, your group will need an allocation to access it.  When requesting the allocation, you will need to agree to the terms of the license and/or the terms of access presented as part of the allocation request process.   If you read the info provided and find you do not qualify for access to that license or you do do not want to agree to the End User License Agreement (EULA), you can cancel out of the request process by clicking the "back to project" button.  **The faculty member (PI) requesting the allocation is agreeing to the EULA for everyone in the group!**  Please make sure to provide any license restrictions to your group members so they are aware of them and do not violated the license agreement or CCR access policies.
-
-These are some examples of software available on CCR's systems that require an allocation:
-:   Abaqus
-:   Ansys
-:   CASTEP
-:   Cafemol
-:   Chimera & ChimeraX
-:   Columbus
-:   Comsol
-:   CPLEX
-:   FSL Tools
-:   Gaussian
-:   LS-DYNA
-:   OneTick
-:   orca
-:   StarCCM
-:   Starfish
-:   TCAD
-:   usearch 64-bit (32-bit license is available to all academic users)
-
-There are many more software packages installed that do not have licensing restrictions and therefore do not require an allocation.  [More on CCR's software infrastructure here](software/modules.md)
+Software resources listed in ColdFront are for CCR's old environment.  Moving forward, you will not need allocations for the various software products.  New PI groups can skip the step of requesting allocations for software.  [More on CCR's software infrastructure here](software/modules.md)
 
 **Private resources including faculty cluster partitions and research lab servers:**  
 Some resources are restricted to specific groups so you will not see them in ColdFront unless you own the equipment or the owner has granted you permission to request allocations for that resource.  If you're looking for a resource that you don't see on your drop down list or there's a problem with the item on the list, please [contact CCR Help](help.md).
