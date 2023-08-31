@@ -66,6 +66,7 @@ There are two common reasons why you might not be able to launch OnDemand sessio
 
 1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
 2. You have an Anaconda environment loading in your .bashrc environment file or are loading a Python module in your .bashrc file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
+3. Your account is in the "new environment" but you're using the old OnDemand.  The new modules don't work in the old OnDemand.  See here for more info on the [new environment](howto/newenv.md)  
 
 
 ## How can I check how full my directories are?  
