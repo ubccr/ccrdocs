@@ -10,7 +10,11 @@ using what's called a "module".  If the software you need is not available, you
 [can ask our staff](building.md#software-build-requests) to install it for you or [do it yourself](building.md).
 
 !!! Warning "Software Module Transition Required"
-    Existing users can migrate to the new modules simply by running this command:  `touch ~/.ccr_new_modules`.  You will need to logout and log back in for the changes to take effect. As of August 2023, new users will automatically be setup in this environment and can skip this step.  If you'd like to temporarily go back to using the old modules in `/util`, simply remove that file `rm ~/.ccr_new_modules`.  However, the old modules will be decommissioned this fall.  See [here](../howto/newenv.md) for more information.
+    Existing users can migrate to the new modules simply by running this command:  `touch ~/.ccr_new_modules`.  You will need to logout and log back in for the changes to take effect. As of August 2023, new users will automatically be setup in this environment and can skip this step.  If you'd like to temporarily go back to using the old modules in `/util`, simply remove that file `rm ~/.ccr_new_modules`.  However, the old modules will be decommissioned this fall.  **See [here](../howto/newenv.md) for more information on using the new software on CCR's new compute nodes, and what to consider if you're a user of the faculty cluster**.  
+
+We highly recommend you start by watching this presentation on CCR's new software modules and how to utilize the new environment:  
+
+![type:video](https://youtube.com/embed/k1fymCTeI0k)   
 
 ## Using Modules
 
