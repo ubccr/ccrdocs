@@ -36,13 +36,8 @@ following:
 
 ## Connecting with SSH
 
-Using the SSH protocol, you can connect and authenticate to CCR login nodes.
-When you set up SSH, you will need to generate a new public/private SSH key
-pair enabling you to connect to CCR without supplying your username and
-password. When you connect via SSH, you authenticate using a private key file
-on your local machine, password authentication is not allowed. To set up SSH,
-you will need to generate a new SSH key pair and upload the public key to your
-CCR account using the IDM portal.
+Using the SSH protocol, you can connect and authenticate to CCR login nodes. When you set up SSH, you will need to generate a new public/private SSH key
+pair enabling you to connect to CCR without supplying your password. When you connect via SSH, you authenticate using a private key file on your local machine; password authentication is not allowed. To set up SSH, you will need to generate a new SSH key pair and upload the public key to your CCR account using the IDM portal.
 
 ## Generate new SSH key
 
@@ -60,30 +55,41 @@ $ ssh-keygen -t ed25519 -C "your_email_address"
 ```bash
 ~/.ssh/id_ed25519.pub
 ```
-5. Login to the IDM portal and click on [SSH Keys](https://idm.ccr.buffalo.edu/sshkey) in the left nav menu
+5. Login to the [CCR IDM portal](https://idm.ccr.buffalo.edu) and click on [SSH Keys](https://idm.ccr.buffalo.edu/sshkey) in the left nav menu
 6. Click on the "New SSH Key" button, paste the contents of your public key in the text box, and click "Add".
+
+!!! Warning "Initial Wait Period"  
+    After uploading your SSH key to the CCR portal, it will take 20-30 minutes to propagate our systems and allow you to login.   
 
 ## Logging in
 
-To verify you can ssh into the login node, follow these easy steps:
+To verify you can ssh into the login node, follow these steps:
 
-1. Open your terminal or Git Bash if you're on windows and enter the following:
+1. Open your terminal or Git Bash if you're on Windows and enter the following:
    ```bash
    ssh username@vortex.ccr.buffalo.edu
    ```
    New users & those wanting to use [CCR's new environment](../howto/newenv.md) should use:  
-   ```basg
+   ```bash
    ssh username@vortex-future.ccr.buffalo.edu
+   ```
+NOTE: If you're not running a SSH agent [(see below)](#using-the-ssh-agent) you will need to specify the location and filename of your **private** key using the `-i` option in the SSH command and you'll be prompted for your SSH key passphrase.  This is NOT your CCR password.  This is the passphrase you set when [creating your SSH key pair](#generate-new-ssh-key).  For example:  
+
+   ```bash
+   ssh -i /path-to-key/id_ed25519 username@vortex-future.ccr.buffalo.edu
+   Enter passphrase for key 'id_ed25519':
    ```
 
    You may see a warning like this:
    ```
    The authenticity of host 'vortex-future.ccr.buffalo.edu (128.205.41.24)' can't be established.
-   ED25519 key fingerprint is SHA256:PxBS1XqDaspSTQYQj+LHHh4YBSN4XvB7P/VcYGxMR8Y.
+   ED25519 key fingerprint is SHA256:qYT1DzrHv8yTlHiNGV2td29309oXPHdN4OPj/KptFYg.
    Are you sure you want to continue connecting (yes/no/[fingerprint])?
-   ```
+   ```  
+
 2. Verify the fingerprint in the message you see matches [CCR's public key fingerprint](../fingerprints.md).
    If it does, then type `yes`.  
+
 3. You should now be at a shell prompt on the login node:  
 ```
 username@vortex-future:~$
@@ -95,10 +101,8 @@ username@vortex-future:~$
 
 ## Using the SSH Agent  
 
-Running an SSH agent process on your local machine allows you to load your SSH
-private key one time and it will be used for every SSH login attempt.  This
-allows you to skip entering your passphrase each time you login.  Follow these
-steps to add your key to the ssh-agent:
+Running an SSH agent process on your local machine allows you to load your SSH private key one time and it will be used for every SSH login attempt.  This
+allows you to skip entering your passphrase each time you login and you will not have to specify your private key in the SSH command.  Follow these steps to add your key to the ssh-agent:
 
 1. Open your terminal or Git Bash if you're on windows
 2. Start the ssh-agent in the background:
@@ -118,6 +122,9 @@ $ ssh-add ~/.ssh/id_ed25519
 ```bash
 $ ssh-add -L
 ```
+
+!!! Tip "Restarting the SSH Agent"  
+    If you restart your computer, the SSH agent may not automatically restart.  This varies by operating system so we recommend searching for online documentation on how to set this up.  You will need to supply the private key passphrase each time the agent restarts.  
 
 ## OnDemand for Web-Based Cluster Access  
 

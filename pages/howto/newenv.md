@@ -14,7 +14,7 @@ Users new to CCR after August 8, 2023 will automatically be put into the new env
 
 ## Existing Users - How to Transition 
 
-- Create a file in your home directory named .ccr_new_modules.  Log out & back in again.
+- Create a file in your home directory named .ccr_new_modules.  Log out & back in again. -OR - use the new login server or OnDemand server as described [below](#the-new-resources)  
 - Ensure that nothing has been added to the `.bashrc` file in your home directory.  Command aliases are usually fine; however, comment out or remove anything else not provided by CCR.  This is what your `.bashrc` file should look like:  
 ```
 # .bashrc
@@ -24,10 +24,24 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
+
+if [ -f /etc/bash.bashrc ]; then
+    . /etc/bash.bashrc
+fi
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 ```
 - Follow the directions [below](#the-new-resources) to access the new resources    
