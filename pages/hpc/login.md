@@ -36,13 +36,13 @@ following:
 
 ## Connecting with SSH
 
-Using the SSH protocol, you can connect and authenticate to CCR login nodes. When you set up SSH, you will need to generate a new public/private SSH key
-pair enabling you to connect to CCR without supplying your password. When you connect via SSH, you authenticate using a private key file on your local machine; password authentication is not allowed. To set up SSH, you will need to generate a new SSH key pair and upload the public key to your CCR account using the IDM portal.
+Using the SSH protocol, you can connect and authenticate to CCR login nodes without supplying your password. To set up SSH, you will need to generate a new SSH key pair that contains a private key (stored only on your personal computer) and a public key (uploaded to your CCR account using the IDM portal).  During the login process the CCR servers attempt to match the public key that you've uploaded to your CCR account with the private key you have stored on your computer.  If they match, the login is successful.  
 
 ## Generate new SSH key
 
-You can generate a new SSH key pair on your local machine. After you generate
-the key pair, you can add the public key to your account using [CCR's IDM portal](https://idm.ccr.buffalo.edu/sshkey).
+The first time you want to login to CCR's login servers, you'll need to generate a new SSH key pair on your local machine. After you generate
+the key pair, you must add the public key to your account using [CCR's IDM portal](https://idm.ccr.buffalo.edu/sshkey).
+
 Follow these easy steps:
 
 1. Open your terminal or Git Bash if you're on windows
@@ -61,48 +61,11 @@ $ ssh-keygen -t ed25519 -C "your_email_address"
 !!! Warning "Initial Wait Period"  
     After uploading your SSH key to the CCR portal, it will take 20-30 minutes to propagate our systems and allow you to login.   
 
-## Logging in
-
-To verify you can ssh into the login node, follow these steps:
-
-1. Open your terminal or Git Bash if you're on Windows and enter the following:
-   ```bash
-   ssh username@vortex.ccr.buffalo.edu
-   ```
-   New users & those wanting to use [CCR's new environment](../howto/newenv.md) should use:  
-   ```bash
-   ssh username@vortex-future.ccr.buffalo.edu
-   ```
-NOTE: If you're not running a SSH agent [(see below)](#using-the-ssh-agent) you will need to specify the location and filename of your **private** key using the `-i` option in the SSH command and you'll be prompted for your SSH key passphrase.  This is NOT your CCR password.  This is the passphrase you set when [creating your SSH key pair](#generate-new-ssh-key).  For example:  
-
-   ```bash
-   ssh -i /path-to-key/id_ed25519 username@vortex-future.ccr.buffalo.edu
-   Enter passphrase for key 'id_ed25519':
-   ```
-
-   You may see a warning like this:
-   ```
-   The authenticity of host 'vortex-future.ccr.buffalo.edu (128.205.41.24)' can't be established.
-   ED25519 key fingerprint is SHA256:qYT1DzrHv8yTlHiNGV2td29309oXPHdN4OPj/KptFYg.
-   Are you sure you want to continue connecting (yes/no/[fingerprint])?
-   ```  
-
-2. Verify the fingerprint in the message you see matches [CCR's public key fingerprint](../fingerprints.md).
-   If it does, then type `yes`.  
-
-3. You should now be at a shell prompt on the login node:  
-```
-username@vortex-future:~$
-```
-
-!!! Tip "First Login - Additional Setup"  
-    On first login your home directory will be created automatically.  You will see a message indicating this has been done, a SSH key pair gets generated for use on the cluster, and you're given access to [CCR's new software modules](../software/modules.md).  
-
 
 ## Using the SSH Agent  
 
 Running an SSH agent process on your local machine allows you to load your SSH private key one time and it will be used for every SSH login attempt.  This
-allows you to skip entering your passphrase each time you login and you will not have to specify your private key in the SSH command.  Follow these steps to add your key to the ssh-agent:
+allows you to skip entering your SSH key passphrase each time you login and you will not have to specify your private key in the SSH login command.  Follow these steps to add your key to the ssh-agent:
 
 1. Open your terminal or Git Bash if you're on windows
 2. Start the ssh-agent in the background:
@@ -111,9 +74,7 @@ $ eval "$(ssh-agent -s)"
 > Agent pid 12345
 ```
 
-3. Add your SSH private key to the ssh-agent. If you created your key with a
-   different name use the correct path to your key. You will be prompted to
-   enter your passphrase for the key:
+3. Add your SSH private key to the ssh-agent using the command below. If you created your key with a different name or location, use the correct path and filename to your private key. You will be prompted to enter your passphrase for the key.  NOTE: The SSH key passphrase is NOT your CCR password.  This is the passphrase you set when [creating your SSH key pair](#generate-new-ssh-key):  
 ```bash
 $ ssh-add ~/.ssh/id_ed25519
 ```
@@ -125,6 +86,45 @@ $ ssh-add -L
 
 !!! Tip "Restarting the SSH Agent"  
     If you restart your computer, the SSH agent may not automatically restart.  This varies by operating system so we recommend searching for online documentation on how to set this up.  You will need to supply the private key passphrase each time the agent restarts.  
+
+
+## Logging in
+
+Once you've uploaded your SSH public key to your CCR account you will be able to use the SSH protocol to connect to CCR's login nodes.  Follow these steps:
+
+1. Open your terminal or Git Bash if you're on Windows and, if you're running a SSH agent as [described above](#using-the-ssh-agent), enter the following:  
+   ```bash
+   ssh username@vortex.ccr.buffalo.edu
+   ```
+   New users & those wanting to use [CCR's new environment](../howto/newenv.md) should use:  
+   ```bash
+   ssh username@vortex-future.ccr.buffalo.edu
+   ```
+   
+**NOTE: If you're not running a SSH agent [(see above)](#using-the-ssh-agent) you will need to specify the location and filename of your PRIVATE key using the `-i` option in the SSH command and you'll be prompted for your SSH key passphrase.**  This is NOT your CCR password.  This is the passphrase you set when [creating your SSH key pair](#generate-new-ssh-key).  For example:  
+
+   ```bash
+   ssh -i /path-to-key/id_ed25519 username@vortex-future.ccr.buffalo.edu
+   Enter passphrase for key 'id_ed25519':
+   ```
+2. When logging into CCR's login nodes, you may see a warning message similar to this.  Verify the fingerprint in the message you see matches [CCR's public key fingerprint](../fingerprints.md).
+   If it does, then type `yes`.  
+
+```
+The authenticity of host 'vortex-future.ccr.buffalo.edu (128.205.41.24)' can't be established.
+ED25519 key fingerprint is SHA256:qYT1DzrHv8yTlHiNGV2td29309oXPHdN4OPj/KptFYg.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```  
+3.  If your login was successful, you should now be at a shell prompt on the login node:  
+```
+username@vortex-future:~$
+```
+
+!!! Tip "First Login - Additional Setup"  
+    On first login your home directory will be created automatically.  You will see a message indicating this has been done, a SSH key pair gets generated for use on the cluster, and you're given access to [CCR's new software modules](../software/modules.md).  
+
+
+
 
 ## OnDemand for Web-Based Cluster Access  
 
