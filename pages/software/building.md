@@ -10,7 +10,7 @@ use.
 !!! Warning "You must build software on compile nodes"
     You will not be able to compile software on the login nodes. You must first
     ssh into a compile node before building software. After logging in to the
-    login node, simply run `ssh compile`.
+    login node, simply run `ssh compile`.  There are some nodes in the faculty cluster with AVX2 CPUs.  If you need to run on these nodes, use the `compile-avx2` compile server for building your software. 
 
 ## Software build requests
 
