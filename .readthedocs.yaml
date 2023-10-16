@@ -5,12 +5,15 @@
 # Required
 version: 2
 
+# Required
+build:
+  os: "ubuntu-22.04"
+
 # Build documentation with MkDocs
 mkdocs:
   configuration: mkdocs.yml
 
 # Optionally set the version of Python and requirements required to build your docs
 python:
-  version: 3.7
   install:
     - requirements: requirements.txt
