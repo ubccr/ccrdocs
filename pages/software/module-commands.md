@@ -65,6 +65,6 @@ For reference these include:
 
 | Module         | Description                                                      |
 | -------------- | ---------------------------------------------------------------- |
-| CCRconfig      | environment variables for global scratch, local scratch and util |
+| ccrenv         | environment variables for global scratch, local scratch and util |
 | gentoo         | Sets up environment variables for CCR's compatibility layer      |
-| StdEnv         | CCR Standard Environment                                         |
+| ccrsoft        | [CCR's Standard Software Environment](releases.md)               |

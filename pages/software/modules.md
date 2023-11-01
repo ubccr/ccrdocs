@@ -1,20 +1,23 @@
 # Available Software
 
-==All users have access to CCR's new environment of software and compute nodes.  See [here](../howto/newenv.md) for more information==  
+CCR maintains a suite of software programs, libraries, and toolchains, called
+"Standard Software Environments", for use on our clusters. For details, [see
+here](releases.md).
 
-CCR maintains a suite of software programs, libraries, and toolchains commonly
-used in scientific computing. The HPC clusters can execute most software that
-runs under Linux. In many cases, the software you need will already be
-installed and available to you on the compute nodes. You access the software
-using what's called a "module".  If the software you need is not available, you
-[can ask our staff](building.md#software-build-requests) to install it for you or [do it yourself](building.md).
+The HPC clusters can execute most software that runs under Linux. In many
+cases, the software you need will already be installed and available to you on
+the compute nodes. You access the software using what's called a "module".  If
+the software you need is not available, you [can ask our staff](building.md#software-build-requests)
+to install it for you or [do it yourself](building.md).
 
-!!! Warning "Software Module Transition Required"
-    Existing users can migrate to the new modules simply by running this command:  `touch ~/.ccr_new_modules`.  You will need to logout and log back in for the changes to take effect. As of August 2023, new users will automatically be setup in this environment and can skip this step.  If you'd like to temporarily go back to using the old modules in `/util`, simply remove that file `rm ~/.ccr_new_modules`.  However, the old modules will be decommissioned this fall.  **See [here](../howto/newenv.md) for more information on using the new software on CCR's new compute nodes, and what to consider if you're a user of the faculty cluster**.  
-
-We highly recommend you start by watching this presentation on CCR's new software modules and how to utilize the new environment:  
-
-![type:video](https://youtube.com/embed/k1fymCTeI0k)   
+!!! Warning "Legacy Software Environment Deprecated"
+    The `ccrsoft/legacy` software environment is now deprecated. Users are
+    encourged to migrate workflows to the latest `ccrsoft/2023.01` release as
+    soon as possible. More info [see here](releases.md). You can load the
+    latest release by running:
+    ```
+    $ module load ccrsoft/2023.01
+    ```
 
 ## Using Modules
 
@@ -121,7 +124,6 @@ CCR supports the following CPU architectures:
 
 | Architecture  | Supported CPUs                                             |
 | ------------- | ---------------------------------------------------------- |
-| avx           | Intel Sandy Bridge, Ivy Bridge                             |
 | avx2          | Intel Haswell, Broadwell                                   |
 | avx512        | Intel Skylake-SP, Skylake-X, Cascade Lake-SP               |
 
@@ -134,7 +136,7 @@ before your actual executable is called. A sample job script that loads Python
 into the environment is shown below:
 
 ```bash
-#!bin/bash
+#!bin/bash -l
 #SBATCH --nodes=1
 #SBATCH --time=00:01:00
 #SBATCH --ntasks=1
@@ -148,21 +150,152 @@ python3 test-program.py
 
 For more information, see the [Running Jobs section](../hpc/jobs.md).
 
-## Python
+## Application Specific Notes
 
-Several python modules are available for use: `python`, `anaconda3`, and
-`scipy-bundle`. We encourage users to checkout these modules as they include
-lots of common scientific python packages.
+### AlphaFold
+
+To use AlphaFold run:
+
+```
+$ module load foss alphafold
+```
+
+A couple notes on running AlphaFold:
+
+- AlphaFold does not currently support nvidia H100 cards. So you'll want to use
+  any of our A100 or V100 GPU nodes.
+- CCR has downloaded the full genetic databases and model parameters and the
+  path is automatically included when running run_alphafold.py. The full path
+  can be found here: 
+  ```
+  echo $ALPHAFOLD_DATA_DIR
+  /util/software/data/alphafold
+  ```
+- Many of the examples you'll find online run AlphaFold in docker. You do not
+  want to do this. Instead just substitue `python3 docker/run_docker.py` with
+  the script provided by the alphfold module `run_alphafold.py`. They will have
+  the same CLI arguments.
+
+Below is a sample slurm batch script for running AlphaFold on a GPU node to run
+a single sequence prediction:
+
+```bash
+#!/bin/bash -l
+
+#SBATCH --time=03:30:00
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 32
+#SBATCH --mem=64G
+#SBATCH --gres=gpu:2
+#SBATCH --constraint=A100
+
+module load foss alphafold
+
+srun run_alphafold.py --fasta_paths=T1050.fasta \
+                      --max_template_date=2020-05-14 \
+                      --model_preset=monomer \
+                      --db_preset=full_dbs \
+                      --output_dir=output
+```
+
+### Anaconda Python
+
+CCR does not support Anaconda environments. Instead we recommend checking out
+the following modules that already include many popular python modules:
+
+- python (includes many python modules)
+- scipy-bundle (includes scientific python modules)
+- tensorflow
+- pytorch
+
+Instead of installing python modules in conda environments users can create
+custom python module bundles using easybuild. For more details [see here](#python).
+
+### Perl
+
+We provide a `perl` module which includes many pre-built CPAN modules. To see
+the complete list run: 
+
+```
+$ module spider perl
+```
+
+If you require other specific perl modules, we recomend you [ask CCR to build
+them](../software/building.md#software-build-requests) or create your own perl
+module bundles with easybuild.
+
+### Python
+
+Several python modules are available for use. We encourage users to checkout
+these modules as they include lots of common scientific python packages.
 
 | module       | Included python packages                                                                     |
 | ------------ | -------------------------------------------------------------------------------------------- |
-| python       | Bare python3 interpreter only                                                                |
+| python-bare  | Bare python3 interpreter only                                                                |
+| python       | Bare python3 plus many common modules                                                        |
 | scipy-bundle | beniget, Bottleneck, deap, gast, mpi4py, mpmath, numexpr, numpy, pandas, ply, pythran, scipy |
-| anaconda3    | [see here](https://docs.anaconda.com/anaconda/packages/py3.9_linux-64/)                            |
+| tensorflow   | TensorFlow                                                                                   |
+| pytorch      | PyTorch                                                                                      |
 
-We recommend using [virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment) to best manage your python projects.  We provide additional recommendations for using [Python](../howto/python.md) and [Anaconda environments](../howto/conda.md) in our How To section.  
+If you require other specific python modules, we recomend you [ask CCR to build
+them](../software/building.md#software-build-requests) or create your own python module bundles with easybuild.
 
-## R
+Here's an example easybuild recipe that installs a python module from pip:
+
+```python
+easyblock = 'PythonBundle'
+
+name = 'mygroup-bundle'
+version = '1.0.0'
+
+homepage = 'https://github.com/ubccr/software-layer'
+description = """
+Custom python modules for my group
+"""
+
+toolchain = {'name': 'foss', 'version': '2021b'}
+
+# list any other dependencies here
+dependencies = [
+    ('Python', '3.9.6'),
+    ('SciPy-bundle', '2021.10'),
+]
+
+exts_list = [
+    # sha256 checksum can be found on pypi, for example:
+    # https://pypi.org/project/fuzzywuzzy/#copy-hash-modal-bdeeeb75-5450-499a-ae89-21c91611d2c7
+    ('fuzzywuzzy', '0.18.0', {
+        'checksums': ['45016e92264780e58972dca1b3d939ac864b78437422beecebb3095f8efd00e8'],
+    }),
+]
+
+sanity_pip_check = True
+use_pip = True
+
+moduleclass = 'math'
+```
+
+Save the above to a file called `mygroup-bundle-1.0.0-foss-2021b.eb`. To install run:
+
+```
+$ module load easybuild
+$ export CCR_BUILD_PREFIX=/projects/academic/grp-ccrstaff/easybuild
+$ eb mygroup-bundle-1.0.0-foss-2021b.eb
+```
+
+To use run:
+
+```
+$ module load mygroup-bundle
+$ python3
+$ import fuzzywuzzy
+```
+
+You can also use [virtual
+environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+to manage your python projects but setting these up falls outside the scope of this document.
+
+### R
 
 Two R modules are provided: `r` and `r-bundle-bioconductor`, both of which
 include many pre-built R libraries. To see a complete list of R libraries and
@@ -173,15 +306,6 @@ $ module spider r
 $ module spider r-bundle-bioconductor
 ```
 
-To request additional packages be installed in either of these modules, please submit a request as [detailed here](../software/building.md#software-build-requests) or [follow these recommendations](../howto/r-stat.md) to install your own.
-
-## Perl
-
-We provide a `perl` module which includes many pre-built CPAN modules. To see
-the complete list run: 
-
-```
-$ module spider perl
-```
-
-To request additional packages be installed in this module, please submit a request as [detailed here](../software/building.md#software-build-requests) or [follow these recommendations](../howto/perl.md) to install your own.
+If you require other specific R libraries, we recomend you [ask CCR to build
+them](../software/building.md#software-build-requests) or create your own custom 
+R bundle with easybuild.

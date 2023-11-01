@@ -77,11 +77,5 @@ nav:
     - Support, Maintenance, & Installation Policies: policies/support.md
   - How To:  
     - About: howto/about.md 
-    - CCR New Environment: howto/newenv.md  
-    - Conda Environments: howto/conda.md  
+    - CCR Software Environments: howto/newenv.md  
     - OnDemand Customization: howto/ondemand.md  
-    - Perl Module Install: howto/perl.md
-    - Python Options: howto/python.md
-    - R Library Install: howto/r-stat.md  
-
-

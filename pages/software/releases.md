@@ -1,19 +1,27 @@
-# CCR Software Releases
+# CCR Software Environment Releases
 
 The latest release is [2023.01](#202301).
 
-CCR maintains a suite of software programs, libraries, and toolchains available
-for use on our clusters. We typically release a new version of the software
-suite on a yearly basis. Previous releases of the software suite are made
-available for a short period for use while migrating workloads to the latest
-release. 
+## What are CCR Software Environments?
 
-To switch between CCR software releases run the following commands:
+CCR maintains a suite of software programs, libraries, and toolchains, called
+"Standard Software Environments", for use on our clusters. These software
+environments are provided through a set of modules which allow you to switch
+between different releases. CCR's standard environments identify combinations
+of specific compiler toolchains and software modules that are used most
+commonly to build other software. These combinations are grouped in modules
+named `ccrsoft` and the default version automatically loaded by lmod when you
+login.
+
+We typically release a new version of `ccrsoft` on a yearly basis. Previous
+software environment releases are made available for a short period for use
+while migrating workloads to the latest release. This page contains the
+changelog for each software environment release where you can find information
+on toolchain versions, new features, deprecations, and import notes.
+
+To switch between CCR software environment releases run the following commands:
 
 ```
-# Check what version you're currently running
-$ echo $CCR_VERSION
-
 # View all available software releases
 $ module spider ccrsoft
 
@@ -22,8 +30,13 @@ $ module load ccrsoft/2023.01
 ```
 
 !!! Tip "Pin to a specific release"
-    Users can ensure their environment is always pinned to a supported CCR release by 
-    adding the version string to this file: `~/.ccr/version`
+    When you login the default version of `ccrsoft` module will be loaded
+    automatically for you. Users can override the default version and pin to a
+    specific release by adding the version to `~/.modulerc`.  For
+    example:
+    ```
+    $ echo "module-version ccrsoft/2023.01 default" >> $HOME/.modulerc
+    ```
 
 ## 2023.01
 

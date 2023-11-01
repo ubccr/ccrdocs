@@ -2,9 +2,6 @@
 
 [Version 3.0 of Open OnDemand](https://ondemand-future.ccr.buffalo.edu) introduced many new features that CCR users now have access to.  We've also changed how we offer resources and the apps you might be used to.  Here we'll cover those changes, some of the new features, and how you can customize your portal experience. Our primarly OnDemand documentation can be [found here](../portals/ood.md)  
 
-!!! Warning "Important Environment Info!"  
-    This version of OnDemand uses CCR's new software modules automatically.  You do not have to do anything to utilize these modules.  You will not have access to the old modules in /util. Please refer to the [software module documentation](../software/modules.md) as there are lots of new features available! 
-
 ## New Features
 
 ### Pre-configured Selections  
