@@ -70,7 +70,7 @@ To submit an interactive job to the general-compute partition for a single node
 with 32 Intel cores and 50GB of memory for 5 hours and 20 minutes, use the
 salloc command and the appropriate options as shown here:  
 
-```
+```bash
 salloc --qos=general-compute --partition=general-compute  \
        --job-name "InteractiveJob" --cpus-per-task=32 \
        --mem=50G -C INTEL --time=05:20:00
@@ -89,7 +89,7 @@ Below is an explanation of the SBATCH options used in our samples. These are
 Slurm directives and should be understood before submitting a job.  For more
 information on Slurm directives, partitions, and QOS, [see here](#slurm-directives-partitions-qos).
 
-```
+```bash
 #!/bin/bash -l
 #
 # 	How long the job will run once it begins. If the job runs longer than what is
@@ -145,7 +145,7 @@ of the Slurm directives as described above.
 
 To submit to the **debug partition on the ub-hpc cluster**, the slurm script would look like:
 
-```
+```bash
 #!/bin/bash -l
 #
 #SBATCH --time=00:01:00
@@ -168,7 +168,7 @@ echo "Hello world from debug node: "`/usr/bin/uname -n`
 To submit to the **general-compute partition on the ub-hpc cluster**, the slurm
 script would look like:
 
-```
+```bash
 #!/bin/bash -l
 #
 #SBATCH --time=00:01:00
@@ -191,7 +191,8 @@ echo "Hello world from general-compute node: "`/usr/bin/uname -n`
 
 To submit to the privately owned **ub-laser partition on the faculty cluster**,
 the slurm script would look like:
-```
+
+```bash
 #!/bin/bash -l
 #
 #SBATCH --time=00:01:00
@@ -222,7 +223,7 @@ echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
 To submit to the **scavenger partition on the ub-hpc cluster**, the slurm
 script would look like:
 
-```
+```bash
 #!/bin/bash -l
 #
 #SBATCH --time=00:01:00
