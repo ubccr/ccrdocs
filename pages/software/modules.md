@@ -142,8 +142,11 @@ into the environment is shown below:
 #SBATCH --ntasks=1
 #SBATCH --job-name=test-job
 
+# Optionally load a specific software environment
+module load ccrsoft/xxxx.yy
+
 # Load your modules here
-module load python
+module load some_module
 
 python3 test-program.py
 ```

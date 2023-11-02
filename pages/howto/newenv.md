@@ -56,20 +56,19 @@ this transition period here are a few tips:
   echo "module-version ccrsoft/legacy default" >> $HOME/.modulerc
   ```
 
-!!! Warning "Default version changing in December 2023"
+!!! Warning "Default version changing soon"
     The latest software environment `ccrsoft/2023.01` will be loaded by default
-    starting in December 2023. Users are encouraged to migrate all workflows 
-    to `ccrsoft/2023.01` as soon as possible
+    starting after the December 2023 maintenance downtime. Users are encouraged
+    to migrate all workflows to `ccrsoft/2023.01` as soon as possible
 
 ## How to use new compute resources?
 
 CCR recently deployed brand new compute resources with new processors, memory,
 and GPUs. These nodes have been temporarily put into a reservation for users to
-access them and starting in December of 2023 you will no longer need to specify
-the reservation. 
+access them and starting after the December 2023 maintenance downtime you will
+no longer need to specify the reservation. 
 
-Prior to December 2023, you will need to specify the following in your batch
-scripts: 
+Currently, you will need to specify the following in your batch scripts: 
 
 ```
 #SBATCH --cluster=ub-hpc
