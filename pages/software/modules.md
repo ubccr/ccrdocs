@@ -200,15 +200,21 @@ srun run_alphafold.py --fasta_paths=T1050.fasta \
 
 ### Anaconda Python
 
-CCR does not support Anaconda environments. Instead we recommend checking out
-the following modules that already include many popular python modules:
+CCR does not support Anaconda environments. Please do not use it on the
+cluster. We are aware of the fact that Anaconda is widely used in several
+domains and is useful for easy installations on a single-user laptop. However,
+Anaconda is not well suited for multi-user HPC clusters for the following
+reasons:
 
-- python (includes many python modules)
-- scipy-bundle (includes scientific python modules)
-- tensorflow
-- pytorch
+- Makes wrong assumptions about the OS configuration and location of various system libraries
+- Not meant to keep several versions of the same package on the system
+- Distributes pre-compiled binaries and uses pre-configured compilation options
+  which are often not optimal for the processor architectures we have on our cluster
+- Uses the $HOME directory for its installation and generates a huge number of files
+- Modifies the $HOME/.bashrc file, which can easily cause conflicts.
 
-Instead of installing python modules in conda environments users can create
+Instead we recommend using modules that already include many [popular python
+packages](#python). Instead of installing python modules in conda environments users can create
 custom python module bundles using easybuild. For more details [see here](#python).
 
 ### Perl
@@ -232,7 +238,7 @@ these modules as they include lots of common scientific python packages.
 | module       | Included python packages                                                                     |
 | ------------ | -------------------------------------------------------------------------------------------- |
 | python-bare  | Bare python3 interpreter only                                                                |
-| python       | Bare python3 plus many common modules                                                        |
+| python       | python3 interpreter plus many commonly used modules                                          |
 | scipy-bundle | beniget, Bottleneck, deap, gast, mpi4py, mpmath, numexpr, numpy, pandas, ply, pythran, scipy |
 | tensorflow   | TensorFlow                                                                                   |
 | pytorch      | PyTorch                                                                                      |
