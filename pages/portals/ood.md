@@ -1,6 +1,6 @@
 # OnDemand
 
-Open OnDemand is a browser based single point of access for all of CCR's clusters, shared storage, and remote visualization servers.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, and access interactive applications such as remote desktops to cluster nodes and the visualization servers, as well as GUI-based software like Matlab, Jupyter Notebooks, RStudio Desktop, and vscode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
+Open OnDemand is a browser based single point of access for all of CCR's clusters, shared storage, and remote visualization servers.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, and access interactive applications such as remote desktops to cluster nodes and the visualization servers, as well as GUI-based software like Matlab, Jupyter Lab/Notebook, and vscode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
 
 _**This product is an open source project developed by [Ohio Supercomputer Center](https://openondemand.org).**_
 
@@ -13,7 +13,7 @@ _**This product is an open source project developed by [Ohio Supercomputer Cente
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
 Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Don't have one yet? [See here](../getting-access.md)  
-New users should use [OnDemand 3.0](https://ondemand-future.ccr.buffalo.edu)   
+
 
 !!! Tip "First Login - Additional Steps"
     On first login your home directory will need to be created.  Follow the
@@ -24,7 +24,19 @@ New users should use [OnDemand 3.0](https://ondemand-future.ccr.buffalo.edu)
 
 ## OnDemand Features  
 
-Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, our message of the day (MOTD) at the bottom, pinned apps (popular applications organized into sections), and 3 types of job reports created through the metrics portal, Open XDMoD.  Along the top are tabs for the different features offered in OnDemand.
+
+
+### Dashboard  
+Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, our message of the day (MOTD), recently used apps, and pinned apps (popular applications organized into sections).  On the right side of the dashboard there are 3 types of job reports created through the metrics portal, Open XDMoD.  Along the top are tabs for the different features offered in OnDemand.
+
+**Recently Used Apps**  
+
+The `Recently Used Apps` section on the OnDemand dashboard is a new feature of OnDemand 3.0.  This will list the last 3 applications you launched in OnDemand.  When you click on one, it immediately launches a new session with the same options you last selected.  This saves you time from having to select all the options repeatedly.  This is a one-click easy button for re-launching desktops or interactive apps.
+
+**Quick Launch App**  
+
+The `Quick Launch` General-Compute and Debug Desktop apps provide a one click easy button for launching a desktop session on the either the debug or general-compute partition of the UB-HPC cluster.  Your job will be allocated 1 CPU, 2.8GB of RAM, and 24 hours of walltime on the general-compute partition or 1 hour for the debug partition.  You can't change any of the options for these quick launch apps.  If you require different settings, use the `UB-HPC & Faculty Cluster Desktop` app which provides many options.  
+
 
 ### Clusters (terminal window)  
 
@@ -40,22 +52,50 @@ The Files App in OnDemand allows users to easily transfer files to or from their
 !!! Warning  
     Do NOT transfer large files or large amounts of file using this app.  Please use the [Globus service](../hpc/data-transfer.md#globus-transfers) for large file transfers.  File transfer is limited to the amount of memory on the OnDemand server, the number of users currently using it, and browser limitations.  
 
-Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/username` and has a quota of 10GB.  If you have access to a share project or global scratch directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
+Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/username`.  If you have access to a shared project or global scratch directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
+
+You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  We provide information about using `rclone` to do that [here](../hpc/data-transfer.md#rclone) with an example of setting up a OneDrive link.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done this setup after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
+
+**OneDrive**  
+Follow [these instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) to complete the initial connection with OneDrive using RClone.
+
+**UB Box**  
+Follow [these instructions](https://rclone.org/box/) to complete the initial connection with UB Box using RClone.  
+
+**Globus**  
+Coming very soon with OnDemand version 3.1   
 
 ### Interactive Apps  
 
-Interactive apps provide a way for users to launch and connect to an interactive batch job running on the cluster.  Users will either connect to the compute node in a Linux desktop environment or to the application they're launching.  CCR offers virtual desktop and Jupyter Notebook apps for both clusters as well as Matlab, vscode, and RStudio Desktop apps for the UB-HPC cluster.
+Interactive apps provide a way for users to launch and connect to an interactive batch job running on the cluster.  Users will either connect to the compute node in a Linux desktop environment or to the application they're launching.  
+
+All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the options `scavenger, viz, or normal` in either the partition or QOS drop down menus.  You will see the `industry` partition; however, if you do not have the `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.     
 
 **Desktop Interactive Apps**  
 
-There are several options for desktop applications in OnDemand.  Details about each desktop are available at the top of the app form, after clicking on the interactive app menu option on the left.  Information about maximum walltime is listed here as well as any other pertinent info.  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), amount of memory (RAM), or specific node features you may enter that in the form.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  
+Previously, CCR provided separate desktop apps for the UB-HPC and Faculty clusters.  Now there is one app for both and users are able to select which cluster to submit to.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), amount of memory (RAM), or specific node features you may enter that in the form.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  
+
+!!! Tip "Missing Something?"  
+    If you think the drop down options for account or QOS are wrong, check [ColdFront](https://coldfront.ccr.buffalo.edu).  These values match up to allocations for resources in ColdFront.  You must be on an active allocation for the resource in order to access it.  
 
 **Remote Visualization Apps**  
 
-In addition to the virtual desktop apps, which are capable enough for some GUI-based software applications, CCR also offers visualization nodes that are accessibly only through OnDemand.  The visualization servers offer graphics acceleration which is required for certain software packages.  There is one OnDemand interactive app for the visualization nodes that launches OpenGL & CUDA enabled desktops and one for those software packages that require graphics acceleration but need OpenGL disabled to start.  Users are permitted to run one app on the visualization nodes at a time and they are limited to 24 hours of run time.
+In addition to the virtual desktop apps, which are capable enough for some GUI-based software applications, CCR also offers visualization nodes that are accessibly only through OnDemand.  The visualization servers offer graphics acceleration which is required for certain software packages.  There is one OnDemand interactive app for the visualization nodes that launches OpenGL & CUDA enabled desktops and one for those software packages that require graphics acceleration but need OpenGL disabled to start.  Users are permitted to run one session on the visualization nodes at a time which is limited to 24 hours of run time.
 
 !!! Tip "All done?  Make sure to delete your job"  
     OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then delete the running session under the `My interactive sessions` menu.  
+
+**Job Card Formating**  
+
+There are additions to the job cards in OnDemand 3.0 including a link to submit a help ticket that links directly to the job for easier review by the CCR IT staff.  You'll notice the verbage has changed with respect to actions you can take on a job.  A running or queued job has the `cancel` option which cancels the job and removes it from the queue.  Once a job has been completed, you can `delete` it which removes it from your list of most recent jobs.  This does NOT delete the job data in your home directory so you will need to periodically clean up data you no longer want.  The session ID link will take you directly to the subdirectory where the job's data and output files are stored.  
+
+![](../images/ood3-job.png)
+
+Once a job is completed, the job card will display an icon with circular arrows next to the "Completed" status.  To launch another job with the same specifications as the completed job requested, click on the arrow button.  
+
+![](../images/ood3-completed.png)
+
+  
 
 ### Jobs Apps  
 

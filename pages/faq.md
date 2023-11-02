@@ -28,7 +28,7 @@ _**Common errors:**_
 -  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](portals/idm.md#change-your-ccr-password)  
 -  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly.   
 -  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
-- **Bad request** or **Server not available** when trying to login to OnDemand:  These are often caused by corrupted cache files in our browser.  Clear your browser cache and cookies data and restart your browser or try a different browser.  Incognito windows often do not solve this problem.    
+- When trying to login to **OnDemand** you see an error like: **Bad request**, **Server not available** or **Something Bad Happened.  Please contact site admin**:  These are often caused by corrupted cache files in your browser.  Clear your browser cache and cookies data and restart your browser or try a different browser.  Incognito windows often do not solve this problem.     
 
 ## Why is the ColdFront allocation showing active but I can't login?  
 
