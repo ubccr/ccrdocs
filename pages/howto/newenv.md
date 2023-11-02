@@ -58,7 +58,7 @@ this transition period here are a few tips:
 
 !!! Warning "Default version changing in December 2023"
     The latest ccrsoft/2023.01 will be loaded by default starting in December
-    2023. Users are encouraged to migrate all workflows off `ccrsoft/legacy` as
+    2023. Users are encouraged to migrate all workflows to `ccrsoft/2023.01` as
     soon as possible
 
 ## How to use new compute resources?
