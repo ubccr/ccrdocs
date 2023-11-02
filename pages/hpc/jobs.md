@@ -14,7 +14,7 @@ commands to run your program on those requested resources (compute nodes).
 When running jobs with Slurm, you must be explicit about requesting CPU cores
 and nodes. The three options `--nodes or -N`, `--ntasks or -n`, and
 `--cpus-per-task or -c` can be a bit confusing at first but are necessary to
-understand for applications that use more than one CPU.
+understand when running applications that use more than one CPU.
 
 !!! Tip
     If your application references threads or cores but makes no mention of MPI,
@@ -50,16 +50,16 @@ Some MPI programs are also multi-threaded, so each process can use multiple
 CPUs. Only these applications can use `--ntasks` and `--cpus-per-task` to run
 faster.
 
-Suppose you need 16 cores, these are some possible scenarios:
+For example, suppose you need 16 cores, here are some possible scenarios:
 
-- you use mpi and do not care about where those cores are distributed: `--ntasks=16`
-- you want to launch 16 independent processes (no communication): `--ntasks=16`
-- you want those cores to spread across distinct nodes: `--ntasks=16 --ntasks-per-node=1 or --ntasks=16 --nodes=16`
-- you want those cores to spread across distinct nodes and no interference from other jobs: ~--ntasks=16 --nodes=16 --exclusive`
-- you want 16 processes to spread across 8 nodes to have two processes per node: `--ntasks=16 --ntasks-per-node=2`
-- you want 16 processes to stay on the same node: `--ntasks=16 --ntasks-per-node=16`
 - you want one process that can use 16 cores for multithreading: `--ntasks=1 --cpus-per-task=16`
 - you want 4 processes that can use 4 cores each for multithreading: `--ntasks=4 --cpus-per-task=4`
+- you use mpi and do not care about where those cores are distributed: `--ntasks=16`
+- you want to launch 16 independent processes (no communication): `--ntasks=16`
+- you want 16 cores to spread across distinct nodes: `--ntasks=16 --ntasks-per-node=1 or --ntasks=16 --nodes=16`
+- you want 16 cores to spread across distinct nodes and no interference from other jobs: `--ntasks=16 --nodes=16 --exclusive`
+- you want 16 processes to spread across 8 nodes to have two processes per node: `--ntasks=16 --ntasks-per-node=2`
+- you want 16 processes to stay on the same node: `--ntasks=16 --ntasks-per-node=16`
 
 ## Running applications with Jobs
 
@@ -77,14 +77,14 @@ when you log out or your reqested time limit is reached.  This is different
 compared to a batch job where you submit your job for execution with no user
 interaction.  
 
-To submit an interactive job to the general-compute partition for a single node
-with 32 Intel cores and 50GB of memory for 5 hours and 20 minutes, use the
-salloc command and the appropriate options as shown here:  
+To submit an interactive job to the general-compute partition for a single
+process with 32 Intel cores and 50GB of memory for 5 hours and 20 minutes, use
+the `salloc` command and the appropriate options as shown here:  
 
 ```bash
 salloc --qos=general-compute --partition=general-compute  \
        --job-name "InteractiveJob" --cpus-per-task=32 \
-       --mem=50G -C INTEL --time=05:20:00
+       --ntasks=1 --mem=50G -C INTEL --time=05:20:00
 ```
 
 To complete/end this job, we would type `exit` on the command line.
