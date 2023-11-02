@@ -197,6 +197,14 @@ Run the dos2unix command on your file to remove the Windows line breaks.  For ex
 
 Use the 'man' command to see all the options for the dos2unix command:  `man dos2unix`
 
+## How do I fix the error: module command not found?
+
+Please ensure this is the first line of your batch script:
+
+```
+#!/bin/bash -l
+```
+
 ## How do I change my default cluster?  
 
 Do you use the faculty cluster more than the primary and default UB-HPC cluster?  If so, you can change your default cluster so you don't need to specify the cluster name flag when running Slurm commands.  To make the change temporary for your existing login shell, run: `export SLURM_CONF=/util/software/config/slurm/faculty/slurm.conf`  To make this change permanent, add that to your `~/.bashrc` file under the `User specific aliases and functions` section of the file.  

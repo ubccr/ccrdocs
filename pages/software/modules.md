@@ -172,7 +172,7 @@ A couple notes on running AlphaFold:
   /util/software/data/alphafold
   ```
 - Many of the examples you'll find online run AlphaFold in docker. You do not
-  want to do this. Instead just substitue `python3 docker/run_docker.py` with
+  want to do this. Instead just substitute `python3 docker/run_docker.py` with
   the script provided by the alphfold module `run_alphafold.py`. They will have
   the same CLI arguments.
 
@@ -220,7 +220,7 @@ the complete list run:
 $ module spider perl
 ```
 
-If you require other specific perl modules, we recomend you [ask CCR to build
+If you require other specific perl modules, we recommend you [ask CCR to build
 them](../software/building.md#software-build-requests) or create your own perl
 module bundles with easybuild.
 
@@ -306,6 +306,6 @@ $ module spider r
 $ module spider r-bundle-bioconductor
 ```
 
-If you require other specific R libraries, we recomend you [ask CCR to build
+If you require other specific R libraries, we recommend you [ask CCR to build
 them](../software/building.md#software-build-requests) or create your own custom 
 R bundle with easybuild.

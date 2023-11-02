@@ -21,7 +21,7 @@ understand for applications that use more than one CPU.
     only use `--cpus-per-task` to request CPUs. You cannot request more cores than
     there are on a single compute node where your job runs.
 
-Using these options will depend on the type parallelism you are using, i.e.
+Using these options will depend on the type of parallelism you are using, i.e.
 distributed or shared memory. Here's some simple guidelines to follow:
 
 - `--ntasks=#`: Number of "tasks" (use with distributed parallelism).
@@ -33,7 +33,7 @@ distributed or shared memory. Here's some simple guidelines to follow:
 If an application is able to use multiple cores, it usually achieves this by
 either spawning threads and sharing memory (multi-threaded) or starting entire
 new processes (multi-process). In this case use `--cpus-per-task` to guarantee
-that the CPUs you expect your program to use are all accessable.
+that the CPUs you expect your program to use are all accessible.
 
 Some applications are written to use the Message Passing Interface (MPI) standard to
 run across many compute nodes. This allows such applications to scale
@@ -50,10 +50,21 @@ Some MPI programs are also multi-threaded, so each process can use multiple
 CPUs. Only these applications can use `--ntasks` and `--cpus-per-task` to run
 faster.
 
+Suppose you need 16 cores, these are some possible scenarios:
+
+- you use mpi and do not care about where those cores are distributed: `--ntasks=16`
+- you want to launch 16 independent processes (no communication): `--ntasks=16`
+- you want those cores to spread across distinct nodes: `--ntasks=16 --ntasks-per-node=1 or --ntasks=16 --nodes=16`
+- you want those cores to spread across distinct nodes and no interference from other jobs: ~--ntasks=16 --nodes=16 --exclusive`
+- you want 16 processes to spread across 8 nodes to have two processes per node: `--ntasks=16 --ntasks-per-node=2`
+- you want 16 processes to stay on the same node: `--ntasks=16 --ntasks-per-node=16`
+- you want one process that can use 16 cores for multithreading: `--ntasks=1 --cpus-per-task=16`
+- you want 4 processes that can use 4 cores each for multithreading: `--ntasks=4 --cpus-per-task=4`
+
 ## Running applications with Jobs
 
 There are two types of jobs, interactive and batch. Interactive jobs, allow you
-to type in commands while the job is running. Batch jobs are a self-containted
+to type in commands while the job is running. Batch jobs are a self-contained
 set of commands in a script which is submitted to the cluster for execution on
 a compute node.
 
@@ -139,8 +150,8 @@ information on Slurm directives, partitions, and QOS, [see here](#slurm-directiv
 ```
 
 Below are several sample scripts which can be submitted to Slurm using the
-`sbatch` command. Batch scripts should be submitted to from a login node and
-the commands within the script will be excuted on a compute node.  We use some
+`sbatch` command. Batch scripts should be submitted from a login node and
+the commands within the script will be executed on a compute node.  We use some
 of the Slurm directives as described above.
 
 To submit to the **debug partition on the ub-hpc cluster**, the slurm script would look like:
