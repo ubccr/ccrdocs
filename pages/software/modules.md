@@ -226,6 +226,43 @@ the complete list run:
 $ module spider perl
 ```
 
+Installing additional packages from [CPAN](http://www.cpan.org/) can be done
+using the `cpan` tool, which must first be initialized correctly in order to
+install them in your home or projects space.
+
+During the first execution of the command `cpan` the utility will ask you if you
+want to allow it to configure the majority of settings automatically. Respond
+`yes`.
+
+```
+$ module load gcc perl
+$ cpan
+...
+Would you like me to configure as much as possible automatically? [yes]
+...
+What approach do you want?  (Choose 'local::lib', 'sudo' or 'manual')
+ [local::lib]
+...
+```
+
+The cpan utility will offer to append a variety of environment variable
+settings to your `.bashrc` file, which you can agree to or set these manually.
+Before installing any Perl modules you will need to restart your shell for
+these new settings to take effect (logout/login).
+
+Now you can use cpan to install packages:
+
+```
+$ module load gcc perl
+$ cpan
+
+cpan shell -- CPAN exploration and modules installation (v2.28)
+Enter 'h' for help.
+
+cpan[1]> install Chess
+....
+```
+
 If you require other specific perl modules, we recommend you [ask CCR to build
 them](../software/building.md#software-build-requests) or create your own perl
 module bundles with easybuild.
@@ -311,6 +348,28 @@ packages included with each module run the spider command:
 $ module spider r
 $ module spider r-bundle-bioconductor
 ```
+
+You can also install packages from [CRAN](https://cran.r-project.org/) using
+`install.packages` while running an interactive R session. For example:
+
+```
+$ install.packages("ggplot2", repos="http://cran.r-project.org",
+                   lib = "/projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs")
+```
+
+To install a package that you downloaded run:
+
+```
+$ R CMD INSTALL -l /projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs/ readr_2.1.3.tar.gz  
+```
+
+!!! Tip "Don't want to specify the location each time?"  
+    Create a file named .Renviron in your home directory (or edit an existing
+    one) and point R to use your alternate directory.  Include the line (editing for your use case):
+    `R_LIBS_USER=/projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs"`
+    Each time R starts it will use this library directory for installations and
+    to search for existing installations.  
+
 
 If you require other specific R libraries, we recommend you [ask CCR to build
 them](../software/building.md#software-build-requests) or create your own custom 
