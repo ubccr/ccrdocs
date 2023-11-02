@@ -34,8 +34,8 @@ following:
 
 CCR login nodes hostnames:
 
-- vortex.ccr.buffalo.edu
-- vortex-future.ccr.buffalo.edu
+- `vortex.ccr.buffalo.edu` - production login nodes
+- `vortex-future.ccr.buffalo.edu` - includes new features and serves as a preview of the next deployment of production login nodes
 
 ## Connecting with SSH
 
