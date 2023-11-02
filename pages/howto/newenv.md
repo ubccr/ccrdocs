@@ -56,6 +56,11 @@ this transition period here are a few tips:
   echo "module-version ccrsoft/legacy default" >> $HOME/.modulerc
   ```
 
+!!! Warning "Default version changing in December 2023"
+    The latest ccrsoft/2023.01 will be loaded by default starting in December
+    2023. Users are encouraged to migrate all workflows off `ccrsoft/legacy` as
+    soon as possible
+
 ## How to use new compute resources?
 
 CCR recently deployed brand new compute resources with new processors, memory,
