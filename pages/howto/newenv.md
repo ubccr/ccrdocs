@@ -50,8 +50,8 @@ the latest release. If you need to use the legacy software environment  during
 this transition period here are a few tips:
 
 - Ensure all your jobs have the `--constraint=LEGACY`
-- Load this mode: `ccrsoft/legacy`
-- If needed, set this as your default by running:
+- Load this module: `ccrsoft/legacy`
+- If required, set this as your default by running:
   ```
   echo "module-version ccrsoft/legacy default" >> $HOME/.modulerc
   ```
