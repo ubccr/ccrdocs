@@ -76,5 +76,4 @@ nav:
     - Permitted Use & Misuse of CCR: policies/misuse.md
     - Support, Maintenance, & Installation Policies: policies/support.md
   - How To:  
-    - About: howto/about.md 
     - CCR Software Environments: howto/newenv.md  

@@ -92,7 +92,7 @@ offer and serves as a preview of the next deployment of all login nodes.
 
 We have deployed the new version of OnDemand version 3.0 available [here](https://ondemand.ccr.buffalo.edu).
 There are many new features to take advantage of, as well as changes to how we've laid out the apps.
-Please [see here](../howto/ondemand.md) for more details.
+Please [see here](../portals/ood.md) for more details.
 
 ## I'm getting "Module command errors"?  
 
