@@ -7,8 +7,6 @@ This documentation covers the use of CCR's research computing and research cloud
 !!! Tip   
     CCR provides UB's research computing and research cloud resources. All other IT services and support at UB are provided by [UBIT](https://buffalo.edu/ubit)  
 
-==As of August 2023, new users have access to CCR's new environment.  See [here](howto/newenv.md) for more information==  
-
 ## What do you want to do?
 
 These links provide info on the most popular topics while the left navigation
@@ -50,7 +48,10 @@ If you have any questions, please [contact CCR Help](help.md)
   at CCR. Organizing and writing technical documentation is time consuming and
   difficult but they've graciously shared their work product with us saving us
   countless hours and headaches. **Thank you CURC!**
-- Portions of our documentation was inspired by the [Digital Research Alliance of Canada](https://alliancecan.ca)
+- Portions of our documentation were adopted from:
+    - [Digital Research Alliance of Canada](https://alliancecan.ca)
+    - [Yale Center for Research Computing](https://docs.ycrc.yale.edu/)
+    - [Consortium des Équipements de Calcul Intensif](https://support.ceci-hpc.be/doc/index.html)
 - CCR's software infrastructure was adopted from the work done by [Compute Canada](https://github.com/ComputeCanada)
   and the [European Environment for Scientific Software Installations (EESSI)](https://github.com/EESSI)
 - Lmod written by the [Texas Advanced Computing Center (TACC)](https://www.tacc.utexas.edu/)

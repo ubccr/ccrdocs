@@ -1,40 +1,107 @@
 # Running Jobs
 
-==As of August 2023, users should be using CCR's new environment.  See [here](../howto/newenv.md) for more information on how to transition==  
+Our HPC system is shared among many researchers and CCR manages usage of the
+systems through jobs. Jobs are simply an allotment of resources that can be
+used to execute processes. CCR uses a program named Slurm, the Simple Linux
+Utility for Resource Management, to create and manage jobs.
 
-Our HPC system is shared among many researchers and CCR manages usage of the systems through jobs. Jobs are simply an allotment of resources that can be used to execute processes. CCR uses a program named Slurm, the Simple Linux Utility for Resource Management, to create and manage jobs.
+In order to run a program on a cluster, you must request resources from Slurm
+to generate a job. Resources are requested from a login node. You then provide
+commands to run your program on those requested resources (compute nodes).
 
-In order to run a program on a cluster, you must request resources from Slurm to generate a job. Resources are requested from a login node. You then provide commands to run your program on those requested resources (compute nodes).
+## Requesting cores and nodes
 
+When running jobs with Slurm, you must be explicit about requesting CPU cores
+and nodes. The three options `--nodes or -N`, `--ntasks or -n`, and
+`--cpus-per-task or -c` can be a bit confusing at first but are necessary to
+understand when running applications that use more than one CPU.
+
+!!! Tip
+    If your application references threads or cores but makes no mention of MPI,
+    only use `--cpus-per-task` to request CPUs. You cannot request more cores than
+    there are on a single compute node where your job runs.
+
+Using these options will depend on the type of parallelism you are using, i.e.
+distributed or shared memory. Here's some simple guidelines to follow:
+
+- `--ntasks=#`: Number of "tasks" (use with distributed parallelism).
+
+- `--ntasks-per-node=#`: Number of "tasks" per node (use with distributed parallelism).
+
+- `--cpus-per-task=#`: Number of CPUs allocated to each task (use with shared memory parallelism).
+
+If an application is able to use multiple cores, it usually achieves this by
+either spawning threads and sharing memory (multi-threaded) or starting entire
+new processes (multi-process). In this case use `--cpus-per-task` to guarantee
+that the CPUs you expect your program to use are all accessible.
+
+Some applications are written to use the Message Passing Interface (MPI) standard to
+run across many compute nodes. This allows such applications to scale
+computation in a way not limited by the number of cores on a single node. MPI
+translates what Slurm calls tasks to separate workers or processes. For control
+over how Slurm lays out your job, you can add the `--nodes` and
+`--ntasks-per-node` flags. Note that the following must be true:
+
+```
+ntasks-per-node * nodes >= ntasks
+```
+
+Some MPI programs are also multi-threaded, so each process can use multiple
+CPUs. Only these applications can use `--ntasks` and `--cpus-per-task` to run
+faster.
+
+For example, suppose you need 16 cores, here are some possible scenarios:
+
+- you want one process that can use 16 cores for multithreading: `--ntasks=1 --cpus-per-task=16`
+- you want 4 processes that can use 4 cores each for multithreading: `--ntasks=4 --cpus-per-task=4`
+- you use mpi and do not care about where those cores are distributed: `--ntasks=16`
+- you want to launch 16 independent processes (no communication): `--ntasks=16`
+- you want 16 cores to spread across distinct nodes: `--ntasks=16 --ntasks-per-node=1 or --ntasks=16 --nodes=16`
+- you want 16 cores to spread across distinct nodes and no interference from other jobs: `--ntasks=16 --nodes=16 --exclusive`
+- you want 16 processes to spread across 8 nodes to have two processes per node: `--ntasks=16 --ntasks-per-node=2`
+- you want 16 processes to stay on the same node: `--ntasks=16 --ntasks-per-node=16`
 
 ## Running applications with Jobs
 
-There are two types of jobs, interactive and batch. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-containted set of commands in a script which is submitted to the cluster for execution on a compute node.
+There are two types of jobs, interactive and batch. Interactive jobs, allow you
+to type in commands while the job is running. Batch jobs are a self-contained
+set of commands in a script which is submitted to the cluster for execution on
+a compute node.
 
 ### Interactive Job Submission
 
-Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job, you will request time and resources. Once available, you will be logged into the assigned node and the job will be ended when you log out or your reqested time limit is reached.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
+Slurm interactive jobs allow users to interact with applications on the compute
+node. With an interactive job, you will request time and resources. Once
+available, you will be logged into the assigned node and the job will be ended
+when you log out or your reqested time limit is reached.  This is different
+compared to a batch job where you submit your job for execution with no user
+interaction.  
 
-**Example Interactive Job**
+To submit an interactive job to the general-compute partition for a single
+process with 32 Intel cores and 50GB of memory for 5 hours and 20 minutes, use
+the `salloc` command and the appropriate options as shown here:  
 
-To submit an interactive job to the general-compute partition for a single node with 32 Intel cores and 50GB of memory for 5 hours and 20 minutes, use the salloc command and the appropriate options as shown here:  
-
-```
-salloc --qos=general-compute --partition=general-compute  --job-name "InteractiveJob" --nodes=1 --ntasks=32 --mem=50G -C INTEL --time=05:20:00
+```bash
+salloc --qos=general-compute --partition=general-compute  \
+       --job-name "InteractiveJob" --cpus-per-task=32 \
+       --ntasks=1 --mem=50G -C INTEL --time=05:20:00
 ```
 
 To complete/end this job, we would type `exit` on the command line.
 
 ### Batch Job Submission
 
-Batch jobs are the most common type of job on HPC systems. Batch jobs are resource provisions that run applications on compute nodes and do not require supervision or interaction. Batch jobs are commonly used for applications that run for long periods of time and require no manual user input.
+Batch jobs are the most common type of job on HPC systems. Batch jobs are
+resource provisions that run applications on compute nodes and do not require
+supervision or interaction. Batch jobs are commonly used for applications that
+run for long periods of time and require no manual user input.
 
-**Example Job Scripts**
+Below is an explanation of the SBATCH options used in our samples. These are
+Slurm directives and should be understood before submitting a job.  For more
+information on Slurm directives, partitions, and QOS, [see here](#slurm-directives-partitions-qos).
 
-Below is an explanation of the SBATCH options used in our samples. These are Slurm directives and should be understood before submitting a job.  For more information on Slurm directives, partitions, and QOS, [see here](#slurm-directives-partitions-qos).
-
-```
-#!/bin/sh
+```bash
+#!/bin/bash -l
 #
 # 	How long the job will run once it begins. If the job runs longer than what is
 # 	defined here, it will be cancelled by Slurm.
@@ -48,14 +115,14 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 
 #SBATCH --nodes=1
 
-# 	You can define the number of tasks with --ntasks-per-node
+# 	You can define the number of Cores with --cpus-per-task
 
-#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=32
 
 # 	How much memory do you need.
-# 	This will define memory (in MB) this job requires.
+# 	This will define memory (in GB) this job requires.
 
-#SBATCH --mem=10000
+#SBATCH --mem=20G
 
 # 	Give your job a name, so you can recognize it in the queue
 
@@ -82,12 +149,15 @@ Below is an explanation of the SBATCH options used in our samples. These are Slu
 
 ```
 
-Below are several sample scripts which can be submitted to Slurm using the `sbatch` command. Batch scripts should be submitted to from a login node and the commands within the script will be excuted on a compute node.  We use some of the Slurm directives as described above.
+Below are several sample scripts which can be submitted to Slurm using the
+`sbatch` command. Batch scripts should be submitted from a login node and
+the commands within the script will be executed on a compute node.  We use some
+of the Slurm directives as described above.
 
 To submit to the **debug partition on the ub-hpc cluster**, the slurm script would look like:
 
-```
-#!/bin/sh
+```bash
+#!/bin/bash -l
 #
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
@@ -106,10 +176,11 @@ echo "Hello world from debug node: "`/usr/bin/uname -n`
 #Let's finish some work
 ```
 
-To submit to the **general-compute partition on the ub-hpc cluster**, the slurm script would look like:
+To submit to the **general-compute partition on the ub-hpc cluster**, the slurm
+script would look like:
 
-```
-#!/bin/sh
+```bash
+#!/bin/bash -l
 #
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
@@ -129,9 +200,11 @@ echo "Hello world from general-compute node: "`/usr/bin/uname -n`
 
 ```
 
-To submit to the privately owned **ub-laser partition on the faculty cluster**, the slurm script would look like:
-```
-#!/bin/sh
+To submit to the privately owned **ub-laser partition on the faculty cluster**,
+the slurm script would look like:
+
+```bash
+#!/bin/bash -l
 #
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
@@ -152,12 +225,17 @@ echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
 ```
 
 !!! Note "Caution: Maintenance Downtimes"
-    Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff on maintenance days.  See the [schedule here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
+    Jobs on the faculty cluster are allowed to run up until the downtime
+    starts. Please ensure your jobs checkpoint and can restart where they left
+    off OR request only enough time to run your job prior to the 7am cutoff on
+    maintenance days.  See the [schedule
+    here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
 
-To submit to the **scavenger partition on the ub-hpc cluster**, the slurm script would look like:
+To submit to the **scavenger partition on the ub-hpc cluster**, the slurm
+script would look like:
 
-```
-#!/bin/sh
+```bash
+#!/bin/bash -l
 #
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
@@ -181,7 +259,10 @@ echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
 
 ### Job Arrays  
 
-A job array is a group of nearly identical jobs submitted with 1 SLURM script.  Use the `--array=<indexes>` Slurm directive within your batch script.  See the [Slurm documentation](https://slurm.schedmd.com/job_array.html) for more information    
+A job array is a group of nearly identical jobs submitted with 1 SLURM script.
+Use the `--array=<indexes>` Slurm directive within your batch script.  See the
+[Slurm documentation](https://slurm.schedmd.com/job_array.html) for more
+information    
 
 This example submits 16 jobs:  
 ```

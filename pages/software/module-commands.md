@@ -23,36 +23,7 @@ For more information, refer to the [Lmod user guide](https://lmod.readthedocs.io
     We advise against loading modules automatically in your `.bashrc`
 
 Instead we recommend that you load modules only when required, for example in
-your job scripts. To facilitate the repeated loading of a large number of
-modules we recommend you use a [module collection](#module-collections).
-
-## Module collections
-
-Lmod allows you to create a collection of modules. To do so, first load the
-desired modules. For example:
-
-```
-$ module load gcc openmpi
-```
-
-Then use the save sub-command to save this collection:
-
-```
-$ module save my_modules
-```
-
-The my_modules argument is a name you give the collection. Then in a later
-session or in a job you can restore the collection with the command:
-
-```
-$ module restore my_modules
-```
-
-To list out all your module collections you can run:
-
-```
-$ module savelist
-```
+your job scripts.
 
 ## Sticky modules
 
@@ -65,6 +36,6 @@ For reference these include:
 
 | Module         | Description                                                      |
 | -------------- | ---------------------------------------------------------------- |
-| CCRconfig      | environment variables for global scratch, local scratch and util |
+| ccrenv         | environment variables for global scratch, local scratch and util |
 | gentoo         | Sets up environment variables for CCR's compatibility layer      |
-| StdEnv         | CCR Standard Environment                                         |
+| ccrsoft        | [CCR's Standard Software Environment](releases.md)               |

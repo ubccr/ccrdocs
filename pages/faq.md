@@ -66,8 +66,6 @@ There are two common reasons why you might not be able to launch OnDemand sessio
 
 1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
 2. You have an Anaconda environment loading in your .bashrc environment file or are loading a Python module in your .bashrc file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
-3. Your account is in the "new environment" but you're using the old OnDemand.  The new modules don't work in the old OnDemand.  See here for more info on the [new environment](howto/newenv.md)  
-
 
 ## How can I check how full my directories are?  
 
@@ -149,7 +147,7 @@ If you receive this message, the following solutions are available:
 
 2. Wait until after the maintenance window has finished and your job will resume automatically when there are resources available.   
 
-If this message is not due to an upcoming maintenance downtime, then it means that whatever type of node or feature you requested is not available in the partition you submitted your job to run on.  Users will see this more frequently as CCR moves nodes from the UB-HPC cluster over to the new environment.  These nodes are being reinstalled and are only available in the ubhpc-future reservation.  This reservation is available to all UB-HPC cluster users, however, it must be specified in your job script, `salloc` request, or by using [OnDemand 3](https://ondemand-future.ccr.buffalo.edu).  For more info, see [HERE](howto/newenv.md)  
+If this message is not due to an upcoming maintenance downtime, then it means that whatever type of node or feature you requested is not available in the partition you submitted your job to run on. 
 
 ## How can I get information on CCR clusters such as how busy they are and wait times?  
 
@@ -198,6 +196,14 @@ sbatch: error: instead of expected UNIX line breaks (\n).
 Run the dos2unix command on your file to remove the Windows line breaks.  For example:  `dos2unix myBatchFile`  
 
 Use the 'man' command to see all the options for the dos2unix command:  `man dos2unix`
+
+## How do I fix the error: module command not found?
+
+Please ensure this is the first line of your batch script:
+
+```
+#!/bin/bash -l
+```
 
 ## How do I change my default cluster?  
 

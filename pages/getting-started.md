@@ -11,8 +11,6 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
 ![type:video](https://youtube.com/embed/ryBqdeqTO4o)  
 <br>
 
-==As of August 2023, new users have access to CCR's new environment.  See [here](howto/newenv.md) for more information==  
-
 ## What do you want to do?  
 
 - If you don't already have a CCR account, see  
