@@ -6,9 +6,9 @@ toolchains supporting all types of workloads across our [clusters](../hpc/cluste
 This page is intended to provide details on changes users can expect and tips
 for a smooth transition.
 
-Beginning August 31, 2023 CCR staff will host weekly office hours via zoom from
+CCR staff host weekly office hours via zoom from
 11am-12pm on Thursdays to provide support to users switching over to the new
-environment.  Please join us and bring your questions:
+software release.  Please join us and bring your questions:
 
 ```
 https://buffalo.zoom.us/j/94613848883?pwd=Q2ZjU3VIaWZDZGZPdldjR1JwOUVmZz09 
@@ -42,6 +42,9 @@ set the default version in your `~/.modulerc` file. For example:
 ```
 $ echo "module-version ccrsoft/2023.01 default" >> $HOME/.modulerc
 ```
+
+**NOTE: User accounts created after August 8, 2023 have the .modulerc file created automatically and is set to the latest software release.**  
+
 
 ## How to use the legacy software?
 
@@ -92,7 +95,12 @@ offer and serves as a preview of the next deployment of all login nodes.
 
 We have deployed the new version of OnDemand version 3.0 available [here](https://ondemand.ccr.buffalo.edu).
 There are many new features to take advantage of, as well as changes to how we've laid out the apps.
-Please [see here](../portals/ood.md) for more details.
+Please [see here](../portals/ood.md) for more details.  Users may notice some changes with the way desktop sessions act:  
+
+  - The desktop takes longer to draw on the screen after launching the session.  This is the new normal.  It may take 1-2 minutes for the desktop to draw and icons to display.  
+  - Sometimes the icons don't work or aren't displaying correctly.  [See here](../faq.md#why-do-i-see-a-blank-window-when-starting-an-ondemand-desktop-why-are-the-desktop-icons-not-working) for guidance.  
+  - Users that want to continue to access applications in the ccrsoft/legacy software release should use the OnDemand apps marked LEGACY.  There is a _LEGACY - UB-HPC & Faculty Cluster Desktop_ app and a _LEGACY - Jupyter Notebook_ app  
+  - The LEGACY Jupyter and UB-HPC & Faculty Cluster Desktop apps will be removed from service along with the ccrsoft/legacy software release in June 2024.  
 
 ## I'm getting "Module command errors"?  
 

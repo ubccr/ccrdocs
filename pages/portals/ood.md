@@ -4,8 +4,6 @@ Open OnDemand is a browser based single point of access for all of CCR's cluster
 
 _**This product is an open source project developed by [Ohio Supercomputer Center](https://openondemand.org).**_
 
-![type:video](https://www.youtube.com/embed/YgLEWaINFD8)  
-
 ## Login to CCR's OnDemand  
 
 !!! Warning "VPN Required"
@@ -24,10 +22,8 @@ Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Do
 
 ## OnDemand Features  
 
-
-
 ### Dashboard  
-Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, our message of the day (MOTD), recently used apps, and pinned apps (popular applications organized into sections).  On the right side of the dashboard there are 3 types of job reports created through the metrics portal, Open XDMoD.  Along the top are tabs for the different features offered in OnDemand.
+Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, our message of the day (MOTD), recently used apps, and pinned apps (popular applications organized into sections).  On the right side of the dashboard you will see any currently active Interactive Sessions.  Along the top are tabs for the different features offered in OnDemand.
 
 **Recently Used Apps**  
 
@@ -71,9 +67,12 @@ Interactive apps provide a way for users to launch and connect to an interactive
 
 All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the options `scavenger, viz, or normal` in either the partition or QOS drop down menus.  You will see the `industry` partition; however, if you do not have the `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.     
 
+**NOTE:**  Apps named 'LEGACY' are for use by those that need to access applications in the ccrsoft/legacy [software release](../software/releases.md).  These apps will be available until that software release is decommissioned in June 2024.  
+
 **Desktop Interactive Apps**  
 
 Previously, CCR provided separate desktop apps for the UB-HPC and Faculty clusters.  Now there is one app for both and users are able to select which cluster to submit to.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), amount of memory (RAM), or specific node features you may enter that in the form.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  
+
 
 !!! Tip "Missing Something?"  
     If you think the drop down options for account or QOS are wrong, check [ColdFront](https://coldfront.ccr.buffalo.edu).  These values match up to allocations for resources in ColdFront.  You must be on an active allocation for the resource in order to access it.  
