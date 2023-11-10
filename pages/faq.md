@@ -46,9 +46,9 @@ The Freshdesk help desk portal accounts are separate from our CCR system account
 
 Yes!  Though smartphones are the recommended second factor for your CCR account, if you don't have one or don't want to use yours, you can utilize a desktop application (i.e. Authy) or a programmable hardware security key.  There are many on the market including Yubico Yubikeys, Google Titan security keys, and others [recommended by UBIT](https://www.buffalo.edu/ubit/services/duo/options/security-key.html). Please contact [CCR Help](help.md) for details on how to configure your hardware key. **CCR is not able to integrate with the hardware security keys provided by UBIT because they are not programmable and we're unable to get the "secret" needed to join them to our authentication system.**     
 
-## Why do I see a blank window when starting an OnDemand desktop?  
+## Why do I see a blank window when starting an OnDemand desktop? Why are the desktop icons not working?  
 
-Occasionally, when users try to start an interactive session in OnDemand, the desktop displays as a blank blue or grey window with no applications menu or way to open a terminal window.  Files get cached when sessions are opened and then either get corrupted or can't be used.  To fix this problem, delete the following hidden subdirectories in your home directory and start a new OnDemand desktop session:  
+Occasionally, when users try to start an interactive session in OnDemand, the desktop displays as a blank blue or grey window with no applications menu or way to open a terminal window.  Sometimes the desktop will launch but the icons don't work.  Files get cached when sessions are opened and then either get corrupted or can't be used.  To fix this problem, delete the following hidden subdirectories in your home directory and start a new OnDemand desktop session:  
 
 ```
 rm -rf ~/.vnc  
