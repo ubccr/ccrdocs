@@ -19,7 +19,12 @@ understand when running applications that use more than one CPU.
 !!! Tip
     If your application references threads or cores but makes no mention of MPI,
     only use `--cpus-per-task` to request CPUs. You cannot request more cores than
-    there are on a single compute node where your job runs.
+    there are on a single compute node where your job runs.  You still need
+    to tell your application to utilize these cores, but you can use the Slurm
+    environment variable \$SLURM_CPUS_PER_TASK, e.g., for OpenMP codes:
+    ```bash
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    ```
 
 Using these options will depend on the type of parallelism you are using, i.e.
 distributed or shared memory. Here's some simple guidelines to follow:
@@ -60,6 +65,14 @@ For example, suppose you need 16 cores, here are some possible scenarios:
 - you want 16 cores to spread across distinct nodes and no interference from other jobs: `--ntasks=16 --nodes=16 --exclusive`
 - you want 16 processes to spread across 8 nodes to have two processes per node: `--ntasks=16 --ntasks-per-node=2`
 - you want 16 processes to stay on the same node: `--ntasks=16 --ntasks-per-node=16`
+
+!!! Tip
+    For Intel MPI (part of the `intel` toolchain, the `foss` toolchain instead uses OpenMPI), it is 
+    necessary in a Slurm job to set the environment variable \$I_MPI_PMI_LIBRARY to the right Slurm library:
+    ```bash
+    export I_MPI_PMI_LIBRARY=/opt/software/slurm/lib64/libpmi.so
+    ``` 
+
 
 ## Running applications with Jobs
 
