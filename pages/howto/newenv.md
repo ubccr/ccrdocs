@@ -61,14 +61,14 @@ this transition period here are a few tips:
 
 !!! Warning "Default version changing soon"
     The latest software environment `ccrsoft/2023.01` will be loaded by default
-    starting after the December 2023 maintenance downtime. Users are encouraged
+    starting after the January 2024 maintenance downtime. Users are encouraged
     to migrate all workflows to `ccrsoft/2023.01` as soon as possible
 
 ## How to use new compute resources?
 
 CCR recently deployed brand new compute resources with new processors, memory,
 and GPUs. These nodes have been temporarily put into a reservation for users to
-access them and starting after the December 2023 maintenance downtime you will
+access them and starting after the January maintenance downtime you will
 no longer need to specify the reservation. 
 
 Currently, you will need to specify the following in your batch scripts: 
