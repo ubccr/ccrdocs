@@ -63,6 +63,10 @@ this transition period here are a few tips:
 !!! Warning "Default version is now ccrsoft/2023.01!"
     As of the January 2024 maintenance downtime, the latest software environment `ccrsoft/2023.01` will be loaded by default on all CCR login and compute nodes.  To continue to use the legacy software, you MUST make the changes listed above.  Users are encouraged to migrate all workflows to `ccrsoft/2023.01` as the legacy modules are no longer supported and will be completely removed from CCR systems as of June 2024.
 
+## What happened to the ubhpc-future reservation?  
+
+Since the default software environment has been switched to ccrsoft/2023.01, it is no longer necessary to keep the new compute nodes separate from the rest of the cluster.  The ubhpc-future reservation has been deleted and users can submit to the cluster without it.  Those using the latest software release can run on any node and those using the legacy software will need to [specify the `LEGACY` tag](#how-to-use-the-legacy-software) or their jobs will fail.  If you're using GPUs, please [see here](#how-to-properly-request-gpu-nodes) for guidance on how to request them properly.
+
 ## How to properly request GPU nodes?
 
 CCR recently deployed brand new compute resources with new processors, memory,
@@ -73,6 +77,7 @@ and GPUs.   The new GPU nodes have the latest NVIDIA drivers installed on them a
 
 !!! Tip "Use the latest software environment for GPU use"  
     Legacy software can not be used with the new nodes due to driver incompatibilities.  If you must use legacy software, use the `LEGACY` constraint when requesting a GPU.     
+
 
 ## New login node vortex-future is... the future?
 
