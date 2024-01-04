@@ -83,7 +83,7 @@ and GPUs.   The new GPU nodes have the latest NVIDIA drivers installed on them a
 
 Users now have access to a new login node: `vortex-future.ccr.buffalo.edu`.
 This login node will always contain the latest and greatest features CCR has to
-offer and serves as a preview of the next deployment of all login nodes.  You may continue to use `vortex.ccr.buffalo.edu` which loads the default ccrsoft\2023.01 software release as well.  
+offer and serves as a preview of the next deployment of all login nodes.  You may continue to use `vortex.ccr.buffalo.edu` which loads the default ccrsoft/2023.01 software release as well.  
 
 ## New version of OnDemand?
 
