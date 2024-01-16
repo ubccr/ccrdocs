@@ -25,7 +25,7 @@ More details [see here](../software/releases.md).
 As of this writing there are 2 releases of ccrsoft:
 
 - `ccrsoft/legacy` This is the legacy CCR software release and is now deprecated. 
-- `ccrcsoft/2023.01` This is the latest CCR software release
+- `ccrcsoft/2023.01` This is the latest CCR software release and the default.
 
 ## How to use the latest ccrsoft release?
 
@@ -49,47 +49,41 @@ $ echo "module-version ccrsoft/2023.01 default" >> $HOME/.modulerc
 ## How to use the legacy software?
 
 `ccrsoft/legacy` is now deprecated and users are encouraged to transition to
-the latest release. If you need to use the legacy software environment  during
+the latest release. If you need to use the legacy software environment during
 this transition period here are a few tips:
 
-- Ensure all your jobs have the `--constraint=LEGACY`
-- Load this module: `ccrsoft/legacy`
-- If required, set this as your default by running:
+- Ensure all your jobs use the `--constraint=LEGACY` in the batch script or interactive job request
+- When using OnDemand apps, use one of the Legacy apps or specify `LEGACY` in the "Node Features" box of the app form
+- Load this module prior to loading any of your other modules: `ccrsoft/legacy`
+- If desired, set the legacy environment as your default by running:
   ```
   echo "module-version ccrsoft/legacy default" >> $HOME/.modulerc
   ```
 
-!!! Warning "Default version changing soon"
-    The latest software environment `ccrsoft/2023.01` will be loaded by default
-    starting after the January 2024 maintenance downtime. Users are encouraged
-    to migrate all workflows to `ccrsoft/2023.01` as soon as possible
+!!! Warning "Default version is now ccrsoft/2023.01!"
+    As of the January 2024 maintenance downtime, the latest software environment `ccrsoft/2023.01` will be loaded by default on all CCR login and compute nodes.  To continue to use the legacy software, you MUST make the changes listed above.  Users are encouraged to migrate all workflows to `ccrsoft/2023.01` as the legacy modules are no longer supported and will be completely removed from CCR systems as of June 2024.
 
-## How to use new compute resources?
+## What happened to the ubhpc-future reservation?  
+
+Since the default software environment has been switched to ccrsoft/2023.01, it is no longer necessary to keep the new compute nodes separate from the rest of the cluster.  The ubhpc-future reservation has been deleted and users can submit to the cluster without it.  Those using the latest software release can run on any node and those using the legacy software will need to [specify the `LEGACY` tag](#how-to-use-the-legacy-software) or their jobs will fail.  If you're using GPUs, please [see here](#how-to-properly-request-gpu-nodes) for guidance on how to request them properly.
+
+## How to properly request GPU nodes?
 
 CCR recently deployed brand new compute resources with new processors, memory,
-and GPUs. These nodes have been temporarily put into a reservation for users to
-access them and starting after the January maintenance downtime you will
-no longer need to specify the reservation. 
+and GPUs.   The new GPU nodes have the latest NVIDIA drivers installed on them and should be used with the latest software release. To ensure your job gets allocated on a newer GPU node, we recommend specifying `--constraint=NOTLEGACY` in your Slurm job script or in your interactive session request.  If using OnDemand, you can specify `NOTLEGACY` in the "Node Features" box of the application forms.
 
-Currently, you will need to specify the following in your batch scripts: 
+ For more info on requesting GPUs [see here](../hpc/jobs.md#slurm-directives-partitions--qos):  
 
-```
-#SBATCH --cluster=ub-hpc
-#SBATCH --partition=general-compute
-#SBATCH --qos=general-compute
-#SBATCH --reservation=ubhpc-future
 
-module load ccrsoft/2023.01
-```
+!!! Tip "Use the latest software environment for GPU use"  
+    Legacy software can not be used with the new nodes due to driver incompatibilities.  If you must use legacy software, use the `LEGACY` constraint when requesting a GPU.     
 
-!!! Tip "Use the latest ccrsoft/2023.01"  
-    These new nodes work best if using the latest ccrsoft release. 
 
 ## New login node vortex-future is... the future?
 
 Users now have access to a new login node: `vortex-future.ccr.buffalo.edu`.
 This login node will always contain the latest and greatest features CCR has to
-offer and serves as a preview of the next deployment of all login nodes. 
+offer and serves as a preview of the next deployment of all login nodes.  You may continue to use `vortex.ccr.buffalo.edu` which loads the default ccrsoft/2023.01 software release as well.  
 
 ## New version of OnDemand?
 
@@ -104,8 +98,9 @@ Please [see here](../portals/ood.md) for more details.  Users may notice some ch
 
 ## I'm getting "Module command errors"?  
 
-- Try adding: `--constraint=AVX512` to your job script.
-- Ensure the first line of your script is: `#!/bin/bash -l`
+- Ensure the first line of your batch script is: `#!/bin/bash -l`
+- There are older nodes in the faculty cluster with AVX2 CPU architecture.  Not all software has been built for these CPUs.  Add: `--constraint=AVX512` to your job script or interactive session request to ensure your job runs on a supported CPU.  If using OnDemand, specify `AVX512` in the "Node Features" box of the application form.
+
 
 ## What if we install our own software?
 
