@@ -70,7 +70,7 @@ Since the default software environment has been switched to ccrsoft/2023.01, it 
 ## How to properly request GPU nodes?
 
 CCR recently deployed brand new compute resources with new processors, memory,
-and GPUs.   The new GPU nodes have the latest NVIDIA drivers installed on them and should be used with the latest software release. To ensure your job gets allocated on a newer GPU node, we recommend specifying `--constraint=NONLEGACY` in your Slurm job script or in your interactive session request.  If using OnDemand, you can specify `NONLEGACY` in the "Node Features" box of the application forms.
+and GPUs.   The new GPU nodes have the latest NVIDIA drivers installed on them and should be used with the latest software release. To ensure your job gets allocated on a newer GPU node, we recommend specifying `--constraint=NOTLEGACY` in your Slurm job script or in your interactive session request.  If using OnDemand, you can specify `NOTLEGACY` in the "Node Features" box of the application forms.
 
  For more info on requesting GPUs [see here](../hpc/jobs.md#slurm-directives-partitions--qos):  
 
