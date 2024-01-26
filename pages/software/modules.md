@@ -352,7 +352,7 @@ $ module spider r
 $ module spider r-bundle-bioconductor
 ```
 
-You can also install packages from [CRAN](https://cran.r-project.org/) using
+You can install packages from [CRAN](https://cran.r-project.org/) using
 `install.packages` while running an interactive R session. For example:
 
 ```
@@ -373,7 +373,16 @@ $ R CMD INSTALL -l /projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlib
     Each time R starts it will use this library directory for installations and
     to search for existing installations.  
 
+Sometimes R library installations will fail with errors such as `installation of package ‘library_name’ had non-zero exit status` or similar.  This is a result of the software trying to save temporary files where you do not have permission to write files.  As a workaround, create a temporary directory within your home or project directory and point the R library installation to use it.  As an example:  
+```
+[vortex:~]$ mkdir ~/tmp  
+[vortex:~]$ module load gcc openmpi r  
+[vortex:~]$ R 
+Sys.setenv(TMPDIR="/user/$USER/tmp")  
+install.packages("ggplot2", repos="http://cran.r-project.org", lib = "/projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs")  
+``` 
 
-If you require other specific R libraries, we recommend you [ask CCR to build
+
+If your research group requires many R libraries not already available in one of CCR's R installations, we recommend you [ask CCR to build
 them](../software/building.md#software-build-requests) or create your own custom 
 R bundle with easybuild.
