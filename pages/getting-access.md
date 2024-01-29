@@ -24,7 +24,7 @@ communities. You must create an individual CCR account and enable two factor
 authentication if you wish to access any CCR resources. Please note that CCR
 user accounts are separate from your UBIT or Roswell Park accounts.
 
-A CCR user account can be created quickly and easily by [by filling out the
+A CCR user account can be created quickly and easily by [filling out the
 form here](https://idm.ccr.buffalo.edu/signup) using your UB or Roswell Park
 email address. Once your account is created you will need to verify your email
 address and enable two factor authentication.
