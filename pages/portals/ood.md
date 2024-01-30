@@ -84,6 +84,40 @@ In addition to the virtual desktop apps, which are capable enough for some GUI-b
 !!! Tip "All done?  Make sure to delete your job"  
     OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then delete the running session under the `My interactive sessions` menu.  
 
+**Jupyter Interactive Apps**  
+The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter Notebook apps provided in OnDemand.  For those using the latest CCR software release (`ccrsoft/2023.01`) there are two Jupyter apps available.  These sessions will automatically run on the newest CCR compute nodes (tagged `NOTLEGACY`).  
+
+- The "Quick Launch Jupyter Lab/Notebook" app allows you to select which Slurm account you want to run this job under, the number of GPUs to request (if any), whether to use Jupyter Lab instead of Jupyter Notebook, and if you'd like to receive emails about your job.  You may also list additional modules to load with Jupyter.  
+- The "Jupyter Lab/Notebook Advanced Options" app gives you the same options as the Quick Launch app but provides many other options for the user to specify including CPUs, RAM (memory), time for job to run (walltime), and [node features](../hpc/jobs.md#node-features).
+
+**Loading additional software modules with Jupyter:**  
+The "Extra Modules to Load with Jupyter" box on the Quick Launch and Advanced Options Jupyter/Lab Notebook apps provides a way for users to load additional software modules with Jupyter.  Enter the list of all software modules you'd like to load, including any dependencies they have, in order, and with only a space separating them.  For example, if we search for the module `pytorch` using `module spider pytorch` in the OnDemand terminal app, we will see:  
+```
+[vortex:~]$ module spider pytorch
+
+----------------------------------------------------------------------------------------------------------------
+  pytorch: pytorch/1.13.1-CUDA-11.8.0
+----------------------------------------------------------------------------------------------------------------
+    Description:
+      Tensors and Dynamic neural networks in Python with strong GPU acceleration. PyTorch is a deep learning
+      framework that puts Python first.
+
+
+     Other possible modules matches:
+        facenet-pytorch
+
+    You will need to load all module(s) on any one of the lines below before the "pytorch/1.13.1-CUDA-11.8.0" module is available to load.
+
+      gcc/11.2.0  openmpi/4.1.1
+
+```
+This means pytorch depends on both the gcc and openmpi modules. So in the "Extra Modules to Load with Jupyter" box we will enter:  `gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0`  
+
+When the Jupyter app starts, it will launch these additional modules with it and you'll have access to the pytorch software.  If you want to load several modules and they all require the same dependencies, these only need to be listed once.  For example, torchvision also requires gcc and openmpi.  If you wanted to load pytorch and torchvision, specify this in the "Extra modules to load with Jupyter" box:  `gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0 torchvision/0.14.1-CUDA-11.8.0`  
+
+- The "Jupyter Notebook (Legacy)" app is available to support users utilizing the `ccrsoft\legacy` software release. These sessions automatically run on CCR's older compute nodes (tagged `LEGACY`).  The support for `ccrsoft/legacy` has been deprecated and this app will be removed from OnDemand in June 2024.
+
+
 **Job Card Formating**  
 
 There are additions to the job cards in OnDemand 3.0 including a link to submit a help ticket that links directly to the job for easier review by the CCR IT staff.  You'll notice the verbage has changed with respect to actions you can take on a job.  A running or queued job has the `cancel` option which cancels the job and removes it from the queue.  Once a job has been completed, you can `delete` it which removes it from your list of most recent jobs.  This does NOT delete the job data in your home directory so you will need to periodically clean up data you no longer want.  The session ID link will take you directly to the subdirectory where the job's data and output files are stored.  
