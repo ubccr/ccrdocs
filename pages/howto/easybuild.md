@@ -1,4 +1,4 @@
-==This document is a work in progress.  The example shown is a simple one and does not address all the possible issues you might run into compiling and installing software.==
+==This document is a work in progress.  The example shown is a simple one and uses the `ccrsoft/2023.01` software release.  It does not address all the possible issues you might run into compiling and installing software.==
 
 # An Easybuild Example  
 
@@ -30,9 +30,9 @@ As a reminder, these are the [toolchains](../software/releases.md) CCR supports.
 **When using Easybuild, do NOT use the CCR login nodes.**  Always use a [compile node](../software/building.md) or do this from a compute node in an [OnDemand desktop](../portals/ood.md#desktop-interactive-apps) session or [interactive job](../hpc/jobs.md#interactive-job-submission).  These installations can use a decent amount of disk space so we recommend you use your project directory for all software installations.  We do not recommend using your home directory as these have small quotas.  If you haven't already done so, create an `easybuild` directory in your group's project directory and set the [Easybuild build prefix](../software/building.md#building-modules-for-your-group) to that directory.  Reminder: this is just an example; you'll need to set the path name to your group's shared project directory, which may not be in `/projects/academic`      
 
 ```
-~ $ ssh compile  
-~ $ mkdir /projects/academic/groupname/easybuild   
-~ $ export CCR_BUILD_PREFIX=/projects/academic/groupname/easybuild  
+$ ssh compile  
+$ mkdir /projects/academic/groupname/easybuild   
+$ export CCR_BUILD_PREFIX=/projects/academic/groupname/easybuild  
 ```
 !!! Tip "Set Easybuild install path"  
     The `CCR_BUILD_PREFIX` needs to be set each time you install software.  You're telling Easybuild where to put this particular installation.  [More details](../software/building.md#building-modules-for-your-group)   
@@ -45,22 +45,22 @@ For this example, we're going to step through the process of building a software
 First, we load the Easybuild module and search for an existing Easybuild (EB) recipe (**Reminder: don't do this on a login node!**):
 
 ```
-~ $ module load easybuild  
-~ $ eb -S aria2
+$ module load easybuild  
+$ eb --search aria2
 == found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it...
-CFGS1=/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs
- * $CFGS1/a/aria2/aria2-1.35.0-GCCcore-10.3.0.eb
- * $CFGS1/a/aria2/aria2-1.36.0-GCCcore-11.3.0.eb
+ * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.35.0-GCCcore-10.3.0.eb
+ * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.36.0-GCCcore-11.3.0.eb
+
 ```  
 
-This output shows us that there are 2 existing EB recipes for `aria2` but neither of them are for a supported toolchain.  CCR provides GCC 11.2.0 so you could try either one of these options.  However, in our experience, we've found it's best to try a toolchain in the same major version as one we have installed (as in GCCcore-11.x.x instead of 10.x.x or 12.x.x).  The recipe in the same major version will have dependency versions closest to what is already installed at CCR.  If we had to choose between a recipe for `foss-2021a` or `foss-2022b`, we'd go with `2021a` as it will more closely match the `foss/2021b` that CCR has installed.  If you pick something much older or newer, the less luck you'll have with your software getting installed properly.  Again, this is just our experience, YMMV (your mileage may vary).  
+This output shows us that there are 2 existing EB recipes for `aria2` but neither of them are for a supported toolchain.  CCR provides GCC 11.2.0 in `ccrsoft/2023.01` so you could try either one of these EB recipe options.  However, in our experience, we've found it's best to try a toolchain in the same major version as one we have installed (as in GCCcore-11.x.x instead of 10.x.x or 12.x.x).  The recipe in the same major version will have dependency versions closest to what are already installed at CCR.  If we had to choose between a recipe for `foss-2021a` or `foss-2022b`, we'd go with `2021a` as it will more closely match the `foss/2021b` that CCR has installed in `ccrsoft/2023.01`.  If you pick something much older or newer, the less luck you'll have with your software getting installed properly.  Again, this is just our experience, YMMV (your mileage may vary).  
 
-To attempt to install this, we must make a copy of the existing EB recipe and modify it.  The output above shows us where the EB recipe files are stored (`CFGS1=...`) so we can easily copy to our home directory.  **NOTE: You must change the name of the EB recipe when you copy it, updating the toolchain version.**  
+To attempt to install this, we must make a copy of the existing EB recipe and modify it.  The output above shows us where the EB recipe files are stored so we can easily copy to our home directory.  **NOTE: You must change the name of the EB recipe when you copy it, updating the toolchain version.**  
 
 Here we update the name of the EB recipe from `aria2-1.36.0-GCCcore-11.3.0.eb` to `aria2-1.36.0-GCCcore-11.2.0.eb`  If you were to also change the version of the software package you're attempting to install, you need to change that in the EB recipe file name as well.  In this example, we're not doing that.  
 
 ```
-~ $ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.36.0-GCCcore-11.3.0.eb aria2-1.36.0-GCCcore-11.2.0.eb
+$ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.36.0-GCCcore-11.3.0.eb aria2-1.36.0-GCCcore-11.2.0.eb
 ```
 
 This is what the file currently looks like:  
@@ -108,7 +108,7 @@ sanity_check_commands = ["aria2c --help"]
 moduleclass = 'tools'
 ```
 
-The first thing to change is the toolchain line - change from `11.3.0` to `11.2.0` because this is the version of GCCcore that CCR has installed:  
+Open the recipe file in your favorite editor.  The first thing to change is the toolchain line - change from `11.3.0` to `11.2.0`:  
 ```
 toolchain = {'name': 'GCCcore', 'version': '11.2.0'}
 ```
@@ -134,7 +134,7 @@ dependencies = [
 How do we figure out what CCR has installed?  It's a manual process of running `module spider` for each dependency. If the dependency isn't installed yet in the CCR software repository, Easybuild will try to build it.  For the dependencies that ARE installed, we must match up the version in CCR's repository so that we're not building a second version for no reason.  Here we find that libxml2 is already installed by CCR, but the version is slightly different.  So we would update the version in the EB recipe to 2.9.10 and then it will use the one CCR has installed.   
 
 ```
-~ $ module spider libxml2
+$ module spider libxml2
 ----------------------------------------------------------------------------------------------------------------
   libxml2: libxml2/2.9.10
 ----------------------------------------------------------------------------------------------------------------
@@ -151,7 +151,7 @@ How do we figure out what CCR has installed?  It's a manual process of running `
 We need to check all the dependencies to ensure we don't run into conflicts.  In the case of `sqlite` CCR has 2 versions installed.  If we look at the version listed in this EB recipe, we see it is actually dependent on a different version of the GCC toolchain so we don't want to use that:  
 
 ```
-~ $ module spider sqlite/3.38.3
+$ module spider sqlite/3.38.3
 
 ----------------------------------------------------------------------------------------------------------------
   sqlite: sqlite/3.38.3
@@ -171,10 +171,10 @@ Instead, we'll change this dependency to version 3.36 which is installed already
     Sometimes you'll see modules listed in the `module spider` output that have an `(E)` next to them like: `matlab/1.0.2 (E)`  Do NOT use these versions in your Easybuild recipes.  The `(E)` refers to the module being an extension of another module.  If we used this in our EB recipe then the software we build will also depend on that module.    
 
 
-Once we've updated any dependency versions, we save the file and use the Easybuild dry run (-M) option to see if we've met all the dependencies and if not, which ones with Easybuild try to build for us.  This will also tell us if we have an errors in the recipe file.  
+Once we've updated any dependency versions, we save the file and use the Easybuild dry run (`-M`) option to see if we've met all the dependencies and if not, which ones with Easybuild try to build for us.  This will also tell us if we have an errors in the recipe file.  
 
 ```
-~ $ eb -M aria2-1.36.0-GCCcore-11.2.0  
+$ eb -M aria2-1.36.0-GCCcore-11.2.0  
 == Temporary log file in case of crash /tmp/eb-xlnc41x4/easybuild-phg4qbmb.log
 == Running parse hook for aria2-1.36.0-GCCcore-11.2.0...
 == found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it...
@@ -187,23 +187,21 @@ ERROR: Failed to process easyconfig /user/djm29/aria2-1.36.0-GCCcore-11.2.0: Fai
 This output shows us that one of the dependencies isn't built and Easybuild can't find an existing EB recipe for this package and the `GCCcore-11.2.0` toolchain.  This means, we'll need to build it ourselves, in the same manner as we're trying to build `aria2`.  We'll search for an EB recipe, copy it, and modify for the right toolchain version.  Here are the steps:  
 
 ```
-~ $ eb -S cppunit  
-== found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it...
-CFGS1=/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs
+$ eb --search cppunit  
+== found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it..
 ...
- * $CFGS1/c/CppUnit/CppUnit-1.15.1-GCCcore-10.3.0.eb
- * $CFGS1/c/CppUnit/CppUnit-1.15.1-GCCcore-11.3.0.eb
+ * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-10.3.0.eb
+ * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-11.3.0.eb
 
-~ $ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-11.3.0.eb CppUnit-1.15.1-GCCcore-11.2.0.eb  
 
-vi CppUnit-1.15.1-GCCcore-11.2.0.eb  
-# change the toolchain version to 11.2.0 and save the file  
+$ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-11.3.0.eb CppUnit-1.15.1-GCCcore-11.2.0.eb  
 ```
+Open `CppUnit-1.15.1-GCCcore-11.2.0.eb` in your favorite editor, change the toolchain version to 11.2.0 and save the file.
 
 Now use the dry run option to test the Cppunit EB recipe:  
 
 ```
-~ $ eb -M CppUnit-1.15.1-GCCcore-11.2.0.eb
+$ eb -M CppUnit-1.15.1-GCCcore-11.2.0.eb
 == Temporary log file in case of crash /tmp/eb-tgz39qah/easybuild-ufl924e3.log
 == Running parse hook for CppUnit-1.15.1-GCCcore-11.2.0.eb...
 == found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it...
@@ -218,10 +216,10 @@ Now use the dry run option to test the Cppunit EB recipe:
 == Temporary log file(s) /tmp/eb-tgz39qah/easybuild-ufl924e3.log* have been removed.
 == Temporary directory /tmp/eb-tgz39qah has been removed.
 ```  
-This shows us that there are no missing dependencies and we should be able to install this software successfully.  There's no guarantee, of course, but let's try.  Just remove the -M option and start the EB build process.  
+This shows us that there are no missing dependencies and we should be able to install this software successfully.  There's no guarantee, of course, but let's try.  Just remove the `-M` option and start the EB build process.  
 
 ```
-~ $ eb CppUnit-1.15.1-GCCcore-11.2.0.eb 
+$ eb CppUnit-1.15.1-GCCcore-11.2.0.eb 
 .... 
 == COMPLETED: Installation ended successfully (took 5 mins 10 secs)
 == Results of the build can be found in the log file(s) 
@@ -234,7 +232,7 @@ This shows us that there are no missing dependencies and we should be able to in
 Now that our dependency `Cppunit` is built, we can attempt to install `aria2`  We recommend another dry run just to make sure we've got everything we need:  
 
 ```
-~ $ eb -M aria2-1.36.0-GCCcore-11.2.0.eb
+$ eb -M aria2-1.36.0-GCCcore-11.2.0.eb
 == Temporary log file in case of crash /tmp/eb-2kxod_dt/easybuild-d8jkzen1.log
 ...
 
@@ -245,13 +243,13 @@ Now that our dependency `Cppunit` is built, we can attempt to install `aria2`  W
 == Temporary log file(s) /tmp/eb-2kxod_dt/easybuild-d8jkzen1.log* have been removed.
 == Temporary directory /tmp/eb-2kxod_dt has been removed.
 ```
-Easybuild is now finding the `Cppunit` dependency is met and nothing else needs to be built so we can move forward with the install.  Remove the dry run option, -M, and start the installation.  
+Easybuild is now finding the `Cppunit` dependency is met and nothing else needs to be built so we can move forward with the install.  Remove the dry run option, `-M`, and start the installation.  
 
 !!! Tip "Building Dependencies"  
     Easybuild can build dependencies for us.  If this output of the dry run indiciated additional dependencies were needed, we can add the `--robot` option to the end of this installation command to instruct Easybuild to try to build the dependencies.  Be careful with this though!  You should not be building toolchains, compilers, or major software already installed by CCR like python, java, and other large packages unless you really know what you're doing.  
 
 ```
-~ $ eb aria2-1.36.0-GCCcore-11.2.0.eb
+$ eb aria2-1.36.0-GCCcore-11.2.0.eb
 == COMPLETED: Installation ended successfully (took 31 mins 29 secs)
 == Results of the build can be found in the log file(s)
 /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/easybuil
@@ -270,7 +268,7 @@ This tells us the installation completed successfully and points us to the zippe
 Now let's search for our module, load it, and look at the module to see where it's installed:  
 
 ```
-~ $ module spider aria2
+$ module spider aria2
 ----------------------------------------------------------------------------------------------------------------
   aria2: aria2/1.36.0
 ----------------------------------------------------------------------------------------------------------------
@@ -293,10 +291,10 @@ Now let's search for our module, load it, and look at the module to see where it
       ================
        - Homepage: https://aria2.github.io
 
-~ $ module load gcccore/11.2.0 aria2/1.36.0
-~ $ module show aria2/1.36.0
+$ module load gcccore/11.2.0 aria2/1.36.0
+$ module show aria2/1.36.0
 ----------------------------------------------------------------------------------------------------------------
-   /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/modules/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0.lua:
+   /projects/academic/groupname/easybuild/modules/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0.lua:
 ----------------------------------------------------------------------------------------------------------------
 help([[
 Description
@@ -352,7 +350,7 @@ You can tail these log files during the installation to see how it's progressing
 
 ### Failed dep
 **Why am I still seeing `failed to determine minimal toolchain for dep`?**  
-You've checked all the dependencies for your software and you know that they're already installed with the right versions by CCR (or you did this yourself).  Yet, you're still seeing the error `failed to determine minimal toolchain for dep` when trying to install your software.  Make sure that your EB recipe is formatted correctly.  In the list of dependencies, you must match the name of the dependency with the EB recipe configs exactly.  For example, if your recipe has a dependency for `rust/1.54.0` you will see this is already installed by CCR.  However, the name in the EB recipe must be `Rust` not `rust`
+You've checked all the dependencies for your software and you know that they're already installed with the right versions by CCR (or you did this yourself).  Yet, you're still seeing the error `failed to determine minimal toolchain for dep` when trying to install your software.  Make sure that your EB recipe is formatted correctly.  In the list of dependencies, you must match the name of the dependency with the EB recipe configs exactly.  For example, if your recipe has a dependency for `rust/1.54.0` you will see this is already installed by CCR.  However, the name in the EB recipe must be `Rust` not `rust`.  Also, ensure you're not using a module that is an extension to an existing module in your dependency lists.  See the tip in the box labeled ["module spider output"](#example-easybuild-installation)
 
 ### Install a different software version
 **How do I update the version of a software?**  
@@ -368,16 +366,16 @@ You can navigate to that repo and see if there are other versions available for 
 You will see source locations and checksums are required in [Python bundles](../software/modules.md#python) as well.  These can often be downloaded from [PyPi](https://pypi.org/)  
 
 **What if CCR installed software but I want a different version?**  
-In most cases, we will only offer one version of a software package per software release.  If you must use a different version, we recommend you check first to see if CCR has a modified EB recipe for that software.  If so, it will most likely be easiest for you to copy that and modify it for your needs, rather than starting from the Easybuild recipe.  
+In most cases, we will only offer one version of a software package per software release.  If you must use a different version, we recommend you check first to see if CCR has a [modified EB recipe](https://github.com/ubccr/software-layer/tree/main/config/easybuild/easyconfigs) for that software.  If so, it will most likely be easiest for you to copy that and modify it for your needs, rather than starting from the original Easybuild recipe.  
 
 ### Finding Easybuild Recipes
 **Is there anywhere else I can search for Easybuild recipes?**  
-Yes!  Although CCR syncs with the official [Easybuild easyconfigs repo](https://github.com/easybuilders/easybuild-easyconfigs), it is not always the most up-to-date.  You can use the Github interface to search easily and if you find a recipe you'd like to try, copy the contents and paste into a file, making sure to name the file correctly.   We also highly recommend using The Digital Research Alliance of Canada (formerly Compute Canada) as a [reference](https://github.com/ComputeCanada/easybuild-easyconfigs/tree/computecanada-main/easybuild/easyconfigs).  If there is no EB recipe you will need to create one using other recipes as examples.   
+Yes!  Although CCR syncs with the official [Easybuild easyconfigs repo](https://github.com/easybuilders/easybuild-easyconfigs), our repo is not always the most up-to-date.  You can use the Github interface to search easily and if you find a recipe you'd like to try, copy the contents and paste into a file, making sure to name the file correctly.   We also highly recommend using The Digital Research Alliance of Canada (formerly Compute Canada) as a [reference](https://github.com/ComputeCanada/easybuild-easyconfigs/tree/computecanada-main/easybuild/easyconfigs).  If there is no EB recipe you will need to create one using other recipes as examples.   
 
 ### Easybuild Help 
 **Where can I go for more help?**  
-This guide was offered as an example and will not transfer over to each and every software package you try to install.  Unfortunately, compiling and installing software is hard and each package is different from the next.  Easybuild provides a reproducible structure and allows us to build software in a way that allows it to run efficiently and with the highest performance on the CCR systems.  However, it is not always easy.  We recommend the Easybuild [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) as the primary sources of information.  It is often difficult for CCR staff to troubleshoot software installations run by others, even if you provide us log files.  We have to go through the process of replicating your steps, at which point, it's often easier for us to just do the installation ourselves.  If there is an existing EB recipe available and we don't already have a version of the package installed, we encourage you to submit a build request following [these instructions](https://docs.ccr.buffalo.edu/en/latest/software/building/#software-build-requests).  It's possible we can provide assistance through [CCR Help](../help.md).  However, please note there are limits to the amount of help we can provide and you may need to work independently to resolve your issues.  
+This guide was offered as an example and will not transfer over to each and every software package you try to install.  Unfortunately, compiling and installing software is hard and each package is different from the next.  Easybuild provides a reproducible structure and allows us to build software in a way that ensures it will run efficiently and with the highest performance on the CCR systems.  However, it is not always easy.  We recommend the Easybuild [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) as the primary sources of information.  It is often difficult for CCR staff to troubleshoot software installations run by others, even if you provide us log files.  We have to go through the process of replicating your steps, at which point, it's often easier for us to just do the installation ourselves.  If there is an existing EB recipe available and we don't already have a version of the package installed, we encourage you to submit a build request following [these instructions](https://docs.ccr.buffalo.edu/en/latest/software/building/#software-build-requests).  If you run into problems while using Easybuild, it's possible we can provide some basic assistance through [CCR Help](../help.md).  However, please note there are limits to the amount of individual help we can provide and you may need to work independently to resolve your issues.  
 
 ### Module Not Listed
 **Why isn't my module showing up?**  
-Your Easybuild installation completes successfully but when you run `module avail` you do not see the software listed.  We have this documented [here](../software/modules.md#hierarchical-modules).  `module spider` should be used to find installed modules across all toolchains.  Unless your software does not depend on a specific toolchain, you must load that toolchain first, before you'll see the module listed using `module avail`  
+Your Easybuild installation completes successfully but when you run `module avail` you do not see the software listed.  We have this documented [here](../software/modules.md#hierarchical-modules).  `module spider` should be used to find installed modules across all toolchains.  Unless your software does not depend on a specific toolchain, you must load that toolchain first, before you'll see the module listed using `module avail`  Also, ensure you have the custom module paths setup as described [here](../software/building.md#building-modules-for-your-group).  
