@@ -1,6 +1,8 @@
+==This document is a work in progress.  The example shown is a simple one and does not address all the possible issues you might run into compiling and installing software.==
+
 # An Easybuild Example  
 
-We recommend CCR users utilize the Easybuild framework when installing software.  This tool ensures that the compilation and linking that happens during a software installation is done correctly and will work with our systems.  We do not offer instruction on using Easybuild.  However, there is excellent [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) provided by Easybuild developers.  
+CCR staff utilize the Easybuild framework when installing software and this tool is made available to CCR users to install software themselves.  Easybuild ensures that the compilation and linking that happens during a software installation is done correctly and will work with our systems.  CCR staff do not offer courses on using Easybuild, nor are we able to troubleshoot issues you might run into.  However, there is excellent [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) provided by Easybuild developers.  
 
 ## Easybuild Background  
 
@@ -348,9 +350,11 @@ You can tail these log files during the installation to see how it's progressing
 
 ## Frequently asked questions  
 
+### Failed dep
 **Why am I still seeing `failed to determine minimal toolchain for dep`?**  
 You've checked all the dependencies for your software and you know that they're already installed with the right versions by CCR (or you did this yourself).  Yet, you're still seeing the error `failed to determine minimal toolchain for dep` when trying to install your software.  Make sure that your EB recipe is formatted correctly.  In the list of dependencies, you must match the name of the dependency with the EB recipe configs exactly.  For example, if your recipe has a dependency for `rust/1.54.0` you will see this is already installed by CCR.  However, the name in the EB recipe must be `Rust` not `rust`
 
+### Install a different software version
 **How do I update the version of a software?**  
 You have an EB recipe to try to install but you want to update the software version.  This completely depends on the type of software you're installing.  In our example above for `aria2` we can see in the EB recipe that this software is being downloaded from a Github repo.
 
@@ -366,9 +370,14 @@ You will see source locations and checksums are required in [Python bundles](../
 **What if CCR installed software but I want a different version?**  
 In most cases, we will only offer one version of a software package per software release.  If you must use a different version, we recommend you check first to see if CCR has a modified EB recipe for that software.  If so, it will most likely be easiest for you to copy that and modify it for your needs, rather than starting from the Easybuild recipe.  
 
-
+### Finding Easybuild Recipes
 **Is there anywhere else I can search for Easybuild recipes?**  
-Yes!  Although CCR syncs with the official [Easybuild easyconfigs repo](https://github.com/easybuilders/easybuild-easyconfigs), it is not always the most up-to-date.  You can use the Github interface to search easily and if you find a recipe you'd like to try, copy the contents and paste into a file, making sure to name the file correctly.   We also highly recommend using The Digital Research Alliance of Canada (formerly Compute Canada) as a [reference](https://github.com/ComputeCanada/easybuild-easyconfigs/tree/computecanada-main/easybuild/easyconfigs).  
+Yes!  Although CCR syncs with the official [Easybuild easyconfigs repo](https://github.com/easybuilders/easybuild-easyconfigs), it is not always the most up-to-date.  You can use the Github interface to search easily and if you find a recipe you'd like to try, copy the contents and paste into a file, making sure to name the file correctly.   We also highly recommend using The Digital Research Alliance of Canada (formerly Compute Canada) as a [reference](https://github.com/ComputeCanada/easybuild-easyconfigs/tree/computecanada-main/easybuild/easyconfigs).  If there is no EB recipe you will need to create one using other recipes as examples.   
 
+### Easybuild Help 
 **Where can I go for more help?**  
-This guide was offered as an example and will not transfer over to each and every software package you try to install.  Unfortunately, compiling and installing software is hard and each package is different from the next.  Easybuild provides a reproducible structure and allows us to build software in a way that allows it to run efficiently and with the highest performance on the CCR systems.  However, it is not always easy.  We recommend the Easybuild documentation and tutorials referenced at the top of this document as the primary sources of information.  It is often difficult for CCR staff to troubleshoot software installations run by others, even if you provide us log files.  We have to go through the process of replicating your steps, at which point, it's often easier for us to just do the installation ourselves.  If there is an existing EB recipe available and we don't already have a version of the package installed, we encourage you to submit a build request following [these instructions](https://docs.ccr.buffalo.edu/en/latest/software/building/#software-build-requests).  If there is no EB recipe or we've already installed the package and you just want a different version, it's possible we can provide assistance through [CCR Help](../help.md).  However, please note there are limits to the amount of help we can provide and you may need to work independently to resolve your issues.  
+This guide was offered as an example and will not transfer over to each and every software package you try to install.  Unfortunately, compiling and installing software is hard and each package is different from the next.  Easybuild provides a reproducible structure and allows us to build software in a way that allows it to run efficiently and with the highest performance on the CCR systems.  However, it is not always easy.  We recommend the Easybuild [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) as the primary sources of information.  It is often difficult for CCR staff to troubleshoot software installations run by others, even if you provide us log files.  We have to go through the process of replicating your steps, at which point, it's often easier for us to just do the installation ourselves.  If there is an existing EB recipe available and we don't already have a version of the package installed, we encourage you to submit a build request following [these instructions](https://docs.ccr.buffalo.edu/en/latest/software/building/#software-build-requests).  It's possible we can provide assistance through [CCR Help](../help.md).  However, please note there are limits to the amount of help we can provide and you may need to work independently to resolve your issues.  
+
+### Module Not Listed
+**Why isn't my module showing up?**  
+Your Easybuild installation completes successfully but when you run `module avail` you do not see the software listed.  We have this documented [here](../software/modules.md#hierarchical-modules).  `module spider` should be used to find installed modules across all toolchains.  Unless your software does not depend on a specific toolchain, you must load that toolchain first, before you'll see the module listed using `module avail`  
