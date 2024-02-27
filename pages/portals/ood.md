@@ -46,7 +46,7 @@ This provides command line access to cluster login nodes.  CCR's OnDemand portal
 The Files App in OnDemand allows users to easily transfer files to or from their local computers, view and edit files on the CCR systems, and other basic file management tasks.   Here users can access files in their home directory, as well as any project or global scratch directories they may have access to.  
 
 !!! Warning  
-    Do NOT transfer large files or large amounts of file using this app.  Please use the [Globus service](../hpc/data-transfer.md#globus-transfers) for large file transfers.  File transfer is limited to the amount of memory on the OnDemand server, the number of users currently using it, and browser limitations.  
+    Do NOT transfer large files or large amounts of files using this app.  File transfer is limited to the amount of memory on the OnDemand server, the number of users currently using it, and browser limitations.  Please use the integrated [Globus service](../hpc/data-transfer.md#globus-transfers) for large file transfers.    
 
 Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/username`.  If you have access to a shared project or global scratch directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
 
@@ -59,7 +59,7 @@ Follow [these instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) 
 Follow [these instructions](https://rclone.org/box/) to complete the initial connection with UB Box using RClone.  
 
 **Globus**  
-Coming very soon with OnDemand version 3.1   
+The `Globus` button in the `Files` app provides easy access to CCR's mapped collections.  Clicking the button opens a new browser window to the Globus interface and automatically opens the mapped collection associated with the directory you are currently in.  For example, if you are in your home directory in the `Files` app and click the `Globus` button, you'll be placed in the `UBuffalo - Center for Computational Research Home Directories` mapped collection and you'll see your files. If the `Globus` button is greyed out, this means there is no mapped collection associated with that directory.  For more information about using Globus, [see here](../hpc/data-transfer.md#globus-transfers).    
 
 ### Interactive Apps  
 

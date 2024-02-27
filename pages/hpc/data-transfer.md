@@ -53,26 +53,20 @@ and by logging in using your UB credentials.
 
 CCR storage resources are available in Globus as mapped collections.
 You can connect to a CCR endpoint using the "collections"
-field in the Globus web interface and searching for `UBuffalo - Center for Computational Research`. 
+field in the Globus web interface and searching for `UBuffalo`
 
-CCR Currently has 3 Mapped Collections:
+CCR Currently has 4 Mapped Collections:
 
 * UBuffalo - Center for Computational Research Project Directories
 * UBuffalo - Center for Computational Research Home Directories
-* UBuffalo - Center for Computational Research Global Scratch
+* UBuffalo - Center for Computational Research Global Scratch (/panasas/scratch)
+* UBuffalo - Center for Computational Research Vast Global Scratch (/vscratch)  
 
-Log into the endpoint using your UB account credentials (not your CCR account). The system will map your @buffalo.edu account to your local CCR user 
-and you will have access to the same directories that you do when logged into any other CCR system.
+Log into the endpoint using your UB or RPCI account credentials (not your CCR account). The system will map your @buffalo.edu or roswellpark.org account to your local CCR user and you will have access to the same directories that you do when logged into any other CCR system.  NOTE: Some RPCI accounts will not map correctly to CCR accounts.  If this is affecting you, please contact [CCR Help](../help.md) and we'll resolve the mapping issues.  
 
-You can download single files through the browser but to take advantage of the benefits of Globus
-you will need to do endpoint to endpoint transfers. To do this, 
-you must configure a local endpoint in order to transfer files to/from
-your local computer. You can easily set up a Globus endpoint by
-installing [Globus Connect
-Personal](https://www.globus.org/globus-connect-personal) and setting up a personal endpoint.
+You can download single files through the browser but to take advantage of the benefits of Globus you will need to do endpoint to endpoint transfers. To do this, you must configure a local endpoint in order to transfer files to/from your local computer. You can easily set up a Globus endpoint by installing [Globus Connect Personal](https://www.globus.org/globus-connect-personal) and setting up a personal endpoint.
 
-Using the web app, connect your local workstation endpoint with the
-CCR endpoint and transfer files easily using the Globus
+Using the web app, connect your local workstation endpoint with the CCR endpoint and transfer files easily using the Globus
 GUI.
 
 ![](../images/globus-filemanager.png)
@@ -80,20 +74,18 @@ GUI.
 
 ### Guest Collections (Globus Shared Endpoints)
 
-Using a Guest Collection (also known as a "Shared Endpoint"), You can share
-any file or folder that you have access to with anyone who
-has a Globus account. This is particularly useful for external collaborations in which
-data sharing is necessary.  
+Using a Guest Collection (also known as a "Shared Endpoint"), you can share any file or folder that you have access to with anyone who
+has a Globus account. This is particularly useful for external collaborations in which data sharing is necessary.  
 
 Detailed information on creating Guest Collections is available at
 [docs.globus.org](https://docs.globus.org/how-to/share-files/)
 
 ### Using Globus to transfer files to and from UB Box
 
-CCR users are able to move data between CCR and UB Box within Globus using an integrated Box Connector App (UBuffalo-CCR Globus Box Connector). Initial setup will require you to log into UB Box and give the App consent to access UB Box on your behalf.
+CCR users are able to move data between CCR and UB Box within Globus using an integrated Box Connector App (UBuffalo-CCR Globus Box Connector). Initial setup will require you to log into UB Box and give the app consent to access UB Box on your behalf.
 
 !!! Note
-    The UB Box Collection is accessed the same way the CCR Mapped collections are as described in the [Globus Web App](#globus-web-app) section above with one notable exception: you will be prompted to grant access to UB Box the first time you access the collection.
+    The UB Box Collection is accessed the same way the CCR Mapped collections are as described in the [Globus Web App](#globus-web-app) section above with one notable exception: you will be prompted to grant access to UB Box the first time you access the collection.  You will also be prompted to renew the access if it's been awhile since you last connected to UB Box through Globus.
 
 #### Grant Access to the UBuffalo-CCR Globus Box Connector App
 
@@ -144,41 +136,40 @@ From here you can initiate a file transfer by clicking your source files or dire
 !!! Note 
     The Box API implements rate limiting so depending on the type of transfer and number of files you may get connection resets in the transfer log. These will not stop the transfer because Globus will just retry the connection until the transfer is complete.
 
+#### Globus Integration with OnDemand  
+
+CCR users may also access Globus using the OnDemand Files app.  For more information [see here](../portals/ood.md#files-app).
+
 
 ## Secure Shell Copy
 
 Command line terminal access is provided via the SSH protocol, while command line file transfer 
-is available with sftp (Secure File Transfer Protocol) and scp (Secure Copy).
-The ssh, scp and sftp client software should be available on all Linux distributions 
-as part of the operating system installation.  
+is available with `sftp` (Secure File Transfer Protocol) and `scp` (Secure Copy).  [See here](../hpc/login.md#connecting-with-ssh) for more info on using SSH on CCR's systems.   
 
-*to/from the Frontends:*
+**to/from the Frontends:**
 
 * This would be for simple file transfers that can complete within a 15 minute timeframe  
 
-*from the Compute Nodes:*
+**from the Compute Nodes:**
 
-* This would be for file transfers that can complete within a 72 hour window
+* This would be for file transfers that can complete within a 72 hour window (UB-HPC cluster max, Faculty cluster nodes may have longer max walltime)
 * This will only work for outbound transfers because compute nodes are not exposed externally
-* You must have an active job with an allocated compute node to get access to them
+* You must have an active job with an allocated compute node to get access to the node  
 
 !!! Note "SSH Keys required"
     Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
 
 ### Command line SCP
 
-The Secure Copy utility, `scp`, can send data to and fetch data
-from a remote server.
+The Secure Copy utility, `scp`, can send data to and fetch data from a remote server.
 
-In the examples here, replace `<path-to-file>` with the path of the
-file you wish to copy, `<username>` with your CCR
-username, and `<target-path>` with the full path to the directory you
-would like to send the file to.
+In the examples here, replace `<path-to-file>` with the path of the file you wish to copy, `<username>` with your CCR
+username, and `<target-path>` with the full path to the directory you would like to send the file to.
 
 ```bash
 # Copying files from a local workstation to CCR Frontend Servers
 
-scp -i <path-to-yourSSHKey> <path-to-file> <username>@vortex-future.ccr.buffalo.edu.edu:<target-path>
+scp -i <path-to-yourSSHKey> <path-to-file> <username>@vortex.ccr.buffalo.edu.edu:<target-path>
 ```
 
 !!! Note
@@ -186,23 +177,19 @@ scp -i <path-to-yourSSHKey> <path-to-file> <username>@vortex-future.ccr.buffalo.
 
 Windows users can access scp through PowerShell or [Git bash](https://gitforwindows.org/) or using a GUI application like [FileZilla](#filezilla).
 
-For more information on secure copy take a [look at some of our listed
-resources](#more-reading) or consult the scp manual page.
+For more information on secure copy take a [look at some of our listed resources](#more-reading) or consult the scp manual page.
 
 ### Interactive file transfer with SFTP
 
-The `sftp` utility is an interactive alternative to `scp` that allows
-multiple, bi-directional transfer operations in a single
-session. Within an sftp session, a series of domain-specific file
-system commands can be used to navigate, move, remove, and copy data
+The `sftp` utility is an interactive alternative to `scp` that allows multiple, bi-directional transfer operations in a single
+session. Within an sftp session, a series of domain-specific file system commands can be used to navigate, move, remove, and copy data
 between a local system and CCR resources.
 
 ```bash
-sftp <username>@vortex-future.ccr.buffalo.edu
+sftp <username>@vortex.ccr.buffalo.edu
 ```
 
-We can then use various commands to traverse and manipulate both local
-and remote file systems.
+We can then use various commands to traverse and manipulate both local and remote file systems.
 
 Command | Function | Example
 --------|--------------------------------------------------------------------|----------
@@ -217,48 +204,35 @@ put     | Copies a file from the local directory to the remote directory     | p
 exit    | Closes the connection to the remote computer and exits the program | exit
 help    | Displays application information on using commands                 | help
 
-Windows users can access scp through PowerShell or [Git bash](https://gitforwindows.org/) or using a GUI application like [FileZilla](#filezilla).
-
-For more information on sftp [check out some of our listed
-resources](#more-reading) or consult the sftp manual page.
+For more information on sftp [check out some of our listed resources](#more-reading) or consult the sftp manual page.
 
 ### Rsync
 
-While `scp` is useful for simple file copy operations, the `rsync`
-utility can be used to synchronize files and directories across two
-locations. This can often lead to efficiencies in repeat-transfer
-scenarios, as rsync only copies files that are different between the
-source and target locations (and can even transfer partial files when
-only part of a file has changed). This can be very useful in reducing
-the amount of copies you may perform when synchronizing two
-datasets.
+While `scp` is useful for simple file copy operations, the `rsync` utility can be used to synchronize files and directories across two
+locations. This can often lead to efficiencies in repeat-transfer scenarios, as rsync only copies files that are different between the
+source and target locations (and can even transfer partial files when only part of a file has changed). This can be very useful in reducing
+the amount of copies you may perform when synchronizing two datasets.
 
 !!! Warning
     You will need to set the remote shell command to ssh. The default rsh is not secure and will not work at CCR.
 
-In the examples here, replace `<path-to-file>` with the path of the
-file you wish to copy, `<username>` with your CCR
-username, and `<target-path>` with the full path to the directory you
-would like to send the file to.
+In the examples here, replace `<path-to-file>` with the path of the file you wish to copy, `<username>` with your CCR
+username, and `<target-path>` with the full path to the directory you would like to send the file to.
 
 ```bash
 # Synchronizing from a local workstation to CCR
 
-rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> <username>@vortex-future.ccr.buffalo.edu:<target-path> 
+rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> <username>@vortex.ccr.buffalo.edu:<target-path> 
 ```
 
-**rsync** is not available on Windows by default, but [may be installed
-individually](https://www.itefix.net/cwrsync) or as part of [Windows
-Subsystem for Linux
-(WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+**rsync** is not available on Windows by default, but [may be installed individually](https://www.itefix.net/cwrsync) or as part of [Windows
+Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-For more information on rsync [check out some of our listed
-resources](#more-reading) or consult the rsync manual page.
+For more information on rsync [check out some of our listed resources](#more-reading) or consult the rsync manual page.
 
 ### Filezilla
 
-There are additional software products available for Windows, Mac, and Linux distributions
-that provide secure drag and drop interfaces for file transfer such as Filezilla which can be installed from [here](http://www.buffalo.edu/ubit/service-guides/software/downloading/windows-software/managing-your-software/filezilla.html).
+There are additional software products available for Windows, Mac, and Linux distributions that provide secure drag and drop interfaces for file transfer such as Filezilla which can be installed from [here](http://www.buffalo.edu/ubit/service-guides/software/downloading/windows-software/managing-your-software/filezilla.html).
 
 Once installed, follow these steps to connect to CCR resources with Filezilla:
 
@@ -285,7 +259,7 @@ This will popup the Site Management Window
 > * Enter the Following Settings:
 
       - Protocol: SFTP - SSH File Transfer Protocol
-      - Host: vortex-future.ccr.buffalo.edu
+      - Host: vortex.ccr.buffalo.edu
       - Login Type: Normal
       - Username: your-ccr-username
       - Password: Leave Blank
@@ -319,7 +293,7 @@ This will popup the Site Management Window
 > * Enter the Following Settings:
 
       - Protocol: SFTP - SSH File Transfer Protocol
-      - Host: vortex-future.ccr.buffalo.edu
+      - Host: vortex.ccr.buffalo.edu
       - Login Type: keyfile
       - Username: your-ccr-username
       - Key file: Navigate to the Key you converted in previous steps
@@ -435,9 +409,7 @@ $ rclone ls OneDrive:/test
 
 ## OnDemand File Manager App
 
-* This is browser based for simple transfers and not recommended for large amounts of data  
-
-This information is available in our [Open OnDemand Documentation](../portals/ood.md)
+This is browser based for simple transfers and not recommended for large amounts of data.  However, OnDemand offers Globus integration to make larger file transfers easier.  For more information see the [OnDemand documentation](../portals/ood.md#files-app)  
 
 
 
