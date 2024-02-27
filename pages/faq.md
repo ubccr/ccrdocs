@@ -24,7 +24,7 @@ _**Common errors:**_
 
 - **SSH error "no supported authentication methods available":**  SSH keys are required for command line SSH and SFTP access to CCR's login nodes.  Password logins are not accepted.  Please see [more info here](hpc/login.md#connecting-with-ssh)  
 -  **SSH error "Permission denied (publickey)":** You either do not have your SSH public key uploaded to your CCR account (see error above) or you are not specifying the private key on your personal device when trying to login to CCR.  See this [page for more info](hpc/login.md#logging-in)  
--  **Missing home directory:**  Your account hasn't been provisioned yet.  See [here for more info](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
+-  **Missing home directory:**  See [here for more info](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
 -  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](portals/idm.md#change-your-ccr-password)  
 -  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly.   
 -  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
@@ -37,6 +37,9 @@ This is the same reason as [this](#why-am-i-seeing-a-home-directory-missing-erro
 ## Why do I get "Fatal system error" or "Account already exists" error when creating a new account?  
 
 When trying to create a new CCR account, you get an error that says "fatal system error" or "account with this username already exists" please contact [CCR help](help.md).  Staff will need to take manual action to rectify the problem.  
+
+## Why am I seeing a home directory missing error on login?  
+The first time you login to a CCR server, your home directory will need to be created. When using SSH for login, this is done automatically.  If using OnDemand, follow the instructions provided to initiate the creation of your home directory and SSH key pair for use on the cluster within the OnDemand terminal app. If, after completing the steps, the OnDemand dashboard does not reload, log out and back in again.  
 
 ## Why can I login to the help portal but not my CCR account?  
 
@@ -62,10 +65,11 @@ If you see an error box that says `XFCE PolicyKit Agent` you can click the `Clos
 
 ## Why does my OnDemand desktop or app show it's starting but then it immediately ends?  
 
-There are two common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
+There are three common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
 
 1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
 2. You have an Anaconda environment loading in your .bashrc environment file or are loading a Python module in your .bashrc file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
+3. The application is looking for a software module to load and can't find it.  [See here](#why-am-im-getting-module-not-found-errors) for more info  
 
 ## How can I check how full my directories are?  
 
@@ -87,7 +91,7 @@ Alternatively, you can view this information on the [ColdFront](https://coldfron
 
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 
-This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!) so we do not recommend loading them in the .bashrc file.   
+This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!) so we do not recommend loading them in the `.bashrc` file.  You may not even realize this got added to your bash environment file as it will do it automatically when installing anaconda.  Edit the file and remove everything between the two `>>> conda initialize >>>` lines.  Then save the file, exit out of CCR, and log back in again.  Do NOT delete the `.bashrc` file!  
 
 ## Why am I getting 'no space left on device' errors?  
 
@@ -118,6 +122,16 @@ TMPDIR=/projects/academic/<group_name>/condatemp ./Anaconda3-2020.02-Linux-x86_6
 ## How can I transfer my files to/from UB Box?
 
 Please see [these instructions](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) and utilize Globus to transfer files to UB Box. 
+
+## Why am I'm getting module not found errors?  
+
+There are a few types of module errors you might see:  
+- `module command not found` means the system doesn't know anything about the software modules.  Ensure the first line of your batch script is: `#!/bin/bash -l`
+- `module not found` means the system can't find the specifc module you're trying to load.  
+  - If you're using the faculty cluster, make sure the node you're running on supports the software you want to use.  [See here](howto/newenv.md#im-getting-module-command-errors) for more info.  
+  - You have not loaded the module's dependencies prior to loading the module you want to use.  [See here](software/modules.md#hierarchical-modules) for more info on the hierarchical module scheme  
+  - You are trying to load modules from a different software release.  CCR sets a default software release on all systems.  If you want to use a module from a different release than what is the default, you must load the software release version first.  [See here](howto/newenv.md) for more details.  
+
 
 ## When will my job start?
 

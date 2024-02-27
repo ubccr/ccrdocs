@@ -121,7 +121,7 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
         passphrase. This is NOT your CCR password. This is the passphrase you
         set when [creating your SSH key pair](#generate-new-ssh-key). For example:  
         ```bash
-        ssh -i /path-to-key/id_ed25519 username@vortex-future.ccr.buffalo.edu
+        ssh -i /path-to-key/id_ed25519 username@vortex.ccr.buffalo.edu
         Enter passphrase for key 'id_ed25519':
         ```
 
@@ -131,7 +131,7 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
    If it does, then type `yes`.  
 
     ```
-    The authenticity of host 'vortex-future.ccr.buffalo.edu (128.205.41.24)' can't be established.
+    The authenticity of host 'vortex.ccr.buffalo.edu (128.205.41.24)' can't be established.
     ED25519 key fingerprint is SHA256:qYT1DzrHv8yTlHiNGV2td29309oXPHdN4OPj/KptFYg.
     Are you sure you want to continue connecting (yes/no/[fingerprint])?
     ```  
@@ -140,7 +140,7 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
     login node:  
 
     ```
-    username@vortex-future:~$
+    username@vortex:~$
     ```
 
 !!! Tip "First Login - Additional Setup"  
@@ -150,7 +150,7 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
 
 ## OnDemand for Web-Based Cluster Access  
 
-[Open OnDemand](https://ondemand-future.ccr.buffalo.edu) provides access to CCR's
+[Open OnDemand](https://ondemand.ccr.buffalo.edu) provides access to CCR's
 clusters, storage, visualization servers, and interactive apps.  CCR's OnDemand
 portal offers Linux desktops for GUI-based applications, software applications
 like MatLab, RStudio Desktop, Jupyter Notebook, and vscode, an interactive
