@@ -155,4 +155,8 @@ OnDemand allows users the ability to create their own interactive apps and run t
 
 ### Help  
 
-The Help menu offers links to CCR's support contact info, documentation, and the ability to restart your OnDemand web process.  Occasionally, you'll find your OnDemand session may be slow or unresponsive.  Users can choose the `Restart Web Server` option to restart the process that runs their individual OnDemand session.  Most of the time you will not need to do this unless directed to by CCR staff.  
+The Help menu offers links to CCR's support contact info, documentation, and the ability to restart your OnDemand web process.  Occasionally, you'll find your OnDemand session may be slow or unresponsive.  Users can choose the `Restart Web Server` option to restart the process that runs their individual OnDemand session.  Most of the time you will not need to do this unless directed to by CCR staff.  You may use the `Submit Support Ticket` option to easily submit a ticket to CCR help.  If you're contacting us regarding a specific job, please use the `Submit Support Ticket` button on the job card so that all the relevent job information is included in the ticket.  Then we don't have to ask you for it!    
+
+### Troubleshooting  
+
+[See here](../howto/ood-trouble.md)
