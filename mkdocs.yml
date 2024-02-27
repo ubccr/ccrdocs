@@ -78,3 +78,4 @@ nav:
   - How To:  
     - CCR Software Environments: howto/newenv.md 
     - Easybuild Example: howto/easybuild.md   
+    - OnDemand Troubleshooting:  howto/ood-trouble.md  
