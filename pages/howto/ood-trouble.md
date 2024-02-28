@@ -19,9 +19,9 @@ OnDemand sessions are submitted as jobs to CCR's clusters.  The Slurm scheduler 
 ## Where can I find the output files for my OnDemand sessions?  
 
 The easiest way to find these is by clicking on the `Session ID` link on the job card as this will open the Files app and take you directly to the output directory for that job.  If the session card has been deleted, you can find all your OnDemand output files in your home directory, in sub-directories of `/user/username/ondemand/data/sys/dashboard/batch_connect/sys`  In each job directory, you will find, at minimum, an `output.log` file.  Though this file will contain what appears to be errors, much of this can be ignored until the end of the file.  If the job ends prematurely, you will often see the reason why it failed.  The three most frequent reasons:  
-- *Out of memory*: You might see an error like `Detected 1 oom-kill event(s) in StepId=999999.batch. Some of your processes may have been killed by the cgroup out-of-memory handler' - Solution: Request more memory  
-- *Time limit reached*:  You might see an error like `CANCELLED AT 2024-02-20T03:24:08 DUE TO TIME LIMIT` - Solution: Request more time.  [See here](../hpc/jobs.md#slurm-directives-partitions--qos) for more info on cluster limits.  
-- *Out of disk space*:  You might see errors like `no space left on device` or `I/O error` - Solution: Clear up space in your home directory to allow more room for OnDemand output files.  [See here](../faq.md#why-am-i-getting-no-space-left-on-device-errors) for more info
+- Out of memory: You might see an error like `Detected 1 oom-kill event(s) in StepId=999999.batch. Some of your processes may have been killed by the cgroup out-of-memory handler` - Solution: Request more memory  
+- Time limit reached:  You might see an error like `CANCELLED AT 2024-02-20T03:24:08 DUE TO TIME LIMIT` - Solution: Request more time.  [See here](../hpc/jobs.md#slurm-directives-partitions--qos) for more info on cluster limits.  
+- Out of disk space:  You might see errors like `no space left on device` or `I/O error` - Solution: Clear up space in your home directory to allow more room for OnDemand output files.  [See here](../faq.md#why-am-i-getting-no-space-left-on-device-errors) for more info
 
 ## Understanding OnDemand Session Details  
 
