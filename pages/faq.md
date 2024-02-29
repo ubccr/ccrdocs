@@ -126,7 +126,7 @@ Please see [these instructions](hpc/data-transfer.md##using-globus-to-transfer-f
 ## Why am I'm getting module not found errors?  
 
 There are a few types of module errors you might see:  
-- `module command not found` means the system doesn't know anything about the software modules.  Ensure the first line of your batch script is: `#!/bin/bash -l`
+- `module command not found` means the system doesn't know anything about the software modules.  Ensure the first line of your batch script is: `#!/bin/bash -l`  
 - `module not found` means the system can't find the specifc module you're trying to load.  
   - If you're using the faculty cluster, make sure the node you're running on supports the software you want to use.  [See here](howto/newenv.md#im-getting-module-command-errors) for more info.  
   - You have not loaded the module's dependencies prior to loading the module you want to use.  [See here](software/modules.md#hierarchical-modules) for more info on the hierarchical module scheme  
