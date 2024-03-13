@@ -1,6 +1,6 @@
 # Containerization 
 
-When installing software, you may come across applications that have complex chains of dependencies that are challenging to compile and install. Some software may require very specific versions of libraries that may not be available on Alpine or conflict with libraries needed for other applications. You may also need to move between several workstations or HPC platforms, which often requires reinstalling your software on each  system. Containers are a good way to tackle all of these issues and more.
+When installing software, you may come across applications that have complex chains of dependencies that are challenging to compile and install. Some software may require very specific versions of libraries that may not be available on CCR's systems or conflict with libraries needed for other applications. You may also need to move between several workstations or HPC platforms, which often requires reinstalling your software on each system. Containers are a good way to tackle all of these issues and more.
 
 ## Containerization Fundamentals
 
@@ -15,11 +15,11 @@ Containers distinguish themselves through their low computational overhead and t
 
 ## Container engines
 
-[Docker](https://www.docker.com/) is the most widely used container engine, and  can be used on any system where you have administrative privileges. _Docker cannot be run on high-performance computing (HPC) platforms like Alpine because users do not have administrative privileges._
+[Docker](https://www.docker.com/) is the most widely used container engine, and  can be used on any system where you have administrative privileges. _Docker cannot be run on high-performance computing (HPC) platforms because users do not have administrative privileges._
 
-[Apptainer](https://apptainer.org/) (formerly Singularity) is a container engine that does not require administrative priveleges to execute. Therefore, it is safe to run on HPC platforms like Alpine or Blanca.   
+[Apptainer](https://apptainer.org/) (formerly Singularity) is a container engine that does not require administrative privileges to execute. Therefore, it is safe to run on HPC platforms.    
 
-Because Docker images are widely available for many software packages, a common use case on Alpine and Blanca is to use Apptainer to run Docker images.  Therefore, the following documentation first provides an overview of Docker, and then Apptainer.  If you are already familiar with Docker, or if you just want to understand the basics of running containers with Apptainer on Alpine and Blanca, you can skip to the [Apptainer Overview](#apptainer).
+Because Docker images are widely available for many software packages, a common use case is to use Apptainer to run Docker images.  Therefore, the following documentation first provides an overview of Docker, and then Apptainer.  If you are already familiar with Docker, or if you just want to understand the basics of running containers with Apptainer, you can skip to the [Apptainer Overview](#apptainer).
 
 ## Docker
 
@@ -40,7 +40,7 @@ A **Docker container** is an ephemeral instance of a Docker image. Docker images
 
 ### Running a Docker container
 
-**Note:** Docker containers cannot be run with Docker on Alpine or Blanca, because the Docker software is not HPC-safe. Instead, Docker containers are run using a software called Apptainer.  See the documentation on Apptainer below if you wish to run a Docker container on Alpine or Blanca. 
+**Note:** Docker containers cannot be run with Docker on CCR's systems, because the Docker software is not HPC-safe. Instead, Docker containers are run using a software called Apptainer.  See the documentation on Apptainer below if you wish to run a Docker container using CCR resources. 
 
 To run a Docker container on your laptop or other system on which you have Docker installed, simply type the command:
 
@@ -185,11 +185,7 @@ docker push <your-docker-username>/<repository>
 -->
 ## Apptainer
 
-Apptainer is a containerization software package that does not require users to have administrative privileges when running containers, and can thus be safely used on Research Computing resources. Apptainer is installed directly on all Alpine compute nodes, so there is no need to load any module to run Apptainer commands on Alpine. However, Apptainer is not currently installed on Blanca nodes, so you will need to load the Apptainer module to run Apptainer commands on Blanca:
-
-```
-module load apptainer/1.1.0
-```
+Apptainer is a containerization software package that does not require users to have administrative privileges when running containers, and can thus be safely used on Research Computing resources. Currently, an older version of singularity is available on compile and compute nodes so . 
 
 Much like Docker, Apptainer is a containerization software designed around compartmentalization of applications, libraries, and workflows. This is done through the creation of compressed images in the `.sif` format which can be run as ephemeral containers. Unlike Docker, however, Apptainer does not manage images, containers, or volumes through a central application. Instead, Apptainer generates saved image files that can either be mutable or immutable based on compression.
 
@@ -197,10 +193,10 @@ Much like Docker, Apptainer is a containerization software designed around compa
 
 Because we cannot build our own Apptainer images on HPC systems, we must instead bring our images over from another location. Pulling images from public repositories is often the easiest method of using a containerized application. 
 
-We can use the `apptainer pull` command to remotely download our chosen image file and convert it to the Apptainer `.sif` format. The command requires the container registry we would like to use, followed by the repository’s name:
+We can use the `singularity pull` command to remotely download our chosen image file and convert it to the Apptainer `.sif` format. The command requires the container registry we would like to use, followed by the repository’s name:
 
 ```
-apptainer pull <localname>.sif <container-registry>://<repository-name>
+singularity pull <localname>.sif <container-registry>://<repository-name>
 ```
 
 Where `<localname>.sif` is the name you choose for the Apptainer image. 
@@ -208,8 +204,10 @@ Where `<localname>.sif` is the name you choose for the Apptainer image.
 A container registry is simply a server that manages uploaded containers. Docker Hub is the most widely used register. To pull a container image from Docker Hub:
 
 ```
-apptainer pull docker://another:example
+TMPDIR=/var/tmp singularity pull docker://another:example
 ```
+
+Specifying a new TMPDIR path is necessary otherwise singularity will try to write to /tmp which has read-only access.
 
 ### Running a SIF image as a container
 
