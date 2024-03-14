@@ -19,11 +19,11 @@ Containers distinguish themselves through their low computational overhead and t
 
 [Apptainer](https://apptainer.org/) (formerly Singularity) is a container engine that does not require administrative privileges to execute. Therefore, it is safe to run on HPC platforms.    
 
-Because Docker images are widely available for many software packages, a common use case is to use Apptainer to run Docker images.  Therefore, the following documentation first provides an overview of Docker, and then Apptainer.  If you are already familiar with Docker, or if you just want to understand the basics of running containers with Apptainer, you can skip to the [Apptainer Overview](#apptainer).
+Because Docker images are widely available for many software packages, a common use case is to use Apptainer to run Docker images.
 
 ## Apptainer
 
-Apptainer is a containerization software package that does not require users to have administrative privileges when running containers, and can thus be safely used on Research Computing resources. Currently, an older version of singularity is available on compile and compute nodes so . 
+Apptainer is a containerization software package that does not require users to have administrative privileges when running containers, and can thus be safely used on Research Computing resources. Currently, an older version of singularity is available on compile and compute nodes so the commands outlined here will use the `singularity` command as opposed to `apptainer`. 
 
 Much like Docker, Apptainer is a containerization software designed around compartmentalization of applications, libraries, and workflows. This is done through the creation of compressed images in the `.sif` format which can be run as ephemeral containers. Unlike Docker, however, Apptainer does not manage images, containers, or volumes through a central application. Instead, Apptainer generates saved image files that can either be mutable or immutable based on compression.
 
@@ -49,22 +49,22 @@ Specifying a new TMPDIR path is necessary when pulling from Ducker Hub as singul
 
 ### Running a SIF image as a container
 
-SIF images can be run as containers much like Docker images. Apptainer commands, however, follow a bit more nuanced syntax depending on what you’d like to do. After pulling your image from Docker Hub you can run the image by using the `apptainer run` command. Type:
+SIF images can be run as containers much like Docker images. Apptainer commands, however, follow a bit more nuanced syntax depending on what you’d like to do. After pulling your image from Docker Hub you can run the image by using the `singularity run` command. Type:
 
 ```
-apptainer run <image-name>
+singularity run <image-name>
 ```
 
-Running a container will execute the default program that the container developer will have specified in container definition file. To execute specific programs in your container, we can use the `apptainer exec` command, and then specify the program:
+Running a container will execute the default program that the container developer will have specified in container definition file. To execute specific programs in your container, we can use the `singularity exec` command, and then specify the program:
 
 ```
-apptainer exec <image-name> <program>
+singularity exec <image-name> <program>
 ```
 
-Much like specifying an application in Docker, this will allow a user to execute any program that is installed within your container. Unlike Docker however, you do not need to specify a shell application to shell into the container. We can simply use the `apptainer shell` command:
+Much like specifying an application in Docker, this will allow a user to execute any program that is installed within your container. Unlike Docker however, you do not need to specify a shell application to shell into the container. We can simply use the `singularity shell` command:
 
 ```
-apptainer shell <image-name>
+singularity shell <image-name>
 ```
 
 *Example:*
@@ -72,13 +72,13 @@ apptainer shell <image-name>
 Say we have an image that contains python 3.7 as the default software, and we want to run python from the container. We can do this with the command:
 
 ```
-apptainer run python-cont.sif
+singularity run python-cont.sif
 ```
 
 If the default application for the image is not python we could run python as follows:
 
 ```
-apptainer exec python-cont.sif python
+singularity exec python-cont.sif python
 ```
 
 ### File Access
@@ -88,7 +88,7 @@ By default, only `/home/$USER` is available within any given container. This mea
 To bind any additional folders or files to your container, you can utilize the `-B` flag in your Apptainer run, exec, and shell commands:
 
 ```
-apptainer run -B /source/directory:/target/directory sample-image.sif
+singularity run -B /source/directory:/target/directory sample-image.sif
 ```
 
 Additionally you can bind directories by utilizing the `APPTAINER_BINDPATH` environment variable. Simply export a list of directory pairs you would like to bind to the your container:
@@ -102,7 +102,9 @@ Then run, execute, or shell into the container as normal.
 
 ### Building a SIF image
 
-In the event that a container is unavailable for a given application, you may need to build your own container from scratch. Apptainer allows a user to build images using a *definition file*. Just like a Dockerfile, this file has a variety of directives that allow for the customization of your image. A sample image would look something like this: 
+In the event that a container is unavailable for a given application, you may need to build your own container from scratch. You will need to download and install Apptainer on your own machine. Instructions to do this can be found in the [documentation for Apptainer](https://apptainer.org/docs/admin/main/installation.html).
+
+Apptainer allows a user to build images using a *definition file*. Just like a Dockerfile, this file has a variety of directives that allow for the customization of your image. A sample image would look something like this: 
 
 ```
 Bootstrap: docker
