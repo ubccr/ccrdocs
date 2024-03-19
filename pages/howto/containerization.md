@@ -23,7 +23,7 @@ Because Docker images are widely available for many software packages, a common 
 
 ## Apptainer
 
-Apptainer is a containerization software package that does not require users to have administrative privileges when running containers, and can thus be safely used on Research Computing resources. Currently, an older version of singularity is available on compile and compute nodes so the commands outlined here will use the `singularity` command as opposed to `apptainer`. 
+Apptainer is a containerization software package that does not require users to have administrative privileges when running containers, and can thus be safely used on Research Computing resources. Currently, an older version of singularity is available on compute nodes so the commands outlined here will use the `singularity` command as opposed to `apptainer`. 
 
 Much like Docker, Apptainer is a containerization software designed around compartmentalization of applications, libraries, and workflows. This is done through the creation of compressed images in the `.sif` format which can be run as ephemeral containers. Unlike Docker, however, Apptainer does not manage images, containers, or volumes through a central application. Instead, Apptainer generates saved image files that can either be mutable or immutable based on compression.
 
@@ -91,10 +91,10 @@ To bind any additional folders or files to your container, you can utilize the `
 singularity run -B /source/directory:/target/directory sample-image.sif
 ```
 
-Additionally you can bind directories by utilizing the `APPTAINER_BINDPATH` environment variable. Simply export a list of directory pairs you would like to bind to the your container:
+Additionally you can bind directories by utilizing the `SINGULARITY_BINDPATH` environment variable. Simply export a list of directory pairs you would like to bind to the your container:
 
 ```
-export APPTAINER_BINDPATH=/source/directory1:/target/directory1,\
+export SINGULARITY_BINDPATH=/source/directory1:/target/directory1,\
 /source/directory2:/target/directory2
 ```
 
@@ -148,3 +148,4 @@ mpirun -np 4 apptainer exec openmpi.sif mpi_hello_world"
 
 Note that it is also possible to build intel/IMPI containers for use on Alpine. If you would like assistance building MPI-enabled containers contact <rc-help@colorado.edu>.
 
+### Helpful links
