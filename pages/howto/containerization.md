@@ -36,7 +36,7 @@ export SINGULARITY_CACHEDIR=/projects/academic/<your group name>/[username]/tmp
 export SINGULARITY_TMPDIR=/projects/academic/<your group name>/[username]/tmp
 ```
 
-This will ensure all large intermediate files are not being stored in your home directory leading to quota issues.
+This will also ensure all large intermediate files are not being stored in your home directory leading to quota issues.
 
 ### Pulling Images
 
@@ -53,10 +53,8 @@ Where `<localname>.sif` is the name you choose for the Apptainer image.
 A container registry is simply a server that manages uploaded containers. Docker Hub is the most widely used register. To pull a container image from Docker Hub:
 
 ```
-TMPDIR=/var/tmp singularity pull docker://another:example
+singularity pull docker://another:example
 ```
-
-Specifying a new TMPDIR path is necessary when pulling from Ducker Hub as singularity will try to write to /tmp which has read-only access.
 
 ### Running a SIF image as a container
 
