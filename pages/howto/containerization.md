@@ -145,7 +145,7 @@ It is possible to run GPU workloads within singularity containers. This will all
 
 `singularity run --nv <image_name>.sif`
 
-NVIDIA also hosts a [number of containers]() as part of their own container library. These can be pulled and run by singularity, though the pulling process can take several hours depending on the image size.
+NVIDIA also hosts a [number of containers](https://catalog.ngc.nvidia.com/containers) as part of their own container library. These can be pulled and run by singularity, though the pulling process can take several hours depending on the image size.  We recommend you do this on a compile node or a compute node in a job.  If run from a login node, your download will get cancelled if it goes beyond our time out limits.  See more on node types [here](../hpc/clusters.md)
 
 ### Building MPI-enabled images
 MPI-enabled Apptainer containers can be deployed on CCR's systems with the caveat that the MPI software within the container has a similar (not necessarily exact) version with MPI software available on the system. This requirement diminishes the portability of MPI-enabled containers, as they may not run on other systems without compatible MPI software. Regardless, MPI-enabled containers can still be a very useful option in many cases. 
