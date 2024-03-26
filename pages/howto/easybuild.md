@@ -1,8 +1,66 @@
 ==This document is a work in progress.  The example shown is a simple one and uses the `ccrsoft/2023.01` software release.  It does not address all the possible issues you might run into compiling and installing software.==
 
-# An Easybuild Example  
+CCR staff utilize the Easybuild framework when installing software and this tool is made available to CCR users to install software themselves.  Easybuild ensures that the compilation and linking that happens during a software installation is done correctly and will work with our systems.  CCR staff do not offer courses on using Easybuild, nor are we able to troubleshoot issues you might run into.  However, there is excellent [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) provided by Easybuild developers.  We provide this document to provide a bit of context to the Easybuild documentation and provide an example of using Easybuild to install a software package.   
 
-CCR staff utilize the Easybuild framework when installing software and this tool is made available to CCR users to install software themselves.  Easybuild ensures that the compilation and linking that happens during a software installation is done correctly and will work with our systems.  CCR staff do not offer courses on using Easybuild, nor are we able to troubleshoot issues you might run into.  However, there is excellent [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) provided by Easybuild developers.  
+# Easybuild and Modules  
+
+One of the key features of EasyBuild is that it automatically generates environment modules which can be used to make a software package available in your session. In addition to defining standard Linux environment variables such as `PATH`, `CPATH` and `LIBRARY_PATH`, EasyBuild also defines some environment variables specific to EasyBuild, two of which may be particularly interesting to users:  
+
+`EBROOT<name>`: Contains the full path to the location where the software `<name>` is installed.  
+`EBVERSION<name>`: Contains the full version of the software `<name>` loaded by this module.  
+
+For example, the module `java/11.0.16` defines:  
+- `EBROOTJAVA: /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/java/11.0.16`  
+- `EBVERSIONJAVA: 11.0.16`  
+
+You can see the environment variables defined by the `java/11.0.16` module using:  
+```
+ccruser@vortex ~:$ module show java/11.0.16 |grep EB  
+```
+
+You can use these as variables on the command line and in scripts.  For example:  
+
+```
+ccruser@vortex ~:$ cd $EBROOTJAVA
+ccruser@vortex:/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/java/11.0.16$  
+```
+
+# Using Easybuild in your own account  
+
+EasyBuild can be used to install software packages in your own account. However, in most cases, it is preferable to ask our technical support to install the software centrally for you. This will ensure that the software package is available on all of our clusters for all users. It will also avoid using up all your quota.  It is often difficult for us to troubleshoot problems when someone else is trying to install software, making it hard to provide support to you.  
+
+!!! Note "When to use or not use Easybuild to install software in your account"  
+    There are a few use cases in which you may want to use EasyBuild to install software in your own space (project space preferred over home directories):  
+    - if you need a custom or modified build   
+    - if you need to install a nightly build, or a version of a software which does not have a release number  
+    - if there isn't an existing EB recipe and you want to create your own  
+    - if we at CCR are not allowed to install the package centrally for licensing reasons, such as some commercial software packages (Gaussian, VASP and Materials Studio in particular)  
+
+    On the contrary, you should not install software packages in your own space for the following reasons:  
+
+    - if you need a different release version   
+    - if you need a software package built using a different compiler, MPI or CUDA implementation  
+
+    When in doubt, please ask [CCR Help](../help.md) for advice.
+
+# What is a recipe
+
+Writing a recipe from scratch will not be discussed here; you can find more about this in the [EasyBuild documentation](https://docs.easybuild.io/). Modifying a recipe for your particular situation is easier, and it is easier still to find a suitable recipe and use it unmodified.  
+
+Recipes, also known as EasyConfig files, are text files containing the information EasyBuild needs to build a particular piece of software in a particular environment. They are named following this convention:
+
+`<name>-<version>-<toolchain name>-<toolchain version>.eb`
+where `<name>` is the name of the package, `<version>` is its version, `<toolchain name>` is the name of the toolchain used and `<toolchain version>` is its version. More on toolchains later.
+
+## Installation recipes and logs  
+
+EasyBuild keeps a copy of the recipe used to install each software package, as well as a detailed log inside the installation directory. This is accessible in the directory $EBROOT<name>/easybuild. For example, for the `java/11.0.16` module, the installation directory contains, among other things:  
+- `$EBROOTJAVA/easybuild/Java-11.0.16.eb`  
+- `$EBROOTJAVA/easybuild/easybuild-Java-11.0.16-20221206.215954.log.bz2`  
+
+During your installation, you will see output indicating where the temporary log files for the build are located.  After completion of the install, the path of the full build log is output by Easybuild.  See more [here](#investigating-logs)  
+
+# An Easybuild Example  
 
 ## Easybuild Background  
 
@@ -25,7 +83,19 @@ Intel compilers:
 [...]-intel-2022.00.eb  
 [...]-iimpi-2022.00.eb  
 
-As a reminder, these are the [toolchains](../software/releases.md) CCR supports.  You must use one of these when installing software using Easybuild.  If you try a recipe for an unsupported toolchain, Easybuild will attempt to install that toolchain for you.  You don't want this as it will take up too much disk space, take very long to build, and is highly likely that installation will fail. 
+The EasyBuild config repository contains a lot of recipes which may or may not compile with the toolchains CCR provides.  As a reminder, these are the [toolchains](../software/releases.md) CCR supports.  You must use a recipe for a supported toolchain when installing software using Easybuild.  If you try a recipe for an unsupported toolchain, Easybuild will attempt to install that toolchain for you.  You don't want this as it will take up too much disk space, take very long to build, and is highly likely that installation will fail. 
+
+## What's in a toolchain  
+
+Toolchains are a combination of compiler, MPI implementation, CUDA version, and mathematical libraries, which are used to compile the software package. CCR offers toolchains as modules and you can see what is included in a toolchain by looking at the module.  For example, if you load the `foss/2021b` module you'll see it includes:   
+```
+depends_on("gcc/11.2.0")
+depends_on("openmpi/4.1.1")
+depends_on("flexiblas/3.0.4")
+depends_on("fftw/3.3.10")
+depends_on("scalapack/2.1.0-fb")
+```
+These are automatically loaded for you when you load the `foss/2021b` module.  When a toolchain is a superset of other toolchains, it allows software packages built with the former to have dependencies on software packages built with the latter.
 
 **When using Easybuild, do NOT use the CCR login nodes.**  Always use a [compile node](../software/building.md) or do this from a compute node in an [OnDemand desktop](../portals/ood.md#desktop-interactive-apps) session or [interactive job](../hpc/jobs.md#interactive-job-submission).  These installations can use a decent amount of disk space so we recommend you use your project directory for all software installations.  We do not recommend using your home directory as these have small quotas.  If you haven't already done so, create an `easybuild` directory in your group's project directory and set the [Easybuild build prefix](../software/building.md#building-modules-for-your-group) to that directory.  Reminder: this is just an example; you'll need to set the path name to your group's shared project directory, which may not be in `/projects/academic`      
 
@@ -34,11 +104,11 @@ $ ssh compile
 $ mkdir /projects/academic/groupname/easybuild   
 $ export CCR_BUILD_PREFIX=/projects/academic/groupname/easybuild  
 ```
-!!! Tip "Set Easybuild install path"  
+!!! Tip "Set Easybuild install path EVERY TIME"  
     The `CCR_BUILD_PREFIX` needs to be set each time you install software.  You're telling Easybuild where to put this particular installation.  [More details](../software/building.md#building-modules-for-your-group)   
 
 
-## Example Easybuild Installation  
+# Example Easybuild Installation  
 
 For this example, we're going to step through the process of building a software package called `aria2`  
 
