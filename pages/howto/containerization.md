@@ -153,7 +153,7 @@ MPI-enabled Apptainer containers can be deployed on CCR's systems with the cavea
 Here we provide an example of using a gcc compiler with OpenMPI. CCR's system uses an Infiniband interconnect. In order to use a Singularity container with OpenMPI (or any MPI) on the cluster, OpenMPI needs to be installed both inside and outside of the container. More specifically, the _same_ version of OpenMPI needs to be installed inside and outside (at least very similar, you can sometimes get away with two different minor versions, e.g. 2.1 and 2.0). 
 
 
-Once you’ve built the container with one of the methods outlined above, you can place it in your home directory and run it on a compute node. The following is an example of running a gcc/OpenMPI container with Apptainer. The syntax is a normal MPI run where multiple instances of a Singularity image are run. The following example runs `mpi_hello_world` with MPI from a container.
+Once you’ve built the container with one of the methods outlined above, you can place it in your home or project directory and run it on a compute node. The following is an example of running a gcc/OpenMPI container with Apptainer. The syntax is a normal MPI run where multiple instances of a Singularity image are run. The following example runs `mpi_hello_world` with MPI from a container.
 
 ```
 module load gcc/11.2.0
