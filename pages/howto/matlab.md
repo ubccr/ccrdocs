@@ -80,7 +80,7 @@ The Slurm script (`job.slurm.sp`) below can be used for this case:
 #SBATCH --mem-per-cpu=4G         		# memory per cpu-core (4G per cpu-core is default)
 #SBATCH --time=00:01:00          		# total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all          		# send email on job start, end and fault
-#SBATCH --mail-user=<username>@buffalo.edu 	# valid email for Slurm to send notifications
+#SBATCH --mail-user=<testuser>@buffalo.edu 	# valid email for Slurm to send notifications
 
 module purge
 module load matlab/2023b
@@ -120,7 +120,7 @@ Most of the time, running MATLAB in single-threaded mode (as described above) wi
 For Multi-node jobs you will need to use the [MATLAB Parallel Server](#running-multi-node-jobs-using-matlab-parallel-server), you should always use #SBATCH --nodes=1 for Multi-threaded and Serial calculations.
 
 
-Here is an [example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html) from MathWorks of using multiple cores (for_loop.m):
+Here is an [example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html) from MathWorks of using multiple cores (`for_loop.m`):
 
 ```
 $ cat for_loop.m 
@@ -151,7 +151,7 @@ $ cat job.slurm.mp
 #SBATCH --mem-per-cpu=4G                        # memory per cpu-core (4G per cpu-core is default)
 #SBATCH --time=00:01:00                         # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all                         # send email on job start, end and fault
-#SBATCH --mail-user=<username>@buffalo.edu      # valid email for Slurm to send notifications
+#SBATCH --mail-user=<testuser>@buffalo.edu      # valid email for Slurm to send notifications
 
 module load matlab/2023b
 
@@ -200,6 +200,8 @@ poolobj = parpool('local', 24);
 
 MATLAB Parallel Server lets you scale MATLAB programs to use multiple nodes in clusters. MATLAB Parallel Server supports batch jobs, interactive parallel computations, and distributed computations with large matrices. MATLAB Parallel Server runs your programs by submitting jobs to CCR's Slurm scheduler. 
 
+
+### Configuring Slurm Integration on CCR MATLAB (Command Line)
 
 In order to use MATLAB Parallel Server you need to create a Cluster Profile, the easiest way to do this is to log onto the CCR login nodes start MATLAB and then run configCluster: 
 
@@ -260,7 +262,7 @@ ans =
 ```
 - Change user Email Address
 ```
->> c.AdditionalProperties.EmailAddress = 'yourusername@buffalo.edu';
+>> c.AdditionalProperties.EmailAddress = 'testuser@buffalo.edu';
 ```
 - Save the changes
 ```
@@ -269,9 +271,11 @@ ans =
 
 This should be enough to submit a test job to CCR's HPC Clusters from MATLAB. You can create multiple Cluster Profiles with different settings so you don't have to always modify the default.
 
+### Submitting a test Job from MATLAB to CCR Clusters
+
 Here is an example parallel MATLAB job that is submitted to CCR's HPC Clusters:
 
-Let’s use the following example for a parallel job, which is saved as parallel_example.m
+Let’s use the following example for a parallel job, which is saved as (`parallel_example.m`)
 
 ```
 $ cat parallel_example.m 
@@ -307,7 +311,7 @@ From MATLAB:
 
 additionalSubmitArgs =
 
-    '--ntasks=5 --cpus-per-task=1 --ntasks-per-core=1 --mem-per-cpu=8gb --qos=general-compute --clusters ub-hpc -p general-compute --mail-type=ALL --mail-user=yourusername@buffalo.edu'
+    '--ntasks=5 --cpus-per-task=1 --ntasks-per-core=1 --mem-per-cpu=8gb --qos=general-compute --clusters ub-hpc -p general-compute --mail-type=ALL --mail-user=testuser@buffalo.edu'
 ```
 
 You can check the Slurm job state from within MATLAB:
@@ -343,7 +347,115 @@ ans =
 The job ran in 8.485 seconds using four workers.  **Note** that these jobs will always request N+1 CPU cores, since one worker is required to manage the batch job and pool of workers. 
 For example, a job that needs eight workers will request nine CPU cores.
 
-More information on MATLAB Parallel Computing can be found here: [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/help/parallel-computing/)
+### Configuring Slurm Integration on CCR MATLAB (GUI)
 
+Configuring the Slurm integration using the MATLAB GUI is pretty straight forward. 
+
+- Start up MATLAB through an Ondemand Session as described [here](#running-matlab-gui-though-openondemand)
+
+- From the MATLAB Session Click on `Parallel` -> `Discover Clusters`
+
+- Leave the check box in the `On your Network` and click `Next`
+
+- Highlight the default `ub-hpc` clister and click `Finish`
+
+![](../images/matlab2.png)
+
+You now have a default Cluster Profile that should work out of the box, but you will want to change some of the default settings such as user email settings.
+
+To make changes to the default Cluster Profile:
+
+
+- From the MATLAB Session Click on `Parallel` -> `Create and Manage Clusters`
+
+- Click on the ub-hpc Cluster Profile and Click `Edit`
+
+- Make your changes and click `Done`
+
+
+### Configuring Remote Slurm Integration (GUI)
+
+It is possible to configure your local MATLAB to submit jobs to CCR from your Desktop or Workstation. The setup is very similar to Configuring Slurm Integration on CCR MATLAB once you have the correct integration scripts.
+
+
+NOTE: This proceedure assumes that you have MATLAB R2023b (Currently the only supported Version at CCR) installed on your local machine.
+
+!!! Warning "SSH Key Credentials"
+    Submission to the cluster requires SSH credentials.  You will be prompted for username and password or identity file (private key).  The username and location of the private key will be stored in MATLAB for future sessions.
+
+
+You will need do download the MATLAB CCR Slurm integration script and place them on your local machine in the MATLAB
+
+Download the [CCR Matlab Integration Scripts](https://g-ac407a.8c185.08cc.data.globus.org/R2023b/University-at-Buffalo.zip) and start MATLAB.  The ZIP file should be unzipped in the location returned by calling…
+
+```
+>> userpath
+
+ans =
+
+    '/home/testuser/Documents/MATLAB'
+
+>> 
+
+```
+
+
+Configure MATLAB to run parallel jobs on the cluster by using the configCluster This only needs to be run  once per version of MATLAB.
+
+
+```
+>> configCluster
+Username on UB-HPC (e.g. jdoe): >>testuser
+Complete.  Default cluster profile set to "ub-hpc R2023b".
+>> 
+
+```
+You will need to configure your user infomation into the Profile including the location to your public SSH key:
+
+```
+>> c = parcluster;
+>> c.AdditionalProperties.EmailAddress = 'testuser@buffalo.edu'
+>> c.AdditionalProperties.IdentityFile = '/home/testuser/.ssh/private.key'
+```
+
+**NOTE:** We recommend setting the RemoteJobStorageLocation to your project space rather than your home directory.
+
+```
+c.AdditionalProperties.RemoteJobStorageLocation = '/projects/testusergroup/testuser/Software/MATLAB/Jobs'
+```
+
+Save the changes to the profile:
+
+```
+>> c.saveProfile
+```
+
+Submit a Parallel Test Job:
+
+```
+>> job = c.batch(@parallel_example, 1, {16}, 'Pool',4,'AutoAddClientPath',false,'CurrentFolder','.');
+
+additionalSubmitArgs =
+
+    '--ntasks=5 --cpus-per-task=1 --ntasks-per-core=1 --mem-per-cpu=8gb --qos=general-compute --clusters ub-hpc -p general-compute --mail-type=ALL --mail-user=testuser@buffalo.edu'
+
+>> job.State                                                                                         
+
+ans =
+
+    'finished'
+
+>> job.fetchOutputs{:}                                                                               
+
+ans =
+
+    8.6260
+
+>> 
+```
+
+
+
+More information on MATLAB Parallel Computing can be found here: [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/help/parallel-computing/)
 
 
