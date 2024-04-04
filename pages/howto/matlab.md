@@ -123,7 +123,6 @@ For Multi-node jobs you will need to use the [MATLAB Parallel Server](#running-m
 Here is an [example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html) from MathWorks of using multiple cores (`for_loop.m`):
 
 ```
-$ cat for_loop.m 
 poolobj = parpool;
 fprintf('Number of workers: %g\n', poolobj.NumWorkers);
 
@@ -140,7 +139,6 @@ toc
 The Slurm script (`job.slurm.mp`) below can be used for this case:
 
 ```
-$ cat job.slurm.mp 
 #!/bin/bash
 #SBATCH --job-name=matlab-mp                    # create a short name for your job
 #SBATCH --qos=general-compute                   # qos job will run under 
@@ -194,7 +192,49 @@ poolobj = parpool('local', 24);
     If you use more than one thread then make sure that your code can take advantage of all the CPU-cores. The amount of time that a job waits in the queue is proportional to the requested resources. Furthermore, your fairshare value is decreased in proportion to the requested resources. So if you are requesting the resources for a Parallel execution and your code is not designed to take advantage of it then you are wasting CPU cycles that other users can utilize as well as unnecessarily inflating your fairshare score and lowering your job priority.
 
 
+### Running MATLAB on GPUs
 
+MATLAB has support for running on GPUs, if you have a routine that requires the use of or can take advantage of a GPU here is an example of how to get access to a GPU.
+
+
+Below is a MATLAB script (`svd_matlab.m`) that performs a matrix decomposition using a GPU:
+
+```
+gpu = gpuDevice();
+fprintf('Using a %s GPU.\n', gpu.Name);
+disp(gpuDevice);
+
+X = gpuArray([1 0 2; -1 5 0; 0 3 -9]);
+whos X;
+[U,S,V] = svd(X)
+fprintf('trace(S): %f\n', trace(S))
+quit;
+```
+
+With the corresponding slurm script (`gpu.slurm`)
+
+```
+#!/bin/bash
+#SBATCH --job-name=matlab-gpu           # create a short name for your job
+#SBATCH --qos=general-compute           # qos job will run under 
+#SBATCH --partition=general-compute     # partition to run on 
+#SBATCH --nodes=1                       # node count
+#SBATCH --ntasks=1                      # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1               # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --mem-per-cpu=4G                # memory per cpu-core (4G per cpu-core is default)
+#SBATCH --gres=gpu:1             	# number of gpus per node
+#SBATCH --time=00:01:00                 # total run time limit (HH:MM:SS)
+#SBATCH --mail-type=all                 # send email on job start, end and fault
+#SBATCH --mail-user=testuser@buffalo.edu  # valid email for Slurm to send notifications
+
+module purge
+module load matlab/2023b
+
+matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
+```
+
+In the above Slurm script, notice the new line: **#SBATCH --gres=gpu:1**
+This tells slurm to request a node with at least 1 GPU. See [here](../hpc/jobs.md/#slurm-directives-partitions-qos) for additional GPU directives. Requesting a specific GPU type for example.
 
 ## Running Multi node jobs Using Matlab Parallel Server
 
@@ -278,7 +318,6 @@ Here is an example parallel MATLAB job that is submitted to CCR's HPC Clusters:
 Let’s use the following example for a parallel job, which is saved as (`parallel_example.m`)
 
 ```
-$ cat parallel_example.m 
 function [sim_t, A] = parallel_example(iter)
  
 if nargin==0
@@ -453,8 +492,6 @@ ans =
 
 >> 
 ```
-
-
 
 More information on MATLAB Parallel Computing can be found here: [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/help/parallel-computing/)
 
