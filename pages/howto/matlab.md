@@ -457,7 +457,7 @@ You will need to configure your user infomation into the Profile including the l
 >> c.AdditionalProperties.IdentityFile = '/home/testuser/.ssh/private.key'
 ```
 
-**NOTE:** We recommend setting the RemoteJobStorageLocation to your project space rather than your home directory.
+**NOTE:** We recommend setting the RemoteJobStorageLocation to your group's project directory, if you have one, rather than your home directory to prevent going over quota in your home directory.  
 
 ```
 c.AdditionalProperties.RemoteJobStorageLocation = '/projects/testusergroup/testuser/Software/MATLAB/Jobs'
