@@ -12,6 +12,22 @@ These methods include:
 
 This guide does not give information on using MATLAB itself; it is assumed that the audience is already familiar with using it. If you are looking for specific MATLAB related info their documentation is located [here](https://www.mathworks.com/help/matlab/).
 
+## Versions of MATLAB available at CCR
+
+Software is updated regularly at CCR so users need to know how to search the existing software repositories to find the available versions of software they're interested in running. In the MATLAB OnDemand app, the form provides a drop down menu listing the available versions of MATLAB. For those using the command line, you can search using the module spider command. First, specify a [software release](https://github.com/ubccr/ccrdocs/software/releases) version and then search for MATLAB:
+
+```
+module load ccrsoft/2023.01
+module spider matlab
+
+matlab:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     Versions:
+        matlab/2021b
+        matlab/2023b
+```
+
+
 ## Running MATLAB GUI though OpenOndemand 
 
 The easiest way to use MATLAB on the HPC clusters is through the [CCR OnDemand Portal](../portals/ood.md). This method provides a more interactive use of MATLAB but requires a hands on approach. If you are looking for something more automated and scripted [see below](#running-matlab-batch-jobs-on-the-clusters-through-slurm)
@@ -449,7 +465,7 @@ Complete.  Default cluster profile set to "ub-hpc R2023b".
 >> 
 
 ```
-You will need to configure your user infomation into the Profile including the location to your public SSH key:
+You will need to configure your user infomation into the Profile including the location to your private SSH key:
 
 ```
 >> c = parcluster;
