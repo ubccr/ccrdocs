@@ -2,7 +2,7 @@
 
 UB has a sitewide academic license for MATLAB along with all the toolboxes and CCR provides a few versions of MATLAB on our HPC clusters.
  
-There are a few different methods for running MATLAB on CCR HPC Systems and the method you chose depends on the type of MATLAB calculatons you with to run. This guide will focus on the main methods in which users would run MATLAB at CCR.
+There are a few different methods for running MATLAB on CCR HPC clusters and the method you choose depends on the type of MATLAB calculations you wish to run. This guide will focus on the main methods in which users should run MATLAB at CCR.
 These Methods include:
 
 - Running MATLAB GUI though OpenOndemand
