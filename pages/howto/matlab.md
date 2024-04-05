@@ -14,7 +14,7 @@ This guide does not give information on using MATLAB itself; it is assumed that 
 
 ## Running MATLAB GUI though OpenOndemand 
 
-The easiest way to use MATLAB on the HPC clusters is through the [CCR Ondemand Web Interface](../portals/ood.md). This method provided a more interactive use of MATLAB but requires a hands on approach. If you are looking for something more automated and scripted see below [Running MATLAB batch jobs on the Clusters through Slurm](#running-matlab-batch-jobs-on-the-clusters-through-slurm)
+The easiest way to use MATLAB on the HPC clusters is through the [CCR OnDemand Portal](../portals/ood.md). This method provides a more interactive use of MATLAB but requires a hands on approach. If you are looking for something more automated and scripted [see below](#running-matlab-batch-jobs-on-the-clusters-through-slurm)
 
 To begin a session, click on "Interactive Apps" and then "MATLAB GUI". By default, MATLAB sessions are allocated 1 CPU, 2.8GB of RAM and 24 hours wall time (run time). You can override the defaults, however unless you are sure that your script has been explicitly parallelized using, for example, the Parallel Computing Toolbox (see below) leave the "Number of cores" set to 1 . Click "Launch" and then when your session is ready click "Launch MATLAB GUI". Note that the more resources you request, the more you will have to wait for your session to become available.
 
