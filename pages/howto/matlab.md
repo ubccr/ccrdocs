@@ -10,7 +10,7 @@ These methods include:
 - Running MATLAB interactively on the command line
 - Using MATLAB Parallel Compute Server to submit jobs from within Matlab
 
-This guide does not give information on using MATLAB itself, it is assumed that the audience is already familiar with using it. If you are looking for specific MATLAB related info their documentation is located [here](https://www.mathworks.com/help/matlab/).
+This guide does not give information on using MATLAB itself; it is assumed that the audience is already familiar with using it. If you are looking for specific MATLAB related info their documentation is located [here](https://www.mathworks.com/help/matlab/).
 
 ## Running MATLAB GUI though OpenOndemand 
 
