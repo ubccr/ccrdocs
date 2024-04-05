@@ -423,7 +423,7 @@ NOTE: This proceedure assumes that you have MATLAB R2023b (Currently the only su
     Submission to the cluster requires SSH credentials.  You will be prompted for username and password or identity file (private key).  The username and location of the private key will be stored in MATLAB for future sessions.
 
 
-You will need do download the MATLAB CCR Slurm integration script and place them on your local machine in the MATLAB
+You will need to download the MATLAB CCR Slurm integration script and place them on your local machine in the MATLAB
 
 Download the [CCR Matlab Integration Scripts](https://g-ac407a.8c185.08cc.data.globus.org/R2023b/University-at-Buffalo.zip) and start MATLAB.  The ZIP file should be unzipped in the location returned by calling…
 
