@@ -439,7 +439,7 @@ ans =
 ```
 
 
-Configure MATLAB to run parallel jobs on the cluster by using the configCluster This only needs to be run  once per version of MATLAB.
+Configure your local MATLAB to run parallel jobs on the cluster by using the `configCluster` cluster command.  This only needs to be run once per version of MATLAB.
 
 
 ```
