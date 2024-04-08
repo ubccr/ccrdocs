@@ -5,7 +5,7 @@ UB has a sitewide academic license for MATLAB along with all the toolboxes and C
 There are a few different methods for running MATLAB on CCR HPC clusters and the method you choose depends on the type of MATLAB calculations you wish to run. This guide will focus on the main methods in which users should run MATLAB at CCR.
 These methods include:
 
-- Running MATLAB GUI though OpenOndemand
+- Running MATLAB GUI through Open OnDemand
 - Running MATLAB batch jobs on the Clusters through Slurm
 - Running MATLAB interactively on the command line
 - Using MATLAB Parallel Compute Server to submit jobs from within Matlab
