@@ -1,4 +1,4 @@
-# MATLAB on the HPC Clusters
+# MATLAB on the CCR Clusters
 
 UB has a sitewide academic license for MATLAB along with all the toolboxes and CCR provides a few versions of MATLAB on our HPC clusters.
  
@@ -35,15 +35,15 @@ The easiest way to use MATLAB on the HPC clusters is through the [CCR OnDemand P
 To begin a session, click on the "Interactive Apps" menu and then on the "Matlab GUI" menu option.  Select from the form's drop down menus the cluster you'd like to submit this job to, the partition & associated QOS, and your Slurm account.  By default, MATLAB sessions are allocated 1 CPU, 2.8GB of RAM and 24 hours wall time (run time). You can override the defaults by changing the form values; however, unless you are sure that your script has been explicitly parallelized using, for example, the [Parallel Computing Toolbox](#running-a-multi-threaded-matlab-job-with-the-parallel-computing-toolbox), leave the "Number of cores" set to 1.  To choose a specific version of MATLAB to run, select from the "MATLAB version" drop down menu.  Once the form is filled out, click the "Launch" button.  When your session starts, click the "Launch Matlab GUI" button. NOTE: the more resources you request, the longer you may have to wait for your session to be scheduled on a compute node.
 
 
-![](../images/matlab1.png)
 
 ## Running MATLAB interactively on the command line
 
 You can run MATLAB interactively from the command line either by submitting an [interactive job](../hpc/jobs.md/#interactive-job-submission) through Slurm and logging in to the allocated compute node or
-if you need to use MATLAB to edit and test your script you can run it on one of the CCR login node. **NOTE:** The login nodes are a shared resource and have resource limits in place so once you hit one if the limits your session will be terminiated. This use case is only for quick testing or verification that requires very little resources and time.
+if you need to use MATLAB to edit and test your script you can run it on one of the CCR login nodes.  
+ **NOTE:** The login nodes are a shared resource and have resource limits in place so once you hit one of the limits, your session will be terminated. This use case is only for quick testing or verification that requires very little resources and time.
 
 !!! Warning "X11 Forwarding"
-    CCR does not allow X Windows forwarding on our Compute nodes or Login nodes so the Graphical MATLAB is not available with these methods.
+    CCR does not allow X Windows forwarding on our Compute nodes or Login nodes so the graphical MATLAB is not available with these methods.  You must use OnDemand to access the MATLAB GUI.  
 
 ### Running MATLAB using an interacive job
 
