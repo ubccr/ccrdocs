@@ -45,9 +45,9 @@ if you need to use MATLAB to edit and test your script you can run it on one of 
 !!! Warning "X11 Forwarding"
     CCR does not allow X Windows forwarding on our Compute nodes or Login nodes so the graphical MATLAB is not available with these methods.  You must use OnDemand to access the MATLAB GUI.  
 
-### Running MATLAB using an interacive job
+### Running MATLAB using an interactive job
 
-Here is an example of how to submit an interactive job to run MATLAB from the command line
+Here is an example of how to submit an interactive job to run MATLAB from the command line.  NOTE:  this example uses the `general-compute` partition of the `ub-hpc` cluster.  Please refer to our [Slurm documentation](../hpc/jobs.md) for more options.  
 ```
 $ salloc --qos=general-compute --partition=general-compute --job-name "Interactive_Matlab" --cpus-per-task=1 --ntasks=1 --time=01:00:00
 salloc: Pending job allocation 15395595
@@ -82,11 +82,11 @@ A serial MATLAB job is one that requires only a single CPU-core. Here is an exam
 cat hello_world.m
 fprintf('Hello world.\n')
 ```
-
-The Slurm script (`job.slurm.sp`) below can be used for this case:
+NOTE:  When you're done, make sure to quit MATLAB and then type `exit` to log out of the compute node and properly release the resources for other users.  
+This is an example Slurm script (`matlab-sp.sh`) that can be modified to run a serial MATLAB job.  NOTE:  this example uses the `general-compute` partition of the `ub-hpc` cluster.  Please refer to our [Slurm documentation](../hpc/jobs.md) for more options.  
 
 ```
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --job-name=matlab        		# create a short name for your job
 #SBATCH --qos=general-compute			# qos job will run under 
 #SBATCH --partition=general-compute		# partition to run on 
@@ -98,20 +98,19 @@ The Slurm script (`job.slurm.sp`) below can be used for this case:
 #SBATCH --mail-type=all          		# send email on job start, end and fault
 #SBATCH --mail-user=<testuser>@buffalo.edu 	# valid email for Slurm to send notifications
 
-module purge
 module load matlab/2023b
 
 matlab -singleCompThread -nodisplay -nosplash -r hello_world
 ```
 
-By invoking MATLAB with **-singleCompThread -nodisplay -nosplash**, the GUI is suppressed as is the creation of multiple threads. To run the MATLAB script, simply submit the job to the scheduler with the following command:
+By invoking MATLAB with **-singleCompThread -nodisplay -nosplash**, the GUI is suppressed as is the creation of multiple threads. To run the MATLAB script, simply submit the job to the scheduler from a login node with the following command:
 
 ```
-$ sbatch job.slurm.sp
+$ sbatch matlab-sp.sh
 Submitted batch job 15390684
 ```
 
-After the job completes, view the output with ```cat slurm-<jobid>.out:```
+After the job completes, you can find the job's output in a file named with the job ID - for example:  `slurm-<jobid>.out`
 
 ```
 $ cat slurm-15390684.out
@@ -133,7 +132,7 @@ Hello world.
 
 Most of the time, running MATLAB in single-threaded mode (as described above) will meet your needs. However, if your code makes use of the Parallel Computing Toolbox (e.g., parfor) or you have intense computations that can benefit from the built-in multi-threading provided by MATLAB's BLAS implementation, then you can run in multi-threaded mode. One can use up to all the CPU-cores on a single node in this mode. 
 
-For Multi-node jobs you will need to use the [MATLAB Parallel Server](#running-multi-node-jobs-using-matlab-parallel-server), you should always use #SBATCH --nodes=1 for Multi-threaded and Serial calculations.
+For multi-node jobs you will need to use the [MATLAB Parallel Server](#running-multi-node-jobs-using-matlab-parallel-server).  You should always use `#SBATCH --nodes=1` for multi-threaded and serial calculations.
 
 
 Here is an [example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html) from MathWorks of using multiple cores (`for_loop.m`):
@@ -152,10 +151,10 @@ end
 toc
 ```
 
-The Slurm script (`job.slurm.mp`) below can be used for this case:
+This is an example Slurm script (`matlab-mp.sh`) that can be modified to run a single node, multi-threaded MATLAB job.  NOTE:  this example uses the `general-compute` partition of the `ub-hpc` cluster.  Please refer to our [Slurm documentation](../hpc/jobs.md) for more options.
 
 ```
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --job-name=matlab-mp                    # create a short name for your job
 #SBATCH --qos=general-compute                   # qos job will run under 
 #SBATCH --partition=general-compute             # partition to run on 
@@ -173,7 +172,7 @@ matlab -nodisplay -nosplash -r for_loop
 ```
 
 ```
-$ sbatch job.slurm.mp 
+$ sbatch matlab-mp.sh
 Submitted batch job 15391013
 ```
 
@@ -196,7 +195,7 @@ Elapsed time is 31.030224 seconds.
 Parallel pool using the 'Processes' profile is shutting down.
 ```
 
-Note that **-singleCompThread** does not appear in the Slurm script in contrast to the serial case. One must tune the value of **--cpus-per-task** for optimum performance. Use the smallest value that gives you a significant performance boost because the more resources you request the longer your queue time will be.
+Note that **-singleCompThread** does not appear in the Slurm script in contrast to the serial case. One must tune the value of **--cpus-per-task** for optimum performance. Use the smallest value that gives you a significant performance boost because the more resources you request the longer your queue time may be.
 
 By default MATLAB will restrict you to 12 worker threads. You can override this when making the parallel pool with the following line, for example, with 24 threads:
 
@@ -205,12 +204,12 @@ poolobj = parpool('local', 24);
 ```
 
 !!! Note
-    If you use more than one thread then make sure that your code can take advantage of all the CPU-cores. The amount of time that a job waits in the queue is proportional to the requested resources. Furthermore, your fairshare value is decreased in proportion to the requested resources. So if you are requesting the resources for a Parallel execution and your code is not designed to take advantage of it then you are wasting CPU cycles that other users can utilize as well as unnecessarily inflating your fairshare score and lowering your job priority.
+    If you use more than one thread then make sure that your code can take advantage of all the CPU-cores. The amount of time that a job waits in the queue is proportional to the requested resources. Furthermore, your fairshare value is decreased in proportion to the requested resources. So if you are requesting the resources for a parallel execution and your code is not designed to take advantage of it, then you are wasting CPU cycles that other users can utilize as well as unnecessarily inflating your fairshare score and lowering your job priority.
 
 
-### Running MATLAB on GPUs
+## Running MATLAB on GPUs
 
-MATLAB has support for running on GPUs, if you have a routine that requires the use of or can take advantage of a GPU here is an example of how to get access to a GPU.
+MATLAB has support for running on GPUs. If you have a routine that requires the use of or can take advantage of a GPU, here is an example of how to get access to a GPU.
 
 
 Below is a MATLAB script (`svd_matlab.m`) that performs a matrix decomposition using a GPU:
@@ -227,10 +226,10 @@ fprintf('trace(S): %f\n', trace(S))
 quit;
 ```
 
-With the corresponding slurm script (`gpu.slurm`)
+With the corresponding slurm script (`matlab-gpu.sh`)
 
 ```
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --job-name=matlab-gpu           # create a short name for your job
 #SBATCH --qos=general-compute           # qos job will run under 
 #SBATCH --partition=general-compute     # partition to run on 
@@ -238,28 +237,29 @@ With the corresponding slurm script (`gpu.slurm`)
 #SBATCH --ntasks=1                      # total number of tasks across all nodes
 #SBATCH --cpus-per-task=1               # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem-per-cpu=4G                # memory per cpu-core (4G per cpu-core is default)
-#SBATCH --gres=gpu:1             	# number of gpus per node
+#SBATCH --gpus-per-node=1             	# number of gpus per node
 #SBATCH --time=00:01:00                 # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all                 # send email on job start, end and fault
 #SBATCH --mail-user=testuser@buffalo.edu  # valid email for Slurm to send notifications
 
-module purge
 module load matlab/2023b
 
 matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
 ```
 
-In the above Slurm script, notice the new line: **#SBATCH --gres=gpu:1**
-This tells slurm to request a node with at least 1 GPU. See [here](../hpc/jobs.md/#slurm-directives-partitions-qos) for additional GPU directives. Requesting a specific GPU type for example.
+In the above Slurm script, notice the new line: **#SBATCH --gpus-per-node=1**
+This tells slurm to request a node with 1 GPU. See [here](../hpc/jobs/#slurm-directives-partitions-qos) for additional Slurm directives, including how to request a specific GPU type.
 
-## Running Multi node jobs Using Matlab Parallel Server
+For interactive MATLAB jobs as described [above](#unning-matlab-interactively-on-the-command-line), a GPU can be requested the same way.  For example, add this to your `salloc` command to request 1 GPU:  `--gpus-per-node=1`
+
+## Running Multi-node jobs using MATLAB Parallel Server
 
 MATLAB Parallel Server lets you scale MATLAB programs to use multiple nodes in clusters. MATLAB Parallel Server supports batch jobs, interactive parallel computations, and distributed computations with large matrices. MATLAB Parallel Server runs your programs by submitting jobs to CCR's Slurm scheduler. 
 
 
 ### Configuring Slurm Integration on CCR MATLAB (Command Line)
 
-In order to use MATLAB Parallel Server you need to create a Cluster Profile, the easiest way to do this is to log onto the CCR login nodes start MATLAB and then run configCluster: 
+In order to use MATLAB Parallel Server you need to create a Cluster Profile.  The easiest way to do this is to log onto the CCR login nodes, start MATLAB and then run the MATLAB `configCluster` command: 
 
 ```
 $ module load matlab/2023b
@@ -280,7 +280,7 @@ Complete.  Default cluster profile set to "ub-hpc".
 >> 
 ```
 
-This loads the default Slurm Values to create an initial Cluster profile called ub-hpc.
+This loads the default Slurm values to create an initial Cluster Profile called `ub-hpc`.
 
 Once you have the default profile, you will want to customize the configuration with specfic user values such as user email for example.
 
@@ -406,13 +406,13 @@ For example, a job that needs eight workers will request nine CPU cores.
 
 Configuring the Slurm integration using the MATLAB GUI is pretty straight forward. 
 
-- Start up MATLAB through an Ondemand Session as described [here](#running-matlab-gui-though-openondemand)
+- Start up MATLAB through an OnDemand session as described [here](#running-matlab-gui-though-openondemand)
 
 - From the MATLAB Session Click on `Parallel` -> `Discover Clusters`
 
 - Leave the check box in the `On your Network` and click `Next`
 
-- Highlight the default `ub-hpc` clister and click `Finish`
+- Highlight the default `ub-hpc` cluster and click `Finish`
 
 ![](../images/matlab2.png)
 
@@ -430,10 +430,10 @@ To make changes to the default Cluster Profile:
 
 ### Configuring Remote Slurm Integration (GUI)
 
-It is possible to configure your local MATLAB to submit jobs to CCR from your Desktop or Workstation. The setup is very similar to Configuring Slurm Integration on CCR MATLAB once you have the correct integration scripts.
+It is possible to configure your local MATLAB to submit jobs to CCR from your desktop or workstation. The setup is very similar to [Configuring Slurm Integration on CCR MATLAB](#configuring-slurm-integration-on-ccr-matlab-command-line) once you have the correct integration scripts.
 
 
-NOTE: This proceedure assumes that you have MATLAB R2023b (Currently the only supported Version at CCR) installed on your local machine.
+NOTE: This procedure assumes that you have MATLAB R2023b (Currently the only supported version at CCR) installed on your local machine.
 
 !!! Warning "SSH Key Credentials"
     Submission to the cluster requires SSH credentials.  You will be prompted for username and password or identity file (private key).  The username and location of the private key will be stored in MATLAB for future sessions.
