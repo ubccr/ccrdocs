@@ -469,3 +469,6 @@ Sometimes a software package requires certain unix file permissions in order to 
 ```  
 you will need to use a flag during the Easybuild installation to ensure the file permissions are set correctly.  In this example, we would use:  
 `eb recipe_name.eb --umask=007`  
+
+### Easybuild installation hangs  
+Sometimes an Easybuild installation will hang with no obvious errors or the installation logs are not updated with useful information.  Easybuild is configured to run in parallel so there are times when the installation can step on itself or log files are not updated because another process has it locked.  This is rare but if you come across this, one thing you can try is to force the Easybuild installation to run in serial.  Add this option to your EB installation command:  `--parallel=1`  
