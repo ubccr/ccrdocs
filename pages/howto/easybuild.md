@@ -1,8 +1,10 @@
 ==This document is a work in progress.  The example shown is a simple one and uses the `ccrsoft/2023.01` software release.  It does not address all the possible issues you might run into compiling and installing software.==
 
+# Easybuild  
+
 CCR staff utilize the Easybuild framework when installing software and this tool is made available to CCR users to install software themselves.  Easybuild ensures that the compilation and linking that happens during a software installation is done correctly and will work with our systems.  CCR staff do not offer courses on using Easybuild, nor are we able to troubleshoot issues you might run into.  However, there is excellent [documentation](https://docs.easybuild.io/) and [tutorials](https://tutorial.easybuild.io/) provided by Easybuild developers.  We provide this document to provide a bit of context to the Easybuild documentation and provide an example of using Easybuild to install a software package.   
 
-# Easybuild and Modules  
+## Easybuild and Modules  
 
 One of the key features of EasyBuild is that it automatically generates environment modules which can be used to make a software package available in your session. In addition to defining standard Linux environment variables such as `PATH`, `CPATH` and `LIBRARY_PATH`, EasyBuild also defines some environment variables specific to EasyBuild, two of which may be particularly interesting to users:  
 
@@ -25,7 +27,7 @@ ccruser@vortex ~:$ cd $EBROOTJAVA
 ccruser@vortex:/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/java/11.0.16$  
 ```
 
-# Using Easybuild in your own account  
+## Using Easybuild in your own account  
 
 EasyBuild can be used to install software packages in your own account. However, in most cases, it is preferable to ask our technical support to install the software centrally for you. This will ensure that the software package is available on all of our clusters for all users. It will also avoid using up all your quota.  It is often difficult for us to troubleshoot problems when someone else is trying to install software, making it hard to provide support to you.  
 
@@ -43,7 +45,7 @@ EasyBuild can be used to install software packages in your own account. However,
 
     When in doubt, please ask [CCR Help](../help.md) for advice.
 
-# What is a recipe
+## What is a recipe
 
 Writing a recipe from scratch will not be discussed here; you can find more about this in the [EasyBuild documentation](https://docs.easybuild.io/). Modifying a recipe for your particular situation is easier, and it is easier still to find a suitable recipe and use it unmodified.  
 
@@ -52,7 +54,7 @@ Recipes, also known as EasyConfig files, are text files containing the informati
 `<name>-<version>-<toolchain name>-<toolchain version>.eb`
 where `<name>` is the name of the package, `<version>` is its version, `<toolchain name>` is the name of the toolchain used and `<toolchain version>` is its version. More on toolchains later.
 
-## Installation recipes and logs  
+### Installation recipes and logs  
 
 EasyBuild keeps a copy of the recipe used to install each software package, as well as a detailed log inside the installation directory. This is accessible in the directory $EBROOT<name>/easybuild. For example, for the `java/11.0.16` module, the installation directory contains, among other things:  
 - `$EBROOTJAVA/easybuild/Java-11.0.16.eb`  
@@ -60,9 +62,9 @@ EasyBuild keeps a copy of the recipe used to install each software package, as w
 
 During your installation, you will see output indicating where the temporary log files for the build are located.  After completion of the install, the path of the full build log is output by Easybuild.  See more [here](#investigating-logs)  
 
-# An Easybuild Example  
+## An Easybuild Example  
 
-## Easybuild Background  
+### Easybuild Background  
 
 At CCR, we provide a set of [supported toolchains](../software/releases.md) and users are able to use Easybuild to install software for themselves without administrative privileges.  We provide instructions to get started [here](../software/building.md).  Some packages install quite easily and the `samtools` example provided in our documentation is one of those packages.  However, what happens if you want to install something that CCR doesn't offer, but you're not finding an exact match for a toolchain provided by CCR or the version of the software you want to run?  It's a bit of trial and error, to be honest.  And this is what CCR staff are doing on a daily basis as we work through the [installation requests](../software/building.md#software-build-requests) in our [GitHub repository](https://github.com/ubccr/software-layer/issues).
 
@@ -85,7 +87,7 @@ Intel compilers:
 
 The EasyBuild config repository contains a lot of recipes which may or may not compile with the toolchains CCR provides.  As a reminder, these are the [toolchains](../software/releases.md) CCR supports.  You must use a recipe for a supported toolchain when installing software using Easybuild.  If you try a recipe for an unsupported toolchain, Easybuild will attempt to install that toolchain for you.  You don't want this as it will take up too much disk space, take very long to build, and is highly likely that installation will fail. 
 
-## What's in a toolchain  
+### What's in a toolchain  
 
 Toolchains are a combination of compiler, MPI implementation, CUDA version, and mathematical libraries, which are used to compile the software package. CCR offers toolchains as modules and you can see what is included in a toolchain by looking at the module.  For example, if you load the `foss/2021b` module you'll see it includes:   
 ```
@@ -108,7 +110,7 @@ $ export CCR_BUILD_PREFIX=/projects/academic/groupname/easybuild
     The `CCR_BUILD_PREFIX` needs to be set each time you install software.  You're telling Easybuild where to put this particular installation.  [More details](../software/building.md#building-modules-for-your-group)   
 
 
-# Example Easybuild Installation  
+### Example Easybuild Installation  
 
 For this example, we're going to step through the process of building a software package called `aria2`  
 
@@ -398,7 +400,7 @@ setenv("EBDEVELARIA2","/projects/academic/groupname/easybuild/2023.01/software/a
 ```
 Congratulations!  You've just built some software!!
 
-## Investigating Logs  
+### Investigating Logs  
 
 Easybuild does a great job logging everything it does.  You just have to spend time reviewing all these logs.  At the start of the installation, Easybuild will give you the location and name of the log for the entire installation.  This is accessible while the installation is running but is removed at completion time.  The log file is zipped up and stored for future reference (see output shown in the example above):
 
@@ -420,7 +422,10 @@ You can tail these log files during the installation to see how it's progressing
 
 ### Failed dep
 **Why am I still seeing `failed to determine minimal toolchain for dep`?**  
-You've checked all the dependencies for your software and you know that they're already installed with the right versions by CCR (or you did this yourself).  Yet, you're still seeing the error `failed to determine minimal toolchain for dep` when trying to install your software.  Make sure that your EB recipe is formatted correctly.  In the list of dependencies, you must match the name of the dependency with the EB recipe configs exactly.  For example, if your recipe has a dependency for `rust/1.54.0` you will see this is already installed by CCR.  However, the name in the EB recipe must be `Rust` not `rust`.  How can you tell how the name should be spelled?  Look at the Easybuild recipe name for the module and use that spelling.  In this example, the EB recipe for rust is: `Rust-1.54.0-GCCcore-11.2.0.eb`  Also, ensure you're not using a module that is an extension to an existing module in your dependency lists.  [See below](#module-extensions)
+You've checked all the dependencies for your software and you know that they're already installed with the right versions by CCR (or you did this yourself).  Yet, you're still seeing the error `failed to determine minimal toolchain for dep` when trying to install your software.  Make sure that your EB recipe is formatted correctly.  In the list of dependencies, you must match the name of the dependency with the EB recipe configs exactly.  For example, if your recipe has a dependency for `rust/1.54.0` you will see this is already installed by CCR.  However, the name in the EB recipe must be `Rust` not `rust`.  How can you tell how the name should be spelled?  Look at the Easybuild recipe name for the module and use that spelling.  In this example, the EB recipe for rust is: `Rust-1.54.0-GCCcore-11.2.0.eb`  Also, ensure you're not using a module that is an extension to an existing module in your dependency lists.  [See below](#module-extensions)  
+
+Another reason you might see this is because Easybuild can't find the dependency you've already built.  If you've had to modify an Easybuild recipe to build a dependency, that recipe needs to be in a location where the Easybuild installation can find it.  By default, Easybuild is looking in CCR's configuration directories where our recipes are stored.  It will not look in your directory.  To fix this, specify your directory in the Easybuild installation command using the `--robot=` option.  In the above example for building aria2, we would use this and Easybuild would find the recipe for cppunit that we previously built in our home directory:  
+`eb aria2-1.36.0-GCCcore-11.2.0.eb --robot=/user/username`  
 
 ### Module extensions
 Sometimes you'll see modules listed in the `module spider` output that have an (E) next to them like: `matlab/1.0.2 (E)` Do NOT use these versions in your Easybuild recipes. The (E) refers to the module being an extension of another module. If we used this in our EB recipe then the software we build will also depend on the "parent" module.  
@@ -452,3 +457,15 @@ This guide was offered as an example and will not transfer over to each and ever
 ### Module Not Listed
 **Why isn't my module showing up?**  
 Your Easybuild installation completes successfully but when you run `module avail` you do not see the software listed.  We have this documented [here](../software/modules.md#hierarchical-modules).  `module spider` should be used to find installed modules across all toolchains.  Unless your software does not depend on a specific toolchain, you must load that toolchain first, before you'll see the module listed using `module avail`  Also, ensure you have the custom module paths setup as described [here](../software/building.md#building-modules-for-your-group).  
+
+**Why isn't a CCR module showing up?**  
+CCR has installed hundreds of software packages and not all of them are intended to be loaded and used frequently by users.  They may be packages required just to install other packages or tools that are needed for using other software.  To attempt to keep the module spider output cleaner, we have chosen to hide some modules.  No fear!  You can still use these modules just as any others.  To find these, you can tell the module spider command to show any hidden modules that also exist using this command:  `module --show-hidden spider software_name`  
+
+### Setting permissions on installed software  
+Sometimes a software package requires certain unix file permissions in order to launch.  This is usually when the software is a licensed product and the vendor wants to ensure only you can access your installation.  If you see something in the documentation for the software you're installing or you attempt to install it with Easybuild and see an error similar to this:  
+```
+# IMPORTANT!!  
+# Needs to be installed with --umask=007  
+```  
+you will need to use a flag during the Easybuild installation to ensure the file permissions are set correctly.  In this example, we would use:  
+`eb recipe_name.eb --umask=007`  
