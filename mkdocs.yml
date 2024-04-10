@@ -76,8 +76,9 @@ nav:
     - Permitted Use & Misuse of CCR: policies/misuse.md
     - Support, Maintenance, & Installation Policies: policies/support.md
   - How To:  
-    - CCR Software Environments: howto/newenv.md  
-    - Easybuild Example: howto/easybuild.md  
+    - CCR Software Environments: howto/newenv.md 
+    - Easybuild Example: howto/easybuild.md   
+    - MATLAB: howto/matlab.md  
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
     - Running Containers: howto/containerization.md   
  
