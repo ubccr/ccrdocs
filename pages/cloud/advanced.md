@@ -49,12 +49,12 @@ $ source ~/openstack-cli/bin/activate
 
 ```bash
 (openstack-client) $ openstack server list
-+--------------------------------------+----------+--------+------------------------------------------------------+--------------------------+--------+
-| ID                                   | Name     | Status | Networks                                             | Image                    | Flavor |
-+--------------------------------------+----------+--------+------------------------------------------------------+--------------------------+--------+
-| 2407495d-ea94-4676-8a18-18cd29cd516d | test-vm2 | ACTIVE | lakeeffect-demo-network=128.205.11.65, 192.168.1.151 | N/A (booted from volume) | c1.m4  |
-| 3e22ef68-556a-4106-a56e-56674591fd8e | test-vm  | ACTIVE | ccr-public=128.205.11.52                             | N/A (booted from volume) | c1.m4  |
-+--------------------------------------+----------+--------+------------------------------------------------------+--------------------------+--------+
++--------------------------------------+----------+--------+------------------------------------------------------+--------------------------+----------------+
+| ID                                   | Name     | Status | Networks                                             | Image                    | Flavor         |
++--------------------------------------+----------+--------+------------------------------------------------------+--------------------------+----------------+
+| 2407495d-ea94-4676-8a18-18cd29cd516d | test-vm2 | ACTIVE | lakeeffect-demo-network=128.205.11.65, 192.168.1.151 | N/A (booted from volume) | std-compute-1  |
+| 3e22ef68-556a-4106-a56e-56674591fd8e | test-vm  | ACTIVE | ccr-public=128.205.11.52                             | N/A (booted from volume) | std-compute-1  |
++--------------------------------------+----------+--------+------------------------------------------------------+--------------------------+----------------+
 ```
 
 The **python-openstackclient** project is a common client that supports most of the various Openstack Projects, however You may need to install an individual project’s client because coverage is not yet sufficient in the OpenStack client. For example, the **python-cinderclient** may be needed if less common cinder commands are needed. This is installed the same way as the python-openstackclient package was installed. For more information on the individual project clients go [here](https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html).
@@ -67,19 +67,18 @@ List Images:
 
 ```
 (openstack-client) $ openstack image list
-+--------------------------------------+------------------------------------------------+--------+
-| ID                                   | Name                                           | Status |
-+--------------------------------------+------------------------------------------------+--------+
-| f70d120e-89d7-4bef-a291-6db70406bd5b | CentOS 8-stream (x86_64) [2022-09-13]          | active |
-| 78aa844e-ab92-43b1-b7e3-9f826b02e6cd | CentOS 9-stream (x86_64) [2022-09-19]          | active |
-| bbc56d42-ec07-469a-b01b-33268c3040cf | Debian 10.13.4 (x86_64) [2022-10-13]           | active |
-| 48d45cc8-4272-4f8f-9a93-b920056b41d0 | Fedora 36 Cloud Base (x86_64) [2022-05-04]     | active |
-| f568aa5f-9b32-4182-ad9a-7afbee9e5c62 | Rocky Linux 8.6 (x86_64) [2022-07-02]          | active |
-| 74c64db6-0a08-4fae-b462-469a0c15ab99 | Rocky Linux 9.0 (x86_64) [2022-08-30]          | active |
-| 63754185-6872-40f1-8990-0bff66406b00 | Ubuntu 18.04 LTS (x86_64) [2022-10-14]         | active |
-| cbaa2d71-7837-4322-9eba-94dfc44c2898 | Ubuntu 20.04 LTS (x86_64) [2022-10-18]         | active |
-| 6b4041af-56df-4786-98ed-d3ede57ca901 | Ubuntu 22.04 LTS (x86_64) [2022-10-18]         | active |
-+--------------------------------------+------------------------------------------------+--------+
++--------------------------------------+---------------------------------------------------------+--------+
+| ID                                   | Name                                                    | Status |
++--------------------------------------+---------------------------------------------------------+--------+
+| 5e7dd171-0bcf-44f1-abdb-ed59aac60075 | CentOS 8-stream release [2024-04-16]                    | active |
+| bea90d3c-5594-44d1-8cab-757519996433 | CentOS 9-stream release [2024-04-16]                    | active |
+| b54ab975-118c-41e0-a193-e53d2acd4543 | Debian 12.5 (Bookworm) release [2024-04-15]             | active |
+| 6c78d3c7-fe38-4396-9e2e-d986db30297a | Fedora 39 Cloud Base release [2023-11-01]               | active |
+| dcd4ed90-09df-4176-86e9-29c856d8c546 | Rocky Linux 8.9 release [2023-11-19]                    | active |
+| 862bffe6-3b25-46c9-abdf-dedb9792bbca | Rocky Linux 9.3 release [2023-11-13]                    | active |
+| 37b8ca2b-3f13-4564-a2bd-2850cf6ee52c | Ubuntu 20.04 LTS (Focal Fossa) release [2024-04-08]     | active |
+| 562aba32-e911-4ef1-8411-fd726d990ac2 | Ubuntu 22.04 LTS (Jammy Jellyfish) release [2024-04-16] | active |
++--------------------------------------+------------------------------------------------+-----------------+
 ```
 
 List Volumes:
@@ -99,13 +98,13 @@ List Volumes:
 Spin up a VM:
 
 ```bash
-(openstack-client) $ openstack server create --flavor c1.m4 --image 'Ubuntu 22.04 LTS (x86_64) [2022-10-18]'  --network ccr-public --key-name sguercio --security-group My_Security-Group My_Test_VM
+(openstack-client) $ openstack server create --flavor std-compute-1 --image 'Ubuntu 22.04 LTS (Jammy Jellyfish) release [2024-04-16]'  --network ccr-public --key-name mykeypair --security-group My_Security-Group My_Test_VM
 ```
 
 Upload an Image to Openstack:
 
 ```bash
-(openstack-client) $ openstack image create --container-format bare --disk-format qcow2 --progress --public --file cirros-0.6.1-x86_64-disk.img 'CirrOS 0.6.1 (x86_64) [2022-11-22]'
+(openstack-client) $ openstack image create --container-format bare --disk-format qcow2 --progress --public --file cirros-0.6.2-x86_64-disk.img 'CirrOS 0.6.2 (x86_64) [2023-05-30]'
 ```
 
 ## Private Networking
@@ -143,7 +142,7 @@ Connect the router to the public network. This is optional if you want to be abl
 Create a new VM on the network to test:
 
 ```bash
-    $ openstack server create --flavor c1.m4 --image 'Ubuntu 22.04 LTS (x86_64) [2022-10-18]' --nic net-id=my-private-net --key-name mykeypair --security-group mysecgroup --wait Test-VM-1
+    $ openstack server create --flavor std-compute-1 --image 'Ubuntu 22.04 LTS (Jammy Jellyfish) release [2024-04-16]' --nic net-id=my-private-net --key-name mykeypair --security-group mysecgroup --wait Test-VM-1
 ```
 
 Attach a Floating IP address to the VM if you want it to have an IP address on the public network:
@@ -163,18 +162,18 @@ All traffic is allowed by default.**
 
 
 ```bash
-    $ openstack server create --flavor c1.m4 --image 'Ubuntu 22.04 LTS (x86_64) [2022-10-18]' --nic net-id=my-private-net --key-name mykeypair --security-group mysecgroup --wait Test-VM-2
+    $ openstack server create --flavor std-compute-1 --image 'Ubuntu 22.04 LTS (Jammy Jellyfish) release [2024-04-16]' --nic net-id=my-private-net --key-name mykeypair --security-group mysecgroup --wait Test-VM-2
 ```
 
 
 ```bash
     $ openstack server list
-    +--------------------------------------+-----------+--------+-----------------------------------------------+----------------------------------------+--------+
-    | ID                                   | Name      | Status | Networks                                      | Image                                  | Flavor |
-    +--------------------------------------+-----------+--------+-----------------------------------------------+----------------------------------------+--------+
-    | ef2e79b8-9e95-4a80-946b-f36f3d5d2cb5 | Test-VM-2 | ACTIVE | my-private-net=192.168.10.136                 | Ubuntu 22.04 LTS (x86_64) [2022-10-18] | c1.m4  |
-    | 461d98cc-f5db-4973-871e-c9f1f87aeb6b | Test-VM-1 | ACTIVE | my-private-net=128.205.11.111, 192.168.10.147 | Ubuntu 22.04 LTS (x86_64) [2022-10-18] | c1.m4  |
-    +--------------------------------------+-----------+--------+-----------------------------------------------+----------------------------------------+--------+
+    +--------------------------------------+-----------+--------+-----------------------------------------------+---------------------------------------------------------+---------------+
+    | ID                                   | Name      | Status | Networks                                      | Image                                                   | Flavor        |
+    +--------------------------------------+-----------+--------+-----------------------------------------------+---------------------------------------------------------+---------------+
+    | ef2e79b8-9e95-4a80-946b-f36f3d5d2cb5 | Test-VM-2 | ACTIVE | my-private-net=192.168.10.136                 | Ubuntu 22.04 LTS (Jammy Jellyfish) release [2024-04-16] | std-compute-1 |
+    | 461d98cc-f5db-4973-871e-c9f1f87aeb6b | Test-VM-1 | ACTIVE | my-private-net=128.205.11.111, 192.168.10.147 | Ubuntu 22.04 LTS (Jammy Jellyfish) release [2024-04-16] | std-compute-1 |
+    +--------------------------------------+-----------+--------+-----------------------------------------------+---------------------------------------------------------+---------------+
 ```
 
 ```bash

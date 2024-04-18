@@ -248,7 +248,7 @@ matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
 ```
 
 In the above Slurm script, notice the new line: **#SBATCH --gpus-per-node=1**
-This tells slurm to request a node with 1 GPU. See [here](../hpc/jobs/#slurm-directives-partitions-qos) for additional Slurm directives, including how to request a specific GPU type.
+This tells slurm to request a node with 1 GPU. See [here](../hpc/jobs.md#slurm-directives-partitions-qos) for additional Slurm directives, including how to request a specific GPU type.
 
 For interactive MATLAB jobs as described [above](#unning-matlab-interactively-on-the-command-line), a GPU can be requested the same way.  For example, add this to your `salloc` command to request 1 GPU:  `--gpus-per-node=1`
 
