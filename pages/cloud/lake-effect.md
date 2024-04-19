@@ -40,7 +40,7 @@ Features of LakeEffect:
 > * 768 total CPU cores
 > * 8.8TB RAM (4GB per vCPU core)
 > * 1.7PB of object-oriented storage
-> * NVidia V100 vGPUs
+> * NVidia V100 GPUs
 > * NVME Ephemeral Storage
 > * Persistant Memory (PMEM) Storage
 
