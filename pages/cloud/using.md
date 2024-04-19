@@ -290,5 +290,5 @@ Once your instance has booted up, the only way to connect to them is using SSH w
 
 
 !!! Danger "Do not open unecessary ports"
-    You should only open the **bare minimum** ports open and to the **smallest range** of IP addresses needed. The more ports that are open the more susceptible your instance
+    You should only open the **bare minimum** ports and to the **smallest range** of IP addresses needed. The more ports that are open the more susceptible your instance
     is to compromise. CCR will shut down insecure instances.
