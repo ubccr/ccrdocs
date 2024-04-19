@@ -291,4 +291,4 @@ Once your instance has booted up, the only way to connect to them is using SSH w
 
 !!! Danger "Do not open unecessary ports"
     You should only open the **bare minimum** ports and to the **smallest range** of IP addresses needed. The more ports that are open the more susceptible your instance
-    is to compromise. CCR will shut down insecure instances.
+    is to compromise. CCR will shut down insecure instances.  If you'd like to make your instance available to all UB networks, contact [CCR Help](../help.md) for the list of current UB networks.
