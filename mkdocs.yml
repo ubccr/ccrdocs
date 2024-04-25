@@ -80,3 +80,4 @@ nav:
     - Easybuild Example: howto/easybuild.md   
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
     - Running Containers: howto/containerization.md
+    - Using Python: howto/python.md
