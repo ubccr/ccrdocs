@@ -338,7 +338,7 @@ $ import fuzzywuzzy
 ```
 
 You can also use [virtual
-environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+environments](/howto/python#virtual-environments)
 to manage your python projects but setting these up falls outside the scope of this document.
 
 ### R
