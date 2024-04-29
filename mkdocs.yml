@@ -80,4 +80,5 @@ nav:
     - Easybuild Example: howto/easybuild.md   
     - MATLAB: howto/matlab.md  
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
-    - Running Containers: howto/containerization.md
+    - Running Containers: howto/containerization.md   
+ 

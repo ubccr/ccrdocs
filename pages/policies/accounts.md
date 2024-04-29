@@ -193,3 +193,7 @@ CCR passwords expire once per year.  Depending on the client you use to connect 
 If a CCR user has lost access to the app they used to generate the time-based one-time passwords they will not be able to login to their CCR account or modify the two-factor authentication settings.  Users must contact CCR help to request the removal of this security feature.  In order to verify the account owner's identity, the user will be directed to present photo identification to a CCR staff member.  Details will be provided once you initiate [contact with CCR help](../help.md).  
 
 Once we receive this information, we will remove the two-factor authentication setting from your account and you'll be able to login with your password.
+
+## Preferred Name  
+
+If you wish to change the name on your CCR account, please contact [CCR Help](../help.md).  No reason for the change is necessary.  The username for the account will remain the same.  CCR does not store pronouns in our account systems; however, these can be stored in your profile of CCR's help desk portal, Freshdesk.  These will be seen when CCR staff reply to your help tickets.  To update your pronouns in Freshdesk, please login [here](https://ubccr.freshdesk.com).  For additional information on the University at Buffalo's preferred name policy, please see [here](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/student-preferred-name.html)  
