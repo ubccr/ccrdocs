@@ -29,7 +29,7 @@ Other CCR services may experience maintenance downtimes several times a year.  N
 
 ## Software Installation Policy  
 
-CCR staff provide a suite of software that is standard for high performance computing environments.  This include compilers, Cuda, Python, and some engineering packages such as Gromacs, NAMD, Matlab, Abaqus, and Ansys/DYNA.
+CCR staff provide a suite of software that is standard for high performance computing environments.  This include compilers, Cuda, Python, and some engineering packages such as Gromacs, NAMD, Matlab, and LAMMPS.
 
 Software that does not require root level (administrative) access should be installed in a user's home directory or a group's project directory.  [More information on installing your own software](../software/building.md)  
 
@@ -108,12 +108,12 @@ Dedicated resources (nodes) for a faculty group or research lab built into the e
 - **Support:**  
     - CCR staff provide support during regular business hours, Monday through Friday 8am-5pm excluding University at Buffalo holidays. No weekend support is provided.
     - Emergency support is provided off-hours for critical infrastructure outages only (i.e. storage, networking, batch scheduler, cooling, electric, and cloud infrastructure [not instances]).  
-    - Requests for support are to be submitted to [CCR help](../help.md) and are handled on a first come, first served basis. We strive to respond within 48 hours to all requests for help. Though hardware and software installations and configurations may take longer, they are usually completed within one week.  
+    - Requests for support are to be submitted to [CCR help](../help.md) and are handled on a first come, first served basis. We strive to respond within 2 business days to all requests for help. Though hardware and software installations and configurations may take longer, they are usually completed within one week.  
 
 - **Warranty Requirements & Maintenance Policy:**  
 
     - The minimum warranty we require is 3 years, next-business day, on-site parts & service. We **strongly recommend** purchasing a 5 year, next-business day, on-site parts & service warranty for all equipment as this is the standard for computing equipment purchases at UB.  
-    - _**The maximum age of hardware CCR will support is 7 years.**_  When equipment reaches this age, it is decommissioned and recycled.  
+    - _**The maximum age of hardware CCR will support is 7 years.**_  When equipment reaches this age, it is decommissioned and recycled. We do not guarantee we will be able to support your equipment for 7 years.  Technology changes rapidly and there are times when equipment that is no longer covered under warranty but is less than 7 years old can no longer be supported in CCR's data center. 
     - For hardware failures that are off warranty but less than 7 years old, CCR will provide basic troubleshooting and diagnostics to determine the cause of any errors.  The cost to troubleshoot and repair hardware outside of warranty is billed per hour with a minimum of 4 hours, pre-paid via interdepartmental invoice (IDI).  The faculty owner is responsible for the ordering and cost of replacement parts once off warranty.  There is no guarantee CCR staff will be able to repair failed aging hardware; however, we will make our best effort to do so.  
 
 - **Installation and configuration:**  
@@ -124,7 +124,7 @@ Dedicated resources (nodes) for a faculty group or research lab built into the e
 
 - **Access to compute nodes:**
     - You control who has exclusive access to your nodes through the [Coldfront allocation management portal](../portals/coldfront.md).  Users of the CCR academic cluster will be permitted to run on your nodes when they are idle. We refer to this as "scavenging" nodes and it allows idle processors to work when they otherwise would sit inactive. Users who scavenge nodes run jobs that are able to be stopped and restarted. As soon as a user in your group with access to your nodes requests them, any scavenger jobs that may be running are terminated and your jobs begin with NO WAIT TIME.  
-    - Compute nodes are not accessible to the external network; they can be reached only through the Slurm batch scheduler from the cluster login node.  We can not open up ports or provide access outside the CCR  network.  
+    - Compute nodes are not accessible to the external network; they can be reached only through the Slurm batch scheduler from the cluster login node.  We can not open up ports or provide access outside the CCR network.  
     - Maintenance downtimes are required every 30 days on dedicated compute nodes for software and operating system updates.  Emergency downtimes may occur as needed for critical security patches.  
 
 
@@ -143,7 +143,7 @@ Cloud environment that provides researchers the ability to launch fully customiz
 - **Support:**  
     - CCR staff provide support during regular business hours, Monday through Friday 8am-5pm excluding University at Buffalo holidays. No weekend support is provided.
     - Emergency support is provided off-hours for critical infrastructure outages only (i.e. storage, networking, batch scheduler, cooling, electric, and cloud infrastructure [not instances]).
-    - Requests for support are to be submitted to [CCR help](../help.md) and are handled on a first come, first served basis. We strive to respond within 48 hours to all requests for help. Though hardware and software installations and configurations may take longer, they are usually completed within one week.  
+    - Requests for support are to be submitted to [CCR help](../help.md) and are handled on a first come, first served basis. We strive to respond within 2 business days to all requests for help. Though hardware and software installations and configurations may take longer, they are usually completed within one week.  
 
 - **Access:**  
     - Accounts & access to your group’s cloud project in the Openstack GUI is granted to CCR account holders only.  You control this through the Coldfront allocation management portal.  
@@ -151,6 +151,4 @@ Cloud environment that provides researchers the ability to launch fully customiz
     - Cloud instances are available outside the UB networks.  It is imperative cloud users utilize security standards to lock down their instances (i.e. firewall policies, cloud security groups)  
 
 - **Pricing:**  
-    -  Cloud usage is based on CPU and storage use.  A single cloud subscription covers 1 year of single CPU usage (or 8,760 CPU hours) and 50GB of storage.  
-    - Additional storage can be purchased in 1TB chunks paid for annually.  
-    - Details on how CPU usage is calculated as well as pricing for subscriptions, storage, and consulting can be [found here](../cloud/lake-effect.md#subscriptions).
+    -  Pricing information can be [found here](../cloud/lake-effect.md#subscriptions).
