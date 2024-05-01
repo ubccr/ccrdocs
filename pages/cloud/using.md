@@ -120,13 +120,13 @@ For more information about instances, flavors and images please see the official
 
 > | Instance Type | vCPU | Memory | Storage |
 > | :---     |    ---:  |   ---: |    ---:|
-> | c1.m4    | 1 cores  | 4 GB   | 20 GB  |
-> | c2.m8    | 2 cores  | 8 GB   | 20 GB  |
-> | c4.m16   | 4 cores  | 16 GB  | 20 GB  |
-> | c6.m24   | 6 cores  | 24 GB  | 20 GB  |
-> | c8.m32   | 8 cores  | 32 GB  | 40 GB  |
-> | c16.m64  | 16 cores | 64 GB  | 60 GB  |
-> | c32.m128 | 32 cores | 128 GB | 120 GB |
+> | std-compute-1    | 1 cores  | 4 GB   | 20 GB  |
+> | std-compute-2    | 2 cores  | 8 GB   | 40 GB  |
+> | std-compute-4   | 4 cores  | 16 GB  | 80 GB  |
+> | std-compute-8   | 8 cores  | 32 GB  | 160 GB  |
+> | std-compute-10  | 10 cores | 40 GB  | 200 GB  |
+> | std-compute-16 | 16 cores | 64 GB | 320 GB |
+> | std-compute-32 | 32 cores | 128 GB | 640 GB |
 
 
 > ###### Advanced
@@ -138,8 +138,8 @@ For more information about instances, flavors and images please see the official
 
 > | Instance Type | GPU | vCPU | Memory | Storage |
 > | :---     |  :----: |   ---:  |   ---: |    ---:|
-> | c8.m32.gpu16   | V100D-16Q | 8 cores  | 32 GB   | 60 GB  |
-> | c16.m64.gpu32  | V100D-32Q | 16 cores | 64 GB   | 120 GB |
+> | adv-gpu-8   | V100-32 | 8 cores  | 32 GB   | 100 GB  |
+> | adv-gpu-16 | V100-32 | 16 cores | 64 GB   | 100 GB |
 
 >> **FastIO**
 
@@ -148,10 +148,18 @@ For more information about instances, flavors and images please see the official
 
 > | Instance Type | vCPU | Memory | NVME Storage | Block Storage |
 > | :---     |    ---: |   ---:  |   ---: |     ---:|
-> | c4.m16.e100   | 8 cores   | 16 GB   | 100 GB | 20 GB  |
-> | c8.m32.e250   | 16 cores  | 32 GB   | 250 GB | 40 GB  |
-> | c16.m64.e500  | 32 cores  | 32 GB   | 500 GB | 60 GB  |
+> | adv-nvme-4   | 4 cores   | 16 GB   | 100 GB | 80 GB  |
+> | adv-nvme-8   | 8 cores   | 32 GB   | 250 GB | 160 GB  |
+> | adv-nvme-16   | 16 cores   | 64 GB   | 500 GB | 320 GB  |
 
+> | Instance Type | vCPU | Memory | PMEM Storage | Block Storage |
+> | :---     |    ---: |   ---:  |   ---: |     ---:|
+> | adv-pmem-16   | 16 cores   | 64 GB   | 500 GB | 320 GB  |
+> | adv-nvme-32   | 32 cores   | 128 GB   | 1000 GB | 640 GB  |
+
+> ###### Custom Flavors
+
+If you require a flavor that is not listed, you can contact [Contact CCR Help](../help.md) and we can work with you on creating a custom flavor that suits your needs.
 
 #### Images
 
@@ -161,16 +169,14 @@ These are all stock images pulled directly from the various vendor repos. Due to
 
 > |Operating System | Version | Build Date |
 > | :----: | ---: | ---: |
-> | CentOS | 7.9  | 2021-11-16|
-> | CentOS | 8-stream | 2022-09-13|
-> | CentOS | 9-stream | 2022-09-19|
-> | Debian | 10.13.4 | 2022-10-13|
-> | Fedora | 36 | 2022-05-04|
-> | Rocky  | 8.6 | 2022-07-02|
-> | Rocky  | 9.0 | 2022-08-30|
-> | Ubuntu  | 18.04 | 2022-10-14|
-> | Ubuntu  | 20.04 | 2022-10-18|
-> | Ubuntu  | 22.04 | 2022-10-18|
+> | CentOS | 8-stream | 2024-04-16|
+> | CentOS | 9-stream | 2024-04-16|
+> | Debian | 12.5 | 2024-04-15|
+> | Fedora | 39 | 2023-11-01|
+> | Rocky  | 8.9 | 2023-11-19|
+> | Rocky  | 9.3 | 2023-11-13|
+> | Ubuntu  | 20.04 | 2024-04-08|
+> | Ubuntu  | 22.04 | 2024-04-16|
 
 ### Creating an Instance in LakeEffect
 
@@ -280,4 +286,9 @@ Some users may want to partition the root disk of an instance in a specific way.
 
 ### Logging in to your Instance
 
-___Coming Soon___
+Once your instance has booted up, the only way to connect to them is using SSH with the keypair that you selected when you created the instance. You also need to make sure that you have a security group that allows ssh in from your IP address.
+
+
+!!! Danger "Do not open unecessary ports"
+    You should only open the **bare minimum** ports and to the **smallest range** of IP addresses needed. The more ports that are open the more susceptible your instance
+    is to compromise. CCR will shut down insecure instances.  If you'd like to make your instance available to all UB networks, contact [CCR Help](../help.md) for the list of current UB networks.

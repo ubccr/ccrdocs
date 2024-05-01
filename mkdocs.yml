@@ -78,6 +78,7 @@ nav:
   - How To:  
     - CCR Software Environments: howto/newenv.md 
     - Easybuild Example: howto/easybuild.md   
+    - MATLAB: howto/matlab.md  
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
     - Running Containers: howto/containerization.md
     - Using Python: howto/python.md

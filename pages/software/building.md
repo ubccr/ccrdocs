@@ -70,10 +70,8 @@ $ module load easybuild
 ```
 
 !!! Note 
-    Compiling certain software will be CPU architecture specific. Runing `echo
-    $CCR_ARCH` will show you what CPU architecture you're currently running on.
-    If you need to build for a specific architecture, you can request a
-    specific compile node by running `ssh compile-avx512` or `ssh compile-avx2`.
+    Compiling certain software will be CPU architecture specific. Running `echo
+    $CCR_ARCH` will show you what CPU architecture you're currently running on.  The compile nodes are `avx512` which matches most of the compute nodes in the UB-HPC cluster.  If you need to build for a different architecture, you should request a job on a node that supports that architecture.  
 
 ## Building a new software module
 

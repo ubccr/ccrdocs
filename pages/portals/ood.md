@@ -1,6 +1,6 @@
 # OnDemand
 
-Open OnDemand is a browser based single point of access for all of CCR's clusters, shared storage, and remote visualization servers.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, and access interactive applications such as remote desktops to cluster nodes and the visualization servers, as well as GUI-based software like Matlab, Jupyter Lab/Notebook, and vscode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
+Open OnDemand is a browser based single point of access for all of CCR's clusters and shared storage.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, and access interactive applications such as remote desktops to cluster nodes, as well as GUI-based software like Jupyter Lab/Notebook, Matlab, RStudio, VMD, and VSCode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
 
 _**This product is an open source project developed by [Ohio Supercomputer Center](https://openondemand.org).**_
 
@@ -21,6 +21,9 @@ Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Do
     not reload, log out and back in again.  
 
 ## OnDemand Features  
+
+This presentation covers how to use Open OnDemand at CCR:   
+![type:video](https://www.youtube.com/embed/VaoSaoCIjDk) 
 
 ### Dashboard  
 Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, our message of the day (MOTD), recently used apps, and pinned apps (popular applications organized into sections).  On the right side of the dashboard you will see any currently active Interactive Sessions.  Along the top are tabs for the different features offered in OnDemand.
@@ -65,21 +68,24 @@ The `Globus` button in the `Files` app provides easy access to CCR's mapped coll
 
 Interactive apps provide a way for users to launch and connect to an interactive batch job running on the cluster.  Users will either connect to the compute node in a Linux desktop environment or to the application they're launching.  
 
-All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the options `scavenger, viz, or normal` in either the partition or QOS drop down menus.  You will see the `industry` partition; however, if you do not have the `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.     
+All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the option `normal` in the QOS drop down menu.  You will see the `class` and `industry` partitions; however, if you do not have the `class` or  `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.     
 
 **NOTE:**  Apps named 'LEGACY' are for use by those that need to access applications in the ccrsoft/legacy [software release](../software/releases.md).  These apps will be available until that software release is decommissioned in June 2024.  
+
+!!! Warning "Scavenger Partition Warning!"  
+    Prior to using the `scavenger` partition, we STRONGLY recommend [reading about it](../hpc/jobs.md#scavenging-idle-cycles) to understand how it works.  When using the `scavenger` partition you are using nodes not otherwise available to you and your jobs will get cancelled when the owner of those nodes wants to use them.  
 
 **Desktop Interactive Apps**  
 
 Previously, CCR provided separate desktop apps for the UB-HPC and Faculty clusters.  Now there is one app for both and users are able to select which cluster to submit to.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), amount of memory (RAM), or specific node features you may enter that in the form.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  
 
 
-!!! Tip "Missing Something?"  
+!!! Info "Missing Something?"  
     If you think the drop down options for account or QOS are wrong, check [ColdFront](https://coldfront.ccr.buffalo.edu).  These values match up to allocations for resources in ColdFront.  You must be on an active allocation for the resource in order to access it.  
 
-**Remote Visualization Apps**  
+**Using the viz partition**  
 
-In addition to the virtual desktop apps, which are capable enough for some GUI-based software applications, CCR also offers visualization nodes that are accessibly only through OnDemand.  The visualization servers offer graphics acceleration which is required for certain software packages.  There is one OnDemand interactive app for the visualization nodes that launches OpenGL & CUDA enabled desktops and one for those software packages that require graphics acceleration but need OpenGL disabled to start.  Users are permitted to run one session on the visualization nodes at a time which is limited to 24 hours of run time.
+Most software GUIs can run on any compute node at CCR through the `UB-HPC & Faculty Cluster Desktop` app.  If your software requires hardware accelerated graphics, you should request a GPU in the desktop session form.  All GPU nodes in CCR's clusters are capable of hardware accelerated graphics.  However, because the GPU nodes are often in heavy demand, we provide several nodes for those who require GPUs specifically for graphics rendering.  To access one of these GPU nodes, select the `viz` partition and QOS in the desktop session drop down menus.  Users are permitted to run one session on the viz partition at a time which is limited to 24 hours of run time.  If you require longer run time, please select the `general-compute` partition.
 
 !!! Tip "All done?  Make sure to delete your job"  
     OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then delete the running session under the `My interactive sessions` menu.  
@@ -117,9 +123,8 @@ When the Jupyter app starts, it will launch these additional modules with it and
 
 - The "Jupyter Notebook (Legacy)" app is available to support users utilizing the `ccrsoft\legacy` software release. These sessions automatically run on CCR's older compute nodes (tagged `LEGACY`).  The support for `ccrsoft/legacy` has been deprecated and this app will be removed from OnDemand in June 2024.
 
-**VSCode Code Server**
-
-CCR offers VSCode servers as an interactive desktop app similar to Jupyter. The form to start an interactive VSCode session is similar to the . Make sure to enter any needed software modules in the "Extra modules to load with VSCode" box, otherwise you will not be able to load them in a VSCode Jupyter session. Once resources are provisioned, you will be able to log into the IDE.
+**Loading additional software modules with VSCode:**  
+This works the same way as described above for the Jupyter Lab/Notebook app.  Any software modules listed in this box will be loaded when the VSCode session starts.  
 
 There are a few oddities to note about how VSCode functions at CCR:
 - Running `module list` in a VSCode terminal may not display modules loaded via the "Extra modules to load with VSCode" box. This is a bug. The modules entered in the form will be loaded and ready to use. 
