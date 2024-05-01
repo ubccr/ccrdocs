@@ -8,8 +8,8 @@ All this is to say, what works on your local machine is not guaranteed to work o
 
 ## Python at CCR
 
-!!! Warning ""
-    Before you run any Python code or tools on the cluster, you **MUST** run `module load python`. 
+!!! Danger ""
+    Before you run any Python code or tools on the cluster, you **MUST** run `module load python`
 
 The way Python is installed and configured at CCR can be a little confusing. When you ssh into a login or compile node, you may find Python already installed. However, this version of python **SHOULD NOT** be used to install or run any of your code. The method CCR uses to load and run software on the cluster depends on Python, so a version will come preinstalled on nodes for compatibility purposes. When you run `module load python`, a new version of Python is loaded which _is_ configured to run programs on the cluster:
 
