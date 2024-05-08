@@ -22,7 +22,7 @@ The way Python is installed and configured at CCR can be a little confusing. Whe
 /<version-info>/easybuild/<toolchain-info>/python/3.9.6/bin/python
 ```
 
-# Installing New Packages
+### Installing Python Packages
 
 The standard tool used to install new Python packages is called pip. However, you cannot just load python and then immediately install new software with pip (as many tutorials will instruct you to do). Pip is not designed to configure software to run in an HPC environment, therefore software installed with pip is not guaranteed to run across different jobs and nodes.
 
