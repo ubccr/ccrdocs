@@ -44,7 +44,7 @@ Typical python workflows involve creating virtual environments and installing pa
 To create a virtual environment run the following commands:
 
 ```
-python3 -m venv /projects/grp-name/venv_name
+python3 -m venv /projects/academic/YourGroupName/venv_name  
 ```
 
 where venv_name can be whatever you'd like to call your new virtual environment. We recommend creating this environment in your group's project directory as you have limited space to install packages in your home directory.
