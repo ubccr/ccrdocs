@@ -52,7 +52,7 @@ where venv_name can be whatever you'd like to call your new virtual environment.
 You can activate the virtual environment with:
 
 ```
-source /projects/grp-name/venv_name/bin/activate
+source /projects/academic/YourGroupName/venv_name/bin/activate
 ``` 
 
 ### Installing Software
