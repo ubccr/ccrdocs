@@ -339,7 +339,7 @@ $ import fuzzywuzzy
 
 You can also use [virtual
 environments](/howto/python#virtual-environments)
-to manage your python projects but setting these up falls outside the scope of this document.
+to manage your python projects but this comes with some caveats.  Please refer to our documentation on proper use of Python on CCR's HPC systems.
 
 ### R
 
