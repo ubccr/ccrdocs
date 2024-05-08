@@ -47,7 +47,7 @@ To create a virtual environment run the following commands:
 python3 -m venv /projects/academic/YourGroupName/venv_name  
 ```
 
-where venv_name can be whatever you'd like to call your new virtual environment. We recommend creating this environment in your group's project directory as you have limited space to install packages in your home directory.
+where venv_name can be whatever you'd like to call your new virtual environment. We recommend creating this environment in your group's project directory as you have limited space to install packages in your home directory.  Reminder: this is just an example; you'll need to set the path name to your group's shared project directory, which may not be in /projects/academic
 
 You can activate the virtual environment with:
 
