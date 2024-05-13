@@ -96,7 +96,7 @@ The preferred method for running ML is to use training scripts over Jupyter note
     - You probably used the compat layer python to build the environment. You will have to delete the environment and kernel and rebuild both once you have run `module load python`
 
 - I saved my virtual environment to my /projects directory, but my packages are being installed into my home directory and I'm running out of space!
-    - You used the compat layer python to build your venv and now pip is saving downloaded packages to `~/.local`. Delete this directory and your current venv and rebuild it after you run `module load python`
+    - You used the system python to build your venv and now pip is saving downloaded packages to `~/.local`. Delete this directory and your current venv and rebuild it after you run `module load gcc python`
 
 - I'm trying to download a model from huggingface but running out of space.
     - You can set new cache directories when running `from_pretrained()` to download your model. You can also set paths in your job scripts to change your cache directories. An example for the latter method can be found in our huggingface example submission script: `/util/software/examples/huggingface/torch-run-sample.sh`.  This is accessible on the login and cluster compute nodes.
