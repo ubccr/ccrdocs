@@ -66,7 +66,7 @@ python3 -m venv venv_name
 
 Installing Python packages this way will only work for a subset of all available packages. **Any package that depends on many pre-installed libraries, especially C libraries, or requires GPU enabling, will most likely need EasyBuild to compile properly.**
 
-## Jupyter Kernels
+### Jupyter Kernels
 
 Once you have a virtual environment set up properly, you may want to use this environment when running a Jupyter session. To do this, you will need to use the ipykernel package available in IPython:
 
