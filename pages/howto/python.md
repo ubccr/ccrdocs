@@ -55,7 +55,7 @@ You can activate the virtual environment with:
 source /projects/academic/YourGroupName/venv_name/bin/activate
 ``` 
 
-### Installing Software
+#### Installing Packages inside the Virtual Environment
 
 Once you have activated your virtual environment, you will be able to use pip to install new packages. First you must load the Python module, as well as any modules which contain packages you'd like to use:
 
