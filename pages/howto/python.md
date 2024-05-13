@@ -64,7 +64,7 @@ pip install module_with_packages
 python3 -m venv venv_name
 ```
 
-Installing Python packages this way will only work for a subset of all available packages. Any package that depends on many pre-installed libraries, especially C libraries, will most likely need EasyBuild to compile properly.
+Installing Python packages this way will only work for a subset of all available packages. **Any package that depends on many pre-installed libraries, especially C libraries, or requires GPU enabling, will most likely need EasyBuild to compile properly.**
 
 ## Jupyter Kernels
 
