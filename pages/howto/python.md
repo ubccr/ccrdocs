@@ -39,7 +39,7 @@ Typical python workflows involve creating virtual environments and installing pa
 !!! Danger ""
     Do not proceed without running `module load gcc python`
 
-### Using Virtual Environments
+#### Using Virtual Environments
 
 To create a virtual environment run the following commands:
 
