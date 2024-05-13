@@ -86,7 +86,7 @@ Once this is done, you should be able to see your new kernel in the list of kern
 
 ## Python for AI and Machine Learning 
 
-Do not just try to run `pip install torch`, it will not go well. To install things like PyTorch or Huggingface Transformers properly, you will need to use EasyBuild and not pip. If it is imperative to use the latest versions of these packages and EasyBuild has not worked, you should try using prebuilt containers provided by NVIDIA ([see our documentation here](/howto/containerization)).
+Do not just try to run `pip install torch`, it will not go well. To install things like PyTorch or Huggingface Transformers properly, you will need to use [EasyBuild](#installing-new-packages) and not pip. If it is imperative to use the latest versions of these packages and EasyBuild has not worked, you should try using prebuilt containers provided by NVIDIA ([see our documentation here](/howto/containerization)).
 
 The preferred method for running ML is to use training scripts over Jupyter notebooks. When you request a GPU for a Jupyter notebook, this GPU may sit idle for the life of the job depending on how the notebook is being used. Opting to use a training script in a job helps with GPU utilization by automatically freeing GPU resources when training jobs are done.
 
