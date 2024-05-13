@@ -37,7 +37,7 @@ If the EasyBuild path is impossible, you can try to use virtual environments, th
 Typical python workflows involve creating virtual environments and installing packages into them. There are many reasons why virtual environments are the preferred way to run your python projects. However, using virtual environments on CCR's resources comes with tradeoffs.  
 
 !!! Danger ""
-    Do not proceed without running `module load python`
+    Do not proceed without running `module load gcc python`
 
 ### Using Virtual Environments
 
