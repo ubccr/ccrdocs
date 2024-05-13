@@ -19,7 +19,7 @@ The way Python is installed and configured at CCR can be a little confusing. Whe
 
 <user>@login1:~$ module load python
 <user>@login1:~$ which python
-/<version-info>/easybuild/<toolchain-info>/python/3.9.6/bin/python
+/<version-info>/easybuild/<toolchain-info>/python/<version>/bin/python
 ```
 
 ### Installing Python Packages
