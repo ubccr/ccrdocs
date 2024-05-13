@@ -32,7 +32,7 @@ Unfortunately, EasyBuild is not a drop in replacement for pip. It lacks the abil
 
 If the EasyBuild path is impossible, you can try to use virtual environments, though we cannot guarantee they will work for every use case. 
 
-## Virtual Environments
+### Virtual Environments
 
 Typical python workflows involve creating virtual environments and installing packages into them. There are many reasons why virtual environments are the preferred way to run your python projects. However, using virtual environments on CCR's resources comes with tradeoffs.  
 
