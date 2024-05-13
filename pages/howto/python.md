@@ -71,7 +71,7 @@ Installing Python packages this way will only work for a subset of all available
 Once you have a virtual environment set up properly, you may want to use this environment when running a Jupyter session. To do this, you will need to use the ipykernel package available in IPython:
 
 ```
-module load python ipython
+module load gcc python ipython
 ```
 
 With these loaded, you will need to activate your virtual environment. From inside your environment you will run:
