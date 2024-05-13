@@ -93,7 +93,7 @@ The preferred method for running ML is to use training scripts over Jupyter note
 ## Common Issues
 
 - I cannot connect to a Jupyter kernel I created from a virtual environment!
-    - You probably used the compat layer python to build the environment. You will have to delete the environment and kernel and rebuild both once you have run `module load python`
+    - You probably used the system python to build the environment. It will look like the first example [here](#python-at-ccr).  You will have to delete the environment and kernel and rebuild both once you have run `module load gcc python`
 
 - I saved my virtual environment to my /projects directory, but my packages are being installed into my home directory and I'm running out of space!
     - You used the system python to build your venv and now pip is saving downloaded packages to `~/.local`. Delete this directory and your current venv and rebuild it after you run `module load gcc python`
