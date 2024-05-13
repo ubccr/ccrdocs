@@ -82,7 +82,7 @@ python3 -m ipykernel install --user --name kernel_name
 
 This will create a new Jupyter kernel called "kernel_name", which you can change  
 
-Once this is done, you should be able to see your new kernel in the list of kernels within Jupyter (you may have to reload your session before it appears). 
+Once this is done, you should be able to see your new kernel in the list of kernels within Jupyter (you may have to reload your session before it appears).  If you used additional software modules (i.e. pytorch) when creating your virtual environment, you will need to load these prior to starting a Jupyter session.  See the "Jupyter Interactive Apps" section [here](../portals/ood.md#interactive-apps) for instructions.
 
 ## Python for AI and Machine Learning 
 
