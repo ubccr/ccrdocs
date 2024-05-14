@@ -44,24 +44,20 @@ Typical python workflows involve creating virtual environments and installing pa
 To create a virtual environment run the following commands:
 
 ```
-python3 -m venv /projects/academic/YourGroupName/venv_name  
+module load gcc python
+
+python3 -m venv /projects/academic/YourGroupName/venv_name
+source /projects/academic/YourGroupName/venv_name/bin/activate 
 ```
 
-where venv_name can be whatever you'd like to call your new virtual environment. We recommend creating this environment in your group's project directory as you have limited space to install packages in your home directory.  Reminder: this is just an example; you'll need to set the path name to your group's shared project directory, which may not be in /projects/academic
-
-You can activate the virtual environment with:
-
-```
-source /projects/academic/YourGroupName/venv_name/bin/activate
-``` 
+where venv_name can be whatever you'd like to call your new virtual environment. We recommend creating this environment in your group's project directory as you have limited space to install packages in your home directory. Reminder: this is just an example; you'll need to set the path name to your group's shared project directory, which may not be in /projects/academic.
 
 #### Installing Packages inside the Virtual Environment
 
-Once you have activated your virtual environment, you will be able to use pip to install new packages. First you must load the Python module, as well as any modules which contain packages you'd like to use:
-
+Once you have activated your virtual environment, you will be able to use pip to install new packages. You can also load additional modules, such as scipy-bundle, to avoid reinstalling already available python packages.
 ```
-pip install module_with_packages
-python3 -m venv venv_name
+source /projects/academic/YourGroupName/venv_name/bin/activate
+(venv_name) pip install new_package
 ```
 
 Installing Python packages this way will only work for a subset of all available packages. **Any package that depends on many pre-installed libraries, especially C libraries, or requires GPU enabling, will most likely need EasyBuild to compile properly.**
@@ -72,17 +68,14 @@ Once you have a virtual environment set up properly, you may want to use this en
 
 ```
 module load gcc python ipython
+
+source /projects/academic/YourGroupName/venv_name/bin/activate
+(venv_name) python3 -m ipykernel install --user --name kernel_name
 ```
 
-With these loaded, you will need to activate your virtual environment. From inside your environment you will run:
+This will create a new Jupyter kernel called "kernel_name", which you can change.  
 
-```
-python3 -m ipykernel install --user --name kernel_name
-```
-
-This will create a new Jupyter kernel called "kernel_name", which you can change  
-
-Once this is done, you should be able to see your new kernel in the list of kernels within Jupyter (you may have to reload your session before it appears).  If you used additional software modules (i.e. pytorch) when creating your virtual environment, you will need to load these prior to starting a Jupyter session.  See the "Jupyter Interactive Apps" section [here](../portals/ood.md#interactive-apps) for instructions.
+Once this is done, you should be able to see your new kernel in the list of kernels within Jupyter (you may have to reload your session before it appears).  If you used additional software modules (i.e. PyTorch) when creating your virtual environment, you will need to load these prior to starting a Jupyter session.  See the "Jupyter Interactive Apps" section [here](../portals/ood.md#interactive-apps) for instructions.
 
 ## Python for AI and Machine Learning 
 
