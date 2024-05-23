@@ -6,15 +6,6 @@ toolchains supporting all types of workloads across our [clusters](../hpc/cluste
 This page is intended to provide details on changes users can expect and tips
 for a smooth transition.
 
-CCR staff host weekly office hours via zoom from
-11am-12pm on Thursdays to provide support to users switching over to the new
-software release.  Please join us and bring your questions:
-
-```
-https://buffalo.zoom.us/j/94613848883?pwd=Q2ZjU3VIaWZDZGZPdldjR1JwOUVmZz09 
-Meeting ID: 946 1384 8883 
-Passcode: 497161 
-```
 
 ## What are standard software environments?
 
@@ -26,6 +17,8 @@ As of this writing there are 2 releases of ccrsoft:
 
 - `ccrsoft/legacy` This is the legacy CCR software release and is now deprecated. 
 - `ccrcsoft/2023.01` This is the latest CCR software release and the default.
+
+==The ccrsoft/legacy software environment is being removed from CCR's systems on June 25, 2024==
 
 ## How to use the latest ccrsoft release?
 
@@ -40,10 +33,10 @@ To configure a specific version as the default for your user account you can
 set the default version in your `~/.modulerc` file. For example: 
 
 ```
-$ echo "module-version ccrsoft/2023.01 default" >> $HOME/.modulerc
+$ echo "module-version ccrsoft/2023.01 default" > $HOME/.modulerc
 ```
 
-**NOTE: User accounts created after August 8, 2023 have the .modulerc file created automatically and is set to the latest software release.**  
+**NOTE: This should be done only once.  To update your default version, edit the file and change the ccrsoft/version information**  
 
 
 ## How to use the legacy software?
@@ -61,7 +54,7 @@ this transition period here are a few tips:
   ```
 
 !!! Warning "Default version is now ccrsoft/2023.01!"
-    As of the January 2024 maintenance downtime, the latest software environment `ccrsoft/2023.01` will be loaded by default on all CCR login and compute nodes.  To continue to use the legacy software, you MUST make the changes listed above.  Users are encouraged to migrate all workflows to `ccrsoft/2023.01` as the legacy modules are no longer supported and will be completely removed from CCR systems as of June 2024.
+    As of the January 2024 maintenance downtime, the latest software environment `ccrsoft/2023.01` will be loaded by default on all CCR login and compute nodes.  To continue to use the legacy software, you MUST make the changes listed above.  Users are encouraged to migrate all workflows to `ccrsoft/2023.01` as the legacy modules are no longer supported and will be completely removed from CCR systems as of June 25, 2024.
 
 ## What happened to the ubhpc-future reservation?  
 
