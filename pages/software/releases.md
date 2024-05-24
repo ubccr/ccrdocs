@@ -35,8 +35,9 @@ $ module load ccrsoft/2023.01
     specific release by adding the version to `~/.modulerc`.  For
     example:
     ```
-    $ echo "module-version ccrsoft/2023.01 default" >> $HOME/.modulerc
+    $ echo "module-version ccrsoft/2023.01 default" > $HOME/.modulerc
     ```
+    NOTE: This should be done only once.  To update your default version, edit the file and change the ccrsoft/version information  
 
 ## 2023.01
 
@@ -72,4 +73,6 @@ migrate their workflows to version [2023.01](#202301).
 
 All software in this release was compiled over many years and not optimized for
 any specific architectures or toolchains. This release uses a flat naming
-scheme so all modules  are directly available for loading.
+scheme so all modules  are directly available for loading.  
+
+==The ccrsoft/legacy software environment is being removed from CCR's systems on June 25, 2024==
