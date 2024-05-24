@@ -63,8 +63,8 @@ Supported CPU Microarchitectures:
 
 | CPU March          | CPU Family  | Supported CPUs                                         |
 | ------------------ | ----------- | ------------------------------------------------------ |
-| x86-64-v3 (avx2)   |  x86\_64    | Intel Haswell, Broadwell, AMD Zen2                     |
-| x86-64-v4 (avx512) |  x86\_64    | Intel Skylake-SP, Skylake-X, Cascade Lake-SP, AMD Zen3 |
+| x86-64-v3 (avx2)   |  x86\_64    | Intel Haswell, Broadwell, AMD Zen3                     |
+| x86-64-v4 (avx512) |  x86\_64    | Intel Skylake-SP, Skylake-X, Cascade Lake-SP, AMD Zen4 |
 | neoverse-v2        |  aarch64    | ARMv9.0-A NVIDIA Gracehopper                           |
 
 ## 2023.01

@@ -15,12 +15,12 @@ job submission. For more information on CPU Microarchitectures see here:
 
 This is our default and most widely available Microarchitecture (formally named
 `avx512`) and includes Intel Skylake-SP, Skylake-X, Cascade Lake-SP, and AMD
-Zen3 CPUs. There's no special requirements for running on this architecture and most
+Zen4 CPUs. There's no special requirements for running on this architecture and most
 software should work be default.
 
 ## x86-64-v3
 
-This Microarchitecture was formally named `avx2` and includes Intel Haswell, Broadwell, and AMD Zen2 CPUs. 
+This Microarchitecture was formally named `avx2` and includes Intel Haswell, Broadwell, and AMD Zen3 CPUs. 
 
 
 ## neoverse-v2
