@@ -64,6 +64,7 @@ nav:
   - Software:
     - Available Software: software/modules.md
     - Useful Module Commands: software/module-commands.md
+    - CPU Architectures: software/march.md
     - Building your own software: software/building.md
     - Releases: software/releases.md
   - Cloud:

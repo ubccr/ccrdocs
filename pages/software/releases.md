@@ -1,6 +1,6 @@
 # CCR Software Environment Releases
 
-The latest release is [2023.01](#202301).
+The latest stable release is [2023.01](#202301).
 
 ## What are CCR Software Environments?
 
@@ -39,6 +39,34 @@ $ module load ccrsoft/2023.01
     ```
     NOTE: This should be done only once.  To update your default version, edit the file and change the ccrsoft/version information  
 
+## 2024.04
+
+!!! Warning "Unstable release" 
+    This version is unstable and not yet complete. Use at your own risk.
+
+New features/changes in this release include:
+
+- Support for aarch64 (ARMv9.0-A NVIDIA Gracehopper)
+- Microarchitecture avx2 renamed to x86-64-v3
+- Microarchitecture avx512 renamed to x86-64-v4
+
+Supported compiler toolchains:
+
+| Toolchain   | Version | Included compiles and libraries                              |
+| ----------- | ------- | ------------------------------------------------------------ |
+| **intel**   | 2023b   | Intel compilers, Intel MPI, and Intel MKL                    |
+| **foss**    | 2023b   | GCC, OpenMPI, FlexiBLAS, OpenBLAS, LAPACK, ScaLAPACK, FFTW   |
+| **GCC**     | 13.2.0  | GCC compiler only                                            |
+| **CUDA**    | 12.4.0  | nvcc                                                         |
+
+Supported CPU Microarchitectures:
+
+| CPU March          | CPU Family  | Supported CPUs                                         |
+| ------------------ | ----------- | ------------------------------------------------------ |
+| x86-64-v3 (avx2)   |  x86\_64    | Intel Haswell, Broadwell, AMD Zen3                     |
+| x86-64-v4 (avx512) |  x86\_64    | Intel Skylake-SP, Skylake-X, Cascade Lake-SP, AMD Zen4 |
+| neoverse-v2        |  aarch64    | ARMv9.0-A NVIDIA Gracehopper                           |
+
 ## 2023.01
 
 New features in this release include:
@@ -59,7 +87,7 @@ Supported compiler toolchains:
 | **CUDA**    | 11.8.0  | nvcc                                                         |
 | **NVHPC**   | 22.11   | CUDA 11.8.0, nvcc, nvc++                                     |
 
-Supported CPU architectures:
+Supported CPU Microarchitectures:
 
 | Architecture  | Supported CPUs                                             |
 | ------------- | ---------------------------------------------------------- |
