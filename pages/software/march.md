@@ -45,6 +45,7 @@ $ salloc \
    --ntasks-per-node=1 \
    --cpus-per-task=32 \
    --gpus-per-node=1 \
+   --constraint=GH200 \
    --no-shell
 # above command will output jobid
 $ srun --jobid=JOBID_HERE --export=HOME,SHELL --pty /bin/bash --login
