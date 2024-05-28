@@ -15,8 +15,8 @@ job submission. For more information on CPU Microarchitectures see here:
 
 This is our default and most widely available Microarchitecture (formally named
 `avx512`) and includes Intel Skylake-SP, Skylake-X, Cascade Lake-SP, and AMD
-Zen4 CPUs. There's no special requirements for running on this architecture and most
-software should work be default.
+Zen4 CPUs. There are no special requirements for running on this architecture and most
+software should work by default.
 
 ## x86-64-v3
 
@@ -30,7 +30,7 @@ notes for running on this architecture:
 
 - When running `sbatch` or `srun` you need to set `--export=HOME,TERM`
 - Interactive job submission via `salloc` requires `--no-shell` 
-- Ensure all your sbatch scripts has this at the top: `#!/bin/bash -l`
+- Ensure all your sbatch scripts have this at the top: `#!/bin/bash -l`
 - Make sure you're NOT pinning any ccrsoft release in `~/.modulerc`
 
 Example of submitting an interactive job on the Grace Hopper nodes:

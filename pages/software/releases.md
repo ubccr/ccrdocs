@@ -42,7 +42,7 @@ $ module load ccrsoft/2023.01
 ## 2024.04
 
 !!! Warning "Unstable release" 
-    This version unstable and not yet complete. Use at your own risk.
+    This version is unstable and not yet complete. Use at your own risk.
 
 New features/changes in this release include:
 
