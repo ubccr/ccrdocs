@@ -111,7 +111,7 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
 
 1. Open your terminal or Git Bash if you're on Windows and, if you're running a SSH agent as [described above](#using-the-ssh-agent), enter the following:  
     ```bash
-    ssh username@vortex.ccr.buffalo.edu
+    ssh CCRusername@vortex.ccr.buffalo.edu
     ```
    
     !!! Warning "Not using ssh-agent?"
@@ -121,7 +121,7 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
         passphrase. This is NOT your CCR password. This is the passphrase you
         set when [creating your SSH key pair](#generate-new-ssh-key). For example:  
         ```bash
-        ssh -i /path-to-key/id_ed25519 username@vortex.ccr.buffalo.edu
+        ssh -i /path-to-key/id_ed25519 CCRusername@vortex.ccr.buffalo.edu
         Enter passphrase for key 'id_ed25519':
         ```
 
@@ -140,7 +140,7 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
     login node:  
 
     ```
-    username@vortex:~$
+    CCRusername@login:~$
     ```
 
 !!! Tip "First Login - Additional Setup"  

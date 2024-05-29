@@ -7,8 +7,8 @@ The Center for Computational Research (CCR) at the University at Buffalo is a hi
 
 If you are unfamiliar with CCR and what services and resources we provide, please take a look at our detailed website: [https://buffalo.edu/ccr](https://buffalo.edu/ccr)    
 
-This 20 minute presentation given by the CCR Director in 2020 provides a succinct overview.  We will not cover that information here as this site is dedicated to documentation for using our resources  
-![type:video](https://youtube.com/embed/ryBqdeqTO4o)  
+This 30 minute presentation provides a succinct overview of what CCR does and does not provide to the UB research community and industry partners.  You can view additional information on our primary website: https://buffalo.edu/ccr  
+![type:video](https://www.youtube.com/embed/lTNXUDZh5T0)  
 <br>
 
 ## What do you want to do?  
@@ -42,8 +42,7 @@ This 20 minute presentation given by the CCR Director in 2020 provides a succinc
 - HPC resources are available through a cluster environment  
 - Users submit batch jobs to a scheduler to run on servers (nodes) within the cluster  
 - The UB-HPC cluster is available for academic & industry users    
-- CCR also manages a separate cluster for privately purchased faculty nodes   
-- [Visualization servers](hpc/clusters.md#visualization-nodes) are available for graphically-intense scientific software  
+- CCR also manages a separate cluster for privately purchased faculty nodes     
 - Users login using a [SSH client](hpc/login.md) or the [OnDemand web portal](portals/ood.md)  
 - There is no cost for UB faculty groups to use the UB-HPC cluster (student accounts must be sponsored by faculty)  
 - Storage is shared among the clusters. More [details on storage options](hpc/storage.md)  

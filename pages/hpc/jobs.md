@@ -435,14 +435,17 @@ PriorityWeightTRES      = CPU=0,Mem=.01,GRES/gpu=30000
 ```
 sshare <flag>  
 --accounts=group_name  
---all --accounts=group_name  (Shows fairshare for members of the group)  
+--all --accounts=[YourSlurmAccount]  (Shows fairshare for members of the group)  
 ```
+
+!!! Tip "Slurm Account Name"  
+    Slurm account names are listed on your allocations for cluster resources in [ColdFront](https://coldfront.ccr.buffalo.edu) or you can view on the command line using the `slimits` command.     
 
 **Show Job Priority:**  
 ```
 sprio <flag>
 -j jobid
--u username
+-u [CCRusername]
 ```
 
 **To show Job Priority sorted from highest to lowest:**  Use the `sranks` command  

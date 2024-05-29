@@ -3,7 +3,9 @@
 There are many resources available for use at CCR.  These are listed in alphabetical order in ColdFront.  If after reading through these descriptions you are still unsure about which resource you should be requesting an allocation for, please [contact CCR Help](help.md).  The list of available resources includes:  
 
 ## Clusters
-:    **UB-HPC academic partitions** - These partitions in the UB-HPC cluster are available to all UB faculty, their students & collaborators.  This is the primary resource utilized at CCR.  Free for UB faculty groups to use.    
+:    **UB-HPC academic partitions** - These partitions in the UB-HPC cluster are available to all UB faculty, their students & collaborators.  This is the primary resource utilized at CCR.  Free for UB faculty groups to use.   
+:    **UB-HPC class partition** - This partition in the UB-HPC cluster is available to faculty that are teaching small courses.  Please provide a valid justification when requesting this allocation as this resource is not available to all.  
+:    **UB-HPC ARM64 partition** - This partition includes nodes equipped with ARM64 processors and specialized GPUs.  As part of the justification when requesting an allocation for this partition, please include examples of prior GPU use and scaling studies, if available.  
 :    **Industry cluster partition** - Use of this partition in the UB-HPC cluster is restricted to business partners or faculty with a business use case.  Please provide a justification of this use case when requesting the allocation.  Charges are based on a Cooperative Use Agreement signed between the company and UB.    
 :    **Faculty cluster partitions** - The faculty cluster is made up of partitions of nodes purchased by faculty members or research groups.  These are not publicly available.  You will only see them in your list of resources to request allocations for if you're the owner or the owner has allowed CCR to share the access with you.  
 
@@ -16,7 +18,7 @@ There are many resources available for use at CCR.  These are listed in alphabet
 
 ## Storage  
 :    **Project Storage** - request an allocation for this if you'd like a shared directory created for your group.  This shared directory is available to access from all CCR clusters, login nodes, compile nodes, and the Globus file transfer service.  It is not accessible from the cloud infrastructure.  CCR provides 1TB of storage for free to UB faculty groups.  Faculty can purchase additional storage by the TB annually.  
-:   **Global Scratch** - The Panasas storage system serves global "scratch" directories for cluster users.  Groups must request an allocation and a shared directory will be created with a quota of 10TB.  Scratch file systems have different policies than other storage at CCR.  Please be sure to [view the scratch policy](policies/misuse.md#scratch-usage-policies) before using this resource.
+:   **Global Scratch** - The Vast storage system serves global "scratch" directories for cluster users.  Groups must request an allocation and a shared directory will be created with a quota of 10TB.  Scratch file systems have different policies than other storage at CCR.  Please be sure to [view the scratch policy](policies/misuse.md#scratch-usage-policies) before using this resource.
 :   **LakeEffect Cloud Storage** -  additional storage you can purchase for the Lake Effect research cloud if you require more than what is provided with the storage included with your subscription.  This is not accessible from the cluster resources, only from the Lake Effect Cloud resource.  
 
 [More Info on Storage](hpc/storage.md)  

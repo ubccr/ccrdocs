@@ -1,6 +1,6 @@
 # CCR Research Computing Documentation
 
-The [Center for Computational Research (CCR)](https://buffalo.edu/ccr) at the [University at Buffalo](https://buffalo.edu) is a high-performance research computing center offering faculty, staff, students, and local businesses access to supercomputing environments, high-end visualization services, an on-premise research cloud infrastructure, and experienced staff to help you move your research forward.  
+The [Center for Computational Research (CCR)](https://buffalo.edu/ccr) at the [University at Buffalo](https://buffalo.edu) is a high-performance research computing center offering faculty, staff, students, and local businesses access to supercomputing environments, an on-premise research cloud infrastructure, and experienced staff to help you move your research forward.  
 
 This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Information about CCR support services can be [found here](help.md).   
 
@@ -28,12 +28,15 @@ search box at the top left for context searching.
     - [Data Transfer Options](hpc/data-transfer.md)  
     - [Linux and Slurm Cheat Sheet](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n)  
     - [Available Software](software/modules.md)  
-    - [Compiling Software](software/building.md)  
+    - [Installing Software](software/building.md)  
     - [Clusters](hpc/clusters.md)  
+    - [Container Computing](howto/containerization.md)  
 - **Research Cloud Specific Topics:**  
     - [LakeEffect Cloud Quick Start](cloud/lake-effect.md#lakeeffect-quick-start)  
     - [Cloud Subscription Costs](cloud/lake-effect.md#subscriptions)  
     - [Detailed info on Utilizing the Cloud](cloud/using.md)  
+- **Detailed Step-by-Step Documentation:**  
+    - See the "How To" menu on the left for a growing list of topics
 
 
 !!! note "Can't find what you need?"

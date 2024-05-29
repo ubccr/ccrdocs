@@ -448,35 +448,35 @@ Download the [CCR Matlab Integration Scripts](https://g-ac407a.8c185.08cc.data.g
 
 ans =
 
-    '/home/testuser/Documents/MATLAB'
+    '/home/[username]/Documents/MATLAB'
 
 >> 
 
 ```
-
+**NOTE:** This is on your local computer so the directory path will most likely be different.
 
 Configure your local MATLAB to run parallel jobs on the cluster by using the `configCluster` cluster command.  This only needs to be run once per version of MATLAB.
 
 
 ```
 >> configCluster
-Username on UB-HPC (e.g. jdoe): >>testuser
+Username on UB-HPC (e.g. jdoe): >>[CCRusername]
 Complete.  Default cluster profile set to "ub-hpc R2023b".
 >> 
 
 ```
-You will need to configure your user infomation into the Profile including the location to your private SSH key:
+You will need to configure your user infomation into the Profile including the location to your private SSH key stored on your computer:
 
 ```
 >> c = parcluster;
->> c.AdditionalProperties.EmailAddress = 'testuser@buffalo.edu'
->> c.AdditionalProperties.IdentityFile = '/home/testuser/.ssh/private.key'
+>> c.AdditionalProperties.EmailAddress = 'UBITusername@buffalo.edu'
+>> c.AdditionalProperties.IdentityFile = '/home/username/.ssh/private.key'
 ```
 
 **NOTE:** We recommend setting the RemoteJobStorageLocation to your group's project directory, if you have one, rather than your home directory to prevent going over quota in your home directory.  
 
 ```
-c.AdditionalProperties.RemoteJobStorageLocation = '/projects/testusergroup/testuser/Software/MATLAB/Jobs'
+c.AdditionalProperties.RemoteJobStorageLocation = '/projects/academic/[YourGroupName]/[CCRusername]/Software/MATLAB/Jobs'
 ```
 
 Save the changes to the profile:
@@ -492,7 +492,7 @@ Submit a Parallel Test Job:
 
 additionalSubmitArgs =
 
-    '--ntasks=5 --cpus-per-task=1 --ntasks-per-core=1 --mem-per-cpu=8gb --qos=general-compute --clusters ub-hpc -p general-compute --mail-type=ALL --mail-user=testuser@buffalo.edu'
+    '--ntasks=5 --cpus-per-task=1 --ntasks-per-core=1 --mem-per-cpu=8gb --qos=general-compute --clusters ub-hpc -p general-compute --mail-type=ALL --mail-user=UBITusername@buffalo.edu'
 
 >> job.State                                                                                         
 
