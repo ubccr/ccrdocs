@@ -52,7 +52,7 @@ Follow these easy steps:
 
 2. Run the following command, substituting in your email address:
     ```bash
-    $ ssh-keygen -t ed25519 -C "your_email_address"
+    $ ssh-keygen -t ed25519 -C "myemailaddress@institution.edu"
     ```
 
 3. At the prompt, type a secure passphrase
