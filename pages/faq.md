@@ -109,16 +109,6 @@ If you're sure you're not [over quota](hpc/storage.md) in either file size or nu
 
 The `getfacl` command is an easy way to see the permissions of a file or directory.  It will display the file/directory name, owner of the file/directory, group name that owns the file/directory, and the detailed permissions of the file/directory.  See also: `man getfacl` or `getfacl --help`  
 
-## Why am I getting "error while loading shared libraries" when trying to install Anaconda?  
-
-During installation you may see an error such as `"conda.exe: error while loading shared libraries: libz.so.1: failed to map segment from shared object: Operation not permitted"`  
-
-This relates to an issue storing temporary files created during installation. Please create a temporary directory within your project or global scratch directory and specify that location in the installation command. For example:
-```
-mkdir /projects/academic/<group_name>/condatemp
-TMPDIR=/projects/academic/<group_name>/condatemp ./Anaconda3-2020.02-Linux-x86_64.sh --prefix=/projects/academic/<group_name>/<install_dir>
-```
-
 ## How can I transfer my files to/from UB Box?
 
 Please see [these instructions](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) and utilize Globus to transfer files to UB Box. 
