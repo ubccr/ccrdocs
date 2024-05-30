@@ -325,7 +325,7 @@ Save the above to a file called `mygroup-bundle-1.0.0-foss-2021b.eb`. To install
 
 ```
 $ module load easybuild
-$ export CCR_BUILD_PREFIX=/projects/academic/grp-ccrstaff/easybuild
+$ export CCR_BUILD_PREFIX=/projects/academic/[YourGroupName]/easybuild
 $ eb mygroup-bundle-1.0.0-foss-2021b.eb
 ```
 
@@ -363,23 +363,23 @@ $ install.packages("ggplot2", repos="http://cran.r-project.org",
 To install a package that you downloaded run:
 
 ```
-$ R CMD INSTALL -l /projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs/ readr_2.1.3.tar.gz  
+$ R CMD INSTALL -l /projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs/ readr_2.1.3.tar.gz  
 ```
 
 !!! Tip "Don't want to specify the location each time?"  
     Create a file named .Renviron in your home directory (or edit an existing
     one) and point R to use your alternate directory.  Include the line (editing for your use case):
-    `R_LIBS_USER=/projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs"`
+    `R_LIBS_USER=/projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs"`
     Each time R starts it will use this library directory for installations and
     to search for existing installations.  
 
 Sometimes R library installations will fail with errors such as `installation of package ‘library_name’ had non-zero exit status` or similar.  This is a result of the software trying to save temporary files where you do not have permission to write files.  As a workaround, create a temporary directory within your home or project directory and point the R library installation to use it.  As an example:  
 ```
-[vortex:~]$ mkdir ~/tmp  
-[vortex:~]$ module load gcc openmpi r  
-[vortex:~]$ R 
+[login:~]$ mkdir ~/tmp  
+[login:~]$ module load gcc openmpi r  
+[login:~]$ R 
 Sys.setenv(TMPDIR="/user/$USER/tmp")  
-install.packages("ggplot2", repos="http://cran.r-project.org", lib = "/projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs")  
+install.packages("ggplot2", repos="http://cran.r-project.org", lib = "/projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs")  
 ``` 
 
 

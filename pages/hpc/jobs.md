@@ -368,7 +368,7 @@ Users do not need to specify much information if they do not care where their jo
 The best way to see all the Slurm features offered and what is currently available, is by running the `snodes` command in the terminal on one of the cluster login servers.   
 
 ```` 
-[ccruser@vortex2:~]$ snodes --help
+CCRusername@login:~$ snodes --help
 ==============================================================
 Display information about one or more nodes, possibly filtered
 by partition and/or state.
@@ -380,17 +380,17 @@ state(s) args
 Usage:   snodes [node1,node2,etc.] [cluster/partition] [state(s)]
 
 ==============================================================
-[ccruser@vortex2:~]$ snodes all ub-hpc/general-compute |grep gpu
+CCRusername@login:~$ snodes all ub-hpc/general-compute |grep gpu
 cpn-h22-29    mix      56   2:28:1   48/8/0/56       3.10     512000   gpu:a100-pcie-40gb:2                general-compute*   INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB,A100
 cpn-h22-31    mix      56   2:28:1   48/8/0/56       3.06     512000   gpu:a100-pcie-40gb:2                general-compute*   INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB,A100
 cpn-h22-33    mix      56   2:28:1   48/8/0/56       2.99     512000   gpu:a100-pcie-40gb:2                general-compute*   INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB,A100
 
-[djm29@vortex2:~]$ snodes all ub-hpc/industry |grep IB
+CCRusername@login:~$ snodes all ub-hpc/industry |grep IB
 cpn-h22-04    alloc    56   2:28:1   56/0/0/56       56.16    1000000  (null)                              industry           INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB
 cpn-h22-05    alloc    56   2:28:1   56/0/0/56       56.18    1000000  (null)                              industry           INDUSTRY,AVX512,CPU-Gold-6330,INTEL,h22,IB
 cpn-h22-06    mix      56   2:28:1   48/8/0/56       168.08   1000000  
 
-[djm29@vortex2:~]$ snodes all faculty/scavenger |grep idle
+CCRusername@login:~$ snodes all faculty/scavenger |grep idle
 cpn-f11-03    idle     24   2:12:1   0/24/0/24       0.01     256000   (null)                              scavenger          FACULTY,AVX2,CPU-E5-2650v4,INTEL
 cpn-f11-04    idle     24   2:12:1   0/24/0/24       0.02     256000   (null)                              scavenger          FACULTY,AVX2,CPU-E5-2650v4,INTEL
 cpn-f11-05    idle     24   2:12:1   0/24/0/24       0.05     256000   (null)                              scavenger          FACULTY,AVX2,CPU-E5-2650v4,INTEL
@@ -435,14 +435,17 @@ PriorityWeightTRES      = CPU=0,Mem=.01,GRES/gpu=30000
 ```
 sshare <flag>  
 --accounts=group_name  
---all --accounts=group_name  (Shows fairshare for members of the group)  
+--all --accounts=[YourSlurmAccount]  (Shows fairshare for members of the group)  
 ```
+
+!!! Tip "Slurm Account Name"  
+    Slurm account names are listed on your allocations for cluster resources in [ColdFront](https://coldfront.ccr.buffalo.edu) or you can view on the command line using the `slimits` command.     
 
 **Show Job Priority:**  
 ```
 sprio <flag>
 -j jobid
--u username
+-u [CCRusername]
 ```
 
 **To show Job Priority sorted from highest to lowest:**  Use the `sranks` command  
@@ -461,10 +464,10 @@ In OnDemand, click on the arrow next to one of your current jobs and at the bott
 You can access Grafana charts of your completed jobs, like the Active Jobs available in OnDemand, but you need to query Slurm for the appropriate start and end times and get the node list.  To do this, we provide a script that can be run in the terminal that creates the Grafana URL for your job. 
 
 ````
-[ccruser@vortex]$/util/common/metrics/ccr-jobview-url [jobid] [cluster]
+CCRusername@login:~$ /util/common/metrics/ccr-jobview-url [jobid] [cluster]
 
 
-[ccruser@vortex]$ /util/common/metrics/ccr-jobview-url 10457965 ub-hpc
+CCRusername@login:~$ /util/common/metrics/ccr-jobview-url 10457965 ub-hpc
 ````
 
 Then you would paste the outputed link into your browser. For example:

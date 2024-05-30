@@ -14,11 +14,11 @@ All this is to say, what works on your local machine is not guaranteed to work o
 The way Python is installed and configured at CCR can be a little confusing. When you ssh into a login or compile node, you may find Python already installed. However, this version of python **SHOULD NOT** be used to install or run any of your code. The method CCR uses to load and run software on the cluster depends on Python, so a version will come preinstalled on nodes for compatibility purposes. When you run `module load gcc python`, a new version of Python is loaded which _is_ configured to run programs on the cluster:
 
 ```
-<user>@login1:~$ which python
+CCRusername@login:~$ which python
 /<version-info>/compat/usr/bin/python 
 
-<user>@login1:~$ module load gcc python
-<user>@login1:~$ which python
+CCRusername@login:~$ module load gcc python
+CCRusername@login:~$ which python
 /<version-info>/easybuild/<toolchain-info>/python/<version>/bin/python
 ```
 
@@ -46,8 +46,8 @@ To create a virtual environment run the following commands:
 ```
 module load gcc python
 
-python3 -m venv /projects/academic/YourGroupName/venv_name
-source /projects/academic/YourGroupName/venv_name/bin/activate 
+python3 -m venv /projects/academic/[YourGroupName[/venv_name
+source /projects/academic/[YourGroupName]/venv_name/bin/activate 
 ```
 
 where venv_name can be whatever you'd like to call your new virtual environment. We recommend creating this environment in your group's project directory as you have limited space to install packages in your home directory. Reminder: this is just an example; you'll need to set the path name to your group's shared project directory, which may not be in /projects/academic.
@@ -56,7 +56,7 @@ where venv_name can be whatever you'd like to call your new virtual environment.
 
 Once you have activated your virtual environment, you will be able to use pip to install new packages. You can also load additional modules, such as scipy-bundle, to avoid reinstalling already available python packages.
 ```
-source /projects/academic/YourGroupName/venv_name/bin/activate
+source /projects/academic/[YourGroupName]/venv_name/bin/activate
 (venv_name) pip install new_package
 ```
 
@@ -69,7 +69,7 @@ Once you have a virtual environment set up properly, you may want to use this en
 ```
 module load gcc python ipython
 
-source /projects/academic/YourGroupName/venv_name/bin/activate
+source /projects/academic/[YourGroupName]/venv_name/bin/activate
 (venv_name) python3 -m ipykernel install --user --name kernel_name
 ```
 

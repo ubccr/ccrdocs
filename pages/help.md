@@ -22,7 +22,7 @@ The Freshdesk help portal provides CCR users and staff the ability to manage req
 
 ### Sign Up for CCR Help Portal  
 
-To access the full functionality of the [CCR Help Desk Portal](https://ubccr.freshdesk.com), users will need to register for an account.  You do not need to use your UB email address for this, but please make sure to enter your UB username so we can associate your help desk account with your CCR account.  Click the `Sign Up` button at the top right of the [help desk portal homepage](https://ubccr.freshdesk.com/support/home) and fill out the registration form.  Those fields marked with a red asterisk are required while the others are optional.  
+To access the full functionality of the [CCR Help Desk Portal](https://ubccr.freshdesk.com), users will need to register for an account.  You do not need to use your UB email address for this, but please make sure to enter your UBIT username so we can associate your help desk account with your CCR account.  Click the `Sign Up` button at the top right of the [help desk portal homepage](https://ubccr.freshdesk.com/support/home) and fill out the registration form.  Those fields marked with a red asterisk are required while the others are optional.  
 
 !!! Tip    
     You do not need to register for a portal account to submit tickets to CCR Help.  Simply email ccr-help_at_buffalo.edu and a ticket will be auto-generated for you.  Reply back to CCR staff via email to update your ticket.  

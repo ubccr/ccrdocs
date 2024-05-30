@@ -55,14 +55,13 @@ CCR storage resources are available in Globus as mapped collections.
 You can connect to a CCR endpoint using the "collections"
 field in the Globus web interface and searching for `UBuffalo`
 
-CCR Currently has 4 Mapped Collections:
+CCR Currently has 3 Mapped Collections:
 
 * UBuffalo - Center for Computational Research Project Directories
 * UBuffalo - Center for Computational Research Home Directories
-* UBuffalo - Center for Computational Research Global Scratch (/panasas/scratch)
 * UBuffalo - Center for Computational Research Vast Global Scratch (/vscratch)  
 
-Log into the endpoint using your UB or RPCI account credentials (not your CCR account). The system will map your @buffalo.edu or roswellpark.org account to your local CCR user and you will have access to the same directories that you do when logged into any other CCR system.  NOTE: Some RPCI accounts will not map correctly to CCR accounts.  If this is affecting you, please contact [CCR Help](../help.md) and we'll resolve the mapping issues.  
+Log into the endpoint using your UB or RPCI account credentials (not your CCR account). The system will map your @buffalo.edu or @roswellpark.org account to your local CCR user and you will have access to the same directories that you do when logged into any other CCR system.  NOTE: Some RPCI accounts will not map correctly to CCR accounts.  If this is affecting you, please contact [CCR Help](../help.md) and we'll resolve the mapping issues.  
 
 You can download single files through the browser but to take advantage of the benefits of Globus you will need to do endpoint to endpoint transfers. To do this, you must configure a local endpoint in order to transfer files to/from your local computer. You can easily set up a Globus endpoint by installing [Globus Connect Personal](https://www.globus.org/globus-connect-personal) and setting up a personal endpoint.
 
@@ -163,13 +162,13 @@ is available with `sftp` (Secure File Transfer Protocol) and `scp` (Secure Copy)
 
 The Secure Copy utility, `scp`, can send data to and fetch data from a remote server.
 
-In the examples here, replace `<path-to-file>` with the path of the file you wish to copy, `<username>` with your CCR
+In the examples here, replace `<path-to-file>` with the path of the file you wish to copy, `[CCRusername]` with your CCR
 username, and `<target-path>` with the full path to the directory you would like to send the file to.
 
 ```bash
 # Copying files from a local workstation to CCR Frontend Servers
 
-scp -i <path-to-yourSSHKey> <path-to-file> <username>@vortex.ccr.buffalo.edu.edu:<target-path>
+scp -i <path-to-yourSSHKey> <path-to-file> [CCRusername]@vortex.ccr.buffalo.edu.edu:<target-path>
 ```
 
 !!! Note
@@ -186,7 +185,7 @@ session. Within an sftp session, a series of domain-specific file system command
 between a local system and CCR resources.
 
 ```bash
-sftp <username>@vortex.ccr.buffalo.edu
+sftp [CCRusername]@vortex.ccr.buffalo.edu
 ```
 
 We can then use various commands to traverse and manipulate both local and remote file systems.
@@ -216,13 +215,13 @@ the amount of copies you may perform when synchronizing two datasets.
 !!! Warning
     You will need to set the remote shell command to ssh. The default rsh is not secure and will not work at CCR.
 
-In the examples here, replace `<path-to-file>` with the path of the file you wish to copy, `<username>` with your CCR
+In the examples here, replace `<path-to-file>` with the path of the file you wish to copy, `[CCRusername]` with your CCR
 username, and `<target-path>` with the full path to the directory you would like to send the file to.
 
 ```bash
 # Synchronizing from a local workstation to CCR
 
-rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> <username>@vortex.ccr.buffalo.edu:<target-path> 
+rsync -e 'ssh -i <path-to-yourSSHKey>' -r <path-to-directory> [CCRusername]@vortex.ccr.buffalo.edu:<target-path> 
 ```
 
 **rsync** is not available on Windows by default, but [may be installed individually](https://www.itefix.net/cwrsync) or as part of [Windows
@@ -261,7 +260,7 @@ This will popup the Site Management Window
       - Protocol: SFTP - SSH File Transfer Protocol
       - Host: vortex.ccr.buffalo.edu
       - Login Type: Normal
-      - Username: your-ccr-username
+      - Username: [CCRusername]
       - Password: Leave Blank
 
 > * Click `OK` to add the site.
@@ -295,7 +294,7 @@ This will popup the Site Management Window
       - Protocol: SFTP - SSH File Transfer Protocol
       - Host: vortex.ccr.buffalo.edu
       - Login Type: keyfile
-      - Username: your-ccr-username
+      - Username: [CCRusername]
       - Key file: Navigate to the Key you converted in previous steps
 
 > * Click `OK` to add the site.

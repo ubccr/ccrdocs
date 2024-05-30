@@ -1,18 +1,18 @@
 # Storage
 
 ## Enterprise-level Network Attached Storage  
-  - Vast Data 3PB flash disk system designed for 99% uptime
+  - Vast Data 4.6PB flash disk system designed for 99% uptime
   - At most, 2 scheduled maintenance outages/year  
   - Serves the following file systems:  
 
     - **Home directories:**  
         - Directories found in `/user/username`  
         - Home directories are owned and accessible only to the user.  Access should not be shared with other users.  Data sharing should be done with shared project directories.  
-        - 10GB quota  
+        - 25GB quota  
         - To protect the filesystem, there is a limit of 10 million files per home directory
         - Automatically created for new users  
         - Backed up nightly off campus by UBIT
-        - Backups maintained for 6 months
+        - Backups maintained for 30 days
     - **Project directories for academics:**  
         - Shared by a single research group or course  
         - Directories found in `/projects/academic` or `/projects/academic/courses` for classes
@@ -21,7 +21,7 @@
         - Additional [storage can be purchased](#purchasing-storage)  
         - To protect the file system, there is a limit of 200 million files per project directory
         - Backed up nightly off campus by UBIT  
-        - Backups maintained for 6 months    
+        - Backups maintained for 30 days    
     - **Project directories for industry customers:**  
         - Quotas vary based on Cooperative Use Agreement  
         - **NOT backed up unless specified in your company's Cooperative Use Agreement**  
@@ -32,7 +32,7 @@
         - Use ColdFront to request an allocation for the 'Project Storage' resource  
         - Quotas are listed on individual allocations in ColdFront & can be viewed on the systems as [described below](#checking-quotas)  
         - RPCI IT staff are responsible for dividing up the storage purchased from CCR.  Please contact them if you'd like your quota increased  
-        - **NO RPCI DIRECTORIES ARE BACKED UP**  
+        - ==**NO RPCI DIRECTORIES ARE BACKED UP**==    
 
 !!! Warning  
       Due to limitations of the campus backup service, any directory containing over 50 million files is **NOT BACKED UP**.  The directory owner will be contacted if their directory reaches this level prior to stopping the backups.
@@ -40,21 +40,17 @@
 **Requesting a restore from backup:**  
 To request a restore of deleted files, please contact [CCR Help](../help.md).  Please provide the full path of the file/directory you would like restored and the date and time you would like us to target.  This would be the last known time the file/directory was on the file system.  If it has not been on the system at least 24 hours, it will not have made it to the backup tapes.  There is no guarantee your data is available for recovery but we will attempt to recover it.  
 
-## Global Parallel Scratch
-
-   - Panasas Parallel Filesystem  
-   - 1.4PB total storage  
-   - Designed for high speed parallel computing  
+## Global Scratch
+  
    - There is no guarantee of uptime  
    - Scratch file systems are designed for temporary storage and shorter-term processing of data  
-   - Data is not replicated and does not persist if a file server fails  
    - To be used during job runs and moved or deleted at the completion of a job
    - Data that has not been accessed in more than 60 days is automatically deleted nightly. See [Scratch Usage Policy](../policies/misuse.md#scratch-usage-policies)  
    - 10TB provided for free to all groups
    - Use ColdFront to request an allocation for the `Global Scratch Storage` resource
-   - Directories found in `/panasas/scratch/grp-groupName`  
-   - To protect the file system, users are limited to 2 million files and groups limited to 4 million files.
-   - **NO SCRATCH FILE SYSTEMS ARE BACKED UP**  
+   - Directories found in `/vscratch/grp-[YourGroupName]`  
+   - To protect the file system, groups are limited to 200 million files per directory.
+   - ==**NO SCRATCH FILE SYSTEMS ARE BACKED UP**==  
 
 !!! Tip  
     Data that has not been accessed in more than 60 days is automatically deleted nightly.  To avoid data loss, please remove all data promptly after your job completes
@@ -67,7 +63,7 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 - Users should copy all data from local disks before the job ends  
 - Limited by the space available on the node which varies across node types  
 - In theory, local scratch will provide the fastest I/O because there will be no network latency that other storage options may contend with  
-- **There is NO backup of data in /scratch**  
+- ==**There is NO backup of data in /scratch**==  
 
 ## Cloud Storage  
 
@@ -75,7 +71,7 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 - There is no guarantee of uptime or performance on cloud storage  
 - Available only to research groups with active cloud subscriptions  
 - [See cloud subscription information for cloud storage pricing](../cloud/lake-effect.md#subscriptions)
-- **There is NO backup of data for the research cloud**  
+- ==**There is NO backup of data for the research cloud**==  
 
 ## Purchasing Project Storage  
 
@@ -106,7 +102,7 @@ To initiate the purchase of additional project storage, the PI or project owner 
 
 ## Checking Quotas
 
-**Your user quota (home directory - `/user/<username>`):**
+**Your user quota (home directory - `/user/[CCRusername]`):**
 
 ```
 ccrkinit
@@ -116,7 +112,7 @@ iquota
 
 or
 
-iquota -p /user/username
+iquota -p /user/[CCRusername]
 ```
 
 !!! Tip  
@@ -135,24 +131,24 @@ ccrkinit
 NOTE: You will see "Enter OTP Token Value:" - Enter your password AND one-time token all in the same line here
 
 
-iquota -p /projects/academic/YourGroupName
+iquota -p /projects/academic/[YourGroupName]
 
 HINT: Do not include the trailing slash in the directory name
 ```
 
-**Your group's shared Panasas scratch directory quota:**
+**Your group's shared global scratch directory quota:**
 
 ```
 ccrkinit
 NOTE: You will see "Enter OTP Token Value:" - Enter your password AND one-time token all in the same line here
 
-iquota -p /panasas/scratch/grp-YourGroupName
+iquota -p /vscratch/grp-[YourGroupName]
 
 HINT: Do not include the trailing slash in the directory name
 ```
 
 !!! Tip  
-    iquota only reports the total number of files for the group on the Panasas storage. If you're getting 'out of space' or I/O errors and the group is not over the file limit, it could be your individual limit has been reached. Please email CCR help to request a file quota check.
+    iquota only reports the total number of files for the group on the storage. If you're getting 'out of space' or I/O errors and the group is not over the file limit, it could be your individual limit has been reached. Please email CCR help to request a file quota check.
 
 ```
 iquota usage:
@@ -161,7 +157,7 @@ The iquota command has much more built into it than former versions.  Use iquota
 
 NOTE: You will need to get a kerberos key before running the command, with:  kinit
 
-[ccruser@vortex1:~]$ iquota -h
+[ccruser@login1:~]$ iquota -h
 
 NAME:
 
@@ -199,11 +195,11 @@ GLOBAL OPTIONS:
 ```
 
 **What do quotas limit?**  
-These spaces all have a quota for usage AND number of files.  This is to prevent an errant processes from creating so many files it crashes the system or makes it unstable for others.  If you are getting 'out of space' or I/O errors, please verify you are not over quota in either space or number of files.
+These spaces all have a quota for usage AND number of files.  This is to prevent errant processes from creating so many files it crashes the system or makes it unstable for others.  If you are getting 'out of space' or I/O errors, please verify you are not over quota in either space or number of files.
 
 ## Calculating disk usage at the Linux command line  
 
-Knowing your quota and how much of it you've used is helpful, but often we want to know where the disk usage is actually taking place.  You can run the `ncdu` command (NCurses Disk Usage) to calculate the total size of each file and sub-directory and then sort it from largest to smallest.  You will only be able to run this where you have permission to read files, so it's appropriate to run in your home directory:  /user/[ubit_username] or your group's project directory.
+Knowing your quota and how much of it you've used is helpful, but often we want to know where the disk usage is actually taking place.  You can run the `ncdu` command (NCurses Disk Usage) to calculate the total size of each file and sub-directory and then sort it from largest to smallest.  You will only be able to run this where you have permission to read files, so it's appropriate to run in your home directory:  `/user/[CCRusername]` or your group's project directory.
 
 There are many options for sorting as well as the ability to delete files within this interface.  Use the `man` command to see options: `man ncdu`  
 

@@ -75,7 +75,7 @@ Data – If the account owner does not respond to CCR payment requests within 30
 
 ### User home directories  
 
-CCR provides each cluster user with a home directory ``/user/username`` and a 10GB quota.  The data contained in the home directory is owned by the user and access to these files is under the control of the user only.
+CCR provides each cluster user with a home directory ``/user/[CCRusername]`` and a 25GB quota.  The data contained in the home directory is owned by the user and access to these files is under the control of the user only.
 
 !!! Note
     We can not provide anyone with access to the home directory of another user without the user's express written consent  
@@ -116,7 +116,7 @@ We highly recommend users backup their data offsite for additional protection.  
 
 **What is backed up?**  
 
-Home directories ``/user/[username]`` and project directories in ``/projects/academic`` on the core storage system are backed up to an offsite storage system by UB's Enterprise Infrastructure Services team.  
+Home directories ``/user/[CCRusername]`` and project directories in ``/projects/academic`` on the core storage system are backed up to an offsite storage system by UB's Enterprise Infrastructure Services team.  
 
 **Backup Details**  
 - Incremental backups occur daily  
@@ -128,7 +128,7 @@ Home directories ``/user/[username]`` and project directories in ``/projects/aca
 
 This includes, but is not limited to:  
 - Data residing in ``/tmp`` or ``/scratch`` on ANY server or compute node  
-- The global scratch directories - ``/panasas/scratch``  
+- The global scratch directories - ``/vscratch``  
 - Anything in the Lake Effect research cloud or any instances (virtual machines) running in the cloud  
 - Industry cluster client directories located in ``/projects/industry`` are NOT backed up unless it is specified in the company's Cooperative Use Agreement to do so.  
 
@@ -139,8 +139,8 @@ This includes, but is not limited to:
 CCR is unable to backup user or project directories with more than 50 million files in them.  Any directory that reaches this limit will be excluded from the daily backups.  We will notify the faculty member/PI of the group before the directory is removed from backups.  However, it is the PI's responsibility to notify his/her group of this exclusion.  You can check how many files are in your directory using the iquota command:
 
 ```
-iquota -u username  
-iquota -p /projects/academic/YourGroupName
+iquota -u [CCRusername]  
+iquota -p /projects/academic/[YourGroupName]
 ```
 
 **Requesting a data restore**  
@@ -185,8 +185,6 @@ User and system passwords shall be constructed with strength and complexity that
 - Have no more than two pairs of repeating characters, such as “aa”  
 - Cannot be an old password used within the past 365 days  
 
-**Password Expiration**  
-CCR passwords expire once per year.  Depending on the client you use to connect to certain CCR resources/servers, you may not be prompted in advance of this.  Once it expires, you will not be able to login to CCR servers.  You can check when your password will expire by logging into the identity management portal - [https://idm.ccr.buffalo.edu](https://idm.ccr.buffalo.edu)  
 
 ## Two Factor Authentication Reset Policy  
 

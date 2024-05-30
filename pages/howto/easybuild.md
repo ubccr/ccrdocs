@@ -17,14 +17,14 @@ For example, the module `java/11.0.16` defines:
 
 You can see the environment variables defined by the `java/11.0.16` module using:  
 ```
-ccruser@vortex ~:$ module show java/11.0.16 |grep EB  
+CCRusername@login:~$ module show java/11.0.16 |grep EB  
 ```
 
 You can use these as variables on the command line and in scripts.  For example:  
 
 ```
-ccruser@vortex ~:$ cd $EBROOTJAVA
-ccruser@vortex:/cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/java/11.0.16$  
+CCRusername@login:~$ cd $EBROOTJAVA
+CCRusername@login:~$ /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/java/11.0.16$  
 ```
 
 ## Using Easybuild in your own account  
@@ -102,9 +102,9 @@ These are automatically loaded for you when you load the `foss/2021b` module.  W
 **When using Easybuild, do NOT use the CCR login nodes.**  Always use a [compile node](../software/building.md) or do this from a compute node in an [OnDemand desktop](../portals/ood.md#desktop-interactive-apps) session or [interactive job](../hpc/jobs.md#interactive-job-submission).  These installations can use a decent amount of disk space so we recommend you use your project directory for all software installations.  We do not recommend using your home directory as these have small quotas.  If you haven't already done so, create an `easybuild` directory in your group's project directory and set the [Easybuild build prefix](../software/building.md#building-modules-for-your-group) to that directory.  Reminder: this is just an example; you'll need to set the path name to your group's shared project directory, which may not be in `/projects/academic`      
 
 ```
-$ ssh compile  
-$ mkdir /projects/academic/groupname/easybuild   
-$ export CCR_BUILD_PREFIX=/projects/academic/groupname/easybuild  
+CCRusername@login:~$ ssh compile  
+CCRusername@compile ~ $ mkdir /projects/academic/[YourGroupName]/easybuild   
+CCRusername@compile ~ $ export CCR_BUILD_PREFIX=/projects/academic/[YourGroupName]/easybuild  
 ```
 !!! Tip "Set Easybuild install path EVERY TIME"  
     The `CCR_BUILD_PREFIX` needs to be set each time you install software.  You're telling Easybuild where to put this particular installation.  [More details](../software/building.md#building-modules-for-your-group)   
@@ -117,8 +117,8 @@ For this example, we're going to step through the process of building a software
 First, we load the Easybuild module and search for an existing Easybuild (EB) recipe (**Reminder: don't do this on a login node!**):
 
 ```
-$ module load easybuild  
-$ eb --search aria2
+CCRusername@compile ~ $ module load easybuild  
+CCRusername@compile ~ $ eb --search aria2
 == found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it...
  * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.35.0-GCCcore-10.3.0.eb
  * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.36.0-GCCcore-11.3.0.eb
@@ -132,7 +132,7 @@ To attempt to install this, we must make a copy of the existing EB recipe and mo
 Here we update the name of the EB recipe from `aria2-1.36.0-GCCcore-11.3.0.eb` to `aria2-1.36.0-GCCcore-11.2.0.eb`  If you were to also change the version of the software package you're attempting to install, you need to change that in the EB recipe file name as well.  In this example, we're not doing that.  
 
 ```
-$ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.36.0-GCCcore-11.3.0.eb aria2-1.36.0-GCCcore-11.2.0.eb
+CCRusername@compile ~ $ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/a/aria2/aria2-1.36.0-GCCcore-11.3.0.eb aria2-1.36.0-GCCcore-11.2.0.eb
 ```
 
 This is what the file currently looks like:  
@@ -206,7 +206,7 @@ dependencies = [
 How do we figure out what CCR has installed?  It's a manual process of running `module spider` for each dependency. If the dependency isn't installed yet in the CCR software repository, Easybuild will try to build it.  For the dependencies that ARE installed, we must match up the version in CCR's repository so that we're not building a second version for no reason.  Here we find that libxml2 is already installed by CCR, but the version is slightly different.  So we would update the version in the EB recipe to 2.9.10 and then it will use the one CCR has installed.   
 
 ```
-$ module spider libxml2
+CCRusername@compile ~ $ module spider libxml2
 ----------------------------------------------------------------------------------------------------------------
   libxml2: libxml2/2.9.10
 ----------------------------------------------------------------------------------------------------------------
@@ -223,7 +223,7 @@ $ module spider libxml2
 We need to check all the dependencies to ensure we don't run into conflicts.  In the case of `sqlite` CCR has 2 versions installed.  If we look at the version listed in this EB recipe, we see it is actually dependent on a different version of the GCC toolchain so we don't want to use that:  
 
 ```
-$ module spider sqlite/3.38.3
+CCRusername@compile ~ $ module spider sqlite/3.38.3
 
 ----------------------------------------------------------------------------------------------------------------
   sqlite: sqlite/3.38.3
@@ -246,7 +246,7 @@ Instead, we'll change this dependency to version 3.36 which is installed already
 Once we've updated any dependency versions, we save the file and use the Easybuild dry run (`-M`) option to see if we've met all the dependencies and if not, which ones with Easybuild try to build for us.  This will also tell us if we have an errors in the recipe file.  
 
 ```
-$ eb -M aria2-1.36.0-GCCcore-11.2.0  
+CCRusername@compile ~ $ eb -M aria2-1.36.0-GCCcore-11.2.0  
 == Temporary log file in case of crash /tmp/eb-xlnc41x4/easybuild-phg4qbmb.log
 == Running parse hook for aria2-1.36.0-GCCcore-11.2.0...
 == found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it...
@@ -259,21 +259,21 @@ ERROR: Failed to process easyconfig /user/djm29/aria2-1.36.0-GCCcore-11.2.0: Fai
 This output shows us that one of the dependencies isn't built and Easybuild can't find an existing EB recipe for this package and the `GCCcore-11.2.0` toolchain.  This means, we'll need to build it ourselves, in the same manner as we're trying to build `aria2`.  We'll search for an EB recipe, copy it, and modify for the right toolchain version.  Here are the steps:  
 
 ```
-$ eb --search cppunit  
+CCRusername@compile ~ $ eb --search cppunit  
 == found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it..
 ...
  * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-10.3.0.eb
  * /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-11.3.0.eb
 
 
-$ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-11.3.0.eb CppUnit-1.15.1-GCCcore-11.2.0.eb  
+CCRusername@compile ~ $ cp /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs/c/CppUnit/CppUnit-1.15.1-GCCcore-11.3.0.eb CppUnit-1.15.1-GCCcore-11.2.0.eb  
 ```
 Open `CppUnit-1.15.1-GCCcore-11.2.0.eb` in your favorite editor, change the toolchain version to 11.2.0 and save the file.
 
 Now use the dry run option to test the Cppunit EB recipe:  
 
 ```
-$ eb -M CppUnit-1.15.1-GCCcore-11.2.0.eb
+CCRusername@compile ~ $ eb -M CppUnit-1.15.1-GCCcore-11.2.0.eb
 == Temporary log file in case of crash /tmp/eb-tgz39qah/easybuild-ufl924e3.log
 == Running parse hook for CppUnit-1.15.1-GCCcore-11.2.0.eb...
 == found valid index for /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/Core/easybuild/4.8.1/easybuild/easyconfigs, so using it...
@@ -291,11 +291,11 @@ $ eb -M CppUnit-1.15.1-GCCcore-11.2.0.eb
 This shows us that there are no missing dependencies and we should be able to install this software successfully.  There's no guarantee, of course, but let's try.  Just remove the `-M` option and start the EB build process.  
 
 ```
-$ eb CppUnit-1.15.1-GCCcore-11.2.0.eb 
+CCRusername@compile ~ $ eb CppUnit-1.15.1-GCCcore-11.2.0.eb 
 .... 
 == COMPLETED: Installation ended successfully (took 5 mins 10 secs)
 == Results of the build can be found in the log file(s) 
-/projects/academic/groupname/easybuild/2023.01/software/avx512/MPI/gcc/11.2.0/cppunit/1.15.1/easybuild/easybuild-Cppunit-1-15-1-20240210.021702.log.bz2
+/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/MPI/gcc/11.2.0/cppunit/1.15.1/easybuild/easybuild-Cppunit-1-15-1-20240210.021702.log.bz2
 
 == Build succeeded for 1 out of 1
 == Temporary log file(s) /tmp/eb-hjerqc87/easybuild-kjcattow.log* have been removed.
@@ -304,7 +304,7 @@ $ eb CppUnit-1.15.1-GCCcore-11.2.0.eb
 Now that our dependency `Cppunit` is built, we can attempt to install `aria2`  We recommend another dry run just to make sure we've got everything we need:  
 
 ```
-$ eb -M aria2-1.36.0-GCCcore-11.2.0.eb
+CCRusername@compile ~ $ eb -M aria2-1.36.0-GCCcore-11.2.0.eb
 == Temporary log file in case of crash /tmp/eb-2kxod_dt/easybuild-d8jkzen1.log
 ...
 
@@ -321,7 +321,7 @@ Easybuild is now finding the `Cppunit` dependency is met and nothing else needs 
     Easybuild can build dependencies for us.  If this output of the dry run indiciated additional dependencies were needed, we can add the `--robot` option to the end of this installation command to instruct Easybuild to try to build the dependencies.  Be careful with this though!  You should not be building toolchains, compilers, or major software already installed by CCR like python, java, and other large packages unless you really know what you're doing.  
 
 ```
-$ eb aria2-1.36.0-GCCcore-11.2.0.eb
+CCRusername@compile ~ $ eb aria2-1.36.0-GCCcore-11.2.0.eb
 == COMPLETED: Installation ended successfully (took 31 mins 29 secs)
 == Results of the build can be found in the log file(s)
 /cvmfs/soft.ccr.buffalo.edu/versions/2023.01/easybuild/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/easybuil
@@ -340,7 +340,7 @@ This tells us the installation completed successfully and points us to the zippe
 Now let's search for our module, load it, and look at the module to see where it's installed:  
 
 ```
-$ module spider aria2
+CCRusername@compile ~ $ module spider aria2
 ----------------------------------------------------------------------------------------------------------------
   aria2: aria2/1.36.0
 ----------------------------------------------------------------------------------------------------------------
@@ -363,10 +363,10 @@ $ module spider aria2
       ================
        - Homepage: https://aria2.github.io
 
-$ module load gcccore/11.2.0 aria2/1.36.0
-$ module show aria2/1.36.0
+CCRusername@compile ~ $ module load gcccore/11.2.0 aria2/1.36.0
+CCRusername@compile ~ $ module show aria2/1.36.0
 ----------------------------------------------------------------------------------------------------------------
-   /projects/academic/groupname/easybuild/modules/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0.lua:
+   /projects/academic/[YourGroupName]/easybuild/modules/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0.lua:
 ----------------------------------------------------------------------------------------------------------------
 help([[
 Description
@@ -387,16 +387,16 @@ depends_on("libxml2/2.9.10")
 depends_on("sqlite/3.36")
 depends_on("c-ares/1.18.1")
 depends_on("openssl/1.1")
-prepend_path("CMAKE_PREFIX_PATH","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0")
-prepend_path("CPATH","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/include")
-prepend_path("LIBRARY_PATH","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/lib")
-prepend_path("MANPATH","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/share/man")
-prepend_path("PATH","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/bin")
-prepend_path("PKG_CONFIG_PATH","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/lib/pkgconfig")
-prepend_path("XDG_DATA_DIRS","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/share")
-setenv("EBROOTARIA2","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0")
+prepend_path("CMAKE_PREFIX_PATH","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0")
+prepend_path("CPATH","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/include")
+prepend_path("LIBRARY_PATH","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/lib")
+prepend_path("MANPATH","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/share/man")
+prepend_path("PATH","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/bin")
+prepend_path("PKG_CONFIG_PATH","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/lib/pkgconfig")
+prepend_path("XDG_DATA_DIRS","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/share")
+setenv("EBROOTARIA2","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0")
 setenv("EBVERSIONARIA2","1.36.0")
-setenv("EBDEVELARIA2","/projects/academic/groupname/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/easybuild/avx512-Compiler-gcccore-11.2.0-aria2-1.36.0-easybuild-devel")
+setenv("EBDEVELARIA2","/projects/academic/[YourGroupName]/easybuild/2023.01/software/avx512/Compiler/gcccore/11.2.0/aria2/1.36.0/easybuild/avx512-Compiler-gcccore-11.2.0-aria2-1.36.0-easybuild-devel")
 ```
 Congratulations!  You've just built some software!!
 
@@ -413,7 +413,7 @@ And with each step of the installation, you'll get a separate log and working di
 ```
   >> running command:
         [started at: 2024-02-15 09:45:29]
-        [working dir: /var/tmp/ccruser/easybuild/build/aria2/1.36.0/GCCcore-11.2.0/aria2-1.36.0]
+        [working dir: /var/tmp/[CCRusername]/easybuild/build/aria2/1.36.0/GCCcore-11.2.0/aria2-1.36.0]
         [output logged in /tmp/eb-_ago41dx/easybuild-run_cmd-5y2xgnhf.log]
 ```  
 You can tail these log files during the installation to see how it's progressing and what, if anything, might be going wrong.  The working directory holds alot of details, including config files, make files (if necessary), and whatever other pieces the software needs to install.  This is where you can go to find out what exactly the installation is trying to do.  Each software package is different and you may find answers to why your software didn't build, here in the working directory.  After the EB installation ends successfully, the final log file and working directory contents are removed from their temporary space to the software's final resting place.  The EB installer will output the final location of the log file.  If the installation fails, you can refer to these temporary spaces for clues.  Please make sure to remove these temporary files so as not to waste disk space for others using these compile nodes.  
@@ -425,7 +425,7 @@ You can tail these log files during the installation to see how it's progressing
 You've checked all the dependencies for your software and you know that they're already installed with the right versions by CCR (or you did this yourself).  Yet, you're still seeing the error `failed to determine minimal toolchain for dep` when trying to install your software.  Make sure that your EB recipe is formatted correctly.  In the list of dependencies, you must match the name of the dependency with the EB recipe configs exactly.  For example, if your recipe has a dependency for `rust/1.54.0` you will see this is already installed by CCR.  However, the name in the EB recipe must be `Rust` not `rust`.  How can you tell how the name should be spelled?  Look at the Easybuild recipe name for the module and use that spelling.  In this example, the EB recipe for rust is: `Rust-1.54.0-GCCcore-11.2.0.eb`  Also, ensure you're not using a module that is an extension to an existing module in your dependency lists.  [See below](#module-extensions)  
 
 Another reason you might see this is because Easybuild can't find the dependency you've already built.  If you've had to modify an Easybuild recipe to build a dependency, that recipe needs to be in a location where the Easybuild installation can find it.  By default, Easybuild is looking in CCR's configuration directories where our recipes are stored.  It will not look in your directory.  To fix this, specify your directory in the Easybuild installation command using the `--robot=` option.  In the above example for building aria2, we would use this and Easybuild would find the recipe for cppunit that we previously built in our home directory:  
-`eb aria2-1.36.0-GCCcore-11.2.0.eb --robot=/user/username`  
+`eb aria2-1.36.0-GCCcore-11.2.0.eb --robot=/user/[CCRusername]`  
 
 ### Module extensions
 Sometimes you'll see modules listed in the `module spider` output that have an (E) next to them like: `matlab/1.0.2 (E)` Do NOT use these versions in your Easybuild recipes. The (E) refers to the module being an extension of another module. If we used this in our EB recipe then the software we build will also depend on the "parent" module.  

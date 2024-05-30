@@ -9,7 +9,7 @@ CCR is pleased to provide users with UBMoD - the Open XDMoD web-based tool for m
     Access to UBMoD is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)  
 
-Login to [UBMoD](https://ubmod.ccr.buffalo.edu) with your CCR account.  Don't have one yet? [see here](../getting-access.md)
+Logins to UBMoD are currently unavailable while we update this service.
 
 
 ## Where does the information come from?

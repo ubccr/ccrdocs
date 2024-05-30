@@ -33,7 +33,7 @@ CCR offers project storage space for groups to securely share data and can work 
 The clusters' batch queuing system is designed to give everyone a fair shot at the highest level of throughput for their jobs.  Attempting to circumvent the queue or fairshare system (i.e. cut to the front of the line) is strictly prohibited and will result in your account being deactivated and potential disciplinary action by the University at Buffalo IT security office. See below for more information on this policy.  
 
 **Scratch Scrubber Policy**  
-CCR provides free, high throughput scratch storage space for use when running your jobs.  However, this is TEMPORARY storage space intended for transient storage while jobs are running.  Users are expected to move their data from /pananas/scratch to their home or project directory when their job is complete.  Any data over 60 days old is deleted automatically nightly.  Any efforts to modify file dates to purposely subvert this policy are prohibited.  We have sophisticated scripts that monitor for attempts to subvert the system.  Users violating this policy risk ALL of their data in /panasas/scratch being deleted without notice and account deactivation. [See below](##) for more information on this policy.  
+CCR provides free, high throughput scratch storage space for use when running your jobs.  However, this is TEMPORARY storage space intended for transient storage while jobs are running.  Users are expected to move their data from `/vscratch` to their home or project directory when their job is complete.  Any data over 60 days old is deleted automatically nightly.  Any efforts to modify file dates to purposely subvert this policy are prohibited.  We have sophisticated scripts that monitor for attempts to subvert the system.  Users violating this policy risk ALL of their data in `/vscratch` being deleted without notice and account deactivation. [See below](##) for more information on this policy.  
 
 
 !!! Warning
@@ -54,17 +54,17 @@ What you need to know about local scratch space:
 !!! Tip
     **CCR STRONGLY RECOMMENDS** using the Slurm environment variable ``$SLURMTMPDIR`` to manage local scratch. Using this variable in your job script will place temporary job data in ``/scratch/<jobid>`` on the node running the job. This data is removed automatically at the completion of your job.
 
-**Global Scratch (/panasas/scratch)**  
+**Global Scratch (/vscratch)**  
 What you need to know about global scratch space:  
 - Accessible from all compute and front-end login nodes at CCR  
-- Parallel file system that should be used during job execution rather than a user’s home or project directory  
-- Groups with active allocation to the Global Scratch resource have access to a sub-directory in ``/panasas/scratch/grp-[groupname]`` - this might be your research group name starting with grp-PIusername or your company name     
+- Temporary file system that should be used during job execution rather than a user’s home or project directory  
+- Groups with active allocation to the Global Scratch resource have access to a sub-directory in ``/vscratch/grp-[YourGroupName]`` - this might be your research group name starting with grp-PIusername or your company name     
 - Groups have a 10 TB default quota for their global scratch directory  
-- Groups are also subject to a quota of 4 million files and users have a quota of 2 million files  
-- We set these user/group quotas for the total number of files in accordance with our system size and projected usage.  Users generating more than a million files per job could affect the performance of the system for everyone.  If you feel your research requires this, we’d like to engage with you to determine if there is an alternate approach  
+- Groups are also subject to a quota of 200 million files  
+- We set these group quotas for the total number of files in accordance with our system size and projected usage.  Users generating more than a million files per job could affect the performance of the system for everyone.  If you feel your research requires this, we’d like to engage with you to determine if there is an alternate approach  
 
 **Automatic Deletion of Files in Global Scratch**  
-- The allowed lifespan of files in global scratch is 60 days from the last file access date.  This is based on the file’s last access timestamp ("atime") on the Panasas file servers.  
+- The allowed lifespan of files in global scratch is 60 days from the last file access date.  This is based on the file’s last access timestamp ("atime") on the file servers.  
 - CCR runs an automated cleanup process daily on the filesystem to delete files whose “atime” has reached the maximum lifespan.  
 - Altering or duplicating files solely to circumvent the scratch cleanup process is against policy.  
 

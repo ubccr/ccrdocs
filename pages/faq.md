@@ -76,15 +76,15 @@ There are three common reasons why you might not be able to launch OnDemand sess
 CCR's `iquota` tool will provide you quota and usage for your home directory and any shared project or global scratch directories you may also have access to.  You'll first need to authenticate with the `ccrkinit` command.  Enter your password and 6 digit one time token (OTP) when prompted, as shown here:  
 
 ```
-[ccruser@vortex:~]$ ccrkinit
+CCRusername@login:~$ ccrkinit
 Enter OTP Token Value:
 ```
 NOTE: You will not see the characters typed when entering your password and OTP.  
 
 ```
-iquota --path /user/username
-iquota --path /projects/academic/groupname
-iquota --path /panasas/scratch/grp-groupname
+iquota --path /user/[CCRusername]  
+iquota --path /projects/academic/[YourGroupName]  
+iquota --path /vscratch/grp-[YourGroupName]  
 ```
 
 Alternatively, you can view this information on the [ColdFront](https://coldfront.ccr.buffalo.edu) dashboard. More details about storage and quotas can be [found here](hpc/storage.md).
@@ -95,7 +95,7 @@ This error is caused by Anaconda conflicting with the Kerberos used by CCR's aut
 
 ## Why am I getting 'no space left on device' errors?  
 
-If you're sure you're not [over quota](hpc/storage.md) in either file size or number of files, it may be an issue with file permissions.  In the shared project and Panasas scratch directories, users must ensure the group ownership of a file or directory is set to the faculty or project group of that directory.  This is set automatically for new files and when copying files.  However, sometimes users override these defaults.  If you get this error, this is definitely the problem:  
+If you're sure you're not [over quota](hpc/storage.md) in either file size or number of files, it may be an issue with file permissions.  In the shared project and global scratch directories, users must ensure the group ownership of a file or directory is set to the faculty or project group of that directory.  This is set automatically for new files and when copying files.  However, sometimes users override these defaults.  If you get this error, this is definitely the problem:  
 `mv: failed to preserve ownership for 'filename': no space left on device`  
 
 **Other possible reasons for this error:**  
@@ -108,16 +108,6 @@ If you're sure you're not [over quota](hpc/storage.md) in either file size or nu
 ## How can I see what the file permissions are?  
 
 The `getfacl` command is an easy way to see the permissions of a file or directory.  It will display the file/directory name, owner of the file/directory, group name that owns the file/directory, and the detailed permissions of the file/directory.  See also: `man getfacl` or `getfacl --help`  
-
-## Why am I getting "error while loading shared libraries" when trying to install Anaconda?  
-
-During installation you may see an error such as `"conda.exe: error while loading shared libraries: libz.so.1: failed to map segment from shared object: Operation not permitted"`  
-
-This relates to an issue storing temporary files created during installation. Please create a temporary directory within your project or Panasas scratch directory and specify that location in the installation command. For example:
-```
-mkdir /projects/academic/<group_name>/condatemp
-TMPDIR=/projects/academic/<group_name>/condatemp ./Anaconda3-2020.02-Linux-x86_64.sh --prefix=/projects/academic/<group_name>/<install_dir>
-```
 
 ## How can I transfer my files to/from UB Box?
 
@@ -137,7 +127,7 @@ There are a few types of module errors you might see:
 
 You can list information on your job’s start time using the squeue command:
 
-`squeue --user=your-username --start`
+`squeue --user=[CCRusername] --start`
 
 Note that Slurm’s estimated start time can be a bit inaccurate. This is because Slurm calculates this estimation off the jobs that are currently running or queued in the system. Any job that is submitted after yours with a higher priority may delay your job.  Alternatively, if jobs complete in less time than they've requested, more jobs can start sooner than anticipated.  
 
@@ -260,9 +250,9 @@ CCR **may** be able to accommodate small classes that require small amounts of c
 ## How can I access my project directory from a Jupyter Notebook?  
 
 Create a symbolic link in your home directory that points to your project directory.  Then you'll be able to navigate through the sym link in the Jupyter Notebook.  To create a symbolic link in your home directory called 'projects' run the `ln -s` command, replacing the full path of your project directory and your username in the example below:  
-`ln -s /projects/academic/<group_name> /user/username/projects`
+`ln -s /projects/academic/[YourGroupName] /user/[CCRusername]/projects`
 
-You'll then have the link `/user/username/projects` that takes you to your project directory.  
+You'll then have the link `/user/[CCRusername]/projects` that takes you to your project directory.  
 
 
 ## How do I acknowledge the use of CCR resources?  

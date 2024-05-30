@@ -51,7 +51,7 @@ The Files App in OnDemand allows users to easily transfer files to or from their
 !!! Warning  
     Do NOT transfer large files or large amounts of files using this app.  File transfer is limited to the amount of memory on the OnDemand server, the number of users currently using it, and browser limitations.  Please use the integrated [Globus service](../hpc/data-transfer.md#globus-transfers) for large file transfers.    
 
-Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/username`.  If you have access to a shared project or global scratch directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
+Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/[CCRusername]`.  If you have access to a shared project or global scratch directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
 
 You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  We provide information about using `rclone` to do that [here](../hpc/data-transfer.md#rclone) with an example of setting up a OneDrive link.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done this setup after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
 
@@ -99,7 +99,7 @@ The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter N
 **Loading additional software modules with Jupyter:**  
 The "Extra Modules to Load with Jupyter" box on the Quick Launch and Advanced Options Jupyter/Lab Notebook apps provides a way for users to load additional software modules with Jupyter.  Enter the list of all software modules you'd like to load, including any dependencies they have, in order, and with only a space separating them.  For example, if we search for the module `pytorch` using `module spider pytorch` in the OnDemand terminal app, we will see:  
 ```
-[vortex:~]$ module spider pytorch
+[login:~]$ module spider pytorch
 
 ----------------------------------------------------------------------------------------------------------------
   pytorch: pytorch/1.13.1-CUDA-11.8.0
@@ -160,7 +160,7 @@ The Job Composer provides a template system for creating and managing batch jobs
 This section displays your currently running sessions and those that just recently finished.  The completed jobs stay in this list for 2 days allowing you to access the link to the jobs' output files.  You can remove the links by clicking the `Delete` button.  However, this does not delete the job data directory and output files.
 
 !!! Note "Managing your OnDemand Disk Usage"
-    To clear up disk space in your home directory, you can remove directories for completed jobs when you're done retrieving the job output data.  You can find these in subdirectories under: `/user/username/ondemand/data/sys/dashboard/batch_connect/sys`  
+    To clear up disk space in your home directory, you can remove directories for completed jobs when you're done retrieving the job output data.  You can find these in subdirectories under: `/user/[CCRusername]/ondemand/data/sys/dashboard/batch_connect/sys`  
 
 ### Develop (Sandbox)  
 
