@@ -46,7 +46,7 @@ To create a virtual environment run the following commands:
 ```
 module load gcc python
 
-python3 -m venv /projects/academic/[YourGroupName[/venv_name
+python3 -m venv /projects/academic/[YourGroupName]/venv_name
 source /projects/academic/[YourGroupName]/venv_name/bin/activate 
 ```
 
