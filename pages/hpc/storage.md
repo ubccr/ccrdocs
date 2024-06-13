@@ -6,7 +6,7 @@
   - Serves the following file systems:  
 
     - **Home directories:**  
-        - Directories found in `/user/username`  
+        - Directories found in `/user/[CCRusername]`  
         - Home directories are owned and accessible only to the user.  Access should not be shared with other users.  Data sharing should be done with shared project directories.  
         - 25GB quota  
         - To protect the filesystem, there is a limit of 10 million files per home directory
