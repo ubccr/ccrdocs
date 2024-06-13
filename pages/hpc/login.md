@@ -43,7 +43,7 @@ Using the SSH protocol, you can connect and authenticate to CCR login nodes with
 
 ## Generate new SSH key
 
-The first time you want to login to CCR's login servers on a new device, you'll need to generate a new SSH key pair on your local machine. After you generate
+Prior to using SSH to connect to CCR's login servers, you'll need to generate a new SSH key pair on your local machine. If you connect to CCR from multiple devices, we recommend generating a separate SSH key pair for each device.  After you generate
 the key pair, you must add the public key to your account using [CCR's IDM portal](https://idm.ccr.buffalo.edu/sshkey).
 
 Follow these easy steps:
