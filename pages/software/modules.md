@@ -10,14 +10,6 @@ the compute nodes. You access the software using what's called a "module".  If
 the software you need is not available, you [can ask our staff](building.md#software-build-requests)
 to install it for you or [do it yourself](building.md).
 
-!!! Warning "Legacy Software Environment Deprecated"
-    The `ccrsoft/legacy` software environment is now deprecated. Users are
-    encourged to migrate workflows to the latest `ccrsoft/2023.01` release as
-    soon as possible. More info [see here](releases.md). You can load the
-    latest release by running:
-    ```
-    $ module load ccrsoft/2023.01
-    ```
 
 ## Using Modules
 
@@ -155,6 +147,52 @@ For more information, see the [Running Jobs section](../hpc/jobs.md).
 
 ## Application Specific Notes
 
+### Abaqus  
+
+Abaqus 2024 is available via a Singularity container. Please refer to our [container documentation](../howto/containerization.md) for more information on using Singularity. You can find the Abaqus container here: `/util/software/container/x86_64/abaqus-2024.sif`  This is a large file (10GB) so please be sure to copy it to a location where you have enough space (i.e. your project directory), or you can run the container from this location.  
+
+**Abaqus GUI**  
+
+To run the Abaqus GUI using this container, first start an [OnDemand desktop](../portals/ood.md#interactive-apps) session.  Once started, launch a terminal in the OnDemand desktop.  Then run this command to start the container and launch the Abaqus GUI:  
+
+```
+/usr/bin/singularity exec -B /util:/util,/scratch:/scratch /util/software/containers/x86_64/abaqus-2024.sif abaqus cae -mesa
+```  
+
+!!! Tip  "Accessing additional directories in your container"  
+    The `-B` option is telling Singularity which directories on the node you want to bind mount into the container.  You will automatically get access to your home directory.  The directories we have listed here to bind mount are required.  If you also want access to your project directory you can add `,/projects:/projects` to the list or your specific directory `,/projects/academic/[YourGroupName]:/projects/academic/[YourGroupName]` for example.
+
+**Abaqus command line**  
+
+To run Abaqus from the command line, either interactively or in a batch script, run this command:  
+
+```
+/usr/bin/singularity exec -B /util:/util,/scratch:/scratch /util/software/containers/x86_64/abaqus-2024.sif /bin/bash
+```  
+
+Once the container starts you'll see the Apptainer command prompt and then you can run the Abaqus command as normal.  For example:  
+
+```
+Apptainer> abaqus help  
+```
+
+**Abaqus & GPUs**  
+
+If you need to use GPUs with Abaqus you'll need to request a GPU node and add a few things to the Singularity command that starts the container. Add this after the rest of your bind mounts in the Singularity exec command:  
+`,/opt/software/nvidia:/opt/software/nvidia --nv`  
+
+From our example above to run the Abaqus GUI on a GPU node, the command would be:  
+
+```
+/usr/bin/singularity exec -B /util:/util,/scratch:/scratch,/opt/software/nvidia:/opt/software/nvidia --nv /util/software/containers/x86_64/abaqus-2024.sif abaqus cae -mesa
+```
+
+**NOTE:**  If you're using the Abaqus GUI, we recommend running on the [viz partition](../hpc/clusters.md#visualization-nodes) and qos of the UB-HPC cluster.  However, this will work from any GPU node.    
+
+Please refer to the [Abaqus (Simulia) documentation](https://help.3ds.com/2020/English/DSSIMULIA_Established/SIMULIA_Established_FrontmatterMap/sim-t-SIMULIA_EstablishedDocSearchOnline.htm) for additional information on using this software.  
+
+
+
 ### AlphaFold
 
 To use AlphaFold run:
@@ -219,6 +257,27 @@ reasons:
 Instead we recommend using modules that already include many [popular python
 packages](#python). Instead of installing python modules in conda environments users can create
 custom python module bundles using easybuild. For more details [see here](#python).
+
+
+### LS-DYNA  
+
+LS-DYNA is now part of the Ansys software bundle.  To load the module, use `module load ansys/2023R1`  The lsdyna executables do not show up in the path any longer.  To use them properly, you'll need to use these commands.
+
+**Single Precision**  
+`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_sp.e`
+
+**Single precision, massively parallel:**  
+`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_sp_mpp.e`  
+
+
+**Double Precision**  
+`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_dp.e`
+
+**Double precision, massively parallel:**  
+`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_dp_mpp.e`  
+
+Please refer to the Ansys LS-DYNA [manuals](https://lsdyna.ansys.com/manuals/) for further information and options.    
+
 
 ### Perl
 

@@ -70,7 +70,6 @@ Interactive apps provide a way for users to launch and connect to an interactive
 
 All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the option `normal` in the QOS drop down menu.  You will see the `class` and `industry` partitions; however, if you do not have the `class` or  `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.     
 
-**NOTE:**  Apps named 'LEGACY' are for use by those that need to access applications in the ccrsoft/legacy [software release](../software/releases.md).  These apps will be available until that software release is decommissioned in June 2024.  
 
 !!! Warning "Scavenger Partition Warning!"  
     Prior to using the `scavenger` partition, we STRONGLY recommend [reading about it](../hpc/jobs.md#scavenging-idle-cycles) to understand how it works.  When using the `scavenger` partition you are using nodes not otherwise available to you and your jobs will get cancelled when the owner of those nodes wants to use them.  
@@ -91,7 +90,7 @@ Most software GUIs can run on any compute node at CCR through the `UB-HPC & Facu
     OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then delete the running session under the `My interactive sessions` menu.  
 
 **Jupyter Interactive Apps**  
-The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter Notebook apps provided in OnDemand.  For those using the latest CCR software release (`ccrsoft/2023.01`) there are two Jupyter apps available.  These sessions will automatically run on the newest CCR compute nodes (tagged `NOTLEGACY`).  
+The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter Notebook apps provided in OnDemand.  For those using the latest CCR software release (`ccrsoft/2023.01`) there are two Jupyter apps available.  
 
 - The "Quick Launch Jupyter Lab/Notebook" app allows you to select which Slurm account you want to run this job under, the number of GPUs to request (if any), whether to use Jupyter Lab instead of Jupyter Notebook, and if you'd like to receive emails about your job.  You may also list additional modules to load with Jupyter.  
 - The "Jupyter Lab/Notebook Advanced Options" app gives you the same options as the Quick Launch app but provides many other options for the user to specify including CPUs, RAM (memory), time for job to run (walltime), and [node features](../hpc/jobs.md#node-features).
@@ -121,7 +120,6 @@ This means pytorch depends on both the gcc and openmpi modules. So in the "Extra
 
 When the Jupyter app starts, it will launch these additional modules with it and you'll have access to the pytorch software.  If you want to load several modules and they all require the same dependencies, these only need to be listed once.  For example, torchvision also requires gcc and openmpi.  If you wanted to load pytorch and torchvision, specify this in the "Extra modules to load with Jupyter" box:  `gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0 torchvision/0.14.1-CUDA-11.8.0`  
 
-- The "Jupyter Notebook (Legacy)" app is available to support users utilizing the `ccrsoft\legacy` software release. These sessions automatically run on CCR's older compute nodes (tagged `LEGACY`).  The support for `ccrsoft/legacy` has been deprecated and this app will be removed from OnDemand in June 2024.
 
 **Loading additional software modules with VSCode:**  
 This works the same way as described above for the Jupyter Lab/Notebook app.  Any software modules listed in this box will be loaded when the VSCode session starts.  
