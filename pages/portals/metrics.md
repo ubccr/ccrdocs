@@ -9,7 +9,8 @@ CCR is pleased to provide users with UBMoD - the Open XDMoD web-based tool for m
     Access to UBMoD is restricted to UB and Roswell Park networks
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)  
 
-Logins to UBMoD are currently unavailable while we update this service.
+
+https://ubmod.ccr.buffalo.edu/
 
 
 ## Where does the information come from?
@@ -18,4 +19,7 @@ The information is harvested from the SLURM accounting log files. The workload m
 ## How often is the information updated?
 The job stats are updated nightly and aggregate the data on a rolling week (last 7 days), month (last 30 days), and quarter (last 84 days). The web interface displays the information as of the previous day.
 
-**More UBMoD documentation coming soon!**
+
+## Using UBMoD  
+You can access the user manual by clicking on `User Manual` under the Help menu.  There is also a step-by-step tour of the different components of UBMod that can be started by clicking on the `View XDMoD User Tour` option under the Help menu.  
+
