@@ -118,9 +118,9 @@ Please see [these instructions](hpc/data-transfer.md##using-globus-to-transfer-f
 There are a few types of module errors you might see:  
 - `module command not found` means the system doesn't know anything about the software modules.  Ensure the first line of your batch script is: `#!/bin/bash -l`  
 - `module not found` means the system can't find the specifc module you're trying to load.  
-  - If you're using the faculty cluster, make sure the node you're running on supports the software you want to use.  [See here](howto/newenv.md#im-getting-module-command-errors) for more info.  
+  - If you're using the faculty cluster, make sure the node you're running on supports the software you want to use.  If you're running on an x86-64-v3 (avx2) CPU, the software may not be built yet.  Submit a [build request](software/building.md#software-build-requests)  
   - You have not loaded the module's dependencies prior to loading the module you want to use.  [See here](software/modules.md#hierarchical-modules) for more info on the hierarchical module scheme  
-  - You are trying to load modules from a different software release.  CCR sets a default software release on all systems.  If you want to use a module from a different release than what is the default, you must load the software release version first.  [See here](howto/newenv.md) for more details.  
+  - You are trying to load modules from a different software release.  CCR sets a default software release on all systems.  If you want to use a module from a different release than what is the default, you must load the software release version first.  [See here](software/releases.md) for more details.  
 
 
 ## When will my job start?

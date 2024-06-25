@@ -22,7 +22,7 @@ to [search the issues here](https://github.com/ubccr/software-layer/issues?q=is%
 to see if another user has already submitted a request. Users are strongly
 encourage to vote on which software is to be installed by adding a "like" or
 "thumbs up" on the issue. Due to limited staffing we'll be installing more
-popular software requests first so it's important you vote.
+popular software requests first so it's important you vote.  Please refer to our [software installation policy](../policies/support.md#software-installation-policy) prior to submitting a build request.  Of particular note: we are unable to install software that requires us to agree to a license to download or that a research group has purchased a license for.  This must be installed by the research group in their project directory.  
 
 ## About EasyBuild
 

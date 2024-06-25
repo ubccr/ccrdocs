@@ -75,7 +75,7 @@ Next is information from the job scheduler that's useful to CCR's staff for help
 "nodes": "1",
 "end_time": "2024-02-26T14:31:18",
 "dependency": "(null)",
-"features": "NOTLEGACY&V100",
+"features": "V100",
 "time_limit": "6:00:00",
 "time_left": "5:58:52",
 "min_memory": "12M",
@@ -102,4 +102,4 @@ We also have many answers to other OnDemand questions on our Frequently Asked Qu
 [Invalid account, partition, or QOS error](../faq.md#why-do-i-get-an-invalid-account-partition-or-qos-specification-error-when-i-try-to-run-a-job)  
 [Why is my job showing `reqnodenotavail`?](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail)   
 [XFCE PolicyKit Agent error](../faq.md#how-can-i-fix-the-xfce-policykit-agent-error-in-ondemand-desktop-sessions)  
-[What are Legacy apps?](../howto/newenv.md#new-version-of-ondemand)  
+

@@ -94,13 +94,4 @@ Supported CPU Microarchitectures:
 | avx2          | Intel Haswell, Broadwell                                   |
 | avx512        | Intel Skylake-SP, Skylake-X, Cascade Lake-SP               |
 
-## Legacy
 
-CCR's legacy software release is no longer supported. Users are encouraged to
-migrate their workflows to version [2023.01](#202301).
-
-All software in this release was compiled over many years and not optimized for
-any specific architectures or toolchains. This release uses a flat naming
-scheme so all modules  are directly available for loading.  
-
-==The ccrsoft/legacy software environment is being removed from CCR's systems on June 25, 2024==
