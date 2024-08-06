@@ -28,10 +28,11 @@ This Microarchitecture was formally named `avx2` and includes Intel Haswell, Bro
 This Microarchitecture includes NVIDIA Grace Hopper (ARMv9.0-A). Slurm specific
 notes for running on this architecture:
 
-- When running `sbatch` or `srun` you need to set `--export=HOME,TERM`
-- Interactive job submission via `salloc` requires `--no-shell` 
-- Ensure all your sbatch scripts have this at the top: `#!/bin/bash -l`
-- Make sure you're NOT pinning any ccrsoft release in `~/.modulerc`
+- When running `sbatch` or `srun` you need to set `--export=HOME,TERM,SHELL`
+- Interactive job submission via `salloc` requires `--no-shell`  
+- Ensure all your sbatch scripts have this at the top: `#!/bin/bash -l`  
+- Make sure you're NOT pinning any ccrsoft release in `~/.modulerc`  
+- Make sure to release the node when done using the `scancel` command  
 
 Example of submitting an interactive job on the Grace Hopper nodes:
 
@@ -48,8 +49,10 @@ $ salloc \
    --constraint=GH200 \
    --no-shell
 # above command will output jobid
-$ srun --jobid=JOBID_HERE --export=HOME,SHELL --pty /bin/bash --login
-```
+$ srun --jobid=JOBID_HERE --export=HOME,TERM,SHELL --pty /bin/bash --login
+```  
+Once you're done with the node, use the `exit` or `logout` command and then release your job using the command:  
+`scancel {JOBID}`
 
 Example of an sbatch script for running on the Grace Hopper nodes:
 
@@ -64,10 +67,12 @@ Example of an sbatch script for running on the Grace Hopper nodes:
 #SBATCH --cpus-per-task=64
 #SBATCH --mem=64G
 #SBATCH --gpus-per-node=1
-#SBATCH --export=HOME,TERM
+#SBATCH --export=HOME,TERM,SHELL
 #SBATCH --constraint=GH200
 #SBATCH --output=results.txt
 ```
+
+These are simple examples.  For more information on properly requesting cores and nodes, [see here](../hpc/jobs.md#requesting-cores-and-nodes).  For more details on Slurm directives [see here](../hpc/jobs.md#slurm-directives-partitions--qos).  
 
 For GPU workloads we highly recommend using [NVIDIA NGC containers](https://catalog.ngc.nvidia.com/containers). For example, here's NGC
 [TensorFlow](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow)

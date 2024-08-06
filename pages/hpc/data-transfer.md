@@ -26,6 +26,9 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 **_ * Globus transfers are available from everywhere, You do not need to be on the UB or Roswell Park networks to use Globus._**
 
+Watch this virtual workshop to learn more about data transfer options at CCR:  
+![type:video](https://youtube.com/embed/yYInBnY7S9Q)  
+
 ---
 
 ## Globus transfers
