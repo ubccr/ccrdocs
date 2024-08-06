@@ -4,6 +4,9 @@ Open OnDemand is a browser based single point of access for all of CCR's cluster
 
 _**This product is an open source project developed by [Ohio Supercomputer Center](https://openondemand.org).**_
 
+Watch this virtual workshop to learn more about Open OnDemand at CCR:   
+![type:video](https://www.youtube.com/embed/VaoSaoCIjDk) 
+
 ## Login to CCR's OnDemand  
 
 !!! Warning "VPN Required"
@@ -22,8 +25,9 @@ Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Do
 
 ## OnDemand Features  
 
-This presentation covers how to use Open OnDemand at CCR:   
-![type:video](https://www.youtube.com/embed/VaoSaoCIjDk) 
+This video provides a walk through demonstration of using CCR's Open OnDemand portal:
+![type:video](https://www.youtube.com/embed/7hyA1sM7Ftk) 
+
 
 ### Dashboard  
 Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, our message of the day (MOTD), recently used apps, and pinned apps (popular applications organized into sections).  On the right side of the dashboard you will see any currently active Interactive Sessions.  Along the top are tabs for the different features offered in OnDemand.

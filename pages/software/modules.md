@@ -10,6 +10,8 @@ the compute nodes. You access the software using what's called a "module".  If
 the software you need is not available, you [can ask our staff](building.md#software-build-requests)
 to install it for you or [do it yourself](building.md).
 
+Watch this virtual workshop to learn more about using software on CCR's HPC systems:  
+![type:video](https://youtube.com/embed/Eonl9_wTrEo)  
 
 ## Using Modules
 
@@ -224,10 +226,10 @@ a single sequence prediction:
 #!/bin/bash -l
 
 #SBATCH --time=03:30:00
-#SBATCH --ntasks 1
-#SBATCH --cpus-per-task 32
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
 #SBATCH --mem=64G
-#SBATCH --gres=gpu:2
+#SBATCH --gpus-per-node=2
 #SBATCH --constraint=A100
 
 module load foss alphafold
@@ -255,8 +257,11 @@ reasons:
 - Modifies the $HOME/.bashrc file, which can easily cause conflicts.
 
 Instead we recommend using modules that already include many [popular python
-packages](#python). Instead of installing python modules in conda environments users can create
+packages](#python). Rather than installing python modules in conda environments users can create
 custom python module bundles using easybuild. For more details [see here](#python).
+
+If Easybuild is not an ideal option for your work, you could utilize a container to install Anaconda and
+your required packages.  For more information about using containers on CCR's systems, [see here](../howto/containerization.md).  
 
 
 ### LS-DYNA  

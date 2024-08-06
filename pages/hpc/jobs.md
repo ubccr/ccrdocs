@@ -7,7 +7,10 @@ Utility for Resource Management, to create and manage jobs.
 
 In order to run a program on a cluster, you must request resources from Slurm
 to generate a job. Resources are requested from a login node. You then provide
-commands to run your program on those requested resources (compute nodes).
+commands to run your program on those requested resources (compute nodes).  
+
+Watch this virtual workshop to learn more about batch computing at CCR:  
+![type:video](https://youtube.com/embed/ZU2sQ5MnN0Y)  
 
 ## Requesting cores and nodes
 
@@ -85,22 +88,34 @@ a compute node.
 
 Slurm interactive jobs allow users to interact with applications on the compute
 node. With an interactive job, you will request time and resources. Once
-available, you will be logged into the assigned node and the job will be ended
-when you log out or your reqested time limit is reached.  This is different
+available, you will be able to log into the assigned node and the job will be ended
+when you log out and cancel it or your reqested time limit is reached.  This is different
 compared to a batch job where you submit your job for execution with no user
 interaction.  
 
-To submit an interactive job to the general-compute partition for a single
-process with 32 Intel cores and 50GB of memory for 5 hours and 20 minutes, use
-the `salloc` command and the appropriate options as shown here:  
+!!! Note "Job Environment Propogation"  
+    Because CCR's clusters contain a mix of CPU architectures for which environments may
+    differ, we recommend you utilize the `--no-shell` option when requesting interactive
+    jobs.  Then use the `srun` command to login to the allocated node.   
 
-```bash
-salloc --qos=general-compute --partition=general-compute  \
-       --job-name "InteractiveJob" --cpus-per-task=32 \
-       --ntasks=1 --mem=50G -C INTEL --time=05:20:00
+This example requests an interactive job using the `salloc` command on the general-compute partition for 1 node, a single
+process with 32 cores and 50GB of memory for 1 hour.  Once the requested node is available, use the `srun` command as shown
+to login to the compute node:    
+
 ```
-
-To complete/end this job, we would type `exit` on the command line.
+$ salloc \
+   --partition=general-compute \
+   --qos=general-compute \
+   --mem=50G \
+   --nodes=1 \
+   --time=1:00:00 \
+   --ntasks-per-node=1 \
+   --cpus-per-task=32 \
+   --no-shell
+# above command will output the jobid
+$ srun --jobid=JOBID_HERE --export=HOME,TERM,SHELL --pty /bin/bash --login
+```  
+Once you're done with the node, use the `exit` or `logout` command and then release your job's allocated resources using the command `scancel $JOBID` If you don't cancel the job, Slurm will release the allocated resources when the time requested for the job expires and you'll be automatically logged out of the compute node.  
 
 ### Batch Job Submission
 
@@ -113,7 +128,7 @@ Below is an explanation of the SBATCH options used in our samples. These are
 Slurm directives and should be understood before submitting a job.  For more
 information on Slurm directives, partitions, and QOS, [see here](#slurm-directives-partitions-qos).
 
-```bash
+```
 #!/bin/bash -l
 #
 # 	How long the job will run once it begins. If the job runs longer than what is
@@ -132,8 +147,8 @@ information on Slurm directives, partitions, and QOS, [see here](#slurm-directiv
 
 #SBATCH --cpus-per-task=32
 
-# 	How much memory do you need.
-# 	This will define memory (in GB) this job requires.
+# 	Specify the real memory required per node.  Default units are megabytes.  
+#   Different units can be specified using the suffix  [K|M|G|T]  
 
 #SBATCH --mem=20G
 
@@ -150,7 +165,7 @@ information on Slurm directives, partitions, and QOS, [see here](#slurm-directiv
 #SBATCH --mail-user=myemailaddress@institution.edu
 
 # 	Tell slurm the types of emails to send.
-# 	Options: NONE, BEGIN, END, FAIL, ALL
+# 	Options: NONE, BEGIN, END, FAIL, ALL  
 
 #SBATCH --mail-type=end
 
@@ -161,6 +176,11 @@ information on Slurm directives, partitions, and QOS, [see here](#slurm-directiv
 #SBATCH --cluster=ub-hpc
 
 ```
+
+!!! Warning "Using Slurm's Email Directive"  
+    Please be cautious using the email directive and specifying which types of emails you'd like to receive.  Normally, receiving an email at the end of a job is more than sufficient.  If you're running many very short jobs, please do not use this at all as this looks like a spam attack to the receiving email server and CCR's email servers get blocked.  
+
+
 
 Below are several sample scripts which can be submitted to Slurm using the
 `sbatch` command. Batch scripts should be submitted from a login node and
@@ -173,9 +193,7 @@ To submit to the **debug partition on the ub-hpc cluster**, the slurm script wou
 #!/bin/bash -l
 #
 #SBATCH --time=00:01:00
-#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10000
 #SBATCH --job-name="example-debug-job"
 #SBATCH --output=example-debug-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
@@ -198,7 +216,7 @@ script would look like:
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10000
+#SBATCH --mem=10G
 #SBATCH --job-name="example-general-compute-job"
 #SBATCH --output=example-general-compute-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
@@ -222,7 +240,7 @@ the slurm script would look like:
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10000
+#SBATCH --mem=10G
 #SBATCH --job-name="example-faculty-cluster-job"
 #SBATCH --output=example-faculty-cluster-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
@@ -237,7 +255,7 @@ echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
 
 ```
 
-!!! Note "Caution: Maintenance Downtimes"
+!!! Warning "Caution: Maintenance Downtimes"
     Jobs on the faculty cluster are allowed to run up until the downtime
     starts. Please ensure your jobs checkpoint and can restart where they left
     off OR request only enough time to run your job prior to the 7am cutoff on
@@ -253,7 +271,7 @@ script would look like:
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10000
+#SBATCH --mem=10G
 #SBATCH --job-name="example-general-compute-scavenger-job"
 #SBATCH --output=example-general-compute-scavenger-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
@@ -338,7 +356,7 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Number of tasks    | The ***total*** number of processes needed to run the job | --ntasks=processes   |
 | Tasks per node     | The number of processes you wish to assign to each node | --ntasks-per-node=processes |
 | Total memory       | The total memory (per node requested) required for the job. <br> Using --mem does not alter the number of cores allocated <br> to the job, but you will be charged for the number of cores <br> corresponding to the proportion of total memory requested. <br> Units of --mem can be specified with the suffixes: K,M,G,T (default M)| --mem=memory |
-| GPU requests         | Requesting the GPU on a node, requesting specific features<br> of the V100 GPUs, or requesting a specific slot of the GPU(S:0-1) <br> To specify type of GPU (A100, H100, V100) use [--constraints](#node-features) <br>To use all cores on a node w/more than 1 GPU you <br>must [disable CPU binding](https://docs.ccr.buffalo.edu/en/latest/faq/#how-do-i-request-all-cpus-on-a-node-with-more-than-one-gpu)     | --gpus-per-node=1 (or gpu:2) <br>  --gpus-per-node=tesla_v100-pcie-32gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1(S:0) or (S:1) <br>--gres-flags=disable-binding      |
+| GPU requests         | Requesting the GPU on a node, requesting specific features<br> of the V100 GPUs, or requesting a specific slot of the GPU(S:0-1) <br> To specify type of GPU (A40, A100, H100, V100) use [--constraints](#node-features) <br>To use all cores on a node w/more than 1 GPU you <br>must [disable CPU binding](https://docs.ccr.buffalo.edu/en/latest/faq/#how-do-i-request-all-cpus-on-a-node-with-more-than-one-gpu)     | --gpus-per-node=1 (or gpu:2) <br>  --gpus-per-node=tesla_v100-pcie-32gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1(S:0) or (S:1) <br>--gres-flags=disable-binding      |
 | Wall time          | The max amount of time your job will run for        | --time=wall time           |
 | Job Name           | Name your job so you can identify it in the queue   | --job-name=jobname         |
 
@@ -346,11 +364,12 @@ These are the partitions available on the UB-HPC cluster:
 
 | Partition | Default Wall Time | Wall Time Limit | Default # CPUS | Job Submission Limit/User     |
 | :-------- | :---------------- | :-------------- | :------------- | :---------------------------- |
+| class     | 24 hours            | 72 hours          | 1              |   1000        |
 | debug     | 1 hour            | 1 hour          | 1              |   4        |
-| general-compute     | 24 hour            | 72 hour          | 1              |   1000        |
-| industry     | 24 hour            | 72 hour          | 1              |   1000        |
-| scavenger     | 24 hour            | 72 hour          | 1              |   1000        |
-| viz     | 24 hour            | 24 hour          | 1              |   1        |
+| general-compute     | 24 hours            | 72 hours          | 1              |   1000        |
+| industry     | 24 hours            | 72 hours          | 1              |   1000        |
+| scavenger     | 24 hours            | 72 hours          | 1              |   1000        |
+| viz     | 24 hours            | 24 hours          | 1              |   1        |
 
 **Faculty Cluster Partitions**   
 There are over 50 partitions in the faculty cluster all of which have a default of 1 CPU, wall time of 24 hours and a maximum number of jobs per user of 1000.  The maximum wall time of these partitions ranges from 72 hours to 30 days.  To view details about a particular partition use the `scontrol` command; for example:  `scontrol show partition ub-laser -M faculty`
@@ -360,7 +379,7 @@ Supporters of CCR are provided access to the `supporters` QOS which provides a b
 
 ## Node Features    
 
-Users do not need to specify much information if they do not care where their job runs or on what hardware.  Slurm uses the default information from your account, the cluster, and the partition to run a job.  If you need more than the default, you can specify hardware requirements using the Slurm `--constraint` directive in a batch script or using the `Node Features` field in OnDemand app forms.  You can specify CPU type such as `INTEL` or `AMD` or more specific CPU models such as `CPU-Gold-6230`.  GPU types can be specified with `A100`, `V100` or `P100`.  High speed interconnect networks can be requested with either `IB` (Infiniband) or `OPA` (OmniPath).  Additional node features include machine room rack locations and funding sources (i.e. NIH and MRI).  To specify more than one feature, use the `&` sign between them (i.e. `--constraint=INTEL&IB` will request nodes with Intel CPUs and the Infiniband high speed network).  To request a node with one feature or another, use the `|` symbol between them (i.e. `--constraint=IB|OPA` will request nodes with either of the two high speed network options).  
+Users do not need to specify much information if they do not care where their job runs or on what hardware.  Slurm uses the default information from your account, the cluster, and the partition to run a job.  If you need more than the default, you can specify hardware requirements using the Slurm `--constraint` directive in a batch script or using the `Node Features` field in OnDemand app forms.  You can specify CPU type such as `INTEL` or `AMD` or more specific CPU models such as `CPU-Gold-6230`.  GPU types can be specified with `A40`, `A100`, `H100`, `GH200`, or `V100`.  High speed interconnect networks can be requested with the `IB` (Infiniband) tag.  Additional node features include machine room rack locations and funding sources (i.e. NIH and MRI).  To specify more than one feature, use the `&` sign between them (i.e. `--constraint=INTEL&IB` will request nodes with Intel CPUs and the Infiniband high speed network).  To request a node with one feature or another, use the `|` symbol between them (i.e. `--constraint=CPU-Gold-6330|CPU-Gold-6230` will request nodes with either the Intel 6230 or 6330 CPU, but not a node with the 6130 CPU).  
 
 !!! Tip  
     The less you specify, the sooner your job is likely to run because you are not narrowing your pool of compute nodes to run on with specific criteria.  
@@ -452,6 +471,9 @@ sprio <flag>
 
 
 ## Monitoring Jobs
+
+Watch this virtual workshop to learn more about monitoring your jobs:  
+![type:video](https://youtube.com/embed/ZsXnoH2UQ4E)  
 
 ### Active Jobs monitoring via OnDemand
 CCR offers a detailed view into what is happening on the node(s) where your job is running.  You can view the graphs from OnDemand but you do NOT need to submit the jobs from within OnDemand.  Even jobs submitted from the command line using 'sbatch' are available in your list of Active Jobs.

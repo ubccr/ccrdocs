@@ -37,6 +37,9 @@ CCR login nodes hostnames:
 - `vortex.ccr.buffalo.edu` - production login nodes
 - `vortex-future.ccr.buffalo.edu` - includes new features and serves as a preview of the next deployment of production login nodes
 
+Watch this virtual workshop to learn more about monitoring your jobs:  
+![type:video](https://youtube.com/embed/BIo1YO5j4GA)  
+
 ## Connecting with SSH
 
 Using the SSH protocol, you can connect and authenticate to CCR login nodes without supplying your password. To set up SSH, you will need to generate a new SSH key pair that contains a private key (stored only on your personal computer) and a public key (uploaded to your CCR account using the IDM portal).  During the login process the CCR servers attempt to match the public key that you've uploaded to your CCR account with the private key you have stored on your computer.  If they match, the login is successful.  

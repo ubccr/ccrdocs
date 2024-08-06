@@ -1,5 +1,8 @@
 # Storage
 
+Watch this virtual workshop to learn more about CCR's storage options & policies:  
+![type:video](https://youtube.com/embed/EzQuL59DPjA)    
+
 ## Enterprise-level Network Attached Storage  
   - Vast Data 4.6PB flash disk system designed for 99% uptime
   - At most, 2 scheduled maintenance outages/year  
