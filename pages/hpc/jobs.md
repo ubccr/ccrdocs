@@ -99,14 +99,14 @@ interaction.
     jobs.  Then use the `srun` command to login to the allocated node.   
 
 This example requests an interactive job using the `salloc` command on the general-compute partition for 1 node, a single
-process with 32 cores and 50GB of memory (specified in megabytes) for 1 hour.  Once the requested node is available, use the `srun` command as shown
+process with 32 cores and 50GB of memory for 1 hour.  Once the requested node is available, use the `srun` command as shown
 to login to the compute node:    
 
 ```
 $ salloc \
    --partition=general-compute \
    --qos=general-compute \
-   --mem=50000 \
+   --mem=50G \
    --nodes=1 \
    --time=1:00:00 \
    --ntasks-per-node=1 \
@@ -147,10 +147,10 @@ information on Slurm directives, partitions, and QOS, [see here](#slurm-directiv
 
 #SBATCH --cpus-per-task=32
 
-# 	How much memory do you need.
-# 	This will define memory (in MB) this job requires.
+# 	Specify the real memory required per node.  Default units are megabytes.  
+#   Different units can be specified using the suffix  [K|M|G|T]  
 
-#SBATCH --mem=20000
+#SBATCH --mem=20G
 
 # 	Give your job a name, so you can recognize it in the queue
 
@@ -216,7 +216,7 @@ script would look like:
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10000
+#SBATCH --mem=10G
 #SBATCH --job-name="example-general-compute-job"
 #SBATCH --output=example-general-compute-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
@@ -240,7 +240,7 @@ the slurm script would look like:
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10000
+#SBATCH --mem=10G
 #SBATCH --job-name="example-faculty-cluster-job"
 #SBATCH --output=example-faculty-cluster-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
@@ -271,7 +271,7 @@ script would look like:
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=10000
+#SBATCH --mem=10G
 #SBATCH --job-name="example-general-compute-scavenger-job"
 #SBATCH --output=example-general-compute-scavenger-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
@@ -356,7 +356,7 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Number of tasks    | The ***total*** number of processes needed to run the job | --ntasks=processes   |
 | Tasks per node     | The number of processes you wish to assign to each node | --ntasks-per-node=processes |
 | Total memory       | The total memory (per node requested) required for the job. <br> Using --mem does not alter the number of cores allocated <br> to the job, but you will be charged for the number of cores <br> corresponding to the proportion of total memory requested. <br> Units of --mem can be specified with the suffixes: K,M,G,T (default M)| --mem=memory |
-| GPU requests         | Requesting the GPU on a node, requesting specific features<br> of the V100 GPUs, or requesting a specific slot of the GPU(S:0-1) <br> To specify type of GPU (A100, H100, V100) use [--constraints](#node-features) <br>To use all cores on a node w/more than 1 GPU you <br>must [disable CPU binding](https://docs.ccr.buffalo.edu/en/latest/faq/#how-do-i-request-all-cpus-on-a-node-with-more-than-one-gpu)     | --gpus-per-node=1 (or gpu:2) <br>  --gpus-per-node=tesla_v100-pcie-32gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1(S:0) or (S:1) <br>--gres-flags=disable-binding      |
+| GPU requests         | Requesting the GPU on a node, requesting specific features<br> of the V100 GPUs, or requesting a specific slot of the GPU(S:0-1) <br> To specify type of GPU (A40, A100, H100, V100) use [--constraints](#node-features) <br>To use all cores on a node w/more than 1 GPU you <br>must [disable CPU binding](https://docs.ccr.buffalo.edu/en/latest/faq/#how-do-i-request-all-cpus-on-a-node-with-more-than-one-gpu)     | --gpus-per-node=1 (or gpu:2) <br>  --gpus-per-node=tesla_v100-pcie-32gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1 <br> --gpus-per-node=tesla_v100-pcie-16gb:1(S:0) or (S:1) <br>--gres-flags=disable-binding      |
 | Wall time          | The max amount of time your job will run for        | --time=wall time           |
 | Job Name           | Name your job so you can identify it in the queue   | --job-name=jobname         |
 

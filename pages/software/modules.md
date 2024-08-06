@@ -228,7 +228,7 @@ a single sequence prediction:
 #SBATCH --time=03:30:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=64000
+#SBATCH --mem=64G
 #SBATCH --gpus-per-node=2
 #SBATCH --constraint=A100
 
