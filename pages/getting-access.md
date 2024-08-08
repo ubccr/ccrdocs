@@ -58,12 +58,19 @@ For more details on two factor authentication [see here](2fa.md).
     [here](https://coldfront-test.ccr.buffalo.edu/user/user-profile/) and click
     on the `Upgrade Account` button.
 
+## Intro to CCR Course Requirement  
+==NEW: As of Fall 2024 Semester==  
+
+All students (graduate and undergraduate) that require the use of CCR's resources for coursework and all undergraduate students working in research groups are required to complete the "[Intro to CCR](https://ublearns.buffalo.edu/d2l/home/209035)" course in [UB Learns](https://ublearns.buffalo.edu/) prior to using CCR's systems.  Once completed, students receive a certificate of completion that they can share with their instructor or research advisor.  **Faculty members should not add students to their allocations without verifying they have completed the "Intro to CCR" course.**  We reserve the right to deny support to students requesting assistance from CCR help without having completed the "Intro to CCR" course first.
+
+Though faculty members, graduate students, and post docs working in research groups are not required to take the "Intro to CCR" course, it is HIGHLY recommended.  Many of you may have extensive HPC experience already but each HPC center does things a little differently.  This course will step you through CCR's resources and policies making onboarding your research group much faster and hopefully a pain free experience. We also provide many recordings of pertinent topics on our [YouTube channel](https://youtube.com/@ubccr). 
+
+The "[Intro to CCR](https://ublearns.buffalo.edu/d2l/home/209035)" course is available on UB Learns for open enrollment.  Anyone at UB may enroll in the course.  Students taking the "Intro to CCR" course will be added to allocations that give them access to CCR's UB-HPC cluster for the current semester.  Use of the cluster with these allocations should be limited to only this course material.  Once the course is completed, you'll be removed from these allocations and should notify your course instructor or research advisor to request that they add you to their allocations.  Should you need an extension on your "Intro to CCR" allocation period, please contact [CCR Help](help.md)  
+
 ## Allocation Requests
 
-Access to CCR resources is managed using allocations. ColdFront is the
-allocations management system CCR uses to manage resource allocations for the
-entire center. In order to access CCR resources you must be on an active
-allocation.
+Access to CCR resources is managed using allocations. ColdFront is the allocations management system CCR uses to manage resource allocations for the
+entire center. In order to access CCR resources you must be on an active allocation.
 
 - __Faculty members__ (Principal investigators) can use
   [ColdFront](https://coldfront.ccr.buffalo.edu) to create projects, add group
