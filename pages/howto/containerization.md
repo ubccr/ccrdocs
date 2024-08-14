@@ -17,6 +17,8 @@ Containers distinguish themselves through their low computational overhead and t
 
 [Docker](https://www.docker.com/) is the most widely used container engine, and  can be used on any system where you have administrative privileges. _Docker cannot be run on high-performance computing (HPC) platforms because users do not have administrative privileges._
 
+[Podman](https://podman.io/) is a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. It is backward compatible with docker and does not require root privileges. Podman is fully supported at CCR, [see here](#podman)
+
 [Apptainer](https://apptainer.org/) (formerly Singularity) is a container engine that does not require administrative privileges to execute. Therefore, it is safe to run on HPC platforms.    
 
 Because Docker images are widely available for many software packages, a common use case is to use Apptainer to run Docker images.
@@ -159,5 +161,61 @@ Once you’ve built the container with one of the methods outlined above, you ca
 module load gcc/11.2.0
 module load openmpi/4.1.1
 
-mpirun -np 4 apptainer exec openmpi.sif mpi_hello_world"
+mpirun -np 4 apptainer exec openmpi.sif mpi_hello_world
+```
+
+## Podman
+
+!!! todo
+    write podman intro text here
+
+### Example usage
+
+- Run ubuntu container:
+
+```
+$ podman run -ti --rm ubuntu:24.04 /bin/bash
+```
+
+- Run ubuntu container bind mounting your homedir to `/mnt`:
+
+```
+$ podman run -v $HOME:/mnt -ti --rm ubuntu:24.04 /bin/bash
+```
+
+- Run ubuntu container bind mounting your projects space to `/mnt` and expose
+  your unix groups to the container:
+
+```
+$ podman run \
+     --annotation run.oci.keep_original_groups=1 \
+     -v /projects/academic/YOUGROUP:/mnt \
+     -ti --rm ubuntu:24.04 /bin/bash
+```
+
+- Run ubuntu container that has access to GPUs:
+
+```
+$ podman run --device nvidia.com/gpu=all -ti --rm ubuntu:24.04 /bin/bash
+```
+
+- Run ubuntu container with X11 GUI access:
+
+```
+podman run \
+     --userns=keep-id \
+     -v $HOME:$HOME \
+     -e HOME \
+     -e DISPLAY \
+     --net=host \
+     -v /tmp/.X11-unix:/tmp/.X11-unix \
+     -ti --rm ubuntu:24.04 /bin/bash
+```
+
+### Notes
+
+- You may see this warning when exiting a conatiner, this is safe it ignore: 
+
+```
+WARN[0004] Failed to add pause process to systemd sandbox cgroup: dbus: couldn't determine address of session bus
 ```
