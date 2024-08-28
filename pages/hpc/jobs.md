@@ -43,21 +43,6 @@ either spawning threads and sharing memory (multi-threaded) or starting entire
 new processes (multi-process). In this case use `--cpus-per-task` to guarantee
 that the CPUs you expect your program to use are all accessible.
 
-Some applications are written to use the Message Passing Interface (MPI) standard to
-run across many compute nodes. This allows such applications to scale
-computation in a way not limited by the number of cores on a single node. MPI
-translates what Slurm calls tasks to separate workers or processes. For control
-over how Slurm lays out your job, you can add the `--nodes` and
-`--ntasks-per-node` flags. Note that the following must be true:
-
-```
-ntasks-per-node * nodes >= ntasks
-```
-
-Some MPI programs are also multi-threaded, so each process can use multiple
-CPUs. Only these applications can use `--ntasks` and `--cpus-per-task` to run
-faster.
-
 For example, suppose you need 16 cores, here are some possible scenarios:
 
 - you want one process that can use 16 cores for multithreading: `--ntasks=1 --cpus-per-task=16`
@@ -69,6 +54,63 @@ For example, suppose you need 16 cores, here are some possible scenarios:
 - you want 16 processes to spread across 8 nodes to have two processes per node: `--ntasks=16 --ntasks-per-node=2`
 - you want 16 processes to stay on the same node: `--ntasks=16 --ntasks-per-node=16`
 
+## MPI
+
+Some applications are written to use the Message Passing Interface (MPI)
+standard to run across many compute nodes. These applications can scale
+computation in a way not limited by the number of cores on a single node. MPI
+applications can leverage high speed network transports such as InfiniBand to
+increase performance. If you're running MPI applications it's important to
+understand the various network topologies available and how to request the
+nodes most appropriate for your specific job.
+
+CCR's network topology consists of a core Ethernet network where all nodes are
+fully connected. A subset of nodes also support InfiniBand and are grouped into
+three disjointed InfiniBand networks (islands): 
+
+| IB Network             | Nodes   | Speed              |
+| ---------------------- | ------- | ------------------ |
+| **CASCADE-LAKE-IB**    | 128     | HDR 100G           |
+| **ICE-LAKE-IB**        |  99     | HDR 100G           |
+| **SAPPHIRE-RAPIDS-IB** |  85     | NDR 200G           |
+
+If you plan on running a multi-node MPI job which leverages InfiniBand you must
+run on exactly ONE of the above fabrics. The easiest way to do this is to add
+the following constraint to your job:
+
+```
+#SBATCH --constraint="[SAPPHIRE-RAPIDS-IB|ICE-LAKE-IB|CASCADE-LAKE-IB]"
+```
+
+The above will ensure your job runs on a set of nodes in exactly one of the
+above InfiniBand networks. You can also request a specific InfiniBand fabric:
+
+```
+#SBATCH --constraint="CASCADE-LAKE-IB"
+```
+
+By default, Slurm schedules jobs based on CCR's hierarchical Ethernet network
+topology using leaf switches and a best-fit algorithm. Because ALL compute
+nodes are connected to the Ethernet network but only a subset support
+InfiniBand, if you don't specify the above constraint it's possible your job
+could be placed on nodes in different disconnected InfiniBand networks
+resulting in the nodes being unable to communicate.
+
+!!! Warning
+    Use of the `--constraint=IB` is now deprecated because this only ensures
+    your job runs on nodes supporting InfiniBand, however your job still could
+    be placed on a set of nodes spanning disjointed InfiniBand networks
+    resulting in communication failure. The `--constraint=IB` will be removed
+    in the future.
+
+MPI translates what Slurm calls tasks to separate workers or processes. For
+control over how Slurm lays out your job, you can add the `--nodes` and
+`--ntasks-per-node` flags. Note that the following must be true:
+
+```
+ntasks-per-node * nodes >= ntasks
+```
+
 !!! Tip
     For Intel MPI (part of the `intel` toolchain, the `foss` toolchain instead uses OpenMPI), it is 
     necessary in a Slurm job to set the environment variable \$I_MPI_PMI_LIBRARY to the right Slurm library:
@@ -76,6 +118,9 @@ For example, suppose you need 16 cores, here are some possible scenarios:
     export I_MPI_PMI_LIBRARY=/opt/software/slurm/lib64/libpmi.so
     ``` 
 
+In some cases, MPI programs are also multi-threaded, so each process can use
+multiple CPUs. Only these applications can use `--ntasks` and `--cpus-per-task`
+to run faster.
 
 ## Running applications with Jobs
 
@@ -89,7 +134,7 @@ a compute node.
 Slurm interactive jobs allow users to interact with applications on the compute
 node. With an interactive job, you will request time and resources. Once
 available, you will be able to log into the assigned node and the job will be ended
-when you log out and cancel it or your reqested time limit is reached.  This is different
+when you log out and cancel it or your requested time limit is reached.  This is different
 compared to a batch job where you submit your job for execution with no user
 interaction.  
 
@@ -379,7 +424,7 @@ Supporters of CCR are provided access to the `supporters` QOS which provides a b
 
 ## Node Features    
 
-Users do not need to specify much information if they do not care where their job runs or on what hardware.  Slurm uses the default information from your account, the cluster, and the partition to run a job.  If you need more than the default, you can specify hardware requirements using the Slurm `--constraint` directive in a batch script or using the `Node Features` field in OnDemand app forms.  You can specify CPU type such as `INTEL` or `AMD` or more specific CPU models such as `CPU-Gold-6230`.  GPU types can be specified with `A40`, `A100`, `H100`, `GH200`, or `V100`.  High speed interconnect networks can be requested with the `IB` (Infiniband) tag.  Additional node features include machine room rack locations and funding sources (i.e. NIH and MRI).  To specify more than one feature, use the `&` sign between them (i.e. `--constraint=INTEL&IB` will request nodes with Intel CPUs and the Infiniband high speed network).  To request a node with one feature or another, use the `|` symbol between them (i.e. `--constraint=CPU-Gold-6330|CPU-Gold-6230` will request nodes with either the Intel 6230 or 6330 CPU, but not a node with the 6130 CPU).  
+Users do not need to specify much information if they do not care where their job runs or on what hardware.  Slurm uses the default information from your account, the cluster, and the partition to run a job.  If you need more than the default, you can specify hardware requirements using the Slurm `--constraint` directive in a batch script or using the `Node Features` field in OnDemand app forms.  You can specify CPU type such as `INTEL` or `AMD` or more specific CPU models such as `CPU-Gold-6230`.  GPU types can be specified with `A40`, `A100`, `H100`, `GH200`, or `V100`.  [High speed interconnect](#mpi) networks can be also be requested.  Additional node features include machine room rack locations and funding sources (i.e. NIH and MRI).  To specify more than one feature, use the `&` sign between them (i.e. `--constraint=INTEL&ICE-LAKE-IB` will request nodes with Intel CPUs and the ICE-LAKE-IB Infiniband high speed network).  To request a node with one feature or another, use the `|` symbol between them (i.e. `--constraint=CPU-Gold-6330|CPU-Gold-6230` will request nodes with either the Intel 6230 or 6330 CPU, but not a node with the 6130 CPU).  
 
 !!! Tip  
     The less you specify, the sooner your job is likely to run because you are not narrowing your pool of compute nodes to run on with specific criteria.  
