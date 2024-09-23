@@ -131,7 +131,7 @@ This works the same way as described above for the Jupyter Lab/Notebook app.  An
 There are a few oddities to note about how VSCode functions at CCR:
 
 - Running `module list` in a VSCode terminal may not display modules loaded via the "Extra modules to load with VSCode" box. This is a bug. The modules entered in the form will be loaded and ready to use.  
-- VSCode fails to detect Python when loaded as a module. When choosing an interpreter, the default Python installation will be the system Python and should not be used. Instead, you must use a properly set up [virtual environment](/howto/python#virtual-environments).
+- VSCode fails to detect Python when loaded as a module. When choosing an interpreter, the default Python installation will be the system Python and should not be used. Instead, you must use a properly set up [virtual environment](../howto/python.md#virtual-environments).
 
 **Job Card Formating**  
 
