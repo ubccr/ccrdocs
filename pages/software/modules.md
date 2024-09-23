@@ -249,12 +249,13 @@ domains and is useful for easy installations on a single-user laptop. However,
 Anaconda is not well suited for multi-user HPC clusters for the following
 reasons:
 
-- Makes wrong assumptions about the OS configuration and location of various system libraries
-- Not meant to keep several versions of the same package on the system
+- Makes wrong assumptions about the OS configuration and location of various system libraries  
+- Not meant to keep several versions of the same package on the system  
 - Distributes pre-compiled binaries and uses pre-configured compilation options
-  which are often not optimal for the processor architectures we have on our cluster
-- Uses the $HOME directory for its installation and generates a huge number of files
-- Modifies the $HOME/.bashrc file, which can easily cause conflicts.
+  which are often not optimal for the processor architectures we have on our cluster  
+- Uses the $HOME directory for its installation and generates a huge number of files  
+- Modifies the $HOME/.bashrc file, which can easily cause conflicts  
+- May not be free for all users.  Please refer to the [Anaconda terms of service documentation](https://legal.anaconda.com/policies/en/)  
 
 Instead we recommend using modules that already include many [popular python
 packages](#python). Rather than installing python modules in conda environments users can create
@@ -402,7 +403,7 @@ $ import fuzzywuzzy
 ```
 
 You can also use [virtual
-environments](/howto/python#virtual-environments)
+environments](../howto/python.md#virtual-environments)
 to manage your python projects but this comes with some caveats.  Please refer to our documentation on proper use of Python on CCR's HPC systems.
 
 ### R

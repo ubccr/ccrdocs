@@ -531,10 +531,10 @@ In OnDemand, click on the arrow next to one of your current jobs and at the bott
 You can access Grafana charts of your completed jobs, like the Active Jobs available in OnDemand, but you need to query Slurm for the appropriate start and end times and get the node list.  To do this, we provide a script that can be run in the terminal that creates the Grafana URL for your job. 
 
 ````
-CCRusername@login:~$ /util/common/metrics/ccr-jobview-url [jobid] [cluster]
+CCRusername@login:~$ ccr-jobview-url [jobid] [cluster]
 
 
-CCRusername@login:~$ /util/common/metrics/ccr-jobview-url 10457965 ub-hpc
+CCRusername@login:~$ ccr-jobview-url 10457965 ub-hpc
 ````
 
 Then you would paste the outputed link into your browser. For example:
