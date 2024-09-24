@@ -131,10 +131,10 @@ location [before running easybuild](#building-a-new-software-module). For exampl
 
 ```
 $ module load easybuild
-$ export CCR_BUILD_PREFIX=/projects/academic/grp-ccrstaff/easybuild
+$ export CCR_BUILD_PREFIX=/projects/academic/[YourGroupName]/easybuild
 # verify the install path. Note CCR_VERSION will always be appended to the path
 $ eb --show-config | grep installpath
-installpath             (E) = /projects/academic/grp-ccrstaff/easybuild/2023.01
+installpath             (E) = /projects/academic/[YourGroupName]/easybuild/2023.01
 ```
 
 To ensure your new custom modules show up in `module avail`, you can set the
@@ -150,8 +150,7 @@ $ echo $CCR_CUSTOM_BUILD_PATHS > ~/.ccr/modulepaths
 ```
 
 !!! Tip "Multiple custom module paths"
-    You can set multiple custom module paths in this file `~/.ccr/modulepaths`.
-    Paths are colon `:` separated. For example:
-    `/projects/path1:/projects/path2`. It's expected that each path has
-    sub-directories `CCR_VERSION/modules` which contain module files for the
-    specific CCR_VERISON.
+    Do not run the above `echo` command more than once.  If you'd like to set multiple custom module paths
+    for your account, edit this file `~/.ccr/modulepaths` and separate multiple paths with colons `:`
+    For example:  `/projects/path1:/projects/path2`  It's expected that each path has sub-directories in
+    the form of `CCR_VERSION/modules` which contain module files for the specific CCR_VERSION.
