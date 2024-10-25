@@ -71,6 +71,11 @@ Data – If the account owner does not respond to CCR payment requests within 30
 !!! Warning  
     Failure to follow University at Buffalo and CCR computing policies may result in your account being removed and all data deleted.  Please [review this policy for more details](misuse.md)  
 
+
+## Protected Status Data Policy  
+
+CCR's systems fall under the same data protection policies as provided by the [University at Buffalo IT services](https://www.buffalo.edu/ubit/policies/restricted-data.html) for other computer usage and data storage.  Personally identifiable information (PII), restricted data, research data that has not been de-identified, and private data including but not limited to social security numbers, passport numbers, credit card numbers, dates of birth, passwords, and medical records, are not to be stored on CCR's systems. If you have any questions regarding data you plan to store on CCR's systems, please contact [CCR Help](../help.md) BEFORE transferring your data. 
+
 ## Data Ownership Policy
 
 ### User home directories  

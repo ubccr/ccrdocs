@@ -26,9 +26,14 @@ _**Common errors:**_
 -  **SSH error "Permission denied (publickey)":** You either do not have your SSH public key uploaded to your CCR account (see error above) or you are not specifying the private key on your personal device when trying to login to CCR.  See this [page for more info](hpc/login.md#logging-in)  
 -  **Missing home directory:**  See [here for more info](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
 -  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](portals/idm.md#change-your-ccr-password)  
--  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly.   
+-  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly. Please ensure you're using CCR's two factor authentication correctly.  See [here](2fa.md) for instructions as it's different than our UBIT accounts.  If you're sure of this, then we recommend [changing your password](portals/idm.md#change-your-ccr-password).  
 -  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
 - When trying to login to **OnDemand** you see an error like: **Bad request**, **Server not available** or **Something Bad Happened.  Please contact site admin**:  These are often caused by corrupted cache files in your browser.  Clear your browser cache and cookies data and restart your browser or try a different browser.  Incognito windows often do not solve this problem.     
+
+## How do I verify my account?  
+
+At the time of CCR account creation, an email is sent to the new user asking them to verify their account.  The link contained in the email is only valid for 15 minutes.  If you did not have an opportunity to click the link within 15 minutes and it no longer works, please contact [CCR Help](help.md) for guidance.  Please check your junk or spam folder as sometimes these emails are misclassified by UB email filters.  If you click on the link and see an error like `something bad happened` please clear your browser cache, restart your browser and try the link again.  
+
 
 ## Why is the ColdFront allocation showing active but I can't login?  
 
@@ -181,14 +186,7 @@ You will get this error if you have reached the partition or per user limits as 
 
 ## How do I login to the compute node my job is running on?  
 
-You will only be able to login to compute nodes that your jobs are running on.  However, rsh/ssh to compute nodes is not permitted.  You can use the Slurm `srun` command to get on the node.  If the job is running on one node use:  
-`srun --jobid=jobid --pty /bin/bash`
-
-If the job is running on more than one node, specify the node you want to login to:  
-`srun --jobid=jobid --nodelist=node_name -N1 --pty /bin/bash`  
-
-- If your job is allocated all of the resources on the node, you will need to include the `--overlap` option.  
-- If your job is running on the faculty cluster, you will need to specify the `--clusters=faculty` option.  
+Please refer to [these instructions](hpc/login.md#compute-node-logins). 
 
 ## How do I fix "sbatch: error: Batch script contains DOS line breaks"?
 

@@ -12,11 +12,11 @@ factor to provide increased account security.
 Authenticator apps that support time-based tokens (TOTP & HOTP) work with CCR
 accounts.  Options include:  
 
-- **Duo Mobile (for iOS and Android)** - recommended smartphone app as it is
-  currently in use by UBIT for all faculty/staff/student accounts  
+- **Duo Mobile (for iOS and Android)** - recommended smartphone app as it is currently in use by UBIT for all faculty/staff/student accounts  
 - Google Authenticator (for iOS and Android)  
-- **_Authy (for iOS, Android, MacOS, Windows, Linux)_** - recommended option for devices other than smartphones  
 - FreeOTP (for iOS and Android)  
+- Open Authenticator (for iOS, Android and Windows 10+)
+- Safari built-in two factor authentication (for iOS)
 - Microsoft Authenticator (for Windows phones)  
 
 !!! Tip    
@@ -30,8 +30,7 @@ Watch this demonstration of the process:
 
 To enable two factor authentication on your account, follow these easy steps:
 
-1. Install an authenticator app on your phone. Authentication apps like Authy,
-   Google Authenticator, and Duo are supported. We recommend Duo as it's also used by UBIT.
+1. Install an authenticator app on your phone or other device. See above list for support applications.  
 
 2. Login to CCR IDM portal [here](https://idm.ccr.buffalo.edu/) and click on
    [OTP Tokens](https://idm.ccr.buffalo.edu/otp) in the side menu.
@@ -72,7 +71,7 @@ during login.
 
 !!! Warning "Push Notifications are NOT supported"
 
-    There are NO push notifications. The time based passcodes are generated on
+    There are NO push notifications sent to your authentication app. The time based passcodes are generated on
     your device and available offline. They are never sent to you via text
     message or push notification.
 
@@ -98,6 +97,7 @@ If you're still having trouble with two factor authentication, check the followi
 
 - Be sure you enter the six digit code from your authenticator app. Remember they
   change every 30 seconds.
+- Be sure you're tapping on your CCR account in the authentication app and not your UBIT account.  
 - If you recently changed phones and did not setup a new OTP token on your new
   device you will be locked out of your account. Please [contact CCR Help](help.md)
   to receive instructions on how to proceed.

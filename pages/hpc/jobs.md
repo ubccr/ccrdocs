@@ -520,7 +520,11 @@ sprio <flag>
 Watch this virtual workshop to learn more about monitoring your jobs:  
 ![type:video](https://youtube.com/embed/ZsXnoH2UQ4E)  
 
-### Active Jobs monitoring via OnDemand
+### Active Jobs Monitoring - command line  
+If your job is currently running, you can login to the compute node(s) it's running on to inspect your program's progress, view output logs, and investigate the node's system status.  You will only be able to login to a compute node where you have a running job.  For instructions on how to login, please see [here](login.md#compute-node-logins). Once on the compute node, you may use Linux commands to view system status such has `top`, `htop`, `cat /proc/meminfo` (for system memory/RAM information), and `cat /proc/cpuinfo` (for system processor/CPU information).  To view currently running processes under your account use `ps -ef|grep [CCRusername]` (replace [CCRusername] with your CCR username and no brackets). To cancel or kill a process running under your account use `kill -9 [pid]` (replace [pid] with the process ID).  When you're done, use the `exit` or `logout` command.  For more info on Linux commands, see the [CCR Linux & Slurm Cheatsheet]().
+
+
+### Active Jobs monitoring - OnDemand
 CCR offers a detailed view into what is happening on the node(s) where your job is running.  You can view the graphs from OnDemand but you do NOT need to submit the jobs from within OnDemand.  Even jobs submitted from the command line using 'sbatch' are available in your list of Active Jobs.
 
 In OnDemand, click on the arrow next to one of your current jobs and at the bottom you will see two graphs for each node your job is running on.  One graph shows CPU metrics and the other memory (RAM) usage.
@@ -555,7 +559,6 @@ or `slist jobid`
 ````
 sacct -S start-date -u username
 ````
-
 
 ### Metrics OnDemand
 For metrics about job performance and node usage after your job completes, please use the [UBMoD portal](https://ubmod.ccr.buffalo.edu/). Job data is usually available 24 hours after a job completes. [More details about UBMod.](../portals/metrics.md)  

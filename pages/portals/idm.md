@@ -30,6 +30,9 @@ link.  You'll be asked for your username and to enter the numbers seen in the
 captcha picture.  Then click the `Submit` button.  You will receive an email
 with further instructions.
 
+!!! Warning "Getting an error?"  
+    Occassionally during a password change you might see an error like `something bad happened` with instructions to contact an administrator.  We apologize for this inconvenience!  The fact is that the password reset process completed successfully and you can go forward with using the new password.  If you see any errors after this point, please clear your browser cache and restart your browser.  
+
 Things to keep in mind:  
 
 - You can only change your password once per hour.  If you attempt to change it

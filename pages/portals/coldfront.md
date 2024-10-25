@@ -16,7 +16,8 @@ can use ColdFront to:
 
 - [Request an Allocation](#request-an-allocation)
 - [Add or Remove users](#add-or-remove-users)
-- [Complete yearly project review](#complete-yearly-project-review)
+- [Complete yearly project review](#complete-yearly-project-review)  
+- [Allocation renewals]()
 
 If you're not a faculty member or a PI you can still [login to
 ColdFront](https://coldfront.ccr.buffalo.edu) and view information about the
@@ -55,14 +56,12 @@ members and you will receive an email confirmation when it's approved.  At this 
 
 **Not sure what to request an allocation for?** [Check out this for more information](../available-resources.md)  
 
-!!! Tip "Allocation Renewals"
-    Allocations are approved for a specific time period (most commonly 1 year).
-    You will have the option to renew your allocation before the expiration
-    date to continue using the resources. If your allocation is not renewed by
-    the expiration date, your access will be revoked.  You are able to renew
-    beginning 60 days before allocation expiration and will receive email reminders
-    beginning 30 days prior to allocation expiration.  Allocations can't be renewed
-    once they've expired.  You must request a new allocation for the resource.  
+## Allocation Renewals  
+
+Allocations are approved for a specific time period (most commonly this is 1 year). You will have the option to renew your allocation before the expiration date to continue using the resources. You are able to renew allocations beginning 60 days before the allocation expiration date.  Email reminders are sent to the PI and managers of the project (as well as users with notifications enabled) beginning 30 days prior to allocation expiration.  Allocations can't be renewed once they've expired.  You must request a new allocation for the resource. If you do not renew your allocation prior to expiration, all users on the allocation will have their access to that resource revoked.  Please refer to our [data retention policy](../policies/accounts.md#accounts-and-data-retention-policy) for more details. 
+
+Please note that renewing allocations is a separate step from the [annual project review](#complete-yearly-project-review).  Projects must be updated once every 365 days but allocations expire at different intervals.  Sometimes you will need to review your project prior to renewing your allocations and other times you will not.  
+
 
 ## Add or Remove users
 
