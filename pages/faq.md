@@ -73,7 +73,7 @@ If you see an error box that says `XFCE PolicyKit Agent` you can click the `Clos
 There are three common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
 
 1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
-2. You have an Anaconda environment loading in your .bashrc environment file or are loading a Python module in your .bashrc file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
+2. You have an Anaconda environment loading in your `~.bashrc` environment file or are loading a Python module in your `~.bashrc` file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
 3. The application is looking for a software module to load and can't find it.  [See here](#why-am-im-getting-module-not-found-errors) for more info  
 
 ## How can I check how full my directories are?  
@@ -96,7 +96,7 @@ Alternatively, you can view this information on the [ColdFront](https://coldfron
 
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 
-This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!) so we do not recommend loading them in the `.bashrc` file.  You may not even realize this got added to your bash environment file as it will do it automatically when installing anaconda.  Edit the file and remove everything between the two `>>> conda initialize >>>` lines.  Then save the file, exit out of CCR, and log back in again.  Do NOT delete the `.bashrc` file!  
+This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `~/.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!).  To fix this, edit the file and remove everything between the two `>>> conda initialize >>>` lines.  Then save the file, log out of CCR, and log back in again.  Do NOT delete the `~/.bashrc` file!  Anaconda is not recommended for HPC systems and is no longer supported on CCR's systems for [these reasons](software/modules.md#anaconda-python). Please refrain from using this software and if you need help finding an alternative for your workflow, contact [CCR Help](../help.md) for recommendations.  
 
 ## Why am I getting 'no space left on device' errors?  
 
