@@ -26,9 +26,14 @@ _**Common errors:**_
 -  **SSH error "Permission denied (publickey)":** You either do not have your SSH public key uploaded to your CCR account (see error above) or you are not specifying the private key on your personal device when trying to login to CCR.  See this [page for more info](hpc/login.md#logging-in)  
 -  **Missing home directory:**  See [here for more info](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
 -  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](portals/idm.md#change-your-ccr-password)  
--  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly.   
+-  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly. Please ensure you're using CCR's two factor authentication correctly.  See [here](2fa.md) for instructions as it's different than our UBIT accounts.  If you're sure of this, then we recommend [changing your password](portals/idm.md#change-your-ccr-password).  
 -  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
 - When trying to login to **OnDemand** you see an error like: **Bad request**, **Server not available** or **Something Bad Happened.  Please contact site admin**:  These are often caused by corrupted cache files in your browser.  Clear your browser cache and cookies data and restart your browser or try a different browser.  Incognito windows often do not solve this problem.     
+
+## How do I verify my account?  
+
+At the time of CCR account creation, an email is sent to the new user asking them to verify their account.  The link contained in the email is only valid for 15 minutes.  If you did not have an opportunity to click the link within 15 minutes and it no longer works, please contact [CCR Help](help.md) for guidance.  Please check your junk or spam folder as sometimes these emails are misclassified by UB email filters.  If you click on the link and see an error like `something bad happened` please clear your browser cache, restart your browser and try the link again.  
+
 
 ## Why is the ColdFront allocation showing active but I can't login?  
 
@@ -68,7 +73,7 @@ If you see an error box that says `XFCE PolicyKit Agent` you can click the `Clos
 There are three common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
 
 1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
-2. You have an Anaconda environment loading in your .bashrc environment file or are loading a Python module in your .bashrc file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
+2. You have an Anaconda environment loading in your `~.bashrc` environment file or are loading a Python module in your `~.bashrc` file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
 3. The application is looking for a software module to load and can't find it.  [See here](#why-am-im-getting-module-not-found-errors) for more info  
 
 ## How can I check how full my directories are?  
@@ -91,7 +96,7 @@ Alternatively, you can view this information on the [ColdFront](https://coldfron
 
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 
-This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!) so we do not recommend loading them in the `.bashrc` file.  You may not even realize this got added to your bash environment file as it will do it automatically when installing anaconda.  Edit the file and remove everything between the two `>>> conda initialize >>>` lines.  Then save the file, exit out of CCR, and log back in again.  Do NOT delete the `.bashrc` file!  
+This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `~/.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!).  To fix this, edit the file and remove everything between the two `>>> conda initialize >>>` lines.  Then save the file, log out of CCR, and log back in again.  Do NOT delete the `~/.bashrc` file!  Anaconda is not recommended for HPC systems and is no longer supported on CCR's systems for [these reasons](software/modules.md#anaconda-python). Please refrain from using this software and if you need help finding an alternative for your workflow, contact [CCR Help](../help.md) for recommendations.  
 
 ## Why am I getting 'no space left on device' errors?  
 
@@ -181,14 +186,7 @@ You will get this error if you have reached the partition or per user limits as 
 
 ## How do I login to the compute node my job is running on?  
 
-You will only be able to login to compute nodes that your jobs are running on.  However, rsh/ssh to compute nodes is not permitted.  You can use the Slurm `srun` command to get on the node.  If the job is running on one node use:  
-`srun --jobid=jobid --pty /bin/bash`
-
-If the job is running on more than one node, specify the node you want to login to:  
-`srun --jobid=jobid --nodelist=node_name -N1 --pty /bin/bash`  
-
-- If your job is allocated all of the resources on the node, you will need to include the `--overlap` option.  
-- If your job is running on the faculty cluster, you will need to specify the `--clusters=faculty` option.  
+Please refer to [these instructions](hpc/login.md#compute-node-logins). 
 
 ## How do I fix "sbatch: error: Batch script contains DOS line breaks"?
 

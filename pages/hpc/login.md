@@ -151,6 +151,17 @@ Once you've uploaded your SSH public key to your CCR account you will be able to
     will see a message indicating this has been done and an SSH key pair gets
     generated for use on the cluster.
 
+## Compute Node Logins  
+
+You will only be able to login to compute nodes that your jobs are running on.  However, you can not use rsh/ssh to access the compute nodes.  You can use the Slurm `srun` command to get on the node.  If the job is running on one node use:  
+`srun --jobid=jobid --pty /bin/bash`
+
+If the job is running on more than one node, specify the node you want to login to:  
+`srun --jobid=jobid --nodelist=node_name -N1 --pty /bin/bash`  
+
+- If your job is allocated all of the resources on the node, you will need to include the `--overlap` option.  
+- If your job is running on the faculty cluster, you will need to specify the `--clusters=faculty` option. 
+
 ## OnDemand for Web-Based Cluster Access  
 
 [Open OnDemand](https://ondemand.ccr.buffalo.edu) provides access to CCR's

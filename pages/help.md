@@ -13,7 +13,7 @@ Please do NOT email our staff members directly.  We rotate ticket duties during 
     **Weekends, Holidays* & After Hours Support:** Emergency assistance provided for major service outages only  
     *CCR follows the [University at Buffalo holiday calendar](https://www.buffalo.edu/administrative-services/ub-calendar.html)   
 
-**Alerts & Important Notices:** We post [alerts](https://ubccr.freshdesk.com/support/discussions/forums/5000120071) and [downtime schedules](https://ubccr.freshdesk.com/support/discussions/forums/5000296650) in the help desk portal, on [Twitter](https://twitter.com/ubccr), and in [Slack](#slack).  There is the ability to set notifications for any/all of these services so you never miss an important announcement.  
+**Alerts & Important Notices:** We post [alerts](https://ubccr.freshdesk.com/support/discussions/forums/5000120071) and [downtime schedules](https://ubccr.freshdesk.com/support/discussions/forums/5000296650) in the help desk portal, on [X/Twitter](https://twitter.com/ubccr), and in [Slack](#slack).  There is the ability to set notifications for any/all of these services so you never miss an important announcement.  
 
 
 ## CCR Help Portal  
@@ -64,10 +64,15 @@ Users can look at tickets they've previously submitted that have been resolved o
 
 When searching the knowledge base, if a user is logged in, previously submitted tickets are also searchable.  You will notice not only knowledge base article matches but also matches to your tickets will be listed if the search criteria are met.
 
+### Submitting tickets through OnDemand  
+
+OnDemand users also have the ability to submit tickets directly from the OnDemand portal.  If creating a ticket from a job card, additional information about your job setup, resource requests, and other useful information gets included in the ticket.  This is an excellent option when troubleshooting problems as it provides CCR staff much more detailed information.  For more information on this, please refer to the [OnDemand documentation](portals/ood.md#help).
+
+
 ### Surveys  
 
 When your tickets are closed (either by you or by a CCR support agent), you will receive an email indicating this.  Included in the email is a request for feedback on your experience.  We value your opinion and aim to provide the best support possible to all users.  If you'd like to let us know what you think, simply click on the icon that best represents your experience: awesome, just okay, or not good.  The link will direct you to a page that you can add more details on your experience or just click the `Submit` button to send the survey.  If you close the ticket yourself, you will be presented with the experience icons in the support portal.  Click on the one you feel represents your experience and you will be given an opportunity to enter comments before submitting the survey.  Thank you very much for providing us feedback and we hope we can meet your expectations for excellent and responsive support!  
 
 ## Slack  
 
-CCR staff are also available on Slack to handle basic questions and update users on system issues or changes.  While we can't guarantee immediate response times, we are generally available during regular business hours Monday - Friday 8am-4pm.  If your questions involve a lot of time or investigation on our part, we will ask you to submit a ticket so that we can properly prioritize the request.  Anyone with a UB email address can join the CCR slack organization using [this invite](https://join.slack.com/t/ubccr-help/shared_invite/zt-qt0clqap-9TsWK~DRL26lGgPRDYfWfA).  External CCR users, please contact CCR Help and we'll gladly invite you!  
+CCR staff are also available on Slack to handle basic questions and update users on system issues or changes.  While we can't guarantee immediate response times, we are generally available during regular business hours Monday - Friday 8am-4pm.  If your questions involve a lot of time or investigation on our part or are very specific to your workflow, we will ask you to submit a ticket so that we can properly prioritize the request and assign it to the right staff member to help you.  Anyone with a UB email address can join the CCR slack organization using [this invite](https://join.slack.com/t/ubccr-help/shared_invite/zt-qt0clqap-9TsWK~DRL26lGgPRDYfWfA).  External CCR users, please contact CCR Help and we'll gladly invite you!  

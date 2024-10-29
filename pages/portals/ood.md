@@ -93,7 +93,7 @@ Most software GUIs can run on any compute node at CCR through the `UB-HPC & Facu
 !!! Tip "All done?  Make sure to delete your job"  
     OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then delete the running session under the `My interactive sessions` menu.  
 
-**Jupyter Interactive Apps**  
+<a name="jupyter-setup"></a>**[Jupyter Interactive Apps](#jupyter-setup)**  
 The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter Notebook apps provided in OnDemand.  For those using the latest CCR software release (`ccrsoft/2023.01`) there are two Jupyter apps available.  
 
 - The "Quick Launch Jupyter Lab/Notebook" app allows you to select which Slurm account you want to run this job under, the number of GPUs to request (if any), whether to use Jupyter Lab instead of Jupyter Notebook, and if you'd like to receive emails about your job.  You may also list additional modules to load with Jupyter.  
