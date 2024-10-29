@@ -446,8 +446,8 @@ Sometimes R library installations will fail with errors such as `installation of
 $ mkdir ~/tmp  
 $ module load gcc openmpi r  
 $ R 
-Sys.setenv(TMPDIR="/user/$USER/tmp")  
-install.packages("ggplot2", repos="http://cran.r-project.org", lib = "/projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs")  
+> Sys.setenv(TMPDIR="/user/$USER/tmp")  
+> install.packages("ggplot2", repos="http://cran.r-project.org", lib = "/projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs")  
 ``` 
 
 
