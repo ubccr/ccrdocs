@@ -188,7 +188,6 @@ information on clusters, partitions, and QOS options, see [here](#slurm-directiv
 
 #SBATCH --account=SlurmAccountName  
 
-#
 # 	How long the job will run once it begins. If the job runs longer than what is
 # 	defined here, it will be cancelled by Slurm.
 # 	If you make the expected time too long, it will
