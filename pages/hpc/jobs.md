@@ -170,12 +170,24 @@ supervision or interaction. Batch jobs are commonly used for applications that
 run for long periods of time and require no manual user input.
 
 Below is an explanation of the SBATCH options used in our samples. These are
-Slurm directives and should be understood before submitting a job.  For more
-information on Slurm directives, partitions, and QOS, [see here](#slurm-directives-partitions-qos).
+called "Slurm directives" and should be understood before submitting a job.  For more
+information on clusters, partitions, and QOS options, see [here](#slurm-directives-partitions-qos).
 
 ```
 #!/bin/bash -l
-#
+
+# 	Tell Slurm which cluster, partition and qos to use to schedule this job
+
+#SBATCH --cluster=cluster-name
+#SBATCH --partition=partition-name
+#SBATCH --qos=qos-name
+
+# 	Tell Slurm which account to run this job under 
+#   If not specified, your default account will be used  
+#   Use the `slimits` command to see what accounts you have access to
+
+#SBATCH --account=SlurmAccountName  
+
 # 	How long the job will run once it begins. If the job runs longer than what is
 # 	defined here, it will be cancelled by Slurm.
 # 	If you make the expected time too long, it will
@@ -214,11 +226,6 @@ information on Slurm directives, partitions, and QOS, [see here](#slurm-directiv
 
 #SBATCH --mail-type=end
 
-# 	Tell Slurm which cluster, partition and qos to use to schedule this job.
-
-#SBATCH --partition=debug
-#SBATCH --qos=debug
-#SBATCH --cluster=ub-hpc
 
 ```
 
@@ -237,15 +244,16 @@ To submit to the **debug partition on the ub-hpc cluster**, the slurm script wou
 ```bash
 #!/bin/bash -l
 #
+#SBATCH --cluster=ub-hpc
+#SBATCH --partition=debug
+#SBATCH --qos=debug
 #SBATCH --time=00:01:00
 #SBATCH --ntasks-per-node=1
 #SBATCH --job-name="example-debug-job"
 #SBATCH --output=example-debug-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
 #SBATCH --mail-type=end
-#SBATCH --partition=debug
-#SBATCH --qos=debug
-#SBATCH --cluster=ub-hpc
+
 
 #Let's start some work
 echo "Hello world from debug node: "`/usr/bin/uname -n`
@@ -258,6 +266,9 @@ script would look like:
 ```bash
 #!/bin/bash -l
 #
+#SBATCH --cluster=ub-hpc
+#SBATCH --partition=general-compute
+#SBATCH --qos=general-compute
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -266,9 +277,6 @@ script would look like:
 #SBATCH --output=example-general-compute-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
 #SBATCH --mail-type=end
-#SBATCH --partition=general-compute
-#SBATCH --qos=general-compute
-#SBATCH --cluster=ub-hpc
 
 #Let's start some work
 echo "Hello world from general-compute node: "`/usr/bin/uname -n`
@@ -282,6 +290,9 @@ the slurm script would look like:
 ```bash
 #!/bin/bash -l
 #
+#SBATCH --cluster=faculty
+#SBATCH --partition=ub-laser
+#SBATCH --qos=ub-laser
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -290,9 +301,6 @@ the slurm script would look like:
 #SBATCH --output=example-faculty-cluster-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
 #SBATCH --mail-type=end
-#SBATCH --partition=ub-laser
-#SBATCH --qos=ub-laser
-#SBATCH --cluster=faculty
 
 #Let's start some work
 echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
@@ -313,6 +321,9 @@ script would look like:
 ```bash
 #!/bin/bash -l
 #
+#SBATCH --cluster=ub-hpc
+#SBATCH --partition=scavenger
+#SBATCH --qos=scavenger
 #SBATCH --time=00:01:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -321,9 +332,6 @@ script would look like:
 #SBATCH --output=example-general-compute-scavenger-job.out
 #SBATCH --mail-user=myemailaddress@institution.edu
 #SBATCH --mail-type=end
-#SBATCH --partition=scavenger
-#SBATCH --qos=scavenger
-#SBATCH --cluster=ub-hpc
 
 #Let's start some work
 echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
@@ -395,6 +403,7 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Clusters          | Specify a cluster (ub-hpc or faculty) | --clusters=cluster |
 | Partition          | Specify a partition | --partition=partition |
 | Quality of service | Specify a QoS (usually same as partition or priority boost) | --qos=qos               |
+| Account    | Specify which Slurm account you'd like to run the job under.  Use `slimits` to see your account(s).  If not specified, your default Slurm account will be used | --account=SlurmAccountName               |
 | Sending email      | Receive email at beginning or end of job completion | --mail-type=type           |
 | Email address      | Email address to receive the email                  | --mail-user=user           |
 | Number of nodes    | The number of nodes needed to run the job           | --nodes=nodes              |
@@ -409,7 +418,7 @@ These are the partitions available on the UB-HPC cluster:
 
 | Partition | Default Wall Time | Wall Time Limit | Default # CPUS | Job Submission Limit/User     |
 | :-------- | :---------------- | :-------------- | :------------- | :---------------------------- |
-| class     | 24 hours            | 72 hours          | 1              |   1000        |
+| class     | 24 hours            | 72 hours          | 1              |   4        |
 | debug     | 1 hour            | 1 hour          | 1              |   4        |
 | general-compute     | 24 hours            | 72 hours          | 1              |   1000        |
 | industry     | 24 hours            | 72 hours          | 1              |   1000        |
