@@ -174,6 +174,11 @@ sbatch: error: Batch job submission failed: Invalid partition or qos specificati
 
 CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](portals/coldfront.md).   More details on QOS and partition limits can be [found here](hpc/jobs.md#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
 
+## Why do I get an "Invalid feature specification?" error  
+
+Compute nodes in the clusters are tagged with Slurm "features" including CPU and GPU types, high speed interconnects (like Infiniband), rack locations, CPU architectures, and more.  You can read more about these features or tags [here](hpc/jobs.md#node-features).  When specifying them either in a Slurm batch script or in the node features field in OnDemand apps, you must ensure that the requests you're making match up with the available compute nodes.  Usually when you see the `invalid feature specification` error, this means the combination of resources you're requesting is not available in the CCR cluster and partition that you're requesting.  Refer to the link above for more information on evaluating what features are available on which compute nodes.  
+
+
 ## Why am I getting a QOSMaxSubmitJobPerUserLimit error when I try to submit a job?
 
 You may see this error when submitting batch scripts or when attempting to launch apps in OnDemand:  

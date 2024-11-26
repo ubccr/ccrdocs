@@ -47,10 +47,10 @@ is CCR's recommended way of transferring files, especially for large amounts of 
 ### Globus Web App
 To use Globus, go to the [Globus Web App](https://app.globus.org/) and sign in by
 selecting "The State University of New York at Buffalo" from the dropdown menu
-and by logging in using your UB credentials.
+and by logging in using your UB credentials. Roswell Park users should search for "Roswell Park Comprehensive Cancer Center" and authenticate with their Roswell Park account, not their UB account.  
 
 !!! Note "non-UB users:"
-    If you are with an institution other than UB, you will need to [create a Globus account](https://www.globusid.org/create) and contact [CCR Help](../help.md) to map your globusid to your CCR account.
+    If you are with an institution other than UB or Roswell Park, you will need to [create a Globus account](https://www.globusid.org/create) and contact [CCR Help](../help.md) to map your globusid to your CCR account.
 
 ![](../images/globus-login.png)
 

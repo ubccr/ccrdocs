@@ -124,6 +124,8 @@ This means pytorch depends on both the gcc and openmpi modules. So in the "Extra
 
 When the Jupyter app starts, it will launch these additional modules with it and you'll have access to the pytorch software.  If you want to load several modules and they all require the same dependencies, these only need to be listed once.  For example, torchvision also requires gcc and openmpi.  If you wanted to load pytorch and torchvision, specify this in the "Extra modules to load with Jupyter" box:  `gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0 torchvision/0.14.1-CUDA-11.8.0`  
 
+!!! Tip "Properly listing multiple module dependencies"  
+    You do not need to list toolchain dependencies multiple times.  If the modules you want to use all depend on the same toolchain, you can list that one time at the start of your list.  Note that the `foss` toolchain contains GCC and other packages.  The `gcccore` toolchain only contains GCC, while the `gcc` toolchain contains `gcccore` and additional packages.  You can test loading modules on the command line prior to attempting to use them with a Jupyter Notebook to ensure the order you specify works.  
 
 **Loading additional software modules with VSCode:**  
 This works the same way as described above for the Jupyter Lab/Notebook app.  Any software modules listed in this box will be loaded when the VSCode session starts.  
