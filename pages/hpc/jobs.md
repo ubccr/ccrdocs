@@ -52,7 +52,7 @@ For example, suppose you need 16 cores, here are some possible scenarios:
 - you want 16 cores to spread across distinct nodes: `--ntasks=16 --ntasks-per-node=1 or --ntasks=16 --nodes=16`
 - you want 16 cores to spread across distinct nodes and no interference from other jobs: `--ntasks=16 --nodes=16 --exclusive`
 - you want 16 processes to spread across 8 nodes to have two processes per node: `--ntasks=16 --ntasks-per-node=2`
-- you want 16 processes to stay on the same node: `--nodes=1 --ntasks-per-node=16`
+- you want 16 processes to stay on the same node: `--ntasks=16 --ntasks-per-node=16`
 
 ## MPI
 
