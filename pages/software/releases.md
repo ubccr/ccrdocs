@@ -17,7 +17,7 @@ We typically release a new version of `ccrsoft` on a yearly basis. Previous
 software environment releases are made available for a short period for use
 while migrating workloads to the latest release. This page contains the
 changelog for each software environment release where you can find information
-on toolchain versions, new features, deprecations, and import notes.
+on toolchain versions, new features, deprecations, and important notes.
 
 To switch between CCR software environment releases run the following commands:
 
@@ -41,9 +41,6 @@ $ module load ccrsoft/2023.01
 
 ## 2024.04
 
-!!! Warning "Unstable release" 
-    This version is unstable and not yet complete. Use at your own risk.
-
 New features/changes in this release include:
 
 - Support for aarch64 (ARMv9.0-A NVIDIA Gracehopper)
@@ -64,7 +61,7 @@ Supported CPU Microarchitectures:
 | CPU March          | CPU Family  | Supported CPUs                                         |
 | ------------------ | ----------- | ------------------------------------------------------ |
 | x86-64-v3 (avx2)   |  x86\_64    | Intel Haswell, Broadwell, AMD Zen3                     |
-| x86-64-v4 (avx512) |  x86\_64    | Intel Skylake-SP, Skylake-X, Cascade Lake-SP, AMD Zen4 |
+| x86-64-v4 (avx512) |  x86\_64    | Intel Cascade Lake-SP, Ice Lake-SP, Sapphire Rapids-SP, Emerald Rapids-SP, AMD Zen4 |
 | neoverse-v2        |  aarch64    | ARMv9.0-A NVIDIA Gracehopper                           |
 
 ## 2023.01
@@ -92,6 +89,6 @@ Supported CPU Microarchitectures:
 | Architecture  | Supported CPUs                                             |
 | ------------- | ---------------------------------------------------------- |
 | avx2          | Intel Haswell, Broadwell                                   |
-| avx512        | Intel Skylake-SP, Skylake-X, Cascade Lake-SP               |
+| avx512        | Intel Cascade Lake-SP, Ice Lake-SP, Sapphire Rapids-SP, Emerald Rapids-SP, AMD Zen4               |
 
 

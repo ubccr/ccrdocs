@@ -118,10 +118,11 @@ CCR supports the following CPU architectures:
 
 | Architecture  | Supported CPUs                                             |
 | ------------- | ---------------------------------------------------------- |
-| avx2          | Intel Haswell, Broadwell                                   |
-| avx512        | Intel Skylake-SP, Skylake-X, Cascade Lake-SP               |
+| x86-64-v3 (formerly avx2)          | Intel Haswell, Broadwell                                   |
+| x86-64-v4 (formerly avx512)        | Intel Cascade Lake-SP, Ice Lake-SP, Sapphire Rapids-SP, Emerald Rapids-SP, AMD Zen4              |
+| neoverse-v2          |      ARMv9.0-A NVIDIA Gracehopper                             |
 
-For specific compiler versions, [see our releases page](releases.md).
+For specific software environment and compiler versions, [see our releases page](releases.md).
 
 ## Loading Modules in a Job Script
 

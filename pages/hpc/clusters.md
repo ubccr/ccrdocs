@@ -15,6 +15,8 @@ The ub-hpc cluster contains the following partitions:
 * debug: Dedicated compute nodes to help users debug their workflows  
 * general-compute: Large pool of compute nodes for academic users  
 * industry: Compute nodes industry partners pay to use  
+* industry-dgx: NVIDIA DGX GPU compute nodes for industry partners (use qos `industry` to access)  
+* industry-hbm: High-bandwidth memory nodes for industry partners (use qos `industry` to access)   
 * scavenger: Preemptible jobs on all ub-hpc nodes  
 * viz: Dedicated compute nodes to allow short jobs for visualization purposes  
 

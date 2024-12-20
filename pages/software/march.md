@@ -14,7 +14,7 @@ job submission. For more information on CPU Microarchitectures see here:
 ## x86-64-v4
 
 This is our default and most widely available Microarchitecture (formally named
-`avx512`) and includes Intel Skylake-SP, Skylake-X, Cascade Lake-SP, and AMD
+`avx512`) and includes Intel Cascade Lake-SP, Ice Lake-SP, Sapphire Rapids-SP, Emerald Rapids-SP, and AMD
 Zen4 CPUs. There are no special requirements for running on this architecture and most
 software should work by default.
 
@@ -72,7 +72,7 @@ Example of an sbatch script for running on the Grace Hopper nodes:
 #SBATCH --output=results.txt
 ```
 
-These are simple examples.  For more information on properly requesting cores and nodes, [see here](../hpc/jobs.md#requesting-cores-and-nodes).  For more details on Slurm directives [see here](../hpc/jobs.md#slurm-directives-partitions--qos).  
+These are simple examples.  For more information on properly requesting cores and nodes, [see here](../hpc/jobs.md#requesting-cores-and-nodes).  For more details on Slurm directives [see here](../hpc/jobs.md#slurm-directives-partitions-qos).  
 
 For GPU workloads we highly recommend using [NVIDIA NGC containers](https://catalog.ngc.nvidia.com/containers). For example, here's NGC
 [TensorFlow](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow)

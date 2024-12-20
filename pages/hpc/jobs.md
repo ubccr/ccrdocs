@@ -71,15 +71,16 @@ three disjointed InfiniBand networks (islands):
 | IB Network             | Nodes   | Speed              |
 | ---------------------- | ------- | ------------------ |
 | **CASCADE-LAKE-IB**    | 128     | HDR 100G           |
-| **ICE-LAKE-IB**        |  99     | HDR 100G           |
-| **SAPPHIRE-RAPIDS-IB** |  85     | NDR 200G           |
+| **ICE-LAKE-IB**        |   99     | HDR 100G           |
+| **SAPPHIRE-RAPIDS-IB** |   85     | NDR 200G           |
+| **EMERALD-RAPIDS-IB**  |   48     | NDR 200G           |
 
 If you plan on running a multi-node MPI job which leverages InfiniBand you must
 run on exactly ONE of the above fabrics. The easiest way to do this is to add
 the following constraint to your job:
 
 ```
-#SBATCH --constraint="[SAPPHIRE-RAPIDS-IB|ICE-LAKE-IB|CASCADE-LAKE-IB]"
+#SBATCH --constraint="[SAPPHIRE-RAPIDS-IB|ICE-LAKE-IB|CASCADE-LAKE-IB|EMERALD-RAPIDS-IB]"
 ```
 
 The above will ensure your job runs on a set of nodes in exactly one of the
@@ -422,7 +423,9 @@ These are the partitions available on the UB-HPC cluster:
 | debug     | 1 hour            | 1 hour          | 1              |   4        |
 | general-compute     | 24 hours            | 72 hours          | 1              |   1000        |
 | industry     | 24 hours            | 72 hours          | 1              |   1000        |
-| scavenger     | 24 hours            | 72 hours          | 1              |   1000        |
+| industry-dgx     | 24 hours            | 72 hours          | 1              |   10        |
+| industry-hbm     | 24 hours            | 72 hours          | 1              |   10        |
+| scavenger     | 24 hours            | 72 hours          | 1              |   1000       |
 | viz     | 24 hours            | 24 hours          | 1              |   1        |
 
 **Faculty Cluster Partitions**   
