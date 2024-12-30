@@ -55,7 +55,7 @@ For more details on two factor authentication [see here](2fa.md).
     you have enabled 2FA. You will also need to login to ColdFront
     and request that your account be upgraded to "PI Status" so you can request
     allocations. Go to your user profile
-    [here](https://coldfront-test.ccr.buffalo.edu/user/user-profile/) and click
+    [here](https://coldfront.ccr.buffalo.edu/user/user-profile/) and click
     on the `Upgrade Account` button.
 
 ## Intro to CCR Course Requirement  
