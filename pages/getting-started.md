@@ -13,7 +13,7 @@ This 30 minute presentation provides a succinct overview of what CCR does and do
 
 ## Intro to CCR Self-Paced Training  
 
-We highly encourage all users new to CCR to complete the [Intro to CCR](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/209035) course available in [UB Learns](https://ublearns.buffalo.edu/).  This course contains modules and examples (assignments) to guide you through the most important concepts of using CCR's high performance computing environment.  It is available for free to all UB faculty, staff, and students.  If you are an external collaborator, RPCI faculty/staff, or industry customer, you can access the recorded videos on our [YouTube channel](https://youtube.com/playlist?list=PL4Z5ac7PLRb1Su9J9BXs_TUXNG_RxOcgM&si=LX-JXlv6ggnc7bL8).  
+We highly encourage all users new to CCR to complete the [Intro to CCR](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/285151) course available in [UB Learns](https://ublearns.buffalo.edu/).  This course contains modules and examples (assignments) to guide you through the most important concepts of using CCR's high performance computing environment.  It is available for free to all UB faculty, staff, and students.  If you are an external collaborator, RPCI faculty/staff, or industry customer, you can access the recorded videos on our [YouTube channel](https://youtube.com/playlist?list=PL4Z5ac7PLRb1Su9J9BXs_TUXNG_RxOcgM&si=LX-JXlv6ggnc7bL8).  
 
 ==As of the fall 2024 semester, completing this course is a pre-requisite for access to CCR for all undergraduate and graduate students using CCR for their coursework.  See [here](getting-access.md#intro-to-ccr-course-requirement) for more info.==  
 
