@@ -52,11 +52,14 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
 
 | Package Name | vCPU | Storage | Other | Price |
 | :--- | ---: | ---: | :----: | ---:| 
-| Starter| 10 vCPU | 1 TB | 1 Floating IP | $500/year |
-| Standard| 20 vCPU | 2 TB | 2 Floating IP | $1000/year |
-| Advanced| 40 vCPU | 4 TB | 4 Floating IP , Fast-IO VMs | $2000/year |
-| GPU Addon| 8 vCPU | 1 TB | 1 Floating IP, Tesla V100 16GB | $880/year |
-| Storage addon | | 1 TB | Block Storage | $55/TB/year |
+| Starter| 10 vCPU | 1 TB | 1 Floating IP | $555/year |
+| Standard| 20 vCPU | 2 TB | 2 Floating IPs | $1,110/year |
+| Advanced| 40 vCPU | 4 TB | 4 Floating IPs, Fast-IO VMs | $2,220/year |
+| Standard w/GPU Addon | 20 vCPU | 2 TB | 2 Floating IPs, Tesla V100 16GB GPU | $1,990/year |
+| GPU Add On*| | | Tesla V100 16GB GPU | $880/year |
+| Storage Add On* | | 1 TB | Block Storage | $55/TB/year |
+
+*Must purchase at least 1 package to add GPUs or additional storage onto  
 
 * Systems Administration Consulting: $63/hour
 
