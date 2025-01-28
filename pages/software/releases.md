@@ -1,6 +1,6 @@
 # CCR Software Environment Releases
 
-The latest stable release is [2024.04](#202404).
+The latest stable release is [2023.01](#202301).
 
 ## What are CCR Software Environments?
 
