@@ -155,7 +155,7 @@ apptainer run test.sif
 ### Building MPI-enabled images
 MPI-enabled Apptainer containers can be deployed on CCR's systems with the caveat that the MPI software within the container may have a similar (not necessarily exact) version of the MPI software available on the system. This requirement diminishes the portability of MPI-enabled containers, as they may not run on other systems without compatible MPI software. Regardless, MPI-enabled containers can still be a very useful option in many cases. 
 
-Here we provide an example of using a gcc compiler with OpenMPI. CCR's system uses an Infiniband interconnect. In order to use a Apptainer container with OpenMPI (or any MPI) on the cluster, OpenMPI needs to be installed both inside and outside of the container. More specifically, the _same_ version of OpenMPI needs to be installed inside and outside (at least very similar, you can sometimes get away with two different minor versions, e.g. 2.1 and 2.0). 
+Here we provide an example of using a gcc compiler with OpenMPI. CCR's system uses an Infiniband interconnect. In order to use an Apptainer container with OpenMPI (or any MPI) on the cluster, OpenMPI needs to be installed both inside and outside of the container. More specifically, the _same_ version of OpenMPI needs to be installed inside and outside (at least very similar, you can sometimes get away with two different minor versions, e.g. 2.1 and 2.0). 
 
 
 Once you’ve built the container with one of the methods outlined above, you can place it in your home or project directory and run it on a compute node. The following is an example of running a gcc/OpenMPI container with Apptainer. The syntax is a normal MPI run where multiple instances of an Apptainer image are run. The following example runs `mpi_hello_world` with MPI from a container.
@@ -229,21 +229,7 @@ Apptainer> cd /projects
 Apptainer> python3 -mvenv --system-site-packages myenv 
 Apptainer> source myenv/bin/activate
 (myenv) Apptainer> pip install imageio
-Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
-Collecting imageio
-  Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
-Collecting numpy (from imageio)
-  Downloading numpy-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 2.8 MB/s eta 0:00:00
-Collecting pillow>=8.3.2 (from imageio)
-  Downloading pillow-11.1.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
-Downloading imageio-2.37.0-py3-none-any.whl (315 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 315.8/315.8 kB 7.1 MB/s eta 0:00:00
-Downloading pillow-11.1.0-cp312-cp312-manylinux_2_28_x86_64.whl (4.5 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 105.6 MB/s eta 0:00:00
-Downloading numpy-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 248.0 MB/s eta 0:00:00
-Installing collected packages: pillow, numpy, imageio
+... installation messages ...
 Successfully installed imageio-2.37.0 numpy-2.2.2 pillow-11.1.0
 (myenv) Apptainer> python
 Python 3.12.3 (main, Nov  6 2024, 18:32:19) [GCC 13.2.0] on linux
