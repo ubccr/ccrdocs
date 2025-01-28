@@ -62,14 +62,24 @@ source /projects/academic/[YourGroupName]/venv_name/bin/activate
 
 Installing Python packages this way will only work for a subset of all available packages. **Any package that depends on many pre-installed libraries, especially C libraries, or requires GPU enabling, will most likely need EasyBuild to compile properly.**
 
-### Jupyter Kernels
+#### Sharing Virtual Environments  
 
-Once you have a virtual environment set up properly, you may want to use this environment when running a Jupyter session. To do this, you will need to use the ipykernel package available in IPython:
+Theoretically, you can share your virtual environments with members of your research group by storing them in your project directory.  In reality, this can be a cause of problems if not setup properly and if not all members of your group are aware of how to properly use them.  If sharing your virtual environment with other users, we highly recommend creating a `pip.conf` file in the virtual environment directory.  Within this you should set the `[site]` target variable and point to the virtual environment's site-packages directory to ensure that all packages are installed in this contained environment.  It would look something like this:  
 
 ```
-module load gcc python ipython
+[site]
+target = /projects/academic/[YourGroupName]/venv_name/lib/python3.X/site-packages/
+```
+You must use additional caution with this and ensure that you do not already have a `pip.conf` file in your home directory.   Pip will first look at the global site-packages directory, then any defined for the user in the default location `~/.config/pip/pip.conf`, and then any defined for the virtual environment.  To ensure you have no conflicts with package installations in your virtual environment, make sure you have no packages installed in your home directory under a matching version of python.   
 
+### Jupyter Kernels
+
+Once you have a virtual environment set up properly, you may want to use this environment when running a Jupyter session. To do this, you will need to install the ipykernel package and use it to create an interactive Python kernel:
+
+```
+module load gcc python
 source /projects/academic/[YourGroupName]/venv_name/bin/activate
+pip install ipykernel
 (venv_name) python3 -m ipykernel install --user --name kernel_name
 ```
 
@@ -88,8 +98,9 @@ The preferred method for running ML is to use training scripts submitted to the 
 - I cannot connect to a Jupyter kernel I created from a virtual environment!
     - You probably used the system python to build the environment. It will look like the first example [here](#python-at-ccr).  You will have to delete the environment and kernel and rebuild both once you have run `module load gcc python`
 
-- I saved my virtual environment to my /projects directory, but my packages are being installed into my home directory and I'm running out of space!
-    - You used the system python to build your venv and now pip is saving downloaded packages to `~/.local`. Delete this directory and your current venv and rebuild it after you run `module load gcc python`
+- I saved my virtual environment to my /projects directory, but my packages are being installed into my home directory and I'm running out of space!  This may be caused by a few things:  
+    - You used the system python to build your venv and now pip is saving downloaded packages to `~/.local`. Delete this directory and your current venv and rebuild it after you run `module load gcc python`  
+    - You may have a pip configuration file in your home directory telling pip where to install packages.  Look at `~/.config/pip/pip.conf` and edit to point to the location you want your packages installed to.  This can be tricky so we recommend you follow the [pip documentation](https://pip.pypa.io/en/stable/topics/configuration/)
 
 - I'm trying to download a model from huggingface but running out of space.
     - You can set new cache directories when running `from_pretrained()` to download your model. You can also set paths in your job scripts to change your cache directories. An example for the latter method can be found in our huggingface example submission script: `/util/software/examples/huggingface/torch-run-sample.sh`.  This is accessible on the login and cluster compute nodes.

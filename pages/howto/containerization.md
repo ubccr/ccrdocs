@@ -255,6 +255,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 Apptainer> exit
 ```
 
+NOTE: In our [virtual environment documentation](python.md#using-virtual-environments), we do NOT use the `--system-site-packages` option when creating a virtual environment in our example.  Here we ARE using this option because we want the virtual environment to use all of the Python packages that come pre-installed in the NVIDIA container.  We do NOT want to do this when using CCR's software environment modules because we may see conflicts between the different Python packages that get installed.
+
 6: Test this out using a GPU node:  
 
 ```
