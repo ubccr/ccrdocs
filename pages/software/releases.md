@@ -26,7 +26,7 @@ To switch between CCR software environment releases run the following commands:
 $ module spider ccrsoft
 
 # Load a specific release
-$ module load ccrsoft/2023.01
+$ module load ccrsoft/2024.04
 ```
 
 !!! Tip "Pin to a specific release"
@@ -35,7 +35,7 @@ $ module load ccrsoft/2023.01
     specific release by adding the version to `~/.modulerc`.  For
     example:
     ```
-    $ echo "module-version ccrsoft/2023.01 default" > $HOME/.modulerc
+    $ echo "module-version ccrsoft/2024.04 default" > $HOME/.modulerc
     ```
     NOTE: This should be done only once.  To update your default version, edit the file and change the ccrsoft/version information  
 
