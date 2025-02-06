@@ -37,13 +37,14 @@ At the time of CCR account creation, an email is sent to the new user asking the
 
 ## Why is the ColdFront allocation showing active but I can't login?  
 
-This is the same reason as [this](#why-am-i-seeing-a-home-directory-missing-error-on-login) - your account has not yet been provisioned.  
+Your account has not yet been provisioned.  Our systems sync with ColdFront daily at 5pm, updating accounts and providing access to resources.  This means it can be up to 24 hours after getting added to an allocation before you're able to use it, which includes logging into the HPC environment.  If you were logged into CCR systems at the time of the sync, you may need to log out and back in again to see the changes to your account.
 
 ## Why do I get "Fatal system error" or "Account already exists" error when creating a new account?  
 
 When trying to create a new CCR account, you get an error that says "fatal system error" or "account with this username already exists" please contact [CCR help](help.md).  Staff will need to take manual action to rectify the problem.  
 
 ## Why am I seeing a home directory missing error on login?  
+
 The first time you login to a CCR server, your home directory will need to be created. When using SSH for login, this is done automatically.  If using OnDemand, follow the instructions provided to initiate the creation of your home directory and SSH key pair for use on the cluster within the OnDemand terminal app. If, after completing the steps, the OnDemand dashboard does not reload, log out and back in again.  
 
 ## Why can I login to the help portal but not my CCR account?  
@@ -70,11 +71,7 @@ If you see an error box that says `XFCE PolicyKit Agent` you can click the `Clos
 
 ## Why does my OnDemand desktop or app show it's starting but then it immediately ends?  
 
-There are three common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
-
-1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
-2. You have an Anaconda environment loading in your `~.bashrc` environment file or are loading a Python module in your `~.bashrc` file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
-3. The application is looking for a software module to load and can't find it.  [See here](#why-am-im-getting-module-not-found-errors) for more info  
+Refer to [this OnDemand troubleshooting](howto/ood-trouble.md#why-does-my-ondemand-desktop-or-app-show-its-starting-but-then-it-immediately-ends) info.  
 
 ## How can I check how full my directories are?  
 
@@ -228,7 +225,7 @@ Refer to the [Slurm documentation](https://slurm.schedmd.com/gres.conf.html#OPT_
 
 ## Why does my application keep getting killed on the login nodes?  
 
-[Login nodes](hpc/clusters.md#login-nodes) have a 15 minute time limit on running processes and are not intended for running applications.  Please submit a job to the cluster for running or debugging applications or use a [compile node](hpc/clusters.md#compile-nodes) for installing software.
+[Login nodes](hpc/clusters.md#login-nodes) have a 15 minute time limit on running processes and are not intended for running applications.  Please submit a [job to the cluster](hpc/jobs.md#running-applications-with-jobs) for running or debugging applications or use a [compile node](hpc/clusters.md#compile-nodes) for installing software.
 
 ## Why does my SSH session automatically disconnect?  
 
@@ -244,7 +241,7 @@ Please see [this section of the Getting Access](getting-access.md#available-reso
 
 ## How can I check what allocations I am on?  
 
-Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](portals/coldfront.md)  
+Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](portals/coldfront.md).  Please note our systems sync with ColdFront daily at 5pm, updating accounts and providing access to resources.  This means it can be up to 24 hours after getting added to an allocation before you're able to use it, which includes logging into the HPC environment.
 
 ## How can I turn off notifications in ColdFront?  
 
