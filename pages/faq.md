@@ -70,11 +70,8 @@ If you see an error box that says `XFCE PolicyKit Agent` you can click the `Clos
 
 ## Why does my OnDemand desktop or app show it's starting but then it immediately ends?  
 
-There are three common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
+Refer to the [OnDemand troubleshooting docs](howto/ood-trouble.md#why-does-my-job-start-and-then-immediately-end) for more info  
 
-1. You are [over quota](hpc/storage.md#checking-quotas) in your home directory.  See more on managing [OnDemand job data](portals/ood.md#my-interactive-sessions)  
-2. You have an Anaconda environment loading in your `~.bashrc` environment file or are loading a Python module in your `~.bashrc` file that is interfering with the OnDemand desktop setup.  [See also](#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit)  
-3. The application is looking for a software module to load and can't find it.  [See here](#why-am-im-getting-module-not-found-errors) for more info  
 
 ## How can I check how full my directories are?  
 

@@ -2,17 +2,16 @@
 
 When you're using OnDemand for your computing, you're running jobs on the CCR clusters.  Though OnDemand makes this task simple with a few clicks in the browser, it's important to understand how to monitor your jobs, how to find your output files, and how to troubleshoot issues that may come up.  Here are the top questions we get by users of OnDemand at CCR:  
 
-## Why does my job start and then immediately end?  
-
-Usually, this is due to one of three problems; either you're [out of disk space](../faq.md#why-am-i-getting-no-space-left-on-device-errors) in your home directory, you're not setup to use the [correct modules](../faq.md#why-am-im-getting-module-not-found-errors), or you have a problem with your login environment.  [Please see here for more info](../faq.md#why-does-my-ondemand-desktop-or-app-show-its-starting-but-then-it-immediately-ends).   
-
 ## How to Monitor OnDemand Sessions  
 
 Use the OnDemand `Active Jobs` app to see your queued and running jobs.  [More info here](../portals/ood.md#jobs-apps).  Since the OnDemand sessions are the same as jobs submitted through the batch scheduler, [this info](../hpc/jobs.md#monitoring-jobs) for monitoring jobs is also useful.  
 
 ## Why is my session not starting?  
 
-OnDemand sessions are submitted as jobs to CCR's clusters.  The Slurm scheduler schedules jobs on compute nodes based on the resources requested.  Basically, your OnDemand session is in line with all the other batch jobs and OnDemand sessions submitted by all the other users of CCR.  If you are asking for resources that are in high demand, you will need to wait.  Overall, most jobs start within a few hours of being submitted to CCR's clusters.  However, some resources such as GPU nodes are limited in quantity and almost always under high demand.  This means you could wait many hours, days or potentially a week for your job to get scheduled.  Please [see here](../hpc/jobs.md#job-priority) for more info on job priority and [here for more](../faq.md#when-will-my-job-start) on how to tell when your job will start.  If your job is pending for a specific reason other than `resources` or `priority`, refer this section in our [FAQ](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail) and [this one](../faq.md#why-am-i-getting-a-qosmaxsubmitjobperuserlimit-error-when-i-try-to-submit-a-job)
+OnDemand sessions are submitted as jobs to CCR's clusters.  The Slurm scheduler schedules jobs on compute nodes based on the resources requested.  Basically, your OnDemand session is in line with all the other batch jobs and OnDemand sessions submitted by all the other users of CCR.  If you are asking for resources that are in high demand, you will need to wait.  Overall, most jobs start within a few hours of being submitted to CCR's clusters.  However, some resources such as GPU nodes are limited in quantity and almost always under high demand.  This means you could wait many hours, days or potentially a week for your job to get scheduled.  Please [see here](../hpc/jobs.md#job-priority) for more info on job priority and [here for more](../faq.md#when-will-my-job-start) on how to tell when your job will start.  If your job is pending for a specific reason other than `resources` or `priority`, refer these sections in our FAQ:  
+[`reqnodenotavail` status](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail)  
+[`qosmaxsubmitjobperuserlimit` status](../faq.md#why-am-i-getting-a-qosmaxsubmitjobperuserlimit-error-when-i-try-to-submit-a-job)  
+[`AssocMaxGRESPerJob` status](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job)  
 
 ## Why does my OnDemand desktop or app show it's starting but then it immediately ends?  
 
