@@ -174,10 +174,6 @@ sbatch: error: Batch job submission failed: Invalid partition or qos specificati
 
 CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](portals/coldfront.md).   More details on QOS and partition limits can be [found here](hpc/jobs.md#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
 
-## Why do I get an "Invalid feature specification?" error  
-
-Compute nodes in the clusters are tagged with Slurm "features" including CPU and GPU types, high speed interconnects (like Infiniband), rack locations, CPU architectures, and more.  You can read more about these features or tags [here](hpc/jobs.md#node-features).  When specifying them either in a Slurm batch script or in the node features field in OnDemand apps, you must ensure that the requests you're making match up with the available compute nodes.  Usually when you see the `invalid feature specification` error, this means the combination of resources you're requesting is not available in the CCR cluster and partition that you're requesting.  Refer to the link above for more information on evaluating what features are available on which compute nodes.  
-
 
 ## Why am I getting a QOSMaxSubmitJobPerUserLimit error when I try to submit a job?
 
@@ -188,6 +184,14 @@ sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (
 ```
 
 You will get this error if you have reached the partition or per user limits as [described here](hpc/jobs.md#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
+
+## Why am I seeing the job status AssocMaxGRESPerJob on my pending job?  
+
+You may see `AssocMaxGRESPerJob` as a reason your job isn't running.  This means that your job is requesting more GPUs than is allowed for the Slurm account that you've selected your job to run under.  Some accounts (usually those associated with courses) are restricted to using only 1 GPU per job, while other accounts aren't allowed to use any.  The Intro to CCR course has no requirements for GPU use; therefore, the `introccr` Slurm account is blocked from using GPUs.
+
+## Why do I get an "Invalid feature specification?" error  
+
+Compute nodes in the clusters are tagged with Slurm "features" including CPU and GPU types, high speed interconnects (like Infiniband), rack locations, CPU architectures, and more.  You can read more about these features or tags [here](hpc/jobs.md#node-features).  When specifying them either in a Slurm batch script or in the node features field in OnDemand apps, you must ensure that the requests you're making match up with the available compute nodes.  Usually when you see the `invalid feature specification` error, this means the combination of resources you're requesting is not available in the CCR cluster and partition that you're requesting.  Refer to the link above for more information on evaluating what features are available on which compute nodes.  
 
 ## How do I login to the compute node my job is running on?  
 
