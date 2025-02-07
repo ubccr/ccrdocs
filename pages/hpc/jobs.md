@@ -415,24 +415,32 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Wall time          | The max amount of time your job will run for        | --time=wall time           |
 | Job Name           | Name your job so you can identify it in the queue   | --job-name=jobname         |
 
-These are the partitions available on the UB-HPC cluster:
 
-| Partition | Default Wall Time | Wall Time Limit | Default # CPUS | Job Submission Limit/User     |
-| :-------- | :---------------- | :-------------- | :------------- | :---------------------------- |
-| class     | 24 hours            | 72 hours          | 1              |   4        |
-| debug     | 1 hour            | 1 hour          | 1              |   4        |
-| general-compute     | 24 hours            | 72 hours          | 1              |   1000        |
-| industry     | 24 hours            | 72 hours          | 1              |   1000        |
-| industry-dgx     | 24 hours            | 72 hours          | 1              |   10        |
-| industry-hbm     | 24 hours            | 72 hours          | 1              |   10        |
-| scavenger     | 24 hours            | 72 hours          | 1              |   1000       |
-| viz     | 24 hours            | 24 hours          | 1              |   1        |
+**UB-HPC cluster partitions, defaults, and limits:**  
+
+| Partition | Valid QOS options | Default Wall Time | Wall Time Limit |  Job Submission Limit/User     |
+| :-------- | :---------------- | :---------------- | :-------------- |  :---------------------------- |
+| arm64     | arm64 | 24 hours            | 72 hours          |    4        |
+| class     | class | 24 hours            | 72 hours          |    4        |
+| debug     | debug, supporters | 1 hour            | 1 hour          |    4        |
+| general-compute     | general-compute, supporters, nih, nihsupporters | 24 hours            | 72 hours          |    1000        |
+| industry     | industry | 24 hours            | 72 hours          |    1000        |
+| industry-dgx     | industry | 24 hours            | 72 hours          |    10        |
+| industry-hbm     | industry | 24 hours            | 72 hours          |    10        |
+| scavenger     | scavenger | 24 hours            | 72 hours          |    1000       |
+| viz     | Only accessible through OnDemand | 24 hours            | 24 hours          |    1        |
+
+**Additional Default Values**  
+All UB-HPC partitions have a default of 1 CPU per job and a default RAM (memory) value of 2800mb (2.8GB).  If you require more, these will need to be specified in your resource request.  
 
 **Faculty Cluster Partitions**   
 There are over 50 partitions in the faculty cluster all of which have a default of 1 CPU, wall time of 24 hours and a maximum number of jobs per user of 1000.  The maximum wall time of these partitions ranges from 72 hours to 30 days.  To view details about a particular partition use the `scontrol` command; for example:  `scontrol show partition ub-laser -M faculty`
 
 **Priority Boosts**  
-Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award and the 2017 NSF MRI award that helped to purchase new equipment are also granted priority boosts for their group.  These allocations have been added to your ColdFront project and are active for a period of 5 years.  The allocations can not be renewed.  Group members should utilize the `mri` or `nih` QOS values to take advantage of the priority boost.  NOTE:  All of these QOS values are only available on the UB-HPC cluster.
+Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award that helped to purchase new equipment were granted priority boosts for their group that lasted 5 years.  These allocations were added to your ColdFront project and expired on February 1, 2025.  At this time, any faculty with current NIH funding may apply for the NIH priority boost. This will be available until the hardware is retired.  Please enter your NIH grant information in your ColdFront project and request an allocation for the NIH priority boost.  Once the allocation is activated, your group members should utilize the `nih` QOS value to take advantage of the priority boost.  Those faculty that have active NIH funding and are current CCR supporters will have access to the `nihsupport` QOS value.  NOTE:  These QOS values are only available on the UB-HPC cluster.
+
+**Other Limits**  
+Some Slurm accounts have limitations on them.  For example, accounts associated with courses will have a limit of 1 GPU per job.  The Intro to CCR UB Learns course does not require the use of GPUs; therefore, the `introccr` Slurm account has a limit of 0 GPUs.  Jobs using this account to request GPUs will be blocked in the queue.  [See here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job) for further information.
 
 ## Node Features    
 

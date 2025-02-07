@@ -178,7 +178,11 @@ NVIDIA also hosts a [number of containers](https://catalog.ngc.nvidia.com/contai
 NOTE: The URL format for using the NVIDIA container registry with Apptainer is:  
 `docker://nvcr.io/nvidia/name:version`
 
-#### Example GPU container workflow  
+#### ARM64 Containers  
+
+NVIDIA makes available containers for the `ARM64` CPU architecture.  CCR has these available in the [`arm64` partition](../hpc/clusters.md#ub-hpc-compute-cluster) of the UB-HPC cluster.  Research groups interested in utilizing these nodes must [request an alloction](../portals/coldfront.md#request-an-allocation) in ColdFront for this partition.  When attempting to pull `ARM64` containers (these are named with the suffix `-igpu`) from NVIDIA's container library, you must do this from an `ARM64` node or the build will fail.  
+
+### Example GPU container workflow  
 
 The Python-based software applications that we get the most requests for (i.e. Pytorch and Torch Lightning) are updated frequently and aren't particularly easy to install with Easybuild.  For this reason, we recommend utilizing the NVIDIA containers that are available for free, are updated frequently, and work on CCR's systems.  NVIDIA provides a [Framework Containers Support Matrix](https://docs.nvidia.com/deeplearning/frameworks/support-matrix/index.html) which has information on what software versions are included in the containers as well as what type of prerequisites the containers may have.  The deep learning framework container packages follow a naming convention that is based on the year and month of the image release.  We recommend using the 24.xx and 23.xx versions but the 22.xx containers should also work; they just have older versions of Ubuntu and Python.  
 
@@ -187,7 +191,7 @@ The Python-based software applications that we get the most requests for (i.e. P
 - Looking at the [Pytorch info](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch), we see a description of the package on the main page that includes instructions on how to run the container, what is in the container, and more on the Pytorch software itself (NOTE: container run commands are in Docker format which is slightly different than Apptainer)  
 - On the left is the latest version name (tag) and when it was published.  This tag name is version that you'll input in the pull, run, and exec commands    
 - If you want a different version than the latest, click on the `Tags` tab at the top of the page  
-- Make sure to select a version that supports AMD64 architecture (not the containers named `-igpu`)  
+- Make sure to select a version that supports AMD64 architecture (not the containers named `-igpu`), unless you're using an [`arm64` node](#arm64-containers)  
 
 CCR currently provides Pytorch 1.13.1 as a software module, which is from October 2022.  There have been many releases since then and much interest in Pytorch 2.  For this example, we will pull a container with Pytorch 2.6 installed.   
 

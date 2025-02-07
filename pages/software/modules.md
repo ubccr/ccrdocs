@@ -412,13 +412,22 @@ to manage your python projects but this comes with some caveats.  Please refer t
 
 ### R
 
-Two R modules are provided: `r` and `r-bundle-bioconductor`, both of which
+Two R modules are provided in `ccrsoft/2023.01`: `r` and `r-bundle-bioconductor`, both of which
 include many pre-built R libraries. To see a complete list of R libraries and
 packages included with each module run the spider command:
 
 ```
 $ module spider r
 $ module spider r-bundle-bioconductor
+```
+
+Two R modules are provided in `ccrsoft/2024.04`: `r` and `r-bundle-cran`, both of which
+include many pre-built R libraries. To see a complete list of R libraries and
+packages included with each module run the spider command:
+
+```
+$ module spider r
+$ module spider r-bundle-cran
 ```
 
 You can install packages from [CRAN](https://cran.r-project.org/) using
