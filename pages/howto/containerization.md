@@ -180,7 +180,7 @@ NOTE: The URL format for using the NVIDIA container registry with Apptainer is:
 
 #### ARM64 Containers  
 
-NVIDIA makes available containers for the `ARM64` CPU architecture.  CCR has these available in the [`arm64` partition](../hpc/clusters.md#ub-hpc-compute-cluster) of the UB-HPC cluster.  Research groups interested in utilizing these nodes must [request an alloction](../portals/coldfront.md#request-an-allocation) in ColdFront for this partition.  When attempting to pull `ARM64` containers (these are named with the suffix `-igpu`) from NVIDIA's container library, you must do this from an `ARM64` node or the build will fail.  
+NVIDIA makes available containers for the `ARM64` CPU architecture.  CCR has ARM64 processors available in the [`arm64` partition](../hpc/clusters.md#ub-hpc-compute-cluster) of the UB-HPC cluster.  Research groups interested in utilizing these nodes must [request an alloction](../portals/coldfront.md#request-an-allocation) in ColdFront for this partition.  When attempting to pull `ARM64` containers (these are named with the suffix `-igpu`) from NVIDIA's container library, you must do this from an `ARM64` node or the build will fail.  
 
 ### Example GPU container workflow  
 
