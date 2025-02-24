@@ -16,7 +16,7 @@ Minimum requirements for software to work in the CCR HPC environment:
 
  
 !!! Warning "GUI Applications"
-    HPC systems are not ideal environments for graphical user interface (GUI) applications.  While GUI applications may run on the HPC clusters, rendering performance is often poor. Before buying software licenses and spending a lot of time doing a complicated software install, check the requirements for the software and verify with [CCR staff](../help.md) that it is a good candidate for use in CCR's HPC environment.
+    HPC systems are not ideal environments for graphical user interface (GUI) applications.  While GUI applications may run on the HPC clusters, rendering performance is often poor. Before buying software licenses and spending a lot of time doing a complicated software install, check the requirements for the software and contact [CCR staff](../help.md) to verify that it is a good candidate for use in CCR's HPC environment.
 
  
 ## Installing Software Applications 

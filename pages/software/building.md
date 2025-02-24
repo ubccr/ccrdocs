@@ -19,7 +19,7 @@ on GitHub here](https://github.com/ubccr/software-layer/issues/new), where you'l
 to see if another user has already submitted a request. Users are strongly
 encourage to vote on which software is to be installed by adding a "like" or
 "thumbs up" on the issue. Due to limited staffing we'll be installing more
-popular software requests first so it's important you vote.  Please refer to our [software installation policy](../policies/software) prior to submitting a build request.  
+popular software requests first so it's important you vote.  Please refer to our [software installation policy](../policies/software.md) prior to submitting a build request.  
 
 ## About EasyBuild
 

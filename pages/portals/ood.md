@@ -132,7 +132,7 @@ Loading modules when VSCode starts does not work the same way as described above
 
 There are a few oddities to note about how VSCode functions at CCR:
 
-- VSCode can't detect the CCR software repository and load Python and it's dependencies. When choosing an interpreter, the default Python installation will be the system Python and should NOT be used. Instead, you must use a properly set up [virtual environment](../howto/python.md#virtual-environments).
+- VSCode can't detect the CCR software repository and load Python and its dependencies. When choosing an interpreter, the default Python installation will be the system Python and should NOT be used. Instead, you must use a properly set up [virtual environment](../howto/python.md#virtual-environments).
 - If creating a virtual environment in VSCode, use the terminal and [these instructions](../howto/python.md#virtual-environments), NOT the Python extension and its options for creating virtual environments.  
 - Sometimes installing extensions works and sometimes it doesn't. CCR users have the permission to install extensions in their home directories but CCR support can't guarantee the installation will work, nor can we dedicate time to troubleshooting those issues.  If you're using a Python extension, make sure you pay attention to the first two items in this list  
 
