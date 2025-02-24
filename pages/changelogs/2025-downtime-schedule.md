@@ -34,7 +34,7 @@ _1/22/25 - Spring Classes Begin_
 
 _3/17/25-3/22/25 - Spring Recess_
 
-3/25/25 - Details (available 1 month prior to outage)
+3/25/25 - [Details](2025.md#march-2025-downtime)  
 
 4/29/25 - Details (available 1 month prior to outage) 
 

@@ -352,10 +352,12 @@ these modules as they include lots of common scientific python packages.
 | tensorflow   | TensorFlow                                                                                   |
 | pytorch      | PyTorch                                                                                      |
 
-If you require other specific python modules, we recomend you [ask CCR to build
-them](../software/building.md#software-build-requests) or create your own python module bundles with easybuild.
 
-Here's an example easybuild recipe that installs a python module from pip:
+If you require other specific python modules, you might be able to install them yourself within a [virtual environment](../howto/python.md#virtual-environments), but this comes with some caveats.  If your package is not conducive to a virtual environment, you can [ask CCR to build it](../software/building.md#software-build-requests) or create your own Python module bundle with easybuild.
+
+Please refer to our [Python documentation](../howto/python.md) for more information.
+
+This is an example easybuild recipe that installs a python module from pip:
 
 ```python
 easyblock = 'PythonBundle'
@@ -403,12 +405,9 @@ To use run:
 ```
 $ module load mygroup-bundle
 $ python3
-$ import fuzzywuzzy
+>>> import fuzzywuzzy
 ```
 
-You can also use [virtual
-environments](../howto/python.md#virtual-environments)
-to manage your python projects but this comes with some caveats.  Please refer to our documentation on proper use of Python on CCR's HPC systems.
 
 ### R
 
