@@ -184,6 +184,9 @@ NVIDIA makes available containers for the `ARM64` CPU architecture.  CCR has ARM
 
 ### Example GPU container workflow  
 
+Check out this video for an overview of using Python in containers, virtual environments and containers, and containers from NVIDIA:
+![type:video](https://www.youtube.com/embed/ILS1uLsZsio)  
+
 The Python-based software applications that we get the most requests for (i.e. Pytorch and Torch Lightning) are updated frequently and aren't particularly easy to install with Easybuild.  For this reason, we recommend utilizing the NVIDIA containers that are available for free, are updated frequently, and work on CCR's systems.  NVIDIA provides a [Framework Containers Support Matrix](https://docs.nvidia.com/deeplearning/frameworks/support-matrix/index.html) which has information on what software versions are included in the containers as well as what type of prerequisites the containers may have.  The deep learning framework container packages follow a naming convention that is based on the year and month of the image release.  We recommend using the 24.xx and 23.xx versions but the 22.xx containers should also work; they just have older versions of Ubuntu and Python.  
 
 **Tips on how to navigate the NVIDIA catalog:**  
