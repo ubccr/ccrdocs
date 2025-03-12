@@ -15,14 +15,11 @@ use.
 ## Software build requests
 
 Users can request software be installed by CCR staff by submitting a new [issue
-on GitHub here](https://github.com/ubccr/software-layer/issues/new). Please
-provide the name of the software or library you're interested in and any specific
-details such as the URL where the software can be found. We also encourage you
-to [search the issues here](https://github.com/ubccr/software-layer/issues?q=is%3Aissue+is%3Aopen+label%3Abuild-request) 
+on GitHub here](https://github.com/ubccr/software-layer/issues/new), where you'll be asked to fill out a form and provide information about your research group and the software you'd like to use.  We ask that you first [search the issues here](https://github.com/ubccr/software-layer/issues?q=is%3Aissue+is%3Aopen+label%3Abuild-request) 
 to see if another user has already submitted a request. Users are strongly
 encourage to vote on which software is to be installed by adding a "like" or
 "thumbs up" on the issue. Due to limited staffing we'll be installing more
-popular software requests first so it's important you vote.  Please refer to our [software installation policy](../policies/support.md#software-installation-policy) prior to submitting a build request.  Of particular note: we are unable to install software that requires us to agree to a license to download or that a research group has purchased a license for.  This must be installed by the research group in their project directory.  
+popular software requests first so it's important you vote.  Please refer to our [software installation policy](../policies/software.md) prior to submitting a build request.  
 
 ## About EasyBuild
 

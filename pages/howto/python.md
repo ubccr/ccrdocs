@@ -6,7 +6,14 @@ When you run python code on CCR's resources, you are using a High Performance Co
 
 All this is to say, what works on your local machine is not guaranteed to work on an HPC system. Assuming you can use python identically to how you'd use it on your local machine will lead to massive headaches.
 
+## Using Python at CCR Course  
+
+UB faculty, staff, and students have access to self-enroll in the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  This is a self-paced course that steps CCR users through the proper usage of Python in CCR's HPC environment.  The short and easily digestible course modules cover a variety of topics to provide a basic overview of how to best use Python depending on your use case.  This includes what Python packages are available via CCR's Python software modules, installing additional Python packages using virtual environments, and container usage for packages not conducive to virtual environments. The "Python Pitfalls" module covers many of the pain points previous CCR users have hit when using Python on our systems.  Optional modules in this course include using Python with VSCode, Jupyter, and RStudio, and using Easybuild to install your own Python bundles.  We highly recommend this course to all CCR users that would like to save time and headaches when using Python in their workflows.  If you're an external collaborator or industry cluster user without access to UB Learns, you'll find some of the course content on our [YouTube channel](https://www.youtube.com/@ubccr).
+
 ## Python at CCR
+
+Check out this video for an overview of using Python, virtual environments, and Jupyter kernels in CCR's HPC environment:
+![type:video](https://www.youtube.com/embed/uS85S-odkRk)
 
 !!! Danger ""
     Before you run any Python code or tools on the cluster, you **MUST** run `module load gcc python`
@@ -89,11 +96,17 @@ Once this is done, you should be able to see your new kernel in the list of kern
 
 ## Python for AI and Machine Learning 
 
+Check out this video for an overview of using Python in containers, virtual environments and containers, and containers from NVIDIA:
+![type:video](https://www.youtube.com/embed/ILS1uLsZsio)  
+
 Do not just try to run `pip install torch`, it will not go well. To install things like PyTorch or Huggingface Transformers properly, you will need to use [EasyBuild](#installing-new-packages) and not pip. If it is imperative to use the latest versions of these packages and EasyBuild has not worked, you should try using prebuilt containers provided by NVIDIA ([see our documentation here](containerization.md)).
 
 The preferred method for running ML is to use training scripts submitted to the [cluster as batch scripts](../hpc/jobs) rather than Jupyter notebooks. When you request a GPU for a Jupyter notebook, this GPU may sit idle for the life of the job depending on how the notebook is being used. Opting to use a training script in a job helps with GPU utilization by automatically freeing GPU resources when training jobs are done.
 
 ## Common Issues
+
+Check out this video for a few common Python pitfalls we'd like to help you avoid:
+![type:video](https://www.youtube.com/embed/ALlicxP0nZQ)  
 
 - I cannot connect to a Jupyter kernel I created from a virtual environment!
     - You probably used the system python to build the environment. It will look like the first example [here](#python-at-ccr).  You will have to delete the environment and kernel and rebuild both once you have run `module load gcc python`

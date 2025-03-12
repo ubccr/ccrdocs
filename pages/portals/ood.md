@@ -127,13 +127,17 @@ When the Jupyter app starts, it will launch these additional modules with it and
 !!! Tip "Properly listing multiple module dependencies"  
     You do not need to list toolchain dependencies multiple times.  If the modules you want to use all depend on the same toolchain, you can list that one time at the start of your list.  Note that the `foss` toolchain contains GCC and other packages.  The `gcccore` toolchain only contains GCC, while the `gcc` toolchain contains `gcccore` and additional packages.  You can test loading modules on the command line prior to attempting to use them with a Jupyter Notebook to ensure the order you specify works.  
 
-**Loading additional software modules with VSCode:**  
-This works the same way as described above for the Jupyter Lab/Notebook app.  Any software modules listed in this box will be loaded when the VSCode session starts.  
+<a name="vscode"></a>**[VSCode Interactive App](#vscode)** 
 
-There are a few oddities to note about how VSCode functions at CCR:
+Visual Studio Code (VSCode) is a popular integrated development environment (IDE) that allows users to edit code in various programming languages.   Extensions available for VSCode allow users to access most popular languages and runtimes, connect to Github, and test workflows.  The application has a built-in SSH client allowing users to connect to remote servers to code directly on the server but while utilizing their personal device.  Unfortunately, almost none of those features work in the CCR HPC environment.  Though we can appreciate how handy many of these features are, they are not easy to support on an HPC system. If you're going to use VSCode in CCR's HPC environment, we HIGHLY recommend first reviewing the material in the UB Learns ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course.  There are two sections dedicated to the proper use of VSCode on our systems.
 
-- Running `module list` in a VSCode terminal may not display modules loaded via the "Extra modules to load with VSCode" box. This is a bug. The modules entered in the form will be loaded and ready to use.  
-- VSCode fails to detect Python when loaded as a module. When choosing an interpreter, the default Python installation will be the system Python and should not be used. Instead, you must use a properly set up [virtual environment](../howto/python.md#virtual-environments).
+These are just a few of the oddities to note about how VSCode functions at CCR:
+
+  - Loading modules when VSCode starts does not work the same way as described above for the Jupyter Lab/Notebook app.  You will need to load the software modules in a VSCode terminal after the application has started.  Despite doing this, not all software modules will work correctly in the VSCode terminal.
+  - VSCode can't detect the CCR software repository and load Python and its dependencies. When choosing an interpreter, the default Python installation will be the system Python and should NOT be used. Instead, you must use a properly set up [virtual environment](../howto/python.md#virtual-environments).
+  - If creating a virtual environment in VSCode, use the terminal and [these instructions](../howto/python.md#virtual-environments), NOT the Python extension and its options for creating virtual environments.  
+  - Sometimes installing extensions works and sometimes it doesn't. CCR users have the permission to install extensions in their home directories but CCR support can't guarantee the installation will work, nor can we dedicate time to troubleshooting those issues.  If you're using a Python extension, make sure you pay attention to the first two items in this list  
+
 
 **Job Card Formating**  
 

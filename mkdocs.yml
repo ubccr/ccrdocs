@@ -75,10 +75,15 @@ nav:
     - Accounts & Data Policies: policies/accounts.md
     - Communications Policy: policies/email.md
     - Permitted Use & Misuse of CCR: policies/misuse.md
-    - Support, Maintenance, & Installation Policies: policies/support.md
+    - Software Policies: policies/software.md
+    - Support & Maintenance Policies: policies/support.md
   - How To:  
     - Easybuild Example: howto/easybuild.md   
     - MATLAB: howto/matlab.md  
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
     - Running Containers: howto/containerization.md
     - Using Python: howto/python.md
+  - Change Logs:
+    - Downtime Schedule: changelogs/2025-downtime-schedule.md
+    - 2025: changelogs/2025.md
+    - 2024: changelogs/2024.md

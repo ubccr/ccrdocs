@@ -29,21 +29,7 @@ Other CCR services may experience maintenance downtimes several times a year.  N
 
 ## Software Installation Policy  
 
-CCR staff provide a suite of software that is standard for high performance computing environments.  This include compilers, Cuda, Python, and some engineering packages such as Gromacs, NAMD, Matlab, and LAMMPS.
-
-Software that does not require root level (administrative) access should be installed in a user's home directory or a group's project directory.  [More information on installing your own software](../software/building.md)  
-
-If your software does require root privileges to be installed or you feel it would benefit other CCR users, you can submit an issue on [CCR's GitHub software repository](https://github.com/ubccr/software-layer/issues) requesting the software be installed.  Minimum requirements for software installation on the clusters:
-
-1. Must run under Linux operating systems
-
-2. Must be free to use in an academic environment (for the UB-HPC cluster).  
-
-3. If a license is required the software needs to be installed in the group's project directory.  The cluster can only support a floating license, not a node-locked license.  
-
-4. Preferably has an Easy Build recipe available.  [Search for one here](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs) and include in your GitHub issue.  
-
-If your software meets these requirements, please submit a GitHub issue to request the install and provide any installation files or download links you have for the software.  Once evaluated by CCR staff you will receive a decision about whether or not we can support the installation and an estimate for completing the installation.  Some installations are straight-forward and can be done within a matter of days; others can be quite time-consuming.  If you require software to meet a deadline, please ensure your request is submitted with plenty of lead time.  Our current staffing levels don't allow for much individualized software installations but we can often help users through the process via help tickets.  
+This has been moved [here](software.md).  
 
 ## Hardware Purchase & Installation Policy  
 
