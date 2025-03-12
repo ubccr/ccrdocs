@@ -105,6 +105,7 @@ To purchase addition project storage, cloud storage or cloud compute time, pleas
     - UB internal funds: State, RF, UBF, FSA   
     - Other internal funds   
     - External funds   
+- Your account number to bill this purchase to  
 
 Click the `Submit` button and CCR staff will provide the appropriate payment paperwork and instructions via email.  
 
