@@ -78,7 +78,7 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 
 ## Purchasing Project Storage  
 
-Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.     
+Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.  
 
 ### Rates  
 
