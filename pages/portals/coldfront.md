@@ -107,7 +107,7 @@ To purchase addition project storage, cloud storage or cloud compute time, pleas
     - External funds   
 - Your account number to bill this purchase to  
 
-Click the `Submit` button and CCR staff will provide the appropriate payment paperwork and instructions via email.  
+Click the `Submit` button which will notify CCR staff to process the necessary paperwork in UB's iLab portal.  Billing happens once a month, after which you'll receive an invoice through iLab with instructions on how to submit payment. Storage increases will be provided when the order is entered into iLab.  If you need changes made to your original request, please contact [CCR Help](../help.md)  
 
 !!! Tip "Please verify grant dates!"  
     We are required to bill for storage in yearly increments.  Please do not provide an account number that is not valid for the entire length of the storage payment.  

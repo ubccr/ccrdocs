@@ -78,7 +78,7 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 
 ## Purchasing Project Storage  
 
-Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.   
+Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.     
 
 ### Rates  
 
@@ -101,7 +101,7 @@ Additional storage for shared project directories can be purchased in 1 terabyte
 
 ### How to Initiate a Purchase  
 
-To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  
+To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  As of April 7, 2025, CCR will be utilizing UB's iLab portal for all purchases.  Once an allocation change request has been submitted, your request will be processed through iLab.  Billing happens once a month, after which you'll receive an invoice through iLab with instructions on how to submit payment.
 
 ## Checking Quotas
 

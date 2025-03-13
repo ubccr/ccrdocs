@@ -72,7 +72,7 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
 
 ### How to Initiate a Purchase  
 
-To initiate the purchase of additional cloud storage or compute time, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `Cloud Storage` or `Cloud Compute` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  
+To initiate the purchase of additional cloud storage or compute time, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an allocation for the `Cloud Compute` and/or `Cloud Storage` resource.  See [here](../portals/coldfront.md#request-an-allocation) for information.  If you have an existing allocation for either of these and wish to purchase additional CPU credits or storage, please submit an `allocation change request` on your `Cloud Storage` or `Cloud Compute` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  As of April 7, 2025, CCR will be utilizing UB's iLab portal for all purchases.  Once a new allocation request or an allocation change request has been submitted, your request will be processed through iLab.  Billing happens once a month, after which you'll receive an invoice through iLab with instructions on how to submit payment.  We will allocate the cloud resources at the time we submit the purchase request in iLab and you'll hear back from CCR Staff with instructions on how to access your cloud allocation.    
 
 ### Use and Misuse
 
