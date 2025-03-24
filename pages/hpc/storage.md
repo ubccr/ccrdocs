@@ -78,7 +78,7 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 
 ## Purchasing Project Storage  
 
-Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.   
+Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.  
 
 ### Rates  
 
@@ -101,7 +101,7 @@ Additional storage for shared project directories can be purchased in 1 terabyte
 
 ### How to Initiate a Purchase  
 
-To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  
+To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  As of April 7, 2025, CCR will be utilizing UB's iLab portal for all purchases.  Once an allocation change request has been submitted, your request will be processed through iLab.  Billing happens once a month, after which you'll receive an invoice through iLab with instructions on how to submit payment.
 
 ## Checking Quotas
 
@@ -233,8 +233,8 @@ Once the group has been given access to Starfish the PI will be able to login us
 
 You will be considered a Starfish Zone Admin and have access to detailed usage information for your group's shared project directory.  At the top right, under the Help menu, there is a link to the Zone Admin User Guide.  This contains all the information you need to understand how Starfish works, how it calculates usage (for example, usage is calculated in TiB not TB), and how to tag your data for deletion or other classification.  You may need to be logged into Starfish to view these.  
 
-[Zone Admin Quick Reference Guide](https://starfish-stable-updates.s3.amazonaws.com/release_notes/Zoneadmin_quick_reference.pdf?AWSAccessKeyId=AKIAJ4BBRLHBKGGC6HQA&Expires=1659017984&Signature=VF%2BwfDI%2BRiPhK%2Fu3VldYvAposQA%3D)  
-[Zone Admin Guide](https://starfish-stable-updates.s3.amazonaws.com/release_notes/Starfish_GUI_Zoneadmin_Guide.pdf?AWSAccessKeyId=AKIAJ4BBRLHBKGGC6HQA&Expires=1659018047&Signature=ovS4%2BecZYaO2SfAjbakdF0jE2GE%3D)  
+[Zone Admin Quick Reference Guide](https://starfish-stable-updates.s3.amazonaws.com/release_notes/Zoneadmin_quick_reference.pdf)  
+[Zone Admin Guide](https://starfish-stable-updates.s3.amazonaws.com/release_notes/Starfish_GUI_Zoneadmin_Guide.pdf)  
 
 Starfish provides many avenues for viewing metadata about your data.  Users can visualize the data by age, size, and other options.  We're able to view the last time data was accessed.  You can download reports about your data in CSV format allowing you to share information with group members.  Please refer to the documentation above for more information.  
 

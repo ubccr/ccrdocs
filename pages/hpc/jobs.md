@@ -571,7 +571,7 @@ Slurm account information is also available and useful depending on what informa
 **Show job account information for a specific job:**  
 If the job is currently running, you will get node information.  If it has completed, you will not. 
 ````
-sacct -j jobid --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,nnodes,ncpus,nodelist
+sacct -j jobid --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,nnodes,ncpus,nodelist,ReqMem
 ````
 or `slist jobid`  
 
