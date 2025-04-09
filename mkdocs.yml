@@ -80,6 +80,7 @@ nav:
   - How To:  
     - Easybuild Example: howto/easybuild.md   
     - MATLAB: howto/matlab.md  
+    - Purchasing Storage & Services: howto/purchases.md
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
     - Running Containers: howto/containerization.md
     - Using Python: howto/python.md

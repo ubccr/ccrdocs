@@ -89,7 +89,8 @@ Dedicated resources (nodes) for a faculty group or research lab built into the e
 - ***Infrastructure (co-location) fee:**  
     - CCR charges a one-time fee for the infrastructure to run your compute node (rack space, cables, Ethernet network switches, electricity and cooling).
     - The co-location per rack "u" fee is based on the standard slot of a compute rack. If machines purchased are more than 1 “u”, the infrastructure charge is multiplied. For example, if the machine you purchase takes up 2 “u” in rack space, the infrastructure charge is $630 (if paying with internal State, RF, UBF, or FSA funds).
-    - This one-time charge goes towards cost-sharing of the infrastructure used to house and support your equipment (rack, network switches, cabling, physical installation and maintenance).    
+    - This one-time charge goes towards cost-sharing of the infrastructure used to house and support your equipment (rack, network switches, cabling, physical installation and maintenance).  
+    - This will be invoiced through Blue Services as described [here](../howto/purchases.md#co-location-fees).    
 
 - **Support:**  
     - CCR staff provide support during regular business hours, Monday through Friday 8am-5pm excluding University at Buffalo holidays. No weekend support is provided.
