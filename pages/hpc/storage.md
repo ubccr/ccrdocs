@@ -73,35 +73,12 @@ To request a restore of deleted files, please contact [CCR Help](../help.md).  P
 - Accessible only from cloud instances  
 - There is no guarantee of uptime or performance on cloud storage  
 - Available only to research groups with active cloud subscriptions  
-- [See cloud subscription information for cloud storage pricing](../cloud/lake-effect.md#subscriptions)
+- [See here](../howto/purchases.md#cloud-storage) for cloud storage pricing
 - ==**There is NO backup of data for the research cloud**==  
 
 ## Purchasing Project Storage  
 
-Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.  
-
-### Rates  
-
-**Internal Rates:**
-
-- **_$72 per terabyte per year_**  
-- This is an internal rate for internal UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds
-- Internal UB users paying with funds other than those listed above are charged an additional fee to cover the processing fee UB charges CCR.  This makes the cost **_$82.76 per TB per year_** 
-
-!!! Tip  
-    Faculty with joint positions at UB and Roswell can only qualify for the UB internal rate if they use UB funds to purchase the storage.  RPCI users should check with RPCI IT for access to the storage allocation RPCI purchased from CCR before making a purchase of their own.
-
-**External Rates:**
-
-- External collaborators, groups and industry partners are charged **_$100/TB per year_**  
-- Invoices are sent by CCR as requested by the external user and quotas are increased when the funds have arrived at UB/CCR.  This can often take months so we recommend users keep track of the payment to ensure it is being processed by your organization in a timely fashion.  Often CCR can not tell when a payment from an outside organization has arrived at UB.  If you're waiting for your quota to be increased and know the payment has arrived at UB, let us know and we can verify its arrival.  
-
-!!! Warning  
-    We are NOT able to issue refunds should you stop using CCR's storage.  
-
-### How to Initiate a Purchase  
-
-To initiate the purchase of additional project storage, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an `allocation change request` on the group's `ProjectStorage` allocation.  [See here](../portals/coldfront.md#allocation-change-requests) for instructions.  As of April 7, 2025, CCR will be utilizing UB's iLab portal for all purchases.  Once an allocation change request has been submitted, your request will be processed through iLab.  Billing happens once a month, after which you'll receive an invoice through iLab with instructions on how to submit payment.
+Refer [here](../howto/purchases.md#storage) for instructions on how to initiate a purchase or renew an annual purchase.
 
 ## Checking Quotas
 
