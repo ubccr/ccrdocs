@@ -247,11 +247,7 @@ srun run_alphafold.py --fasta_paths=T1050.fasta \
 
 ### Anaconda Python
 
-CCR does not support Anaconda environments. Please do not use it on the
-cluster. We are aware of the fact that Anaconda is widely used in several
-domains and is useful for easy installations on a single-user laptop. However,
-Anaconda is not well suited for multi-user HPC clusters for the following
-reasons:
+CCR does not support running Anaconda natively in the HPC environment. Please do not install it in your home or project directory. We are aware of the fact that Anaconda is widely used in several domains and is useful for easy installations on a single-user laptop. However, Anaconda is not well suited for multi-user HPC clusters for the following reasons:
 
 - Makes wrong assumptions about the OS configuration and location of various system libraries  
 - Not meant to keep several versions of the same package on the system  
@@ -261,12 +257,7 @@ reasons:
 - Modifies the $HOME/.bashrc file, which can easily cause conflicts  
 - May not be free for all users.  Please refer to the [Anaconda terms of service documentation](https://legal.anaconda.com/policies/en/)  
 
-Instead we recommend using modules that already include many [popular python
-packages](#python). Rather than installing python modules in conda environments users can create
-custom python module bundles using easybuild. For more details [see here](#python).
-
-If Easybuild is not an ideal option for your work, you could utilize a container to install Anaconda and
-your required packages.  For more information about using containers on CCR's systems, [see here](../howto/containerization.md).  
+Instead we recommend using modules that already include many [popular python packages](#python) or create custom python module bundles using Easybuild. If Easybuild is not an ideal option for your work, you could utilize a container to install Anaconda and your required packages.  For more information about using containers on CCR's systems, [see here](../howto/containerization.md). For more details please refer to our [Python documentation](../howto/python.md) or check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  
 
 
 ### LS-DYNA  
@@ -353,60 +344,7 @@ these modules as they include lots of common scientific python packages.
 | pytorch      | PyTorch                                                                                      |
 
 
-If you require other specific python modules, you might be able to install them yourself within a [virtual environment](../howto/python.md#virtual-environments), but this comes with some caveats.  If your package is not conducive to a virtual environment, you can [ask CCR to build it](../software/building.md#software-build-requests) or create your own Python module bundle with easybuild.
-
-Please refer to our [Python documentation](../howto/python.md) for more information.
-
-This is an example easybuild recipe that installs a python module from pip:
-
-```python
-easyblock = 'PythonBundle'
-
-name = 'mygroup-bundle'
-version = '1.0.0'
-
-homepage = 'https://github.com/ubccr/software-layer'
-description = """
-Custom python modules for my group
-"""
-
-toolchain = {'name': 'foss', 'version': '2021b'}
-
-# list any other dependencies here
-dependencies = [
-    ('Python', '3.9.6'),
-    ('SciPy-bundle', '2021.10'),
-]
-
-exts_list = [
-    # sha256 checksum can be found on pypi, for example:
-    # https://pypi.org/project/fuzzywuzzy/#copy-hash-modal-bdeeeb75-5450-499a-ae89-21c91611d2c7
-    ('fuzzywuzzy', '0.18.0', {
-        'checksums': ['45016e92264780e58972dca1b3d939ac864b78437422beecebb3095f8efd00e8'],
-    }),
-]
-
-sanity_pip_check = True
-use_pip = True
-
-moduleclass = 'math'
-```
-
-Save the above to a file called `mygroup-bundle-1.0.0-foss-2021b.eb`. To install run:
-
-```
-$ module load easybuild
-$ export CCR_BUILD_PREFIX=/projects/academic/[YourGroupName]/easybuild
-$ eb mygroup-bundle-1.0.0-foss-2021b.eb
-```
-
-To use run:
-
-```
-$ module load mygroup-bundle
-$ python3
->>> import fuzzywuzzy
-```
+If you require other specific python modules, you might be able to install them yourself within a [virtual environment](../howto/python.md#virtual-environments), but this comes with some caveats.  If your package is not conducive to a virtual environment, you can create your own Python module bundle with [Easybuild](../howto/easybuild.md) or utilize a [container](../howto/containerization.md).  Please refer to our [Python documentation](../howto/python.md) for more information.
 
 
 ### R
