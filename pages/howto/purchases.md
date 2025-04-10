@@ -3,8 +3,8 @@
 For those who wish to purchase additional project storage in the HPC environment, Lake Effect cloud compute credits or storage, or other CCR paid services, CCR tracks this information as allocations in the [ColdFront](../portals/coldfront.md) portal.  Once allocation requests are submitted, CCR will enter the purchase request in Blue Services, UB's iLab service.  Customers will receive email notifications when invoices are ready for approval.  Once the PI approves the invoice, it will be processed for payment.  Refer to this information for how to go about initiating purchases and renewing expiring purchases:
 
 - [HPC Storage](#hpc-storage)  
-- [Lake Effect Cloud Credits & Storage](#cloud)  
-- [Co-Location Fees](#co-location--support-fees)  
+- [Lake Effect Cloud Credits & Storage](#lake-effect-cloud)  
+- [Co-Location Fees](#co-location-fees)  
 - [System Administration Fees](#miscellaneous-support-fees) 
 - [Using Blue Services for Payments](#processes-for-purchasing-ccr-services) 
 
@@ -123,7 +123,7 @@ You will receive automated reminders from ColdFront when your cloud allocations 
 
 ## Co-Location Fees  
 
-A one time co-location fee is charged to faculty who purchase compute nodes maintained by CCR. For more details on this service, please [see here](../policies/support.md#hardware-purchase--installation-policy). At the time your compute node(s) is installed, CCR will prepare an invoice in Blue Services for the co-location fee.  You'll be asked to provide an account number at that time.  When the invoice is ready, you'll receive an email from Blue Services with instructions for approving the bill. After payment is made, you'll receive information from CCR staff on how to access your compute node(s). [See below](#using-blue-services-for-ccr-purchases) for further information on the Blue Services invoice process.   
+A one time co-location fee is charged to faculty who purchase compute nodes maintained by CCR. For more details on this service, please [see here](../policies/support.md#hardware-purchase-installation-policy). At the time your compute node(s) is installed, CCR will prepare an invoice in Blue Services for the co-location fee.  You'll be asked to provide an account number at that time.  When the invoice is ready, you'll receive an email from Blue Services with instructions for approving the bill. After payment is made, you'll receive information from CCR staff on how to access your compute node(s). [See below](#using-blue-services-for-ccr-purchases) for further information on the Blue Services invoice process.   
 
 ## Supporters Priority Boost  
 
