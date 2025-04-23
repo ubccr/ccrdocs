@@ -257,7 +257,7 @@ CCR does not support running Anaconda natively in the HPC environment. Please do
 - Modifies the $HOME/.bashrc file, which can easily cause conflicts  
 - May not be free for all users.  Please refer to the [Anaconda terms of service documentation](https://legal.anaconda.com/policies/en/)  
 
-Instead we recommend using modules that already include many [popular python packages](#python) or create custom python module bundles using Easybuild. If Easybuild is not an ideal option for your work, you could utilize a container to install Anaconda and your required packages.  For more information about using containers on CCR's systems, [see here](../howto/containerization.md). For more details please refer to our [Python documentation](../howto/python.md) or check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  
+Instead we recommend using modules that already include many [popular python packages](#python) or create custom python module bundles using Easybuild. If Easybuild is not an ideal option for your work, you could utilize a container to install Anaconda and your required packages.  For more information about using containers on CCR's systems, [see here](../howto/containerization.md). For more details please refer to our [Python documentation](../howto/python.md) or check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  We provide a simple [example](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) of building and customizing a container for conda in our [`ccr-examples` repository](https://github.com/ubccr/ccr-examples).
 
 
 ### LS-DYNA  
