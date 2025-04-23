@@ -36,16 +36,16 @@ _3/17/25-3/22/25 - Spring Recess_
 
 3/25/25 - [Details](2025.md#march-2025-downtime)  
 
-4/29/25 - Details (available 1 month prior to outage) 
+4/29/25 - [Details](2025.md#april-2025-downtime) 
 
 _5/6/25 - Last Day of Classes_
 
 _5/8/25 - 5/15/25 : Semester Final Exams_
 
-5/27/25 - Details (available 1 month prior to outage)
+5/27/25 - Details (available approximately 2 weeks prior to outage)
 
-6/24/25 - Details (available 1 month prior to outage)
+6/24/25 - Details (available approximately 2 weeks prior to outage)
 
-7/29/25 - Details (available 1 month prior to outage)
+7/29/25 - Details (available approximately 2 weeks prior to outage)
 
-8/26/25- Details (available 1 month prior to outage)
+8/26/25- Details (available approximately 2 weeks prior to outage)
