@@ -150,6 +150,8 @@ For more information, see the [Running Jobs section](../hpc/jobs.md).
 
 ## Application Specific Notes
 
+CCR maintains a [repository](https://github.com/ubccr/ccr-examples) of examples for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.  
+
 ### Abaqus  
 
 Abaqus 2024 is available via an Apptainer/Singularity container. You can find the Abaqus container here: `/util/software/containers/x86_64/abaqus-2024.sif`  This is a large file (10GB) so please be sure to copy it to a location where you have enough space (i.e. your project directory), or you can run the container from this location.  
@@ -201,49 +203,7 @@ Please refer to the [Abaqus (Simulia) documentation](https://help.3ds.com/2020/E
 
 ### AlphaFold
 
-To use AlphaFold run:
-
-```
-$ module load foss alphafold
-```
-
-A couple notes on running AlphaFold:
-
-- AlphaFold does not currently support nvidia H100 cards. So you'll want to use
-  any of our A100 or V100 GPU nodes.
-- CCR has downloaded the full genetic databases and model parameters and the
-  path is automatically included when running run_alphafold.py. The full path
-  can be found here: 
-  ```
-  echo $ALPHAFOLD_DATA_DIR
-  /util/software/data/alphafold
-  ```
-- Many of the examples you'll find online run AlphaFold in docker. You do not
-  want to do this. Instead just substitute `python3 docker/run_docker.py` with
-  the script provided by the alphfold module `run_alphafold.py`. They will have
-  the same CLI arguments.
-
-Below is a sample slurm batch script for running AlphaFold on a GPU node to run
-a single sequence prediction:
-
-```bash
-#!/bin/bash -l
-
-#SBATCH --time=03:30:00
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=64G
-#SBATCH --gpus-per-node=2
-#SBATCH --constraint=A100
-
-module load foss alphafold
-
-srun run_alphafold.py --fasta_paths=T1050.fasta \
-                      --max_template_date=2020-05-14 \
-                      --model_preset=monomer \
-                      --db_preset=full_dbs \
-                      --output_dir=output
-```
+See [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/alphafold/README.md) for an example of running AlphaFold2.
 
 ### Anaconda Python
 
@@ -257,28 +217,17 @@ CCR does not support running Anaconda natively in the HPC environment. Please do
 - Modifies the $HOME/.bashrc file, which can easily cause conflicts  
 - May not be free for all users.  Please refer to the [Anaconda terms of service documentation](https://legal.anaconda.com/policies/en/)  
 
-Instead we recommend using modules that already include many [popular python packages](#python) or create custom python module bundles using Easybuild. If Easybuild is not an ideal option for your work, you could utilize a container to install Anaconda and your required packages.  For more information about using containers on CCR's systems, [see here](../howto/containerization.md). For more details please refer to our [Python documentation](../howto/python.md) or check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  We provide a simple [example](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) of building and customizing a container for conda in our [`ccr-examples` repository](https://github.com/ubccr/ccr-examples).
+As an alternative, we suggest one of the following options for using and installing Python packages:  
+1. Use CCR's modules that already include many [popular python packages](#python) 
+2. Create your own custom python module bundles using [Easybuild](../howto/easybuild.md). 
+3. Use a container with conda installed.  We provide a simple [example](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) of building and customizing a container for conda in our [`ccr-examples` repository](https://github.com/ubccr/ccr-examples).  For more information about using containers on CCR's systems, [see here](../howto/containerization.md). 
+
+For more details please refer to our [Python documentation](../howto/python.md) or check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  
 
 
 ### LS-DYNA  
 
-LS-DYNA is now part of the Ansys software bundle.  To load the module, use `module load ansys/2023R1`  The lsdyna executables do not show up in the path any longer.  To use them properly, you'll need to use these commands.
-
-**Single Precision**  
-`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_sp.e`
-
-**Single precision, massively parallel:**  
-`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_sp_mpp.e`  
-
-
-**Double Precision**  
-`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_dp.e`
-
-**Double precision, massively parallel:**  
-`$EBROOTANSYS/v231/ansys/bin/linx64/lsdyna_dp_mpp.e`  
-
-Please refer to the Ansys LS-DYNA [manuals](https://lsdyna.ansys.com/manuals/) for further information and options.    
-
+See [here](https://github.com/ubccr/ccr-examples/tree/main/slurm/2_ApplicationSpecific/lsdyna) for an example of using LS-DYNA.
 
 ### Perl
 
@@ -332,8 +281,7 @@ module bundles with easybuild.
 
 ### Python
 
-Several python modules are available for use. We encourage users to checkout
-these modules as they include lots of common scientific python packages.
+Several python modules are available for use. We encourage users to checkout these modules as they include lots of common scientific python packages.
 
 | module       | Included python packages                                                                     |
 | ------------ | -------------------------------------------------------------------------------------------- |
@@ -344,7 +292,7 @@ these modules as they include lots of common scientific python packages.
 | pytorch      | PyTorch                                                                                      |
 
 
-If you require other specific python modules, you might be able to install them yourself within a [virtual environment](../howto/python.md#virtual-environments), but this comes with some caveats.  If your package is not conducive to a virtual environment, you can create your own Python module bundle with [Easybuild](../howto/easybuild.md) or utilize a [container](../howto/containerization.md).  Please refer to our [Python documentation](../howto/python.md) for more information.
+If you require other specific python modules, you might be able to install them yourself within a [virtual environment](../howto/python.md#virtual-environments), but this comes with some caveats.  If your package is not conducive to a virtual environment, you can create your own Python module bundle with [Easybuild](../howto/easybuild.md) or utilize a [container](../howto/containerization.md).  Please refer to our [Python documentation](../howto/python.md) for more information.  See [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.
 
 
 ### R

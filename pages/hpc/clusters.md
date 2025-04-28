@@ -23,7 +23,15 @@ The ub-hpc cluster contains the following partitions:
 
 ###### Faculty Compute Cluster
 
-This cluster contains over 50 faculty owned or project specific partitions. Access to these partitions is determined by the owner and managed via allocations in [ColdFront](../portals/coldfront.md). All idle nodes in the faculty cluster are accessible to UB-HPC users in the scavenger partition.  Scavenger jobs will be [preemptively canceled](jobs.md#scavenging-idle-cycles) when jobs are submitted by members of the group that owns the node.  
+This cluster contains over 50 faculty owned or project specific partitions. Access to these partitions is determined by the owner and managed via allocations in [ColdFront](../portals/coldfront.md). All idle nodes in the faculty cluster are accessible to UB-HPC users in the scavenger partition.  Scavenger jobs will be [preemptively canceled](jobs.md#scavenging-idle-cycles) when jobs are submitted by members of the group that owns the node.    
+
+!!! Warning "Caution: Maintenance Downtimes"
+    Jobs on the faculty cluster are allowed to run up until the downtime
+    starts. Please ensure your jobs checkpoint and can restart where they left
+    off OR request only enough time to run your job prior to the 7am cutoff on
+    maintenance days.  See the [schedule
+    here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
+
 
 ## Node types
 
