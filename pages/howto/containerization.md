@@ -2,6 +2,9 @@
 
 When installing software, you may come across applications that have complex chains of dependencies that are challenging to compile and install. Some software may require very specific versions of libraries that may not be available on CCR's systems or conflict with libraries needed for other applications. You may also need to move between several workstations or HPC platforms, which often requires reinstalling your software on each system. Containers are a good way to tackle all of these issues and more.
 
+!!! Warning
+    Do not use containers with preinstalled system modules. Any software you may need should be installed within your container.
+
 ## Containerization Fundamentals
 
 Containers build upon an idea that has long existed within computing: hardware can be emulated through software. **Virtualization** simulates some or all components of computation through a software application. Virtual machines use this concept to generate an entire operating system as an application on a host system. Containers follow the same idea, but at a much smaller scale and contained within a system's kernel.
@@ -124,18 +127,103 @@ In the event that a container is unavailable for a given application, you may ne
 Bootstrap: docker
 From: ubuntu:24.04
 
-%help
-    I am help text!
+%files
+    source-file /opt/destination-file
 
 %post	
-    apt-get update
-    apt-get install nano
-    apt-get install gcc 
+    apt-get update -y
+    apt-get install -y nano
+    apt-get install -y gcc 
+
+%environment
+    export PATH="/opt/my-program/bin:$PATH"
 
 %runscript
     echo “hello! I am a container!”
+
+%labels
+    Author Your Name
+    ContactEmail myemailaddress@institution.edu
+    Name My First Container
+
+%help
+    I am help text!
 ```
 
+This definition file contains examples for the following sections:
+
+|Section| Description |
+|---|---|
+|Header| Choose an existing container to start from. |
+|%files| Copy files from your system into the container.|
+|%post| List of steps to install and configure software.|
+|%environment| Set environment variables within the container to help find and run installed software. |
+|%runscript| Set an optional default behavior to run with the container.|
+|%labels| Add information or metadata to help identify container and its contents. |
+|%help| Add text to help other users run the container.|
+
+#### Header
+
+The first section is called the **header**. This must be the first section of your definition file and is required to build a container. The example above uses an Ubuntu docker container as its base. There are configurations you can use for the header. This example demonstrates how to use a docker container as the base image.
+
+#### Files section
+
+The `%files` section is used to copy files from the machine that is running Apptainer (the “host”) into the container that Apptainer is building. This section is typically used when you have the source code saved on the host and want to extract/compile/install it inside of the container image.
+
+The syntax for the files section is:
+```
+%files
+    file_on_host file_in_container
+```
+where `file_on_host` is in the same directory as the `.def` definition file, and where `file_in_container` will be copied to the container’s root (`/`) by default. You can instead provide absolute paths to the files on the host or in the container, or both. For example:
+```
+%files
+    /home/username/my-source-code.tar.gz /opt/my-program-build/my-source-code.tar.gz
+```
+If directories in the path in the container do not already exist, they will be created.
+
+#### Post section
+
+The `%post` section contains any and all commands to be executed when building the container. Typically this involves first installing packages using the operating system’s package manager and then compiling/installing your custom programs. Environment variables can be set as well, but they will only be active during the build (use the `%environment` section if you need them active during run time).
+
+The example definition file uses an Ubuntu container as it's base, so all additional software is installed with `apt-get`. The additional `-y` flag is used to automatically accept any interactive dialogue, as container builds are non-interactive. Without this flag, the container build will hang and eventually fail.
+
+After installing dependencies, you can proceed with the necessary steps to install and configure your software. If using the default installation procedure, your program should be installed in and detectable by the operating system. If not, you may need to manually set environment variables to recognize your program.
+
+!!! Warning "Build failures"
+    At the moment not all commands in the post section can run successfully on CCR's cluster due to privilege issues. These errors may be resolved with the `--ignore-fakeroot-command` flag when using `apptainer build`, though in many cases this will not work. If you are running into build failures due to this issue, you will need to build your Apptainer container on your local machine and then transfer it to the cluster.
+
+#### Environment section
+
+The `%environment` section can be used to automatically set environment variables when the container is actually started.
+
+For example, if you installed your program in a custom location `/opt/my-program` and the binaries are in the `bin/` folder, you could use this section to add that location to your `PATH` environment variable. The example definition file demonstrates this syntax.
+
+#### Runscript section
+
+The `%runscript` section allows you to set optional default run behavior for the container. The commands in this section are placed in a special file within the container which is executed when using the `apptainer run` command. This default behavior of a container is overwritten when using the `apptainer exec` comnmand. It is not required to create a runscript to successfully build or run software with a container, though it may be helpful in some cases.
+ 
+#### Labels section
+
+The `%labels` section can be used to provide custom metadata about the container, which can make it easier for yourself and others to identify the nature and provenance of a container.
+
+The syntax for this section is:
+```
+%labels
+    LabelNameA LabelValueA
+    LableNameB LabelValueB
+```
+For an existing container, you can inspect the metadata with the command `apptainer inspect my_container.sif`. 
+
+#### Help section
+
+The `%help` section can be used to provide custom help text about how to use the container. This can make it easier for yourself and others to interact and use the container. You can inspect the help text for a container with the command `apptainer run-help my-container.sif`.
+
+#### Additional sections
+
+Apptainer definition files have many sections available when building definition files. The above example highlights a small subset to quickstart building Apptainer containers. For a full accounting, as well as more thorough guidance on using the sections covered above, please refer to Apptainer's documentation [here](https://apptainer.org/docs/user/main/definition_files.html).
+
+#### Building the container
 Once you have written your Apptainer definition file, you can build the application with the `apptainer build` command, as follows:
 
 ```
