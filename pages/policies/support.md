@@ -13,7 +13,7 @@ Requests for support are to be submitted through the [CCR help portal](https://u
 ## System Maintenance Policies  
 
 CCR staff strive to maintain up-to-date and secure resources for the UB research community.  In order to do this we plan regular maintenance periods for the services we provide.  
-[Schedule of Planned Maintenance](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
+[Schedule of Planned Maintenance](../changelogs/2025-downtime-schedule.md)
 
 **Cluster Maintenance**  
 Regularly scheduled maintenance periods are conducted for all CCR clusters.  The clusters are offline on the last Tuesday of every month, unless otherwise noted.  The downtime starts at 7am and is usually completed by 5pm.  Jobs are held in the UB-HPC queue unless otherwise noted by CCR beforehand.  Reservations are put in place for the academic and industry partitions of the UB-HPC cluster.  This means jobs will not run prior to the downtime if they can not be completed before the downtime starts.  The faculty cluster allows jobs to run right up until the downtime.  Any running jobs are killed when the downtime starts.  Faculty cluster users should make sure their jobs are scheduled to end prior to the start of the downtime or are able to checkpoint and restart.  

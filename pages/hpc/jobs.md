@@ -216,7 +216,7 @@ There are over 50 partitions in the faculty cluster all of which have a default 
 Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award that helped to purchase new equipment were granted priority boosts for their group that lasted 5 years.  These allocations were added to your ColdFront project and expired on February 1, 2025.  At this time, any faculty with current NIH funding may apply for the NIH priority boost. This will be available until the hardware is retired.  Please enter your NIH grant information in your ColdFront project and request an allocation for the NIH priority boost.  Once the allocation is activated, your group members should utilize the `nih` QOS value to take advantage of the priority boost.  Those faculty that have active NIH funding and are current CCR supporters will have access to the `nihsupport` QOS value.  NOTE:  These QOS values are only available on the UB-HPC cluster.
 
 **Other Limits**  
-Some Slurm accounts have limitations on them.  For example, accounts associated with courses will have a limit of 1 GPU per job.  The Intro to CCR UB Learns course does not require the use of GPUs; therefore, the `introccr` Slurm account has a limit of 0 GPUs.  Jobs using this account to request GPUs will be blocked in the queue.  [See here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job) for further information.
+Some Slurm accounts have limitations on them.  For example, accounts associated with courses will have a limit of 1 GPU per job.  The Intro to CCR UB Learns course does not require the use of GPUs; therefore, the `introccr` Slurm account has a limit of 0 GPUs.  Jobs using this account to request GPUs will be blocked in the queue.  The `class` partition has a limit of 1 GPU per job.  [See here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job) for further information.
 
 ## Node Features    
 
@@ -261,38 +261,67 @@ The format of the Slurm features (last column) in snodes command output is:  `CL
 
 ## Managing Jobs  
 
-### 
-
-#### squeue
-
-To see all of your jobs across all CCR clusters:
-````
-squeue -M all -u $LOGNAME
-````
-For more information, [visit the Slurm docs on squeue](https://slurm.schedmd.com/squeue.html)
-
-#### scancel
-To cancel a job you have submitted:
-````
-scancel <job_id>
-````
-For more information, [visit the Slurm docs on scancel](https://slurm.schedmd.com/scancel.html)
+Once you've submitted your job(s) to the queue, the scheduler will evaluate your resource requests and determine where it can fit your job within the cluster environment - both based on what is currently running, what other users have pending, and what your job is requesting.  There are a variety of ways you can view your jobs and their statuses.  
 
 !!! Tip "Slurm Default Cluster"
     Slurm commands default to the UB-HPC cluster.  To specify the faculty cluster use either the `-M faculty` or `--clusters=faculty` option.  
 
+#### View your jobs in queue
+
+To see all of your jobs across all CCR clusters:
+````
+squeue -M all --me
+````
+
+This output will show you your jobs and their current status.  `R` means the job is running; `PD` means it's pending;  `CG` means it's in the process of completing (either because it's finished or because it was cancelled).  If your job is pending, there will be a reason in the `NODELIST(REASON)` column for why it's pending.  Remember, you're in line with others so your job is not likely to start immediately.  If you're requesting resources in high demand, wait times can be long.  Some of the most common reasons for jobs pending in the queue, include:  
+
+  - `Priority` - this means your job is waiting for resources behind other jobs  
+  - `ReqNodeNotAvail` - you're requesting something that isn't available at the moment.  See more [here](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail) 
+  - `AssocMaxGRESPerJob` - you've requested more of a resource than what is allowed.  See more [here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job)  
+
+For more information, [visit the Slurm docs on squeue](https://slurm.schedmd.com/squeue.html)
+
+#### Canceling jobs  
+To cancel a job you have submitted to the UB-HPC cluster:
+````
+scancel <job_id>
+````
+
+To cancel a job you have submitted to the faculty cluster:
+````
+scancel <job_id> -M faculty
+````
+
+For more information, [visit the Slurm docs on scancel](https://slurm.schedmd.com/scancel.html)
+
+#### Determining job start time  
+
+The Slurm job scheduler reviews the queue every few minutes and attempts to evaluate all pending jobs.  Based on what is pending, what jobs are currently running, and what nodes and resources in those nodes are available, it attempts to pre-schedule those pending jobs to prepare for them to start.  If it's able to do this, you will see an estimated start time for your job.  Please note that this is a best guess **estimate.**  It takes into account what the running jobs have requested for walltime.  If walltime requests by other users are inaccurate or if jobs end prematurely, new jobs can be scheduled making the estimate for pending jobs incorrect.  It's also possible new jobs will enter the queue with a higher priority than your jobs and bump yours to a later start time.  If there are more jobs pending in the queue than the scheduler can evaluate during a scheduling cycle, not all jobs will get evaluated for estimated start times.  To see if your pending jobs have estimated start times:
+
+```
+squeue -M all --me --start
+```
+
+!!! Tip "Maintenance Downtime Reservations"
+    CCR conducts [monthly maintenance downtimes](../policies/support.md#system-maintenance-policies).  To prevent new jobs from starting, we set compute nodes offline with reservations on the UB-HPC cluster prior to each maintenance window.  These reservations will affect the estimated start time predictions.  
+
+
+#### Slurm references
+
 For additional Slurm commands, [visit the Slurm command manual](https://slurm.schedmd.com/quickstart.html)  
 
 
-### Job Priority  
+#### Job Priority  
+
+CCR utilizes Slurm's fairshare and multi-factor priority calculation methods to fairly distribute the shared resources across all research groups utilizing the UB-HPC cluster.  This calculation will ensure no group dominates the cluster and no jobs sit pending indefinitely in the queue.  
 
 Factors that Determine Job Priority:  
-:  **Age** - the amount of time the job has been waiting in the queue  
+:  **Age** - the amount of time the job has been waiting in the queue.  The longer you wait in the queue, the higher your job's priority  
 :  **Job Size** - number of nodes requested by the job  
 :  **Partition** - priority for a given partition  
 :  **Fairshare** - priority contribution based on compute resources used by members in a research group within the last 30 days. The more jobs that have run on the cluster the lower the priority.  The fewer number of jobs that have run the higher the priority.  
-:  **Quality of Service (QOS)** - supporters of CCR are given a priority boost for their group's jobs.  [Find out how to become a CCR supporter](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost)  
-:  **TRES** -  Each TRES Type has its own priority factor for a job, which represents the amount of TRES Type requested/allocated in a given partition. The more a given TRES Type is requested/allocated on a job, the greater the job priority will be for that job.  CCR weights memory and GPU requests and provides a slightly higher priority for these to allow for proper scheduling of our heterogenous nodes.  
+:  **Quality of Service (QOS)** - supporters of CCR are given a priority boost for their group's jobs.  [Find out how to become a CCR supporter](../howto/purchases.md#supporters-priority-boost)  
+:  **TRES** -  Each TRES type has its own priority factor for a job, which represents the amount of TRES type requested/allocated in a given partition. The more a given TRES type is requested/allocated on a job, the greater the job priority will be for that job.  CCR weights memory and GPU requests and provides a slightly higher priority for these to allow for proper scheduling of our heterogenous nodes.  
 
 See the Slurm documentation for more details about [SLURM Multifactor Priority Calculations](https://slurm.schedmd.com/priority_multifactor.html) and [Fairshare](https://slurm.schedmd.com/priority_multifactor.html#fairshare)
 
@@ -317,7 +346,7 @@ PriorityWeightQOS       = 50000
 PriorityWeightTRES      = CPU=0,Mem=.01,GRES/gpu=30000
 ```
 
-**To View Fairshare:**  
+**To View Your Group's Fairshare:**  
 ```
 sshare <flag>  
 --accounts=group_name  
@@ -334,10 +363,14 @@ sprio <flag>
 -u [CCRusername]
 ```
 
-**To show Job Priority sorted from highest to lowest:**  Use the `sranks` command  
+**To show Job Priority sorted from highest to lowest:**  
+Use the `sranks` command  
 
+Interested in a priority boost for your group's jobs?  Find out more [here](../howto/purchases.md#supporters-priority-boost)  
 
 ## Monitoring Jobs
+
+Monitoring your jobs running in CCR's HPC environment is critical for proper understanding of resource use.  This will help you in several ways.  Properly requesting resources will decrease your wait times in the queue and ensure that you're requesting enough resources so that your job doesn't max out the compute node's capability and cancel your job.  Knowing your resource needs will ensure you're not requesting resources you don't need and letting them go idle while others CCR users wait in the queue.  This is especially criticial for resources in high demand, like GPUs.  Be a good CCR citizen and learn how to monitor your jobs!  
 
 Watch this virtual workshop to learn more about monitoring your jobs:  
 ![type:video](https://youtube.com/embed/ZsXnoH2UQ4E)  

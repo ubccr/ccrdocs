@@ -292,8 +292,16 @@ Several python modules are available for use. We encourage users to checkout the
 | pytorch      | PyTorch                                                                                      |
 
 
-If you require other specific python modules, you might be able to install them yourself within a [virtual environment](../howto/python.md#virtual-environments), but this comes with some caveats.  If your package is not conducive to a virtual environment, you can create your own Python module bundle with [Easybuild](../howto/easybuild.md) or utilize a [container](../howto/containerization.md).  Please refer to our [Python documentation](../howto/python.md) for more information.  See [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.
+If you require other python libraries not included within CCR's python modules, you can install them yourself but you MUST be careful in doing so.  Instructions you may find online for installing python packages may not work the same in CCR's HPC environment.  We provide extensive documentation and training guides for Python to ensure you have a successful experience.  Which method you use will depend on your workflow and your needs.  We have some suggestions:  
 
+  - Not sure?  Check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns for a full walk through of all the Python options and suggestions for when to use each one.  
+  - Prefer to read documentation?  Check out this [How to Use Python at CCR](../howto/python.md) page.
+  - Already know you want to use containers?  See [here](../howto/containerization.md) for CCR's container docs.  If you're using GPU-enabled codes, make sure to review [this guide](../howto/containerization.md#gpu-enabled-containers-with-apptainer) first!  
+  - Already using other Easybuild modules and want to build your own Python bundle?  See [here](../howto/easybuild.md) for instructions.  
+  - Already have your Python environment ready to go?  See [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.  
+  - Know you really can't do without conda?  See [here](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) for an example of how to build and run a conda container.
+
+ 
 
 ### R
 
