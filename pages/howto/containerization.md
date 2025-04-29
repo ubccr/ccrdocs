@@ -191,7 +191,7 @@ The example definition file uses an Ubuntu container as it's base, so all additi
 After installing dependencies, you can proceed with the necessary steps to install and configure your software. If using the default installation procedure, your program should be installed in and detectable by the operating system. If not, you may need to manually set environment variables to recognize your program.
 
 !!! Warning "Build failures"
-    At the moment not all commands in the post section can successfully on CCR's cluster due to privilege issues. These errors may be resolved with the `--ignore-fakeroot-command` flag when using `apptainer build`, though in many cases this will not work. If you are running into build failures due to this issue, you will need to build your Apptainer container on your local machine and then transfer it to the cluster.
+    At the moment not all commands in the post section can run successfully on CCR's cluster due to privilege issues. These errors may be resolved with the `--ignore-fakeroot-command` flag when using `apptainer build`, though in many cases this will not work. If you are running into build failures due to this issue, you will need to build your Apptainer container on your local machine and then transfer it to the cluster.
 
 #### Environment section
 
