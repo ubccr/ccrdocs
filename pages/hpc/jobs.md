@@ -129,7 +129,7 @@ There are two types of jobs you'll run on CCR's HPC clusters: interactive and ba
 
 ### Interactive Job Submission
 
-Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job, you will request time and resources. Once available, you will be able to log into the assigned node and the job will be ended when you log out and cancel it or your requested time limit is reached.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
+Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job you will request time and resources. Once available, you will be able to log into the assigned node and the job will be ended when you log out and cancel it or your requested time limit is reached.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
 
 !!! Note "Job Environment Propogation"  
     Because CCR's clusters contain a mix of CPU architectures for which environments may
