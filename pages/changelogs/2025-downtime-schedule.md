@@ -42,7 +42,7 @@ _5/6/25 - Last Day of Classes_
 
 _5/8/25 - 5/15/25 : Semester Final Exams_
 
-5/27/25 - Details (available approximately 2 weeks prior to outage)
+5/27/25 - [Details](2025.md#may-2025-downtime) 
 
 6/24/25 - Details (available approximately 2 weeks prior to outage)
 
