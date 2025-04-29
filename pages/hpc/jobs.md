@@ -125,11 +125,11 @@ to run faster.
 
 ## Running Applications on the Clusters
 
-There are two types of jobs you'll run on CCR's HPC clusters: interactive and batch. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-contained set of commands in a script which is submitted to the cluster for execution on a compute node.
+There are two types of jobs you can run on CCR's HPC clusters: interactive and batch. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-contained set of commands in a script which is submitted to the cluster for execution on a compute node.
 
 ### Interactive Job Submission
 
-Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job you will request time and resources. Once available, you will be able to log into the assigned node and the job will be ended when you log out and cancel it or your requested time limit is reached.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
+Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job you will request time and resources. Once available, you will be able to log into the assigned node.  The job will end when the requested time limit is reached or when you log out and cancel it.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
 
 !!! Note "Job Environment Propogation"  
     Because CCR's clusters contain a mix of CPU architectures for which environments may
