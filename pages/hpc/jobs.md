@@ -123,30 +123,20 @@ In some cases, MPI programs are also multi-threaded, so each process can use
 multiple CPUs. Only these applications can use `--ntasks` and `--cpus-per-task`
 to run faster.
 
-## Running applications with Jobs
+## Running Applications on the Clusters
 
-There are two types of jobs, interactive and batch. Interactive jobs, allow you
-to type in commands while the job is running. Batch jobs are a self-contained
-set of commands in a script which is submitted to the cluster for execution on
-a compute node.
+There are two types of jobs you can run on CCR's HPC clusters: interactive and batch. Interactive jobs, allow you to type in commands while the job is running. Batch jobs are a self-contained set of commands in a script which is submitted to the cluster for execution on a compute node.
 
 ### Interactive Job Submission
 
-Slurm interactive jobs allow users to interact with applications on the compute
-node. With an interactive job, you will request time and resources. Once
-available, you will be able to log into the assigned node and the job will be ended
-when you log out and cancel it or your requested time limit is reached.  This is different
-compared to a batch job where you submit your job for execution with no user
-interaction.  
+Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job you will request time and resources. Once available, you will be able to log into the assigned node.  The job will end when the requested time limit is reached or when you log out and cancel it.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
 
 !!! Note "Job Environment Propogation"  
     Because CCR's clusters contain a mix of CPU architectures for which environments may
     differ, we recommend you utilize the `--no-shell` option when requesting interactive
     jobs.  Then use the `srun` command to login to the allocated node.   
 
-This example requests an interactive job using the `salloc` command on the general-compute partition for 1 node, a single
-process with 32 cores and 50GB of memory for 1 hour.  Once the requested node is available, use the `srun` command as shown
-to login to the compute node:    
+This example requests an interactive job using the `salloc` command on the general-compute partition for 1 node, a single process with 32 cores and 50GB of memory for 1 hour.  Once the requested node is available, use the `srun` command as shown to login to the compute node:    
 
 ```
 $ salloc \
@@ -165,235 +155,19 @@ Once you're done with the node, use the `exit` or `logout` command and then rele
 
 ### Batch Job Submission
 
-Batch jobs are the most common type of job on HPC systems. Batch jobs are
-resource provisions that run applications on compute nodes and do not require
-supervision or interaction. Batch jobs are commonly used for applications that
-run for long periods of time and require no manual user input.
+Batch jobs are the most common type of job on HPC systems. Batch jobs are resource provisions that run applications on compute nodes and do not require supervision or interaction. Batch jobs are commonly used for applications that run for long periods of time and require no manual user input.  Batch scripts should be submitted from a login node and the commands within the script will be executed on a compute node.  
 
-Below is an explanation of the SBATCH options used in our samples. These are
-called "Slurm directives" and should be understood before submitting a job.  For more
-information on clusters, partitions, and QOS options, see [here](#slurm-directives-partitions-qos).
+CCR maintains a [repository](https://github.com/ubccr/ccr-examples) of examples for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.
 
-```
-#!/bin/bash -l
+New users should [start here](https://github.com/ubccr/ccr-examples/blob/main/slurm/README.md) to get an understanding of how the example scripts are designed.  An example of a basic Slurm script can be found [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/0_Introductory/README.md). [Application specific examples](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/README.md) can be found here and advanced Slurm examples will be stored [here](https://github.com/ubccr/ccr-examples/tree/main/slurm/1_Advanced).
 
-# 	Tell Slurm which cluster, partition and qos to use to schedule this job
-
-#SBATCH --cluster=cluster-name
-#SBATCH --partition=partition-name
-#SBATCH --qos=qos-name
-
-# 	Tell Slurm which account to run this job under 
-#   If not specified, your default account will be used  
-#   Use the `slimits` command to see what accounts you have access to
-
-#SBATCH --account=SlurmAccountName  
-
-# 	How long the job will run once it begins. If the job runs longer than what is
-# 	defined here, it will be cancelled by Slurm.
-# 	If you make the expected time too long, it will
-# 	take longer for the job to start.
-# 	Format:	dd:hh:mm:ss
-
-#SBATCH --time=00:01:00
-
-#	Define how many nodes you need. We ask for 1 node
-
-#SBATCH --nodes=1
-
-# 	You can define the number of Cores with --cpus-per-task
-
-#SBATCH --cpus-per-task=32
-
-# 	Specify the real memory required per node.  Default units are megabytes.  
-#   Different units can be specified using the suffix  [K|M|G|T]  
-
-#SBATCH --mem=20G
-
-# 	Give your job a name, so you can recognize it in the queue
-
-#SBATCH --job-name="example-debug-job"
-
-# 	Tell slurm the name of the file to write to
-
-#SBATCH --output=example-debug-job.out
-
-# 	Tell slurm where to send emails about this job
-
-#SBATCH --mail-user=myemailaddress@institution.edu
-
-# 	Tell slurm the types of emails to send.
-# 	Options: NONE, BEGIN, END, FAIL, ALL  
-
-#SBATCH --mail-type=end
-
-
-```
-
-!!! Warning "Using Slurm's Email Directive"  
-    Please be cautious using the email directive and specifying which types of emails you'd like to receive.  Normally, receiving an email at the end of a job is more than sufficient.  If you're running many very short jobs, please do not use this at all as this looks like a spam attack to the receiving email server and CCR's email servers get blocked.  
-
-
-
-Below are several sample scripts which can be submitted to Slurm using the
-`sbatch` command. Batch scripts should be submitted from a login node and
-the commands within the script will be executed on a compute node.  We use some
-of the Slurm directives as described above.
-
-To submit to the **debug partition on the ub-hpc cluster**, the slurm script would look like:
-
-```bash
-#!/bin/bash -l
-#
-#SBATCH --cluster=ub-hpc
-#SBATCH --partition=debug
-#SBATCH --qos=debug
-#SBATCH --time=00:01:00
-#SBATCH --ntasks-per-node=1
-#SBATCH --job-name="example-debug-job"
-#SBATCH --output=example-debug-job.out
-#SBATCH --mail-user=myemailaddress@institution.edu
-#SBATCH --mail-type=end
-
-
-#Let's start some work
-echo "Hello world from debug node: "`/usr/bin/uname -n`
-#Let's finish some work
-```
-
-To submit to the **general-compute partition on the ub-hpc cluster**, the slurm
-script would look like:
-
-```bash
-#!/bin/bash -l
-#
-#SBATCH --cluster=ub-hpc
-#SBATCH --partition=general-compute
-#SBATCH --qos=general-compute
-#SBATCH --time=00:01:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --mem=10G
-#SBATCH --job-name="example-general-compute-job"
-#SBATCH --output=example-general-compute-job.out
-#SBATCH --mail-user=myemailaddress@institution.edu
-#SBATCH --mail-type=end
-
-#Let's start some work
-echo "Hello world from general-compute node: "`/usr/bin/uname -n`
-#Let's finish some work
-
-```
-
-To submit to the privately owned **ub-laser partition on the faculty cluster**,
-the slurm script would look like:
-
-```bash
-#!/bin/bash -l
-#
-#SBATCH --cluster=faculty
-#SBATCH --partition=ub-laser
-#SBATCH --qos=ub-laser
-#SBATCH --time=00:01:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --mem=10G
-#SBATCH --job-name="example-faculty-cluster-job"
-#SBATCH --output=example-faculty-cluster-job.out
-#SBATCH --mail-user=myemailaddress@institution.edu
-#SBATCH --mail-type=end
-
-#Let's start some work
-echo "Hello world from faculty cluster node: "`/usr/bin/uname -n`
-#Let's finish some work
-
-```
-
-!!! Warning "Caution: Maintenance Downtimes"
-    Jobs on the faculty cluster are allowed to run up until the downtime
-    starts. Please ensure your jobs checkpoint and can restart where they left
-    off OR request only enough time to run your job prior to the 7am cutoff on
-    maintenance days.  See the [schedule
-    here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
-
-To submit to the **scavenger partition on the ub-hpc cluster**, the slurm
-script would look like:
-
-```bash
-#!/bin/bash -l
-#
-#SBATCH --cluster=ub-hpc
-#SBATCH --partition=scavenger
-#SBATCH --qos=scavenger
-#SBATCH --time=00:01:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --mem=10G
-#SBATCH --job-name="example-general-compute-scavenger-job"
-#SBATCH --output=example-general-compute-scavenger-job.out
-#SBATCH --mail-user=myemailaddress@institution.edu
-#SBATCH --mail-type=end
-
-#Let's start some work
-echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
-#Let's finish some work
-
-```
-
-[Learn more](#scavenging-idle-cycles) about scavenging idle cycles.  
-
-### Job Arrays  
-
-A job array is a group of nearly identical jobs submitted with 1 SLURM script.
-Use the `--array=<indexes>` Slurm directive within your batch script.  See the
-[Slurm documentation](https://slurm.schedmd.com/job_array.html) for more
-information    
-
-This example submits 16 jobs:  
-```
-#SBATCH <array flag>
---array=1-16
-```
-
-This example submits 16 jobs, with a limit of 4 jobs running simultaneously:  
-```
-#SBATCH --array=0-15%4
-```
-
-**Job Array Job Number:**  `%A` - job array master job ID
-
-**Job Array Index Number:** `%a` - individual job index number  
-
-## Useful Slurm Commands
-
-#### sbatch
-
-To submit a batch script to Slurm for processing:
+**To submit a batch script to Slurm for processing:**  
 
 ````
-sbatch slurm.script
+sbatch script.sh
 ````
 For more information, [visit the Slurm docs on sbatch](https://slurm.schedmd.com/sbatch.html)
 
-#### squeue
-
-To see all of your jobs across all CCR clusters:
-````
-squeue -M all -u $LOGNAME
-````
-For more information, [visit the Slurm docs on squeue](https://slurm.schedmd.com/squeue.html)
-
-#### scancel
-To cancel a job you have submitted:
-````
-scancel <job_id>
-````
-For more information, [visit the Slurm docs on scancel](https://slurm.schedmd.com/scancel.html)
-
-!!! Tip "Slurm Default Cluster"
-    Slurm commands default to the UB-HPC cluster.  To specify the faculty cluster use either the `-M faculty` or `--clusters=faculty` option.  
-
-For additional Slurm commands, [visit the Slurm command manual](https://slurm.schedmd.com/quickstart.html)
 
 ## Slurm Directives, Partitions & QoS
 
@@ -415,6 +189,8 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Wall time          | The max amount of time your job will run for        | --time=wall time           |
 | Job Name           | Name your job so you can identify it in the queue   | --job-name=jobname         |
 
+!!! Warning "Using Slurm's Email Directive"  
+    Please be cautious using the email directive and specifying which types of emails you'd like to receive.  Normally, receiving an email at the end of a job is more than sufficient.  If you're running many very short jobs, please do not use this at all as this looks like a spam attack to the receiving email server and CCR's email servers get blocked.  
 
 **UB-HPC cluster partitions, defaults, and limits:**  
 
@@ -440,7 +216,7 @@ There are over 50 partitions in the faculty cluster all of which have a default 
 Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [visit our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  PIs that were part of the 2019 NIH S10 award that helped to purchase new equipment were granted priority boosts for their group that lasted 5 years.  These allocations were added to your ColdFront project and expired on February 1, 2025.  At this time, any faculty with current NIH funding may apply for the NIH priority boost. This will be available until the hardware is retired.  Please enter your NIH grant information in your ColdFront project and request an allocation for the NIH priority boost.  Once the allocation is activated, your group members should utilize the `nih` QOS value to take advantage of the priority boost.  Those faculty that have active NIH funding and are current CCR supporters will have access to the `nihsupport` QOS value.  NOTE:  These QOS values are only available on the UB-HPC cluster.
 
 **Other Limits**  
-Some Slurm accounts have limitations on them.  For example, accounts associated with courses will have a limit of 1 GPU per job.  The Intro to CCR UB Learns course does not require the use of GPUs; therefore, the `introccr` Slurm account has a limit of 0 GPUs.  Jobs using this account to request GPUs will be blocked in the queue.  [See here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job) for further information.
+Some Slurm accounts have limitations on them.  For example, accounts associated with courses will have a limit of 1 GPU per job.  The Intro to CCR UB Learns course does not require the use of GPUs; therefore, the `introccr` Slurm account has a limit of 0 GPUs.  Jobs using this account to request GPUs will be blocked in the queue.  The `class` partition has a limit of 1 GPU per job.  [See here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job) for further information.
 
 ## Node Features    
 
@@ -482,15 +258,70 @@ cpn-f11-05    idle     24   2:12:1   0/24/0/24       0.05     256000   (null)   
 ````
 The format of the Slurm features (last column) in snodes command output is:  `CLUSTER, CPU_ARCHITECTURE, CPU_MODEL, CPU_MANUFACTURER, RACK,[FUNDING SOURCE, INTERCONNECT, GPU_MODEL]`  Anything in `[ ]` is optional and may be dependent on what hardware is in the node. 
 
-## Job Priority  
+
+## Managing Jobs  
+
+Once you've submitted your job(s) to the queue, the scheduler will evaluate your resource requests and determine where it can fit your job within the cluster environment - both based on what is currently running, what other users have pending, and what your job is requesting.  There are a variety of ways you can view your jobs and their statuses.  
+
+!!! Tip "Slurm Default Cluster"
+    Slurm commands default to the UB-HPC cluster.  To specify the faculty cluster use either the `-M faculty` or `--clusters=faculty` option.  
+
+#### View your jobs in queue
+
+To see all of your jobs across all CCR clusters:
+````
+squeue -M all --me
+````
+
+This output will show you your jobs and their current status.  `R` means the job is running; `PD` means it's pending;  `CG` means it's in the process of completing (either because it's finished or because it was cancelled).  If your job is pending, there will be a reason in the `NODELIST(REASON)` column for why it's pending.  Remember, you're in line with others so your job is not likely to start immediately.  If you're requesting resources in high demand, wait times can be long.  Some of the most common reasons for jobs pending in the queue, include:  
+
+  - `Priority` - this means your job is waiting for resources behind other jobs  
+  - `ReqNodeNotAvail` - you're requesting something that isn't available at the moment.  See more [here](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail) 
+  - `AssocMaxGRESPerJob` - you've requested more of a resource than what is allowed.  See more [here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job)  
+
+For more information, [visit the Slurm docs on squeue](https://slurm.schedmd.com/squeue.html)
+
+#### Canceling jobs  
+To cancel a job you have submitted to the UB-HPC cluster:
+````
+scancel <job_id>
+````
+
+To cancel a job you have submitted to the faculty cluster:
+````
+scancel <job_id> -M faculty
+````
+
+For more information, [visit the Slurm docs on scancel](https://slurm.schedmd.com/scancel.html)
+
+#### Determining job start time  
+
+The Slurm job scheduler reviews the queue every few minutes and attempts to evaluate all pending jobs.  Based on what is pending, what jobs are currently running, and what nodes and resources in those nodes are available, it attempts to pre-schedule those pending jobs to prepare for them to start.  If it's able to do this, you will see an estimated start time for your job.  Please note that this is a best guess **estimate.**  It takes into account what the running jobs have requested for walltime.  If walltime requests by other users are inaccurate or if jobs end prematurely, new jobs can be scheduled making the estimate for pending jobs incorrect.  It's also possible new jobs will enter the queue with a higher priority than your jobs and bump yours to a later start time.  If there are more jobs pending in the queue than the scheduler can evaluate during a scheduling cycle, not all jobs will get evaluated for estimated start times.  To see if your pending jobs have estimated start times:
+
+```
+squeue -M all --me --start
+```
+
+!!! Tip "Maintenance Downtime Reservations"
+    CCR conducts [monthly maintenance downtimes](../policies/support.md#system-maintenance-policies).  To prevent new jobs from starting, we set compute nodes offline with reservations on the UB-HPC cluster prior to each maintenance window.  These reservations will affect the estimated start time predictions.  
+
+
+#### Slurm references
+
+For additional Slurm commands, [visit the Slurm command manual](https://slurm.schedmd.com/quickstart.html)  
+
+
+#### Job Priority  
+
+CCR utilizes Slurm's fairshare and multi-factor priority calculation methods to fairly distribute the shared resources across all research groups utilizing the UB-HPC cluster.  This calculation will ensure no group dominates the cluster and no jobs sit pending indefinitely in the queue.  
 
 Factors that Determine Job Priority:  
-:  **Age** - the amount of time the job has been waiting in the queue  
+:  **Age** - the amount of time the job has been waiting in the queue.  The longer you wait in the queue, the higher your job's priority  
 :  **Job Size** - number of nodes requested by the job  
 :  **Partition** - priority for a given partition  
 :  **Fairshare** - priority contribution based on compute resources used by members in a research group within the last 30 days. The more jobs that have run on the cluster the lower the priority.  The fewer number of jobs that have run the higher the priority.  
-:  **Quality of Service (QOS)** - supporters of CCR are given a priority boost for their group's jobs.  [Find out how to become a CCR supporter](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost)  
-:  **TRES** -  Each TRES Type has its own priority factor for a job, which represents the amount of TRES Type requested/allocated in a given partition. The more a given TRES Type is requested/allocated on a job, the greater the job priority will be for that job.  CCR weights memory and GPU requests and provides a slightly higher priority for these to allow for proper scheduling of our heterogenous nodes.  
+:  **Quality of Service (QOS)** - supporters of CCR are given a priority boost for their group's jobs.  [Find out how to become a CCR supporter](../howto/purchases.md#supporters-priority-boost)  
+:  **TRES** -  Each TRES type has its own priority factor for a job, which represents the amount of TRES type requested/allocated in a given partition. The more a given TRES type is requested/allocated on a job, the greater the job priority will be for that job.  CCR weights memory and GPU requests and provides a slightly higher priority for these to allow for proper scheduling of our heterogenous nodes.  
 
 See the Slurm documentation for more details about [SLURM Multifactor Priority Calculations](https://slurm.schedmd.com/priority_multifactor.html) and [Fairshare](https://slurm.schedmd.com/priority_multifactor.html#fairshare)
 
@@ -515,7 +346,7 @@ PriorityWeightQOS       = 50000
 PriorityWeightTRES      = CPU=0,Mem=.01,GRES/gpu=30000
 ```
 
-**To View Fairshare:**  
+**To View Your Group's Fairshare:**  
 ```
 sshare <flag>  
 --accounts=group_name  
@@ -532,10 +363,14 @@ sprio <flag>
 -u [CCRusername]
 ```
 
-**To show Job Priority sorted from highest to lowest:**  Use the `sranks` command  
+**To show Job Priority sorted from highest to lowest:**  
+Use the `sranks` command  
 
+Interested in a priority boost for your group's jobs?  Find out more [here](../howto/purchases.md#supporters-priority-boost)  
 
 ## Monitoring Jobs
+
+Monitoring your jobs running in CCR's HPC environment is critical for proper understanding of resource use.  This will help you in several ways.  Properly requesting resources will decrease your wait times in the queue and ensure that you're requesting enough resources so that your job doesn't max out the compute node's capability and cancel your job.  Knowing your resource needs will ensure you're not requesting resources you don't need and letting them go idle while others CCR users wait in the queue.  This is especially criticial for resources in high demand, like GPUs.  Be a good CCR citizen and learn how to monitor your jobs!  
 
 Watch this virtual workshop to learn more about monitoring your jobs:  
 ![type:video](https://youtube.com/embed/ZsXnoH2UQ4E)  
@@ -583,7 +418,31 @@ sacct -S start-date -u username
 ### Metrics OnDemand
 For metrics about job performance and node usage after your job completes, please use the [UBMoD portal](https://ubmod.ccr.buffalo.edu/). Job data is usually available 24 hours after a job completes. [More details about UBMod.](../portals/metrics.md)  
 
-## Scavenging Idle Cycles  
+## Advanced Slurm Topics  
+
+### Job Arrays  
+
+A job array is a group of nearly identical jobs submitted with 1 SLURM script.
+Use the `--array=<indexes>` Slurm directive within your batch script.  See the
+[Slurm documentation](https://slurm.schedmd.com/job_array.html) for more
+information    
+
+This example submits 16 jobs:  
+```
+#SBATCH <array flag>
+--array=1-16
+```
+
+This example submits 16 jobs, with a limit of 4 jobs running simultaneously:  
+```
+#SBATCH --array=0-15%4
+```
+
+**Job Array Job Number:**  `%A` - job array master job ID
+
+**Job Array Index Number:** `%a` - individual job index number  
+
+### Scavenging Idle Cycles  
 
 In an effort to maximize the use of all available cores within our center, we provide access to all compute nodes whenever they are idle.  This means that academic UB-HPC users will have access to idle nodes on the industry partition as well as nodes in the faculty cluster.  These idle nodes are available through the scavenger partitions on the UB-HPC and faculty clusters and jobs are allowed to run on them when there are no other pending jobs scheduled for them.  Once a user with access to the partition submits a job requesting resources, jobs in the scavenger partition are stopped and re-queued.  This means if you're running a job in the scavenger partition on the industry cluster and an industry user submits a job requiring the resources you're consuming, your job will be stopped.  
 
@@ -591,3 +450,29 @@ In an effort to maximize the use of all available cores within our center, we pr
     * Your jobs MUST be able to checkpoint otherwise you'll lose any work when your jobs are stopped and re-queued.    
     * You must be an advanced user that understands the queuing system, runs efficient jobs, and can get checkpointing working on your jobs independently.  CCR staff can not devote the time to helping you write your code.  
     * If your jobs are determined to cause problems on any of the private cluster nodes and we receive complaints from the owners of those nodes, your access to the scavenger partitions will be removed.  
+
+**Example Script for Scavenger**  
+
+To submit to the **scavenger partition on the ub-hpc cluster**, the slurm
+script would look like:
+
+```bash
+#!/bin/bash -l
+#
+#SBATCH --cluster=ub-hpc
+#SBATCH --partition=scavenger
+#SBATCH --qos=scavenger
+#SBATCH --time=00:01:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=10G
+#SBATCH --job-name="example-general-compute-scavenger-job"
+#SBATCH --output=example-general-compute-scavenger-job.out
+#SBATCH --mail-user=myemailaddress@institution.edu
+#SBATCH --mail-type=end
+
+#Let's start some work
+echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
+#Let's finish some work
+
+```

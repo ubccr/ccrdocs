@@ -258,6 +258,9 @@ Create a symbolic link in your home directory that points to your project direct
 
 You'll then have the link `/user/[CCRusername]/projects` that takes you to your project directory.  
 
+## Where can I find examples for running on CCR's HPC clusters?  
+
+CCR staff curate a [GitHub repository](https://github.com/ubccr/ccr-examples) of specific examples for running applications on the HPC clusters and installing software using Easybuild.  These examples include basic Slurm batch scripts, specific examples for popular software applications, and examples for building and running containers.  Not every application installed at CCR has an example so these are intended to be modified by users for their specific use case.  This repository is actively developed so we encourage you to visit regularly for new content.
 
 ## How do I acknowledge the use of CCR resources?  
 
