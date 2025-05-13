@@ -59,6 +59,7 @@ The EAI alpha cluster uses the same job scheduler, Slurm, as CCR uses.  This sho
 
 ### Partitions  
 
+UB users have access to the `suny` partition.
 
 ### Priority Week  
 
