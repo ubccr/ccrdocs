@@ -53,7 +53,13 @@ At this time there are no quotas on these filesystems; however, we've been told 
 
 There are no shared project or scratch directories, like we offer at CCR.  Instructions for sharing files on alpha can be found [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000010953-how-can-i-share-data-with-other-users-).
 
-## Using the Cluster  
+## Software  
+
+Some software is installed by EAI administrators.  You can see what is available using the command `module avail`  To load software, you specify the full name with the `module load` command.  For example, to load FFTW, you would run: `module load fftw3/openmpi/gcc/64/3.3.10`  
+
+If software can be in an alternate location and without administrative priviledges, install it in your home directory, not your scratch directory.
+
+## Running Jobs
 
 The EAI alpha cluster uses the same job scheduler, Slurm, as CCR uses.  This should make your transition easier.  
 
@@ -63,3 +69,14 @@ UB users have access to the `suny` partition.
 
 ### Priority Week  
 
+### Requesting GPUs 
+
+
+
+
+
+
+## Monitoring Jobs  
+
+
+## 
