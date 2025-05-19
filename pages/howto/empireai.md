@@ -7,7 +7,7 @@ Initial project applications have been submitted to consortium members, reviewed
 
 ## Support  
 
-All requests for help should be sent to `help` `@` `empire-ai.org` or submitted through the [Empire AI help desk portal](https://empireai.freshdesk.com)(https://empireai.freshdesk.com/).  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
+All requests for help should be sent to `help` `@` `empire-ai.org` or submitted through the [Empire AI help desk portal](https://empireai.freshdesk.com).  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
 
 ## Project Onboarding  
 
@@ -71,8 +71,8 @@ If software can be in an alternate location and without administrative priviledg
 
 The EAI alpha cluster uses the same job scheduler, Slurm, as CCR uses.  This should make your transition easier.  
 
-!! Tip "Don't waste time in the queue!"  
-   The default walltime on the alpha cluster is 7 days.  If you don't specify how much time your job needs, you will be allocated 7 days.  Nearly all jobs running on this cluster are using less than 24 hours.  If you specify a more accurate walltime request, you job will get scheduled sooner!  
+!!! Tip "Don't waste time in the queue!"  
+    The default walltime on the alpha cluster is 7 days.  If you don't specify how much time your job needs, you will be allocated 7 days.  Nearly all jobs running on this cluster are using less than 24 hours.  If you specify a more accurate walltime request, you job will get scheduled sooner!  
 
 
 ### Partitions  
@@ -119,11 +119,11 @@ The alpha cluster runs half in a fairshare mode, similar to CCR's UB-HPC cluster
 
 CCR's academic cluster has a mix of compute nodes from various generations of hardware with a variety of GPU types in them.  Most of these compute nodes have either 1 or 2 GPUs in them; one node has 12 A16 GPUs.  Though you could request multiple nodes with GPUs, our GPU nodes are under heavy demand and wait times can be long, even when just requesting 1.  This, combined with the long wait times on the alpha cluster, can make scaling your work more difficult. To help with preparing to migrate your workflow to Empire AI, CCR has several options for EAI groups to test on.  
 
-  - Scavenger partition:
+  - **Scavenger partition:**  
   Idle compute nodes in both clusters, including those reserved for industry customers, are available to users of the UB-HPC cluster.  You may run on these idle nodes until a user with a higher priority (the compute node owner or business customer) submit jobs to run on them. All allocations to the "UB-HPC academic partitions" resource have access to scavenger partitions in both the UB-HPC and Faculty clusters.  See [here](../hpc/jobs.md#scavenging-idle-cycles) for details on utitlizing these partitions.  
-  - EAI partition:
+  - **EAI partition:**  
   This is a test partition for Empire AI projects that are able to scale beyond the GPUs available in CCR's general-compute partition.  Once you're ready for access to this partition, please submit a ticket to [CCR Help](../help.md) and include Grafana charts of recent jobs showing the GPU usage.  
-  - ARM64 partition:  
+  - **ARM64 partition:**  
   Any CCR researcher may request an allocation for the `ARM64` partition in ColdFront.  This partition contains [NVIDIA Gracehopper nodes](../hpc/clusters.md#compute-nodes) with 2 GH 200 GPUs and 72 ARM64 Neoverse CPUs per node.  These are similar to the next iteration of Empire AI equipment ("beta") anticipated for Fall 2025.  This partition will be an important part of your testing as you prepare to migrate your workflow to beta in the coming months.  NVIDIA containers for this architecture are named with the suffix `-igpu` in the container library.  See [below](#containers) for more info on these.  
 
 ## GUI Applications and IDE Tools  

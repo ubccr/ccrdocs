@@ -79,6 +79,7 @@ nav:
     - Support & Maintenance Policies: policies/support.md
   - How To:  
     - Easybuild Example: howto/easybuild.md   
+    - Empire AI: howto/empireai.md  
     - MATLAB: howto/matlab.md  
     - Purchasing Storage & Services: howto/purchases.md
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
