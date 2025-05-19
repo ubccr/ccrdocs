@@ -2,20 +2,20 @@
 
 The first test system of the Empire AI Consortium is in production.  This system is provided and managed by the Flatiron Institute.  System specifications can be found [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000007946-alpha-hardware).  This system is referred to as `alpha` and its successor `beta` is expected to be available in Fall 2025.  
 
-Initial project applications have been submitted to consortium members, reviewed, and are being onboarded on an ongoing basis by the Empire AI director and Flatiron system administrators.  PIs will receive notifications from the Empire AI management when their project is up next for onboarding.  CCR staff provide support to UB research groups that have access to "alpha" - both in using the EAI system and in helping to prepare groups to utilize those resources efficiently.
+Initial project applications have been submitted to consortium members, reviewed, and are being onboarded on an ongoing basis by the Empire AI director and Flatiron system administrators.  CCR staff provide support to UB research groups that have access to `alpha` - both on using the EAI system and in helping to prepare groups to utilize those resources efficiently.
 
 
 ## Support  
 
-All requests for help should be sent to `help` `@` `empire-ai.org` or submitted through the Empire AI help desk portal [https://empireai.freshdesk.com/](https://empireai.freshdesk.com/).  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
+All requests for help should be sent to `help` `@` `empire-ai.org` or submitted through the [Empire AI help desk portal](https://empireai.freshdesk.com)(https://empireai.freshdesk.com/).  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
 
 ## Project Onboarding  
 
-Decisions on which projects get selected from UB for access to Empire AI is done by the VPR's office.  Once a project has been selected for onboaring, the PI will be notified by the EAI director and will be asked to complete a form.  Once that's submitted, the PI's information is forwarded to the alpha system administrators for account creation.  You will hear directly from one of them when your account is ready and they'll provide additional account setup instructions.   
+Decisions on which projects get selected from UB for access to Empire AI is done by the VPR's office.  Once a project has been selected for onboaring, the UB PI will be notified by the EAI director and will be asked to complete a form.  Once that's submitted, the PI's information is forwarded to the `alpha` system administrators for account creation.  You will hear directly from one of them when your account is ready and they'll provide additional account setup instructions.   
 
 ## Accounts for Research Group Members  
 
-Once the PI of the project has access to alpha, they may request additional accounts for their students and collaborators.  **DO NOT SHARE ACCOUNTS.**  Submit a ticket to the [EAI support desk](#support) and a CCR staff member will facilitate the account setup.  New users will be asked to complete a form and then the user information is passed to the EAI system administrators for account creation.
+Once the PI of the project has access to `alpha`, they may request additional accounts for their students and collaborators.  **DO NOT SHARE ACCOUNTS.**  Submit a ticket to the [EAI support desk](#support) and a CCR staff member will facilitate the account setup.  New users will be asked to complete a form and then the user information is passed to the EAI system administrators for account creation.
 
 ## Logging In  
 
@@ -49,9 +49,17 @@ In addition to this, each user has a directory in the global scratch storage.  Y
 
 For more information on storage on alpha, please see [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000175046-empire-ai-alpha-storage)
 
-At this time there are no quotas on these filesystems; however, we've been told to expect that this will be coming soon.  There also is no automatic clearing of the scratch directories but the system administrators expect this to be necessary in the future.  Any changes to these policies will be disseminated to all users in advance.
+At this time there are no quotas on these filesystems; however, we've been told to expect that this will be coming soon.  There is also no automatic clearing of the scratch directories, as there are at CCR, but the alpha system administrators expect this to be necessary in the future.  Any changes to these policies will be disseminated to all users in advance.
 
 There are no shared project or scratch directories, like we offer at CCR.  Instructions for sharing files on alpha can be found [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000010953-how-can-i-share-data-with-other-users-).
+
+### Data Transfer  
+
+**Globus**
+The Globus data transfer service provides the fastest and most secure data transfer speeds. Refer to CCR's [Globus documentation](../hpc/data-transfer.md#globus-transfers) for info on how to use the web interface and search for "Empire AI Alpha" to find the EAI Globus servers.  You'll be prompted to enter your alpha username and password for access to their Globus collection.  
+
+**SFTP**
+Secure FTP is also an option for moving data to the EAI cluster.  You can initiate transfers via the command line or using a SSH client that provides a GUI, such as FileZilla or CyberDuck.  Refer to CCR's [data transfer documentation](../hpc/data-transfer.md#secure-shell-copy) for guidance, substituting the EAI login node with CCR's where appropriate. 
 
 ## Software  
 
@@ -63,20 +71,65 @@ If software can be in an alternate location and without administrative priviledg
 
 The EAI alpha cluster uses the same job scheduler, Slurm, as CCR uses.  This should make your transition easier.  
 
+!! Tip "Don't waste time in the queue!"  
+   The default walltime on the alpha cluster is 7 days.  If you don't specify how much time your job needs, you will be allocated 7 days.  Nearly all jobs running on this cluster are using less than 24 hours.  If you specify a more accurate walltime request, you job will get scheduled sooner!  
+
+
 ### Partitions  
 
-UB users have access to the `suny` partition.
+UB users have access to the `suny` partition and should submit all requests for GPU resources there.  For more info on partitions/queues, refer [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000168778-slurm-partitions-queues-).  
 
 ### Priority Week  
 
+The Empire AI consortium member institutions rotate through a priority week schedule.  This allows each member institution to utilize half of the cluster once every 6 weeks.  The priority week schedule and information about job pre-emption is [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000010908-institutional-allocations-and-job-scheduling-preemption).  The alpha cluster is currently split to allow half of the resources to go to the institution with priority and the other half to be available for fairshare scheduling.
+
+!! Tip "We Recommend..."  
+   When submitting GPU jobs, UB users should submit to both the `suny` and `priority` partition so they don't need to change their workflow for priority week.  This will also allow jobs that are pending when priority week starts to get scheduled in that partition automatically.  
+
+
 ### Requesting GPUs 
 
+When submitting jobs on the alpha cluster, just as on CCR's clusters, you must specify the number of GPUs you want.  Use the Slurm option:  `--gpus-per-node=X`
 
 
+### CPU-only node  
 
+Currently, there is 1 alpha compute node with no GPUs available to all users.  This is great for testing workflows and verifying your code executes without having to wait for a long time in the queue behind GPU jobs.  To use this node, specify: `--partition=cpu`  
+
+### Accessing the node(s) your job is running on  
+
+Whether you've submitted an interactive job or a batch job, you may need to access the compute node your job is running on.  Once the job starts, you will be given a job ID and the name of the job's headnode.  To login to the headnode, use `ssh [nodename]` or [this method](../hpc/login.md#compute-node-logins) we use at CCR.  
 
 
 ## Monitoring Jobs  
 
+Monitoring your jobs and the resources they use is a critical piece of utilizing a cluster environment.  Knowing what your workflow needs and requesting only those resources will ensure you spend the least amount of time in the queue as possible and you'll be a good citizen of the shared environment.  Information about monitoring your CCR jobs can be found [here](../hpc/jobs.md#monitoring-jobs).  Though the EAI cluster doesn't have Grafana or XDMoD for metrics reporting, you can monitor active jobs with tools described [here](../hpc/jobs.md#active-jobs-monitoring---command-line).  For information on GPU usage in an active job, use the `nvidia-smi` command on your job's compute node.  
 
-## 
+### When will my job start?  
+
+See [here](../faq.md#when-will-my-job-start)  
+
+It's possible and likely that your job may not have a start time.  It's not possible for the scheduler to estimate all jobs in the queue at all times.  
+
+### What's my job's priority?
+
+The alpha cluster runs half in a fairshare mode, similar to CCR's UB-HPC cluster, and half in a priority week mode, as described [above](#priority-week).  See [here](../hpc/jobs.md#job-priority) for tools on assessing priority and fairshare values.
+
+## Scaling Up at CCR  
+
+CCR's academic cluster has a mix of compute nodes from various generations of hardware with a variety of GPU types in them.  Most of these compute nodes have either 1 or 2 GPUs in them; one node has 12 A16 GPUs.  Though you could request multiple nodes with GPUs, our GPU nodes are under heavy demand and wait times can be long, even when just requesting 1.  This, combined with the long wait times on the alpha cluster, can make scaling your work more difficult. To help with preparing to migrate your workflow to Empire AI, CCR has several options for EAI groups to test on.  
+
+  - Scavenger partition:
+  Idle compute nodes in both clusters, including those reserved for industry customers, are available to users of the UB-HPC cluster.  You may run on these idle nodes until a user with a higher priority (the compute node owner or business customer) submit jobs to run on them. All allocations to the "UB-HPC academic partitions" resource have access to scavenger partitions in both the UB-HPC and Faculty clusters.  See [here](../hpc/jobs.md#scavenging-idle-cycles) for details on utitlizing these partitions.  
+  - EAI partition:
+  This is a test partition for Empire AI projects that are able to scale beyond the GPUs available in CCR's general-compute partition.  Once you're ready for access to this partition, please submit a ticket to [CCR Help](../help.md) and include Grafana charts of recent jobs showing the GPU usage.  
+  - ARM64 partition:  
+  Any CCR researcher may request an allocation for the `ARM64` partition in ColdFront.  This partition contains [NVIDIA Gracehopper nodes](../hpc/clusters.md#compute-nodes) with 2 GH 200 GPUs and 72 ARM64 Neoverse CPUs per node.  These are similar to the next iteration of Empire AI equipment ("beta") anticipated for Fall 2025.  This partition will be an important part of your testing as you prepare to migrate your workflow to beta in the coming months.  NVIDIA containers for this architecture are named with the suffix `-igpu` in the container library.  See [below](#containers) for more info on these.  
+
+## GUI Applications and IDE Tools  
+
+The Empire AI alpha cluster does not provide an interface for GUI-based applications or IDE tools such as VSCode, RStudio, or Jupyter Lab.  At the present time, you may use VSCode to connect to the alpha login node; however, this may change in the future.  From the login node, you may use the VSCode terminal and SSH to login to the head node of your job.  This method is not recommended and CCR staff are unable to support this.  We recommend utilizing scripts for running R, Jupyter, or other tools.  For visualization, you can transfer your data to CCR and utilize our [Open OnDemand portal](../portals/ood.md).  
+
+## Containers  
+
+CCR recommends utilizing [NVIDIA containers](https://catalog.ngc.nvidia.com/containers) for use with our GPUs, as does Empire AI and our NVIDIA tech support.  By using the same pre-built containers on CCR, EAI, and even on your workstations, you can easily transition from one system to the next.  CCR provides detailed documentation on best practices for using [Python](../howto/python.md) and [containers](../howto/containerization.md) as well as a self-paced ["Using Python at CCR" course](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) in UB Learns that covers these topics in detail.  For an example workflow of how to use the NVIDIA containers, see [here](../howto/containerization.md#example-gpu-container-workflow).  
