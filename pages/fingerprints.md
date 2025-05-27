@@ -6,13 +6,6 @@ These are CCR's ssh public key fingerprints for vortex login nodes:
 - `SHA256:6PDsSxEFoBaiPvOWyX8N281imkGaQV81ypJXtSOVX/k` (ECDSA)
 - `SHA256:PxBS1XqDaspSTQYQj+LHHh4YBSN4XvB7P/VcYGxMR8Y` (Ed25519)
 
-These are CCR's ssh public key fingerprints for the vortex-future login node:  
-
-- `SHA256:qCBofhhh+DUuejA0u7iYxtMkcx4HfhUEbPzBmQ1HLYo` (RSA)
-- `SHA256:z/7Hir2ezh9kCoFbiRAe4uxBYAsNQhbfsFAv9UCNfSU` (ECDSA)  
-- `SHA256:qYT1DzrHv8yTlHiNGV2td29309oXPHdN4OPj/KptFYg` (Ed25519)  
-
-
 To avoid having to manually verify ssh keys for every CCR server you login to,
 you can add our ssh certificate to your `~/.ssh/known_hosts` on your local machine:  
 
