@@ -44,7 +44,7 @@ _5/8/25 - 5/15/25 : Semester Final Exams_
 
 5/27/25 - [Details](2025.md#may-2025-downtime) 
 
-6/24/25 - Details (available approximately 2 weeks prior to outage)
+6/24/25 - [Details](2025.md#june-2025-downtime) (available approximately 2 weeks prior to outage)
 
 7/29/25 - Details (available approximately 2 weeks prior to outage)
 
