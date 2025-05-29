@@ -47,10 +47,6 @@ When trying to create a new CCR account, you get an error that says "fatal syste
 
 The first time you login to a CCR server, your home directory will need to be created. When using SSH for login, this is done automatically.  If using OnDemand, follow the instructions provided to initiate the creation of your home directory and SSH key pair for use on the cluster within the OnDemand terminal app. If, after completing the steps, the OnDemand dashboard does not reload, log out and back in again.  
 
-## Why can I login to the help portal but not my CCR account?  
-
-The Freshdesk help desk portal accounts are separate from our CCR system accounts.  This allows people who do not yet have a CCR account to request help from CCR staff.  For more info on CCR accounts, see our [Getting Access](getting-access.md) page.  For more info on the help desk portal, [see here](help.md).  
-
 ## Can I use something other than a smartphone for two factor authentication?  
 
 Yes!  Though smartphones are the recommended second factor for your CCR account, if you don't have one or don't want to use yours, you can utilize a desktop application (i.e. Authy) or a programmable hardware security key.  There are many on the market including Yubico Yubikeys, Google Titan security keys, and others [recommended by UBIT](https://www.buffalo.edu/ubit/services/duo/options/security-key.html). Please contact [CCR Help](help.md) for details on how to configure your hardware key. **CCR is not able to integrate with the hardware security keys provided by UBIT because they are not programmable and we're unable to get the "secret" needed to join them to our authentication system.**     
