@@ -159,7 +159,7 @@ For more information about instances, flavors and images please see the official
 
 > ###### Custom Flavors
 
-If you require a flavor that is not listed, you can contact [Contact CCR Help](../help.md) and we can work with you on creating a custom flavor that suits your needs.
+If you require a flavor that is not listed, you can contact [Contact CCR Help](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=412) and we can work with you on creating a custom flavor that suits your needs.
 
 #### Images
 
