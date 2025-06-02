@@ -21,7 +21,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
         - Directories found in `/projects/academic` or `/projects/academic/courses` for classes
         - 1TB provided for free to UB faculty groups
         - Use ColdFront to request an allocation for the `Project Storage` resource
-        - Additional [storage can be purchased](#purchasing-storage)  
+        - Additional [storage can be purchased](#purchasing-project-storage)  
         - To protect the file system, there is a limit of 200 million files per project directory
         - Backed up nightly off campus by UBIT  
         - Backups maintained for 30 days    

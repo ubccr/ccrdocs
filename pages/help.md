@@ -30,6 +30,9 @@ If you do not have a UB account, once you submit your first ticket via the porta
 
 Though users can continue to submit tickets via email to CCR Help, we encourage everyone to fill out the appropriate ticket submission form in the portal.  These forms were designed to gather the most appropriate information for your issue and route it to the right group of staff to help resolve it.  The more information you can provide to our staff, the faster we will be able to help with your problem.  When using the submission forms, users can attach files such as screenshots to better aid our team.  
 
+!!! Danger  
+    **DO NOT INCLUDE ANY PERSONALLY IDENTIFIABLE INFORMATION (such as social security numbers) OR PASSWORDS!** 
+
 
 ### Replying to ticket responses  
 
