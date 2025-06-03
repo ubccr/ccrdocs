@@ -32,7 +32,7 @@ The easiest way to find these is by clicking on the `Session ID` link on the job
 
 ## Understanding OnDemand Session Details  
 
-If you submit a CCR help ticket using the OnDemand "Submit Support Ticket" feature on the job card, you will have access to detailed job session information.  To view the help ticket, login to [CCR's Help Desk Portal](https://ubccr.freshdesk.com) and view your ticket.  Not sure of your login credentials?  [See here](../help.md#sign-up-for-ccr-help-portal).  In the ticket content you'll see `Interactive Session Information` which will list out lots of job details.  You may find out for yourself what the problem with your job was.  For example, first is listed information about the OnDemand app used and the selections you made or entered on the app form:  
+If you submit a CCR help ticket using the OnDemand "Submit Support Ticket" feature on the job card, you will have access to detailed job session information.  To view the help ticket, login to [CCR's Help Desk Portal](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Home/) and view your ticket.  In the ticket content you'll see `Interactive Session Information` which will list out lots of job details.  You may find out for yourself what the problem with your job was.  For example, first is listed information about the OnDemand app used and the selections you made or entered on the app form:  
 
 ```
 Interactive Session Information:
