@@ -42,10 +42,11 @@ Once installed, launch the Cisco AnyConnect software and **select "CCR" from the
 When prompted, enter "1" to send a push notification to the Duo app.  Touch the "Allow" button in Duo and then you'll be connected to the UB VPN.  For more information on connecting to our departmental VPN, please see [here](https://www.buffalo.edu/ubit/service-guides/connecting/departmental-vpn.html)  
 
 **IMPORTANT VPN USAGE NOTES:**  
+
 - The UB VPN allows connections for up to 24 hours.  Idle connections will be disconnected after 3 hours.  
-- The UB VPN can not be used anywhere in the world.  
-   - For industry customers, prior to signing of the Cooperative Use Agreement your organization was provided with a list of countries the VPN software should not be used in.  
-   - If you're an external collaborator, you provided a country of residence to the UB faculty member requesting your account.  This is the only country the UB VPN should be accessed from.  If you need to update this information, please contact [CCR Help](../help.md).  
+- The UB VPN can not be used anywhere in the world:  
+    - For industry customers, prior to signing of the Cooperative Use Agreement your organization was provided with a list of countries the VPN software should not be used in.  
+    - If you're an external collaborator, you provided a country of residence to the UB faculty member requesting your account.  This is the only country the UB VPN should be accessed from.  If you need to update this information, please contact [CCR Help](../help.md).  
   **Please adhere to these guidelines or we risk the University revoking the account access.**  
 - Please contact [CCR Help](../help.md) with any questions or issues regarding your VPN account.  If we're unable to solve them, we will contact UBIT on your behalf.  
 
