@@ -127,7 +127,7 @@ A one time co-location fee is charged to faculty who purchase compute nodes main
 
 ## Supporters Priority Boost  
 
-The supporters priority boost is provided to groups that financially support CCR through annual payments.  See [here](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost) for more details.  This will be entered as an allocation on your project in ColdFront and billed through Blue Services as System Administration support time.  [See below](#using-blue-services-for-ccr-purchases) for further information on the Blue Services invoice process. The account number provided will be listed under the `Allocation Attributes` section of your allocation.  To update this, please the use `Allocation Change Request` button and enter your new account or contact [CCR Help](../help.md) to update it.  [See above](#how-to-initiate-an-hpc-storage-purchase) for more details on this process. 
+The supporters priority boost is provided to groups that financially support CCR through annual payments.  See [here](https://www.buffalo.edu/ccr/support/accounts.html#boost) for more details.  This will be entered as an allocation on your project in ColdFront and billed through Blue Services as System Administration support time.  [See below](#using-blue-services-for-ccr-purchases) for further information on the Blue Services invoice process. The account number provided will be listed under the `Allocation Attributes` section of your allocation.  To update this, please the use `Allocation Change Request` button and enter your new account or contact [CCR Help](../help.md) to update it.  [See above](#how-to-initiate-an-hpc-storage-purchase) for more details on this process. 
 
 ## Miscellaneous Support Fees  
 

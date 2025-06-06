@@ -451,28 +451,4 @@ In an effort to maximize the use of all available cores within our center, we pr
     * You must be an advanced user that understands the queuing system, runs efficient jobs, and can get checkpointing working on your jobs independently.  CCR staff can not devote the time to helping you write your code.  
     * If your jobs are determined to cause problems on any of the private cluster nodes and we receive complaints from the owners of those nodes, your access to the scavenger partitions will be removed.  
 
-**Example Script for Scavenger**  
-
-To submit to the **scavenger partition on the ub-hpc cluster**, the slurm
-script would look like:
-
-```bash
-#!/bin/bash -l
-#
-#SBATCH --cluster=ub-hpc
-#SBATCH --partition=scavenger
-#SBATCH --qos=scavenger
-#SBATCH --time=00:01:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --mem=10G
-#SBATCH --job-name="example-general-compute-scavenger-job"
-#SBATCH --output=example-general-compute-scavenger-job.out
-#SBATCH --mail-user=myemailaddress@institution.edu
-#SBATCH --mail-type=end
-
-#Let's start some work
-echo "Hello world from ub-hpc cluster scavenger node: "`/usr/bin/uname -n`
-#Let's finish some work
-
-```
+Refer to our [examples repository](https://github.com/ubccr/ccr-examples/blob/main/slurm/1_Advanced/Scavenger/README.md) for more information and an example scavenger script.
