@@ -78,6 +78,7 @@ nav:
     - Software Policies: policies/software.md
     - Support & Maintenance Policies: policies/support.md
   - How To:  
+    - External User Access:  howto/external.md  
     - Easybuild Example: howto/easybuild.md   
     - Empire AI: howto/empireai.md  
     - MATLAB: howto/matlab.md  

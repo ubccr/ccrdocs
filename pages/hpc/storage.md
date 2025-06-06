@@ -55,7 +55,7 @@ To request a restore of deleted files, please complete [this form](https://ubuff
    - To protect the file system, groups are limited to 200 million files per directory.
    - ==**NO SCRATCH FILE SYSTEMS ARE BACKED UP**==  
 
-!!! Tip  
+!!! Danger "Automatic data deletions!"  
     Data that has not been accessed in more than 60 days is automatically deleted nightly.  To avoid data loss, please remove all data promptly after your job completes
 
 ## Local Scratch  
