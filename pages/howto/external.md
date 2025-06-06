@@ -7,11 +7,11 @@ Though the majority of our documentation applies to all users of our systems, th
 Any accounts for external collaborators or industry customers need to be created manually by CCR staff.  
 
 ** UB Faculty Collaborators:**
-If you are a UB faculty member with an existing CCR account, it may be possible to provide your external collaborator with access to CCR's HPC environment.  If you only need to share data, please use [Globus](../hpc/data-transfer.md#guest-collections-globus-shared-endpoints). Collaborator accounts should be requested through [this form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=386) by the UB faculty member wishing to sponsor the account.  You will need to login to the client portal to access the form.  Please provide the full name, email address, and organization or company your collaborator is affiliated with.  You must also provide the location where your collaborator currently resides, and will be using the UB VPN service from.  
+If you are a UB faculty member with an existing CCR account, it may be possible to provide your external collaborator with access to CCR's HPC environment.  If you only need to share data, please use [Globus](../hpc/data-transfer.md#globus-transfers). Collaborator accounts should be requested through [this form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=386) by the UB faculty member wishing to sponsor the account.  You will need to login to the client portal to access the form.  Please provide the full name, email address, and organization or company your collaborator is affiliated with.  You must also provide the location where your collaborator currently resides, and will be using the UB VPN service from.  
 
 
 **Industry Customers:**  
-You or someone from your organization will have worked with CCR's economic development coordinator to develop a Cooperative Use Agreement between your organization and the University at Buffalo.  After that agreement is signed by all parties, the coordinator will let you know you're free to contact [CCR Help](../help.md) to request access.  Accounts can not be shared so all employees that need access to CCR should request an account.  It's preferrable that one person be the primary point of contact for your group who requests account additions and deletions, manages storage purchases, and renews the group's allocations on an annual basis.  A CCR staff member will create accounts for your group and communicate with you on how to complete the setup of those accounts.  
+You or someone from your organization will have worked with CCR's economic development coordinator to develop a Cooperative Use Agreement between your organization and the University at Buffalo.  After that agreement is signed by all parties, the coordinator will let you know you're free to to request access.  Accounts can not be shared so all employees that need access to CCR should request an account.  It's preferrable that one person be the primary point of contact for your group who requests account additions and deletions, manages storage purchases, and renews the group's allocations on an annual basis.  Please fill out [this form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=438) and provide the details for each account requested.  A CCR staff member will create accounts for your group and communicate with you on how to complete the setup of those accounts.  
 
 ## UB VPN  
 
@@ -31,7 +31,7 @@ VPN accounts are provided by the University at Buffalo's central IT service.  CC
 
 NOTE:  For authentication here you need to enter the prefix `itorg\` to the username provided to you by CCR.  For example, if CCR told you your VPN username is `uccr.smith` then enter this username to authenticate for the setup of Duo:  `itorg\uccr.smith`
 
-For detailed documentation about setting up Duo for the UB VPN account, please see [UBIT's website](https://www.buffalo.edu/ubit/duo).  If you run into issues with the setup of your VPN account, please contact [CCR Help](../help.md) first and if we're unable to assist, we will engage UBIT support on your behalf.  
+For detailed documentation about setting up Duo for the UB VPN account, please see [UBIT's website](https://www.buffalo.edu/ubit/duo).  If you run into issues with the setup of your VPN account, please contact [CCR Help](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=419) first and if we're unable to assist, we will engage UBIT support on your behalf.  
 
 **3. Install VPN software:**  
 Once you've downloaded the Cisco AnyConnect VPN software, install it on your computer.  Documentation can be found [here](https://www.buffalo.edu/ubit/service-guides/connecting/vpn.html)  
@@ -46,9 +46,9 @@ When prompted, enter "1" to send a push notification to the Duo app.  Touch the 
 - The UB VPN allows connections for up to 24 hours.  Idle connections will be disconnected after 3 hours.  
 - The UB VPN can not be used anywhere in the world:  
     - For industry customers, prior to signing of the Cooperative Use Agreement your organization was provided with a list of countries the VPN software should not be used in.  
-    - If you're an external collaborator, you provided a country of residence to the UB faculty member requesting your account.  This is the only country the UB VPN should be accessed from.  If you need to update this information, please contact [CCR Help](../help.md).  
+    - If you're an external collaborator, you provided a country of residence to the UB faculty member requesting your account.  This is the only country the UB VPN should be accessed from.  If you need to update this information, please contact [CCR Help](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=419).  
   **Please adhere to these guidelines or we risk the University revoking the account access.**  
-- Please contact [CCR Help](../help.md) with any questions or issues regarding your VPN account.  If we're unable to solve them, we will contact UBIT on your behalf.  
+- Please contact [CCR Help](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=419) with any questions or issues regarding your VPN account.  If we're unable to solve them, we will contact UBIT on your behalf.  
 
 ## Login to CCR  
 
@@ -82,9 +82,9 @@ Once a project is created, you need to request allocations for the resources.  T
 
 CCR's HPC resources that RPCI research groups have access to consist of:
 
-- Compute nodes in the `rpci` partition of the Faculty cluster, containing a variety of CPU counts and memory configurations.  Please request an allocation for the `RPCI partition` in ColdFront.  To see what type of hardware is available in this partition, use this command on the [login node](../hpc/clusters.md) or a compute node:  `snodes all faculty/rpci`  
+- Compute nodes in the `rpci` partition of the Faculty cluster, containing a variety of CPU counts and memory configurations.  Please request an allocation for the `RPCI partition` in ColdFront.  To see what type of hardware is available in this partition, use this command on the [login node](../hpc/clusters.md#login-nodes) or a compute node:  `snodes all faculty/rpci`  
 Compute nodes are accessible through:
-[Slurm batch scripts](../hpc/jobs.md) and via [OnDemand](../portals/ood.md) using the "UB-HPC & Faculty Cluster Desktop" app and interactive apps: make sure to choose the Faculty cluster and RPCI partition from the drop down menus.
+Slurm [interactive jobs or batch scripts](../hpc/jobs.md) and via [OnDemand](../portals/ood.md) using the "UB-HPC & Faculty Cluster Desktop" app and interactive apps: make sure to choose the Faculty cluster and RPCI partition from the drop down menus.
 - Faculty who have a dual appointment at UB (can not be a 'volunteer' appointment) may request an allocation to the `UB-HPC academic partitions (cluster partition)` resource. See [here](../hpc/clusters.md) for details on the UB-HPC cluster.
 - RPCI researchers who have **active NIH funding** may request an allocation to the `UB-HPC Academic partitions (cluster partition)` resource and the `NIH boost (cluster partition)` resource.  This will allow your group to run on the UB-HPC cluster nodes and gives a slight priority boost to your group's jobs when running on the UB-HPC academic partitions.  **You must list your NIH grant in ColdFront in order to qualify for this access.**  We do NOT bill your grant funds for this use.
 
