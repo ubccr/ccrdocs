@@ -4,8 +4,7 @@ This page includes information about account policies, including maintaining acc
 
 ## Accounts and Data Retention Policy
 
-CCR accounts are available to UB faculty, their collaborators and students either working with them or in a class that requires access to CCR.  Account requirements and application info can be found here:
-http://www.buffalo.edu/ccr/support/ccr-help/accounts.html
+CCR accounts are available to UB faculty, their collaborators and students either working with them or in a class that requires access to CCR.  Account requirements and application info can be found [here](../getting-access.md#requirements-for-accessing-ccrs-resources).
 
 ### Allocations to Resources
 
