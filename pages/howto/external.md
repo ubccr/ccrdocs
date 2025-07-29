@@ -100,7 +100,6 @@ Slurm [interactive jobs or batch scripts](../hpc/jobs.md) and via [OnDemand](../
 
 **Global scratch directories:**  Research groups may request an allocation for 10TB of global scratch storage, used for storing temporary data during job runs.  For more details about global scratch storage, see [here](../hpc/storage.md#global-scratch).  Please review the [global scratch policy](../policies/misuse.md#scratch-usage-policies) prior to use.  
 
-!!! 
 
 ### Data Transfer  
 
