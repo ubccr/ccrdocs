@@ -90,12 +90,17 @@ Slurm [interactive jobs or batch scripts](../hpc/jobs.md) and via [OnDemand](../
 
 ### Storage
 
-**Project directories:**  RPCI research groups are provided a shared directory and portion of the RPCI storage quota that can be found in `/projects/rpci/[YourGroupName]`.  Please request an allocation for the `Project Storage` resource in ColdFront.  Roswell provides an initial quota of 500GB per research group.  If you require additional storage, please use the [Allocation Change Request] feature in ColdFront and provide a justification.  We're required to get approval from RPCI IT for storage increases.  
+!!! Warning "Restricted Data Not Allowed"  
+    Personally identifiable information (PII), restricted data, research data that has not been de-identified, and private data including but not limited to social security numbers, passport numbers, credit card numbers, dates of birth, passwords, and medical records, are not to be stored on CCR's systems.  Please refer to our [data storage policy](../policies/accounts.md#protected-status-data-policy) for more details.  
+
+**Project directories:**  RPCI research groups are provided a shared directory and portion of the RPCI storage quota that can be found in `/projects/rpci/[YourGroupName]`.  Please request an allocation for the `Project Storage` resource in ColdFront.  Roswell provides an initial quota of 500GB per research group.  If you require additional storage, please use the [Allocation Change Request](../portals/coldfront.md#allocation-change-requests) feature in ColdFront and provide a justification.  We're required to get approval from RPCI IT for storage increases.  
 
 !!! Danger  
     **RPCI DIRECTORIES ARE NOT BACKED UP BY CCR!**
 
 **Global scratch directories:**  Research groups may request an allocation for 10TB of global scratch storage, used for storing temporary data during job runs.  For more details about global scratch storage, see [here](../hpc/storage.md#global-scratch).  Please review the [global scratch policy](../policies/misuse.md#scratch-usage-policies) prior to use.  
+
+!!! 
 
 ### Data Transfer  
 
