@@ -48,4 +48,6 @@ _5/8/25 - 5/15/25 : Semester Final Exams_
 
 7/29/25 - [Details](2025.md#july-2025-downtime)
 
+8/8/25 - 8/11/25 - [Data Center Power Outage](2025.md#august-2025-data-center-power-outage)
+
 8/26/25- [Details]((2025.md#august-2025-downtime))
