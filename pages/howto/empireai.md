@@ -4,10 +4,12 @@ The first test system of the Empire AI Consortium is in production.  This system
 
 Initial project applications have been submitted to consortium members, reviewed, and are being onboarded on an ongoing basis by the Empire AI director and Flatiron system administrators.  CCR staff provide support to UB research groups that have access to Alpha - both on using the EAI system and in helping to prepare groups to utilize those resources efficiently.
 
+Recording of the Empire AI On-boarding Workshop from June 2025:
+![type:video](https://youtube.com/embed/WoACuDqJC0c) 
 
 ## Support  
 
-All requests for help should be sent to `help` `@` `empire-ai.org` or submitted through the [Empire AI help desk portal](https://empireai.freshdesk.com).  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
+All requests for help should be emailed to `help` `@` `empire-ai.org`.  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
 
 ## Project Onboarding  
 
@@ -16,6 +18,10 @@ Decisions on which projects get selected from UB for access to Empire AI is done
 ## Accounts for Research Group Members  
 
 Once the PI of the project has access to Alpha, they may request additional accounts for their students and collaborators.  **DO NOT SHARE ACCOUNTS.**  Submit a ticket to the [EAI support desk](#support) and a CCR staff member will facilitate the account setup.  New users will be asked to complete a form and then the user information is passed to the EAI system administrators for account creation.
+
+## Account Setup  
+
+You will receive notification from the Empire AI system administration team when your account is ready.  Please follow [these instructions](https://empireai.freshdesk.com/en/support/solutions/articles/157000366996-activating-your-new-empire-ai-account) to properly setup your account.  
 
 ## Logging In  
 
@@ -26,20 +32,8 @@ If your username on Alpha is not the same as on your computer, you will need to 
 
 `ssh [YourUsername]@alpha.empire-ai.org`  
 
-Your username on Alpha will most likely be the same as your UBIT & CCR username.  
+Your username on Alpha will be provided by the system administrators.
 
-### First Login  
-
-PLEASE CHANGE YOUR PASSWORD ON FIRST LOGIN! 
-On account creation, you will be sent your initial password via an insecure method.  Please change your password when you login using the `passwd` command.  
-
-### Two Factor Authentication
-
-You will be required to enable two factor authentication on your account.  Further information can be found [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000161230-google-authenticator-mfa-2fa-). 
-
-Once 2FA is enabled, when logging in you'll be prompted to enter your password first and then your second factor which is the 6 digit code from your authentication app.  
-
-We have seen issues with MobaXterm not presenting the prompt for the second factor and then failing to allow the login.  If you are not getting prompted for your second factor, please try another SSH client.  
 
 ## Storage  
 
@@ -71,9 +65,6 @@ If software can be in an alternate location and without administrative priviledg
 
 The EAI Alpha cluster uses the same job scheduler, Slurm, as CCR uses.  This should make your transition easier.  
 
-!!! Info "Don't waste time in the queue!"  
-    The default walltime on the Alpha cluster is 7 days.  If you don't specify how much time your job needs, you will be allocated 7 days.  Nearly all jobs running on this cluster are using less than 24 hours.  If you specify a more accurate walltime request, you job will get scheduled sooner!  
-
 
 ### Partitions  
 
@@ -81,11 +72,21 @@ UB users have access to the `suny` partition and should submit all requests for 
 
 ### Priority Week  
 
+NOTE: This practice is ending at the end of August 2025, with SUNY's last priority week starting on 8/25.  
+
 The Empire AI consortium member institutions rotate through a priority week schedule.  This allows each member institution to utilize half of the cluster once every 6 weeks.  The priority week schedule and information about job pre-emption is [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000010908-institutional-allocations-and-job-scheduling-preemption).  The Alpha cluster is currently split to allow half of the resources to go to the institution with priority and the other half to be available for fairshare scheduling.
 
 !!! Tip "We Recommend..."  
     When submitting GPU jobs, UB users should submit to both the `suny` and `priority` partition so they don't need to change their workflow for priority week.  This will also allow jobs that are pending when priority week starts to get scheduled in that partition automatically.  
 
+### Specifying walltime
+
+The default walltime on the Alpha cluster is set to 1 hour.  Make sure to specify your walltime needs using:  
+```
+## Walltime Format: dd:hh:mm:ss
+#SBATCH --time=00:01:00
+```
+The maximum walltime on the `suny` partition is 7 days.
 
 ### Requesting GPUs 
 
