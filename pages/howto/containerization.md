@@ -2,6 +2,9 @@
 
 When installing software, you may come across applications that have complex chains of dependencies that are challenging to compile and install. Some software may require very specific versions of libraries that may not be available on CCR's systems or conflict with libraries needed for other applications. You may also need to move between several workstations or HPC platforms, which often requires reinstalling your software on each system. Containers are a good way to tackle all of these issues and more.
 
+Watch this "Intro to using containers at CCR" workshop to gain an understanding of containers and how to utilize them at CCR:
+![type:video](https://youtube.com/embed/ypGiu-_9GAo) 
+
 !!! Warning
     Do not use containers with preinstalled system modules. Any software you may need should be installed within your container.
 
