@@ -17,9 +17,9 @@ Please note: This schedule can, and likely will change, to respond to vendor sof
 
 9/30/25 - [Details](2025.md#september-2025-downtime)
 
-9/3/25 - 9/4/25 - [September Data Center Power Outage](2025.md#september-2025-data-center-power-outage)  
+9/2/25 - 9/4/25 - [September Data Center Power Outage](2025.md#september-2025-data-center-power-outage)  
 
-8/26/25 - [Details](2025.md#august-2025-downtime)
+8/26/25 - **CANCELLED**
 
 _8/25/25 - Fall semester classes begin_
 
