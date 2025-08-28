@@ -83,9 +83,8 @@ nav:
     - Easybuild Example: howto/easybuild.md   
     - Empire AI: howto/empireai.md  
     - MATLAB: howto/matlab.md  
-    - Purchasing Storage & Services: howto/purchases.md
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
-
+    - Purchasing Storage & Services: howto/purchases.md
     - Using Python: howto/python.md
   - Change Logs:
     - Downtime Schedule: changelogs/2025-downtime-schedule.md
