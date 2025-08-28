@@ -321,6 +321,9 @@ exit
 
 5: Now you've got an updated container, running a much newer version of pytorch than what CCR provides!  That's great but what do you do if you want to install additional software?  We recommend using a python virtual environment.  You can store this virtual environment in your group's project space so that it is outside the container and backed up.  If you're not familiar with virtual environments, check out our [documentation here](../howto/python.md#virtual-environments). For this example, we'll install a popular python package `imageio` in a virtual environment and access it in the container. This time when we start our container, we're going to bind mount our group's project directory so we can access it in the container.  
 
+!!! Danger "Planning to use this in Jupyter?"  
+    It's important in the case of creating a virtual environment to use within a Jupyter Notebook, that you bind mount your project directory in the container using the full path.  If that isn't done, when attempting to access the kernel in a Jupyter notebook, the virtual environment will not be accessible.  
+
 ```
 apptainer shell --nv -B /projects/academic/[YourGroupName] pytorch_25.08-py3.sif  
 Apptainer> cd /projects/academic/[YourGroupName]
@@ -341,7 +344,7 @@ Apptainer> exit
 
 NOTE: In our [virtual environment documentation](python.md#using-virtual-environments), we do NOT use the `--system-site-packages` option when creating a virtual environment in our example.  Here we ARE using this option because we want the virtual environment to use all of the Python packages that come pre-installed in the NVIDIA container.  We do NOT want to do this when using CCR's software environment modules because we may see conflicts between the different Python packages that get installed.
 
-6: Optional:  Do you need to use this container and virtual environment with the OnDemand Jupyter app?  If so, you'll need to install `ipython` in the virtual environment and create a kernel.  See [here](python.md#jupyter-kernels) for instructions.  
+6: Optional:  Do you need to use this container and virtual environment with the OnDemand Jupyter app?  If so, you'll need to install `ipykernel` in the virtual environment and create a kernel.  See [here](python.md#jupyter-kernels) for instructions.  
 
 7: Test this out using a GPU node:  
 
