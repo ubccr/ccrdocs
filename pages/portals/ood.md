@@ -78,7 +78,7 @@ All the desktop and interactive apps have select menus that get pre-populated.  
 !!! Warning "Scavenger Partition Warning!"  
     Prior to using the `scavenger` partition, we STRONGLY recommend [reading about it](../hpc/jobs.md#scavenging-idle-cycles) to understand how it works.  When using the `scavenger` partition you are using nodes not otherwise available to you and your jobs will get cancelled when the owner of those nodes wants to use them.  
 
-**Desktop Interactive Apps**  
+#### Desktop Interactive Apps   
 
 Previously, CCR provided separate desktop apps for the UB-HPC and Faculty clusters.  Now there is one app for both and users are able to select which cluster to submit to.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), amount of memory (RAM), or specific node features you may enter that in the form.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  
 
@@ -90,10 +90,14 @@ Previously, CCR provided separate desktop apps for the UB-HPC and Faculty cluste
 
 Most software GUIs can run on any compute node at CCR through the `UB-HPC & Faculty Cluster Desktop` app.  If your software requires hardware accelerated graphics, you should request a GPU in the desktop session form.  All GPU nodes in CCR's clusters are capable of hardware accelerated graphics.  However, because the GPU nodes are often in heavy demand, we provide several nodes for those who require GPUs specifically for graphics rendering.  To access one of these GPU nodes, select the `viz` partition and QOS in the desktop session drop down menus.  Users are permitted to run one session on the viz partition at a time which is limited to 24 hours of run time.  If you require longer run time, please select the `general-compute` partition.
 
-!!! Tip "All done?  Make sure to delete your job"  
+!!! Danger "All done?  Make sure to delete your job"  
     OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then delete the running session under the `My interactive sessions` menu.  
 
-<a name="jupyter-setup"></a>**[Jupyter Interactive Apps](#jupyter-setup)**  
+#### Jupyter Notebook Apps  
+
+!!! Tip "Python Training Resources"  
+    We highly recommend users review the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns to understand the multiple methods for using Python in CCR's HPC environment.  This self-paced course provides detailed information about the various Python versions, workflow options, tips for avoiding problems, and delves into using Jupyter, VSCode, and RStudio for Python. Additionally, the [Python](../howto/python.md) and [containerization](../howto/containerization.md) documentation are great resources!  
+
 The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter Notebook apps provided in OnDemand.  For those using the latest CCR software release (`ccrsoft/2023.01`) there are two Jupyter apps available.  
 
 - The "Quick Launch Jupyter Lab/Notebook" app allows you to select which Slurm account you want to run this job under, the number of GPUs to request (if any), whether to use Jupyter Lab instead of Jupyter Notebook, and if you'd like to receive emails about your job.  You may also list additional modules to load with Jupyter.  
@@ -127,7 +131,30 @@ When the Jupyter app starts, it will launch these additional modules with it and
 !!! Tip "Properly listing multiple module dependencies"  
     You do not need to list toolchain dependencies multiple times.  If the modules you want to use all depend on the same toolchain, you can list that one time at the start of your list.  Note that the `foss` toolchain contains GCC and other packages.  The `gcccore` toolchain only contains GCC, while the `gcc` toolchain contains `gcccore` and additional packages.  You can test loading modules on the command line prior to attempting to use them with a Jupyter Notebook to ensure the order you specify works.  
 
-<a name="vscode"></a>**[VSCode Interactive App](#vscode)** 
+**Accessing a virtual environment from Jupyter**  
+In order to access a [virtual environment](../howto/python.md#virtual-environments) you've created within Jupyter, you must install `ipykernel` in the virtual environment and [create a kernel](../howto/python.md#jupyter-kernels).
+
+
+#### Jupyter App for Containers  
+
+The "Jupyter Lab/Notebook - Containers" interactive app allows users to utilize [container workflows](../howto/containerization.md#example-gpu-container-workflow) with Jupyter.  Users must specify the full path and name of an Apptainer container which has Jupyter installed within it.  Many official NVIDIA containers, particularly those in the [NVIDIA NGC catalog](https://catalog.ngc.nvidia.com/containers) for deep learning and data science (i.e. PyTorch and TensorFlow), include Jupyter or JupyterLab. These containers are preconfigured to provide an accelerated, GPU-ready environment for developing and running Jupyter notebooks. When using a virtual environment with a container, be sure to install `ipykernel` and [create a kernel](../howto/python.md#jupyter-kernels) to access the virtual environment within Jupyter.  
+
+#### Matlab App  
+
+Matlab is available to UB faculty, staff, and students through the university's site license.  It can be run on the command line via a [batch job](../hpc/jobs.md#running-applications-on-the-clusters), launching the GUI from an [interactive desktop](#desktop-interactive-apps) session, or using the Matlab interactive app in OnDemand.  When using the interactive app, select which version of Matlab you'd like to run from the drop down menu.  When the job launches on a node, the Matlab GUI will display automatically.  
+
+#### RStudio App
+
+The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users can select from a drop down menu that includes CCR's default R installation or containerized options.  CCR provides 4 additional versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own.  As long as the container includes the RStudio application, it should launch the GUI properly.  When using your own container image, please enter the full path and name of the Apptainer image you'd like to use.  For information on containers, please refer [here](../howto/containerization.md). 
+
+!!! Danger "R library installation"  
+    Recent versions of R require libraries are version locked.  To ensure any libraries you install are only available to the R version you installed them with, this app automatically uses the `$HOME/Rlibs/<IMAGE_TAG>` directory. If that doesn't exist, it is automatically created.  
+
+#### VMD App  
+
+The [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) interactive app launches the VMD GUI on a GPU node.  We recommend requesting 64GB of RAM for VMD (or 64000 in the memory form field), to start, and [monitor your job](../hpc/jobs.md#monitoring-jobs) to determine system usage.  VMD requires a GPU so one is automatically requested when the app launches.  Though you can request a specific type of GPU, this can extend wait times and is not recommended.  VMD will run on all GPU nodes at CCR except for the `arm64` partition.  
+
+#### VSCode App  
 
 Visual Studio Code (VSCode) is a popular integrated development environment (IDE) that allows users to edit code in various programming languages.   Extensions available for VSCode allow users to access most popular languages and runtimes, connect to Github, and test workflows.  The application has a built-in SSH client allowing users to connect to remote servers to code directly on the server but while utilizing their personal device.  Unfortunately, almost none of those features work in the CCR HPC environment.  Though we can appreciate how handy many of these features are, they are not easy to support on an HPC system. If you're going to use VSCode in CCR's HPC environment, we HIGHLY recommend first reviewing the material in the UB Learns ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course.  There are two sections dedicated to the proper use of VSCode on our systems.
 
