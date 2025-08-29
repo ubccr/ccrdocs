@@ -297,13 +297,13 @@ CCR currently provides Pytorch 1.13.1 as a software module, which is from Octobe
 ```
 export APPTAINER_CACHEDIR=/projects/academic/[YourGroupName]/[CCRusername]/cache 
 cd /projects/academic/[YourGroupName]/[CCRusername]/container-directory  #This should be whatever directory you want to store your container in
-apptainer pull pytorch26.sif docker://nvcr.io/nvidia/pytorch:24.12-py3 
+apptainer pull docker://nvcr.io/nvidia/pytorch:25.08-py3 
 ```
 
-4: When this completes you should see a file in your directory named `pytorch26.sif`  Let's shell into the container.  Once in the container, check out the version of python you've got, load pytorch and check the version:  
+4: When this completes you should see a file in your directory named like the container version you've downloaded with the `.sif` extension.  Let's shell into the container.  Once in the container, check out the version of python you've got, load pytorch and check the version:  
 
 ```
-apptainer shell --nv pytorch26.sif  
+apptainer shell --nv pytorch_25.08-py3.sif  
 Apptainer> which python
 /usr/bin/python
 Apptainer> python --version
@@ -313,7 +313,7 @@ Python 3.12.3 (main, Nov  6 2024, 18:32:19) [GCC 13.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch
 >>> print(torch.__version__)
-2.6.0a0+df5bbc09d1.nv24.12
+2.8.0a0+34c6371d24.nv25.08
 >>> exit()
 Apptainer> exit
 exit
@@ -321,9 +321,12 @@ exit
 
 5: Now you've got an updated container, running a much newer version of pytorch than what CCR provides!  That's great but what do you do if you want to install additional software?  We recommend using a python virtual environment.  You can store this virtual environment in your group's project space so that it is outside the container and backed up.  If you're not familiar with virtual environments, check out our [documentation here](../howto/python.md#virtual-environments). For this example, we'll install a popular python package `imageio` in a virtual environment and access it in the container. This time when we start our container, we're going to bind mount our group's project directory so we can access it in the container.  
 
+!!! Danger "Planning to use this in Jupyter?"  
+    In the case of creating a virtual environment to use with a Jupyter Notebook, it is important to bind mount your project directory in the container using the full path.  If that isn't done, when attempting to access the kernel in a Jupyter notebook, the virtual environment will not be accessible.  
+
 ```
-apptainer shell --nv -B /projects/academic/[YourGroupName]:/projects pytorch26.sif  
-Apptainer> cd /projects
+apptainer shell --nv -B /projects/academic/[YourGroupName] pytorch_25.08-py3.sif  
+Apptainer> cd /projects/academic/[YourGroupName]
 Apptainer> python3 -mvenv --system-site-packages myenv 
 Apptainer> source myenv/bin/activate
 (myenv) Apptainer> pip install imageio
@@ -341,10 +344,12 @@ Apptainer> exit
 
 NOTE: In our [virtual environment documentation](python.md#using-virtual-environments), we do NOT use the `--system-site-packages` option when creating a virtual environment in our example.  Here we ARE using this option because we want the virtual environment to use all of the Python packages that come pre-installed in the NVIDIA container.  We do NOT want to do this when using CCR's software environment modules because we may see conflicts between the different Python packages that get installed.
 
-6: Test this out using a GPU node:  
+6: Optional:  Do you need to use this container and virtual environment with the OnDemand Jupyter app?  If so, you'll need to install `ipykernel` in the virtual environment and create a kernel.  See [here](python.md#jupyter-kernels) for instructions.  
+
+7: Test this out using a GPU node:  
 
 ```
-apptainer shell --nv -B /projects/academic/[YourGroupName]:/projects pytorch26.sif
+apptainer shell --nv -B /projects/academic/[YourGroupName] pytorch_25.08-py3.sif
 Apptainer> source /projects/myenv/bin/activate
 (myenv) Apptainer> python
 Python 3.12.3 (main, Nov  6 2024, 18:32:19) [GCC 13.2.0] on linux
@@ -352,7 +357,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch
 >>> import imageio
 >>> print(torch.__version__)
-2.6.0a0+df5bbc09d1.nv24.12
+2.8.0a0+34c6371d24.nv25.08
 >>> print(imageio.__version__)
 2.37.0
 >>> num_of_gpus = torch.cuda.device_count()
@@ -366,7 +371,7 @@ This virtual environment is accessible outside of the container as well as insid
 
 - Make sure to create the virtual environment IN the container.  
 - The virtual environment includes system site packages which will only work inside the container.  So although you can access it outside of the container, it can really only be used inside.    
-- Make sure to specify the full path of the virtual environment python executable in any scripts you run otherwise it will automatically use your container's python.  In this example that would be:  `/projects/myenv/bin/python3` in the container.  The full path to that is `/projects/academic/[YourGroupName]/myenv/bin/python3` outside the container.  
+- Make sure to specify the full path of the virtual environment python executable in any scripts you run otherwise it will automatically use your container's python.  In this example that would be:  `/projects/academic/[YourGroupName]/myenv/bin/python3`   
 - Not all packages will install correctly inside a virtual environment.  See our warnings over [here](../howto/python.md#installing-packages-inside-the-virtual-environment).  
-- Because you are intentionally attempting to use already installed python packages with your virtual environment, you may run into conflicts.  In that event, you may need to [create your own container](#building-images-with-apptainer) from scratch installing all the packages you need rather than using a pre-built one from NVIDIA.  
+- Because you are intentionally attempting to use already installed python packages with your virtual environment, you may run into conflicts.  In that event, you may need to [create your own container](#building-images-with-apptainer) from scratch installing all the packages you need rather than using a pre-built one from NVIDIA.  However, you can start with the NVIDIA container of your choice as the base image.    
 - If you're using a container, we do NOT recommend also using modules CCR's [software environment](../software/modules.md).  These will most likely conflict.

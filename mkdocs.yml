@@ -78,13 +78,13 @@ nav:
     - Software Policies: policies/software.md
     - Support & Maintenance Policies: policies/support.md
   - How To:  
+    - Containers: howto/containerization.md
     - External User Access:  howto/external.md  
     - Easybuild Example: howto/easybuild.md   
     - Empire AI: howto/empireai.md  
     - MATLAB: howto/matlab.md  
-    - Purchasing Storage & Services: howto/purchases.md
     - OnDemand Troubleshooting:  howto/ood-trouble.md  
-    - Running Containers: howto/containerization.md
+    - Purchasing Storage & Services: howto/purchases.md
     - Using Python: howto/python.md
   - Change Logs:
     - Downtime Schedule: changelogs/2025-downtime-schedule.md

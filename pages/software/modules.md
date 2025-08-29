@@ -260,6 +260,9 @@ If you require other python libraries not included within CCR's python modules, 
 
 ### R
 
+**Software Modules**  
+
+[**ccrsoft/2023.01**](../software/releases.md#202301)  
 Two R modules are provided in `ccrsoft/2023.01`: `r` and `r-bundle-bioconductor`, both of which
 include many pre-built R libraries. To see a complete list of R libraries and
 packages included with each module run the spider command:
@@ -269,6 +272,7 @@ $ module spider r
 $ module spider r-bundle-bioconductor
 ```
 
+[**ccrsoft/2024.04**](../software/releases.md#202404)  
 Two R modules are provided in `ccrsoft/2024.04`: `r` and `r-bundle-cran`, both of which
 include many pre-built R libraries. To see a complete list of R libraries and
 packages included with each module run the spider command:
@@ -310,8 +314,20 @@ $ R
 
 
 If your research group requires many R libraries not already available in one of CCR's R installations, we recommend you [ask CCR to build
-them](../software/building.md#software-build-requests) or create your own custom 
-R bundle with easybuild.
+them](../software/building.md#software-build-requests) or create your own custom R bundle with easybuild.
+
+**Bioconductor Containers**  
+
+CCR provides 4 containers from [Docker Hub](https://hub.docker.com/u/bioconductor) that include R, RStudio, and Bioconductor libraries.  These containers can be used on the command line in [interactive or batch jobs](../hpc/jobs.md#running-applications-on-the-clusters).  They can be found here:  
+```
+/util/software/containers/x86_64
+```
+They are named the same as on Docker Hub and relate to Bioconductor's naming convention - starting with either `tidyverse` or `ml-verse`.  These are available in the [RStudio app](../portals/ood.md#rstudio-app) in OnDemand as well.
+
+
+### RStudio  
+
+Multiple versions of RStudio are available within the available R installations and containers.  In order to launch the RStudio GUI, you must do so using the [RStudio app](../portals/ood.md#rstudio-app) in OnDemand.  
 
 ### SAS  
 
