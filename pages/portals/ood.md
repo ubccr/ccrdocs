@@ -148,11 +148,11 @@ Matlab is available to UB faculty, staff, and students through the university's 
 The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users can select from a drop down menu that includes CCR's default R installation or containerized options.  CCR provides 4 additional versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own.  As long as the container includes the RStudio application, it should launch the GUI properly.  When using your own container image, please enter the full path and name of the Apptainer image you'd like to use.  For information on containers, please refer [here](../howto/containerization.md). 
 
 !!! Danger "R library installation"  
-    Recent versions of R require libraries are version locked.  To ensure any libraries you install are only available to the R version you installed them with, this app automatically uses the `$HOME/Rlibs/<IMAGE_TAG>` directory. If that doesn't exist, it is automatically created.  
+    Recent versions of R require libraries which are version locked.  To ensure any libraries you install are only available to the R version you installed them with, this app automatically uses the `$HOME/Rlibs/<IMAGE_TAG>` directory. If that doesn't exist, it is automatically created.  
 
 #### VMD App  
 
-The [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) interactive app launches the VMD GUI on a GPU node.  We recommend requesting 64GB of RAM for VMD (or 64000 in the memory form field), to start, and [monitor your job](../hpc/jobs.md#monitoring-jobs) to determine system usage.  VMD requires a GPU so one is automatically requested when the app launches.  Though you can request a specific type of GPU, this can extend wait times and is not recommended.  VMD will run on all GPU nodes at CCR except for the `arm64` partition.  
+The [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) interactive app launches the VMD GUI on a GPU node.  We recommend requesting 64GB of RAM for VMD (or 64000 in the memory form field) to start, and [monitor your job](../hpc/jobs.md#monitoring-jobs) to determine system usage.  VMD requires a GPU so one is automatically requested when the app launches.  Though you can request a specific type of GPU, this can extend wait times and is not recommended.  VMD will run on all GPU nodes at CCR except for the `arm64` partition.  
 
 #### VSCode App  
 

@@ -322,7 +322,7 @@ exit
 5: Now you've got an updated container, running a much newer version of pytorch than what CCR provides!  That's great but what do you do if you want to install additional software?  We recommend using a python virtual environment.  You can store this virtual environment in your group's project space so that it is outside the container and backed up.  If you're not familiar with virtual environments, check out our [documentation here](../howto/python.md#virtual-environments). For this example, we'll install a popular python package `imageio` in a virtual environment and access it in the container. This time when we start our container, we're going to bind mount our group's project directory so we can access it in the container.  
 
 !!! Danger "Planning to use this in Jupyter?"  
-    It's important in the case of creating a virtual environment to use within a Jupyter Notebook, that you bind mount your project directory in the container using the full path.  If that isn't done, when attempting to access the kernel in a Jupyter notebook, the virtual environment will not be accessible.  
+    In the case of creating a virtual environment to use with a Jupyter Notebook, it is important to bind mount your project directory in the container using the full path.  If that isn't done, when attempting to access the kernel in a Jupyter notebook, the virtual environment will not be accessible.  
 
 ```
 apptainer shell --nv -B /projects/academic/[YourGroupName] pytorch_25.08-py3.sif  
