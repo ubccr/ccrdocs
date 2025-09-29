@@ -161,6 +161,7 @@ If the job is running on more than one node, specify the node you want to login 
 
 - If your job is allocated all of the resources on the node, you will need to include the `--overlap` option.  
 - If your job is running on the faculty cluster, you will need to specify the `--clusters=faculty` option. 
+- If you connected to your job's compute node and were logged off of CCR's login node, your `srun` process is still running.  If you try to start a new compute node login with the `srun` command you will see the error `Job step creation temporarily disabled`  You must use `sattach $JOBID.0` - substituting `$JOBID` with your job's Slurm ID to reconnect to the compute node.  
 
 ## Compile & Compute Node Login SSH Keys
 

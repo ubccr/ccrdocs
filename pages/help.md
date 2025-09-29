@@ -6,6 +6,8 @@ CCR staff provide the majority of support to users via our [TeamDynamix client p
 
 **Please do NOT email our staff members directly.**  We rotate ticket duties during business hours to balance our workloads so it's important to have all requests in our ticketing system.  The first available staff member with the proper skillset will respond to you.  We make every effort to provide you with assistance in a timely manner.  
 
+**Phone support:**  CCR does not provide phone support at this time.  Requests for assistance should be submitted via our [help desk](#ccr-help-portal).
+
 !!! Note     
     **Regular Business Hours:** Monday-Friday 8am-4pm EST   
     **Weekends, Holidays* & After Hours Support:** Emergency assistance provided for major service outages only  
@@ -13,6 +15,19 @@ CCR staff provide the majority of support to users via our [TeamDynamix client p
 
 **Alerts & Important Notices:** We post alerts and [downtime schedules](changelogs/2025-downtime-schedule.md) on [X/Twitter](https://twitter.com/ubccr) and in [Slack](#slack).  Crucial information affecting all users will be emailed to you.
 
+## CCR Help Office Hours  
+
+CCR help desk student assistants are available twice a week for office hours over Zoom.  Student assistants are able to help with problems related to creating new accounts, resetting passwords and two factor authentication, getting access or allocations worked out, and solving basic issues like logging in or quotas.  Anything more advanced should be submitted via the [help desk portal](#ccr-help-portal).  
+
+The office hour schedule for the Fall 2025 semester is:  
+**Tuesdays** from 11am-12pm ET  
+**Fridays** from 2-3pm ET  
+[Zoom link](https://buffalo.zoom.us/j/93454791604?pwd=TE0zOGNrTDNacndLeWY1SHd5ejZkdz09)
+```
+Connection info:  
+Meeting ID: 934 5479 1604  
+Passcode: 751387  
+```
 
 ## CCR Help Portal  
 
@@ -21,9 +36,7 @@ The [TeamDynamix client portal](https://ubuffalo.teamdynamix.com/TDClient/55/Por
 
 ### Login to CCR Help Portal  
 
-To login, click the `Login` button at the top right of the [client portal homepage](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Home/) and use your UB credentials to login.  
-
-If you do not have a UB account, once you submit your first ticket via the portal, you will have a TeamDynamix account created. After this you will be able to login and view your tickets.  
+To login, click the `Login` button at the top right of the [client portal homepage](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Home/) and use your UB credentials to login.  If you do not have a UB account, you will not be able to login and view tickets.  You should reply via email to update your ticket.  
 
 
 ### Create a new support ticket  
@@ -36,9 +49,9 @@ Though users can continue to submit tickets via email to CCR Help, we encourage 
 
 ### Replying to ticket responses  
 
- You will receive an automated email when a new ticket is received indicating the ticket number and a link to view it online in the portal.  You may reply to us in the portal or by replying to the email.  
+ You will receive an automated email when a new ticket is received indicating the ticket number and a link to view it online in the portal.  You may reply to us in the portal, if you have a UB account, or by replying to the email.  
 
-### Viewing your tickets  
+### Viewing your tickets (for UB users only) 
 
 Users logged into the portal have the ability to view information about their tickets.  Click on the `View Your Tickets` button on the portal home page and then click on the ticket title of the one you'd like to view.  You will see all correspondence you've sent and all replies by CCR staff.  You will also see which staff member has been assigned the ticket and what the status of the ticket is.  Within this section, you can reply to the ticket, provide additional information to CCR staff, and add attachments.  By default, only tickets in the `new`, `in process`, or `on hold` statuses are displayed.  To view tickets that have been `completed` or `cancelled`, click on the `Status Class` filter to select these options.  If you feel your ticket has been resolved or you no longer have a problem, you can close it yourself by clicking on the `Withdraw Request` button.  
 
