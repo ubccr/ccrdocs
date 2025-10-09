@@ -9,7 +9,7 @@ CCR staff provide the majority of support to users via our [TeamDynamix client p
 **Phone support:**  CCR does not provide phone support at this time.  Requests for assistance should be submitted via our [help desk](#ccr-help-portal).
 
 !!! Note     
-    **Regular Business Hours:** Monday-Friday 8am-4pm EST   
+    **Regular Business Hours:** Monday-Friday 8:30am-4:30pm EST   
     **Weekends, Holidays* & After Hours Support:** Emergency assistance provided for major service outages only  
     *CCR follows the [University at Buffalo holiday calendar](https://www.buffalo.edu/administrative-services/ub-calendar.html)   
 

@@ -11,9 +11,13 @@ Recording of the Empire AI On-boarding Workshop from June 2025:
 
 All requests for help should be emailed to `help` `@` `empire-ai.org`.  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
 
+##  Allocation Proposals  
+
+Access to Empire AI resources is done via allocations and are organized under collaborating institutions.  UB's allocations fall under the SUNY umbrella.  Requests for proposals for access to Empire AI resources are currently CLOSED for 2025.  We anticipate another round of allocation RFPs to be initiated in early 2026.  This will be communicated to UB PIs from the VPR's office.  
+
 ## Project Onboarding  
 
-Decisions on which projects get selected from UB for access to Empire AI is done by the VPR's office.  Once a project has been selected for onboaring, the UB PI will be notified by the EAI director and will be asked to complete a form.  Once that's submitted, the PI's information is forwarded to the Alpha system administrators for account creation.  You will hear directly from one of them when your account is ready and they'll provide additional account setup instructions.   
+**Decisions on which projects get selected from UB for access to Empire AI is done by the VPR's office.**  Once a project has been selected for onboaring, the UB PI will be notified by the EAI director and will be asked to complete a form.  Once that's submitted, the PI's information is forwarded to the Alpha system administrators for account creation.  You will hear directly from one of them when your account is ready and they'll provide additional account setup instructions.   
 
 ## Accounts for Research Group Members  
 
@@ -32,7 +36,7 @@ If your username on Alpha is not the same as on your computer, you will need to 
 
 `ssh [YourUsername]@alpha.empire-ai.org`  
 
-Your username on Alpha will be provided by the system administrators.
+Your username on alpha will be provided by the Empire AI system administrators.
 
 
 ## Storage  
@@ -43,14 +47,14 @@ In addition to this, each user has a directory in the global scratch storage.  Y
 
 For more information on storage on Alpha, please see [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000175046-empire-ai-alpha-storage).
 
-At this time there are no quotas on these filesystems; however, we've been told to expect that this will be coming soon.  There is also no automatic clearing of the scratch directories, as there are at CCR, but the Alpha system administrators expect this to be necessary in the future.  Any changes to these policies will be disseminated to all users in advance.
+At this time there are no quotas on these filesystems; however, we've been told to expect that this will be coming soon.  There is also no automatic clearing of the scratch directories, as there are at CCR.  With the implementation of allocations for beta, there will be quotas on the filesystem.  
 
 There are no shared project or scratch directories, like we offer at CCR.  Instructions for sharing files on Alpha can be found [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000010953-how-can-i-share-data-with-other-users-).
 
 ### Data Transfer  
 
 **Globus**  
-The Globus data transfer service provides the fastest and most secure data transfer speeds. Refer to CCR's [Globus documentation](../hpc/data-transfer.md#globus-transfers) for info on how to use the web interface and search for "Empire AI Alpha" to find the EAI Globus servers.  You'll be prompted to enter your Alpha username and password for access to their Globus collection.  
+The Globus data transfer service provides the fastest and most secure data transfer speeds. Refer to CCR's [Globus documentation](../hpc/data-transfer.md#globus-transfers) for info on how to use the web interface and search for "Empire AI Alpha" to find the EAI Globus servers.  You'll be prompted to enter your alpha username and password for access to their Globus collection.  
 
 **SFTP**  
 Secure FTP is also an option for moving data to the EAI cluster.  You can initiate transfers via the command line or using a SSH client that provides a GUI, such as FileZilla or CyberDuck.  Refer to CCR's [data transfer documentation](../hpc/data-transfer.md#secure-shell-copy) for guidance, substituting the EAI login node with CCR's where appropriate. 
@@ -63,25 +67,17 @@ If software can be in an alternate location and without administrative priviledg
 
 ## Running Jobs
 
-The EAI Alpha cluster uses the same job scheduler, Slurm, as CCR uses.  This should make your transition easier.  
+The EAI alpha cluster uses the same job scheduler, Slurm, as CCR uses.  This should make your transition easier.  
 
 
 ### Partitions  
 
 UB users have access to the `suny` partition and should submit all requests for GPU resources there.  For more info on partitions/queues, refer [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000168778-slurm-partitions-queues-).  
 
-### Priority Week  
-
-NOTE: This practice is ending at the end of August 2025, with SUNY's last priority week starting on 8/25.  
-
-The Empire AI consortium member institutions rotate through a priority week schedule.  This allows each member institution to utilize half of the cluster once every 6 weeks.  The priority week schedule and information about job pre-emption is [here](https://empireai.freshdesk.com/en/support/solutions/articles/157000010908-institutional-allocations-and-job-scheduling-preemption).  The Alpha cluster is currently split to allow half of the resources to go to the institution with priority and the other half to be available for fairshare scheduling.
-
-!!! Tip "We Recommend..."  
-    When submitting GPU jobs, UB users should submit to both the `suny` and `priority` partition so they don't need to change their workflow for priority week.  This will also allow jobs that are pending when priority week starts to get scheduled in that partition automatically.  
 
 ### Specifying walltime
 
-The default walltime on the Alpha cluster is set to 1 hour.  Make sure to specify your walltime needs using:  
+The default walltime on the alpha cluster is set to 1 hour.  Make sure to specify your walltime needs using:  
 ```
 ## Walltime Format: dd:hh:mm:ss
 #SBATCH --time=00:01:00
@@ -95,7 +91,7 @@ When submitting jobs on the Alpha cluster, just as on CCR's clusters, you must s
 
 ### CPU-only node  
 
-Currently, there is 1 Alpha compute node with no GPUs available to all users.  This is great for testing workflows and verifying your code executes without having to wait for a long time in the queue behind GPU jobs.  To use this node, specify: `--partition=cpu`  
+Currently, there is 1 alpha compute node with no GPUs available to all users.  This is great for testing workflows and verifying your code executes without having to wait for a long time in the queue behind GPU jobs.  To use this node, specify: `--partition=cpu`  
 
 ### Accessing the node(s) your job is running on  
 
@@ -114,7 +110,7 @@ It's possible and likely that your job may not have a start time.  It's not poss
 
 ### What's my job's priority?
 
-The Alpha cluster runs half in a fairshare mode, similar to CCR's UB-HPC cluster, and half in a priority week mode, as described [above](#priority-week).  See [here](../hpc/jobs.md#job-priority) for tools on assessing priority and fairshare values.
+The alpha cluster runs in a fairshare mode, similar to CCR's UB-HPC cluster.  See [here](../hpc/jobs.md#job-priority) for tools on assessing priority and fairshare values.
 
 ## Scaling Up at CCR  
 
@@ -129,7 +125,7 @@ CCR's academic cluster has a mix of compute nodes from various generations of ha
 
 ## GUI Applications and IDE Tools  
 
-The Empire AI Alpha cluster does not provide an interface for GUI-based applications or IDE tools such as VSCode, RStudio, or Jupyter Lab.  At the present time, you may use VSCode to connect to the Alpha login node; however, this may change in the future.  From the login node, you may use the VSCode terminal and SSH to login to the head node of your job.  This method is not recommended and CCR staff are unable to support this.  Some tasks can be automated within R or Jupyter using scripts that can be submitted as batch jobs.  Though we don't provide specific documentation for this, we can offer assistance with finding potential solutions for your workflow.  For visualization, you can transfer your data to CCR and utilize our [Open OnDemand portal](../portals/ood.md).  
+The Empire AI alpha cluster does not provide an interface for GUI-based applications or IDE tools such as VSCode, RStudio, or Jupyter Lab.  At the present time, you may use VSCode to connect to the Alpha login node; however, this may change in the future.  From the login node, you may use the VSCode terminal and SSH to login to the head node of your job.  This method is not recommended and CCR staff are unable to support this.  Some tasks can be automated within R or Jupyter using scripts that can be submitted as batch jobs.  Though we don't provide specific documentation for this, we can offer assistance with finding potential solutions for your workflow.  For visualization, you can transfer your data to CCR and utilize our [Open OnDemand portal](../portals/ood.md).  
 
 ## Containers  
 
