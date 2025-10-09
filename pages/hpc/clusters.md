@@ -33,7 +33,7 @@ This is a listing of available compute node types in the UB-HPC cluster.  Please
 | "Cascade Lake" Large Memory Node | 24 | 40 | Intel Xeon Gold 6230 | - | 754GB | Infiniband | CPU-Gold-6230, CASCADE-LAKE-IB, LM | 3.5TB | general-compute, scavenger |
 | "Cascade Lake" GPU Node | 8 | 40 | Intel Xeon Gold 6230 | 2x V100 32GB (GPU memory) | 754GB | Infiniband | CPU-Gold-6230, CASCADE-LAKE-IB, V100 | 880GB |  general-compute, scavenger |
 | "Cascade Lake" GPU Node | 1 | 48 | Intel Gold 6240R | 12x A16 15GB (GPU memory) | 512GB | Ethernet | Gold-6240R, A16 | 880GB |  general-compute, scavenger |
-| "Ice Lake" Standard Node<sup>1<sup> | 67 | 56 | Intel Gold 6330 | - | 512GB | Infiniband | CPU-Gold-6330, ICE-LAKE-IB | 880GB |  industry, general-compute, scavenger |
+| "Ice Lake" Standard Node<sup>1<sup> | 67 | 56 | Intel Xeon Gold 6330 | - | 512GB | Infiniband | CPU-Gold-6330, ICE-LAKE-IB | 880GB |  industry, general-compute, scavenger |
 | "Ice Lake" Large Memory Node<sup>1<sup> | 20 | 56 | Intel Xeon Gold 6330 | - | 1TB | Infiniband | CPU-Gold-6230, CASCADE-LAKE-IB, LM | 7TB | industry, general-compute, scavenger |
 | "Ice Lake" GPU Node<sup>1<sup> | 20 | 56 | Intel Xeon Gold 6330 | 2x A100 40GB (GPU memory) | 512GB | Infiniband | CPU-Gold-6230, CASCADE-LAKE-IB, A100 | 880GB | industry, general-compute, scavenger |
 | "Sapphire Rapids" Standard Node<sup>1<sup> | 81 | 64 | Intel Gold 6448Y | - | 512GB | Infiniband | CPU-Gold-6448Y, SAPPHIRE-RAPIDS-IB | 880GB | class, debug, industry, general-compute, scavenger |
