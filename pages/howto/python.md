@@ -35,7 +35,7 @@ The standard tool used to install new Python packages is called pip. However, yo
 
 EasyBuild is the preferred and supported way to build new python packages for the cluster. EasyBuild is the only way to guarantee your software is properly configured to run on CCR's computing hardware. For example, if you try to install PyTorch (GPU-enabled packages) via pip, you will not be able to configure PyTorch to detect or run code on GPU resources. Software built with EasyBuild is also easier to maintain through software version updates as all you will need to do is rerun your EasyBuild recipe.  For instructions on creating an Easybuild Python bundle see [here](../software/modules.md#python).
 
-Unfortunately, EasyBuild is not a drop in replacement for pip. It lacks the ability to automatically manage package dependencies and conflicts. If an EasyBuild recipe does not exist for the python package you are trying to install, creating one yourself can be a lengthy, trial and error process. For this reason, things like PyTorch are difficult to build without an existing EasyBuild recipe.  For more information on using Easybuild see our documentation [here](/howto/easybuild).  Alternatively, you can submit a request to CCR to build the software for you following [these instructions](../software/building.md#software-build-requests).  
+Unfortunately, EasyBuild is not a drop in replacement for pip. It lacks the ability to automatically manage package dependencies and conflicts. If an EasyBuild recipe does not exist for the python package you are trying to install, creating one yourself can be a lengthy, trial and error process. For this reason, things like PyTorch are difficult to build without an existing EasyBuild recipe.  For more information on using Easybuild see our documentation [here](./easybuild.md).  Alternatively, you can submit a request to CCR to build the software for you following [these instructions](../software/building.md#software-build-requests).  
 
 If the EasyBuild path is impossible, you can try to use virtual environments, though we cannot guarantee they will work for every use case. 
 
@@ -92,7 +92,7 @@ source /projects/academic/[YourGroupName]/venv_name/bin/activate
 
 This will create a new Jupyter kernel called "kernel_name", which you can change.  
 
-Once this is done, you should be able to see your new kernel in the list of kernels within Jupyter (you may have to reload your session before it appears).  If you used additional software modules (i.e. PyTorch) when creating your virtual environment, you will need to load these prior to starting a Jupyter session.  See the "Jupyter Interactive Apps" section [here](../portals/ood.md#jupyter-notebook-apps) for instructions.
+Once this is done, you should be able to see your new kernel in the list of kernels within Jupyter (you may have to reload your session before it appears).  If you used additional software modules (i.e., PyTorch) when creating your virtual environment, you will need to load these prior to starting a Jupyter session.  See the "Jupyter Interactive Apps" section [here](../portals/ood.md#jupyter-notebook-apps) for instructions.
 
 ## Python for AI and Machine Learning 
 
@@ -101,7 +101,7 @@ Check out this video for an overview of using Python in containers, virtual envi
 
 Do not just try to run `pip install torch`, it will not go well. To install things like PyTorch or Huggingface Transformers properly, you will need to use [EasyBuild](#installing-new-packages) and not pip. If it is imperative to use the latest versions of these packages and EasyBuild has not worked, you should try using prebuilt containers provided by NVIDIA ([see our documentation here](containerization.md)).
 
-The preferred method for running ML is to use training scripts submitted to the [cluster as batch scripts](../hpc/jobs) rather than Jupyter notebooks. When you request a GPU for a Jupyter notebook, this GPU may sit idle for the life of the job depending on how the notebook is being used. Opting to use a training script in a job helps with GPU utilization by automatically freeing GPU resources when training jobs are done.
+The preferred method for running ML is to use training scripts submitted to the cluster as [batch scripts](../hpc/jobs.md) rather than Jupyter notebooks. When you request a GPU for a Jupyter notebook, this GPU may sit idle for the life of the job depending on how the notebook is being used. Opting to use a training script in a job helps with GPU utilization by automatically freeing GPU resources when training jobs are done.
 
 ## Common Issues
 
