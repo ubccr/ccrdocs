@@ -37,7 +37,7 @@ CCR login nodes hostnames:
 - `vortex.ccr.buffalo.edu` - production login nodes
 - `vortex-future.ccr.buffalo.edu` - includes new features and serves as a preview of the next deployment of production login nodes
 
-Watch this virtual workshop to learn more about monitoring your jobs:  
+Watch this virtual workshop to learn about creating and using SSH keys:  
 ![type:video](https://youtube.com/embed/BIo1YO5j4GA)  
 
 ## Connecting with SSH

@@ -337,13 +337,13 @@ Job_priority =
 
 **Weights assigned to Priority Factors for UB-HPC cluster:**  
 ```
-PriorityWeightAge       = 50000
+PriorityWeightAge       = 70000
 PriorityWeightAssoc     = 0
-PriorityWeightFairShare = 80000
+PriorityWeightFairShare = 140000
 PriorityWeightJobSize   = 200000
 PriorityWeightPartition = 1000000
 PriorityWeightQOS       = 50000
-PriorityWeightTRES      = CPU=0,Mem=.01,GRES/gpu=30000
+PriorityWeightTRES      = CPU=1000,Mem=2000,GRES/gpu=30000
 ```
 
 **To View Your Group's Fairshare:**  
@@ -358,9 +358,7 @@ sshare <flag>
 
 **Show Job Priority:**  
 ```
-sprio <flag>
--j jobid
--u [CCRusername]
+sprio -j [JobID] -u [CCRusername]
 ```
 
 **To show Job Priority sorted from highest to lowest:**  
