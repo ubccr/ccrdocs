@@ -11,7 +11,7 @@ Please note: This schedule can, and likely will change, to respond to vendor sof
 
 12/30/25 - Details available approximately 2 weeks prior to downtime
 
-11/25/25 - Details available approximately 2 weeks prior to downtime
+11/25/25 - [Details](2025.md#november-2025-downtime)
 
 10/29/25 - [Details](2025.md#october-2025-downtime)  
 **MOVED from last Tuesday of the month**  
