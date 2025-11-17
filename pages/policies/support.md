@@ -35,7 +35,6 @@ This has been moved [here](software.md).
 
 CCR maintains custom servers and compute nodes for faculty research groups, in addition to our large production clusters and visualization hardware, which are freely available to UB and affiliated researchers. The machine room space, cooling, and networking available at CCR along with the technical expertise in system administration and programming allow UB researchers to devote their time to important research rather than cluster/systems maintenance.
 
-[External Co-Location Policy and Fees for business tenants of CBLS](https://ubccr.freshdesk.com/solution/articles/13000060901-external-co-location-policy)  
 
 CCR is able to provide the following options to faculty groups:
 

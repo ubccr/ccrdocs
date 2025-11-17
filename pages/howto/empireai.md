@@ -9,7 +9,9 @@ Recording of the Empire AI On-boarding Workshop from June 2025:
 
 ## Support  
 
-All requests for help should be emailed to `help` `@` `empire-ai.org`.  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.
+All requests for help should be emailed to `help` `@` `empire-ai.org`.  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.  
+
+If you are using CCR's systems to prepare to onboard to Empire AI and need assistance, please submit a ticket to [CCR Help](../help.md).  
 
 ##  Allocation Proposals  
 
@@ -17,7 +19,7 @@ Access to Empire AI resources is done via allocations and are organized under co
 
 ## Project Onboarding  
 
-**Decisions on which projects get selected from UB for access to Empire AI is done by the VPR's office.**  Once a project has been selected for onboaring, the UB PI will be notified by the EAI director and will be asked to complete a form.  Once that's submitted, the PI's information is forwarded to the Alpha system administrators for account creation.  You will hear directly from one of them when your account is ready and they'll provide additional account setup instructions.   
+**Decisions on which projects get selected from UB for access to Empire AI is done by the VPR's office.**  Once a project has been selected for onboarding, the UB PI will be notified by the EAI director and will be asked to complete a form.  Once that's submitted, the PI's information is forwarded to the Empire AI system administrators for account creation.  You will hear directly from one of them when your account is ready and they'll provide additional account setup instructions.   
 
 ## Accounts for Research Group Members  
 

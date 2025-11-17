@@ -280,26 +280,27 @@ packages included with each module run the spider command:
 ```
 $ module spider r
 $ module spider r-bundle-cran
+$ R
 ```
 
 You can install packages from [CRAN](https://cran.r-project.org/) using
 `install.packages` while running an interactive R session. For example:
 
 ```
-$ install.packages("ggplot2", repos="http://cran.r-project.org",
+> install.packages("ggplot2", repos="http://cran.r-project.org",
                    lib = "/projects/academic/yourgroup/$USER/software/$CCR_VERSION/rlibs")
 ```
 
-To install a package that you downloaded run:
+To install a package that you downloaded, outside of the R environment, run:
 
 ```
-$ R CMD INSTALL -l /projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs/ readr_2.1.3.tar.gz  
+$ R CMD INSTALL -l /projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs readr_2.1.3.tar.gz  
 ```
 
 !!! Tip "Don't want to specify the location each time?"  
     Create a file named .Renviron in your home directory (or edit an existing
     one) and point R to use your alternate directory.  Include the line (editing for your use case):
-    `R_LIBS_USER=/projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs"`
+    `R_LIBS_USER="/projects/academic/[YourGroupName]/[CCRusername]/software/[CCR_VERSION]/rlibs"`
     Each time R starts it will use this library directory for installations and
     to search for existing installations.  
 

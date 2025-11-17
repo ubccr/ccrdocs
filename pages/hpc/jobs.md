@@ -440,6 +440,8 @@ This example submits 16 jobs, with a limit of 4 jobs running simultaneously:
 
 **Job Array Index Number:** `%a` - individual job index number  
 
+For an example of running a job array, refer to the [CCR examples repository](https://github.com/ubccr/ccr-examples/blob/main/slurm/1_Advanced/JobArrays/README.md).  
+
 ### Scavenging Idle Cycles  
 
 In an effort to maximize the use of all available cores within our center, we provide access to all compute nodes whenever they are idle.  This means that academic UB-HPC users will have access to idle nodes on the industry partition as well as nodes in the faculty cluster.  These idle nodes are available through the scavenger partitions on the UB-HPC and faculty clusters and jobs are allowed to run on them when there are no other pending jobs scheduled for them.  Once a user with access to the partition submits a job requesting resources, jobs in the scavenger partition are stopped and re-queued.  This means if you're running a job in the scavenger partition on the industry cluster and an industry user submits a job requiring the resources you're consuming, your job will be stopped.  

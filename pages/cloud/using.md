@@ -12,7 +12,7 @@ where you can manage your project's cloud resources and view information on your
     (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
 
 
-From the [The LakeEffect Web Console](https://dashboard.cloud.ccr.buffalo.edu), select CCR OpenID Connect option and authenticate using your CCR account. Don't have an account? [see here](../getting-access.md)
+From the [The LakeEffect Web Console](https://dashboard.cloud.ccr.buffalo.edu), select CCR OpenID Connect option and authenticate using your CCR account. **Leave the domain field blank.**  Don't have an account? [see here](../getting-access.md)
 
 ![](../images/cloud/openid.png)
 
