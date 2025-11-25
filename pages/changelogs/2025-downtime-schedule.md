@@ -9,7 +9,7 @@ Please note: This schedule can, and likely will change, to respond to vendor sof
 
 **Schedule of Maintenance Downtimes & Links to Details About Each Planned Outage:**
 
-12/30/25 - Details available approximately 2 weeks prior to downtime
+12/30/25 - [Details](2025.md#december-2025-downtime)
 
 11/25/25 - [Details](2025.md#november-2025-downtime)
 
