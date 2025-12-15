@@ -396,7 +396,7 @@ CCRusername@login:~$ ccr-jobview-url 10457965 ub-hpc
 
 Then you would paste the outputed link into your browser. For example:
 
-[Click here for example Grafana output](https://dashboard.ccr.buffalo.edu/grafana/d/Vi3oi5gohz/hpc-job-metrics?orgId=1&theme=light&from=1669820527000&to=1669820600000&var-cluster=ub-hpc&var-host=cpn-k08-34-01&var-jobid=10457965)
+[Click here for example Grafana output](https://dashboard.ccr.buffalo.edu/grafana/d/HRLkiLS7k/single-job-stats?orgId=1&theme=light&from=1764861569000&to=1764862598000&var-cluster=ub-hpc&var-JobID=22697475)
 
 ### Slurm Accounting
 Slurm account information is also available and useful depending on what information you're looking for regarding your jobs.  
