@@ -13,7 +13,7 @@ CCR staff provide the majority of support to users via our [TeamDynamix client p
     **Weekends, Holidays* & After Hours Support:** Emergency assistance provided for major service outages only  
     *CCR follows the [University at Buffalo holiday calendar](https://www.buffalo.edu/administrative-services/ub-calendar.html)   
 
-**Alerts & Important Notices:** We post alerts and [downtime schedules](changelogs/2025-downtime-schedule.md) on [X/Twitter](https://twitter.com/ubccr) and in [Slack](#slack).  Crucial information affecting all users will be emailed to you.
+**Alerts & Important Notices:** We post alerts and [downtime schedules](changelogs/downtime-schedule.md) on [X/Twitter](https://twitter.com/ubccr) and in [Slack](#slack).  Crucial information affecting all users will be emailed to you.
 
 ## CCR Help Office Hours  
 
