@@ -13,15 +13,14 @@ CCR staff provide the majority of support to users via our [TeamDynamix client p
     **Weekends, Holidays* & After Hours Support:** Emergency assistance provided for major service outages only  
     *CCR follows the [University at Buffalo holiday calendar](https://www.buffalo.edu/administrative-services/ub-calendar.html)   
 
-**Alerts & Important Notices:** We post alerts and [downtime schedules](changelogs/2025-downtime-schedule.md) on [X/Twitter](https://twitter.com/ubccr) and in [Slack](#slack).  Crucial information affecting all users will be emailed to you.
+**Alerts & Important Notices:** We post alerts and [downtime schedules](changelogs/downtime-schedule.md) on [X/Twitter](https://twitter.com/ubccr) and in [Slack](#slack).  Crucial information affecting all users will be emailed to you.
 
 ## CCR Help Office Hours  
 
 CCR help desk student assistants are available twice a week for office hours over Zoom.  Student assistants are able to help with problems related to creating new accounts, resetting passwords and two factor authentication, getting access or allocations worked out, and solving basic issues like logging in or quotas.  Anything more advanced should be submitted via the [help desk portal](#ccr-help-portal).  
 
-The office hour schedule for the Fall 2025 semester is:  
+The office hour schedule for the period of 12/22/25 - 1/23/26) is:  
 **Tuesdays** from 11am-12pm ET  
-**Fridays** from 2-3pm ET  
 [Zoom link](https://buffalo.zoom.us/j/93454791604?pwd=TE0zOGNrTDNacndLeWY1SHd5ejZkdz09)
 ```
 Connection info:  

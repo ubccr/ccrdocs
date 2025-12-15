@@ -87,6 +87,7 @@ nav:
     - Purchasing Storage & Services: howto/purchases.md
     - Using Python: howto/python.md
   - Change Logs:
-    - Downtime Schedule: changelogs/2025-downtime-schedule.md
+    - Downtime Schedule: changelogs/downtime-schedule.md
+    - 2026: changelogs/2026.md
     - 2025: changelogs/2025.md
     - 2024: changelogs/2024.md
