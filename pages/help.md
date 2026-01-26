@@ -19,8 +19,7 @@ CCR staff provide the majority of support to users via our [TeamDynamix client p
 
 CCR help desk student assistants are available twice a week for office hours over Zoom.  Student assistants are able to help with problems related to creating new accounts, resetting passwords and two factor authentication, getting access or allocations worked out, and solving basic issues like logging in or quotas.  Anything more advanced should be submitted via the [help desk portal](#ccr-help-portal).  
 
-The office hour schedule for the period of 12/22/25 - 1/23/26) is:  
-**Tuesdays** from 11am-12pm ET  
+The office hours are available **Tuesdays** from 11am-12pm ET  
 [Zoom link](https://buffalo.zoom.us/j/93454791604?pwd=TE0zOGNrTDNacndLeWY1SHd5ejZkdz09)
 ```
 Connection info:  
