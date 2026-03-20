@@ -72,6 +72,7 @@ nav:
     - Using the Cloud: cloud/using.md
     - Advanced Topics: cloud/advanced.md
   - Policies:
+    - Accessibility: policies/accessibility.md  
     - Accounts & Data Policies: policies/accounts.md
     - Communications Policy: policies/email.md
     - Permitted Use & Misuse of CCR: policies/misuse.md
