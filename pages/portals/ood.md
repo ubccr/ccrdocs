@@ -72,7 +72,9 @@ The `Globus` button in the `Files` app provides easy access to CCR's mapped coll
 
 Interactive apps provide a way for users to launch and connect to an interactive batch job running on the cluster.  Users will either connect to the compute node in a Linux desktop environment or to the application they're launching.  
 
-All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the option `normal` in the QOS drop down menu.  You will see the `class` and `industry` partitions; however, if you do not have the `class` or  `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.     
+All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the option `normal` in the QOS drop down menu.  You will see the `class` and `industry` partitions; however, if you do not have the `class` or  `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.   
+
+**None of the OnDemand applications work with the `arm64` partition. Users must use [interactive or batch jobs](../hpc/jobs.md#running-jobs) for these nodes.**
 
 
 !!! Warning "Scavenger Partition Warning!"  
@@ -137,7 +139,9 @@ In order to access a [virtual environment](../howto/python.md#virtual-environmen
 
 #### Jupyter App for Containers  
 
-The "Jupyter Lab/Notebook - Containers" interactive app allows users to utilize [container workflows](../howto/containerization.md#example-gpu-container-workflow) with Jupyter.  Users must specify the full path and name of an Apptainer container which has Jupyter installed within it.  Many official NVIDIA containers, particularly those in the [NVIDIA NGC catalog](https://catalog.ngc.nvidia.com/containers) for deep learning and data science (i.e. PyTorch and TensorFlow), include Jupyter or JupyterLab. These containers are preconfigured to provide an accelerated, GPU-ready environment for developing and running Jupyter notebooks. When using a virtual environment with a container, be sure to install `ipykernel` and [create a kernel](../howto/python.md#jupyter-kernels) to access the virtual environment within Jupyter.  
+The "Jupyter Lab/Notebook - Containers" interactive app allows users to utilize [container workflows](../howto/containerization.md#example-gpu-container-workflow) with Jupyter.  Users must specify the full path and name of an Apptainer container which has Jupyter installed within it.  Many official NVIDIA containers, particularly those in the [NVIDIA NGC catalog](https://catalog.ngc.nvidia.com/containers) for deep learning and data science (i.e. PyTorch and TensorFlow), include Jupyter or JupyterLab. These containers are preconfigured to provide an accelerated, GPU-ready environment for developing and running Jupyter notebooks. When using a virtual environment with a container, be sure to install `ipykernel` and [create a kernel](../howto/python.md#jupyter-kernels) to access the virtual environment within Jupyter. 
+
+**None of the OnDemand applications work with the `arm64` partition. Users must use [interactive or batch jobs](../hpc/jobs.md#running-jobs) for these nodes.**
 
 #### Matlab App  
 
