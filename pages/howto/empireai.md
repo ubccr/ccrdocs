@@ -153,7 +153,7 @@ To help with preparing to migrate your workflow to Empire AI, CCR has several op
   Any research group may [request an allocation](../portals/coldfront.md#request-an-allocation) for the `ARM64` partition in ColdFront.  This partition contains NVIDIA Gracehopper nodes with 2 GH200 GPUs and 72 ARM64 Neoverse CPUs per node.  These are similar to the next iteration of Empire AI equipment ("Beta").  This partition will be an important part of your testing as you prepare to migrate your workflow to Beta in the coming months.  NVIDIA containers for this architecture are named with the suffix `-igpu` in the container library.  See [below](#containers) for more info on these.  
 
   !!! Tip  
-    When running jobs on the `arm64` partition, please be aware of additional [environment setup](../software/march.md#neoverse-v2) required. 
+      When running jobs on the `arm64` partition, please be aware of additional [environment setup](../software/march.md#neoverse-v2) required. 
 
 ## GUI Applications and IDE Tools  
 
