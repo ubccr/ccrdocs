@@ -154,7 +154,7 @@ If this message is not due to an upcoming maintenance downtime, then it means th
 
 ## How can I get information on CCR clusters such as how busy they are and wait times?  
 
-From a login node, use the command `sqstat` to see a comprehensive overview of cluster usage.  This information is also displayed on our [cluster status pages](https://www.buffalo.edu/ccr/support/machine-status.html).  To find more detailed information on node availability, use the `snodes` command.  
+From a login node, use the command `sqstat` to see a comprehensive overview of cluster usage.  To find more detailed information on node availability, use the `snodes` command.  The [Slurm dashboard](https://dashboard.ccr.buffalo.edu/slurm/ubhpc) (VPN required) displays an array of information and can be filtered to show idle and partially allocated nodes, GPU nodes, and job information. Wait times are not possible to calculate accurately as jobs are constantly ending and new ones are submitted.  However, you can get your job's rank in the queue using the `sranks` command, as well as information on your [job's status](hpc/jobs.md#view-your-jobs-in-queue) and your [job's priority](hpc/jobs.md#job-priority). Depending on how many jobs are currently waiting in the queue, the scheduler may be able to estimate your [job's start time](hpc/jobs.md#determining-job-start-time).  This is only an estimate and may change if new jobs are queued with a higher priority than yours.  The [UBMoD analytics tool](https://ubmod.ccr.buffalo.edu/) (VPN required) provides detailed information about your group's average wait times over a selected period of time such as weeks or months.  
 
 ## Why do I get an ‘Invalid Account, Partition, or QOS Specification’ error when I try to run a job?  
 
