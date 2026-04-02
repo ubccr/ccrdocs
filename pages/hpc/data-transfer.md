@@ -421,7 +421,7 @@ it is considerably faster than the alternatives.  To use "ftps" (i.e. ftp over S
 login node (if the transfer will take less than 15 minutes), by running an interactive job or using an OnDemand desktop 
 to run for longer periods of time. Prior to doing so, UB users must create an FTP password within Box.  
 
-UBit provide documentation on [using FTP with UBbox](https://www.buffalo.edu/content/www/ubit/information-for-it-staff-pw/box/ftp.html)
+UBit provides documentation on [using FTP with UBbox](https://www.buffalo.edu/content/www/ubit/information-for-it-staff-pw/box/ftp.html)
 
 Once your UBbox ftp password is setup, you can transfer files from CCR to UB Box using SFTP. 
 
