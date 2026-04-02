@@ -79,7 +79,7 @@ GUI.
 Using a Guest Collection (also known as a "Shared Endpoint"), you can share any file or folder that you have access to with anyone who
 has a Globus account. This is particularly useful for external collaborations in which data sharing is necessary.  
 
-Globus provide detailed information on [creating Guest Collections](https://docs.globus.org/how-to/share-files/)
+Globus provides detailed information on [creating Guest Collections](https://docs.globus.org/how-to/share-files/)
 
 ### Using Globus to transfer files to and from UB Box
 
