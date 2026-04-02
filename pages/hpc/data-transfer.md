@@ -446,7 +446,7 @@ lftp UBID@buffalo.edu@ftp.box.com:/somedir~> exit
 $ lftp
 ```
 
-box.conm provide additional information for using [Box with FTP or FTPS]( https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS)
+Box support provides additional information for using [Box with FTP or FTPS]( https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS)
 -->
 
 
