@@ -2,7 +2,7 @@
 
 CCR maintains a global suite of software available to all users via
 [Modules](modules.md). If you need a particular software package or library
-that's not available you can [ask us to build it](#software-build-requests) or
+that's not available as a [module](../modules/#using-modules) or a [container](../howto/containerization.md) you can [ask us to build it](#software-build-requests) or
 attempt to [build yourself](#building-a-new-software-module).  This document
 provides some pointers on building custom modules for your group or personal
 use. 
@@ -15,7 +15,7 @@ use.
 ## Software build requests
 
 Users can request software be installed by CCR staff by submitting a new [issue
-on GitHub here](https://github.com/ubccr/software-layer/issues/new), where you'll be asked to fill out a form and provide information about your research group and the software you'd like to use.  We ask that you first [search the issues here](https://github.com/ubccr/software-layer/issues?q=is%3Aissue+is%3Aopen+label%3Abuild-request) 
+on GitHub](https://github.com/ubccr/software-layer/issues/new), where you'll be asked to fill out a form and provide information about your research group and the software you'd like to use.  We ask that you first search [CCR's GitHub software issues](https://github.com/ubccr/software-layer/issues?q=is%3Aissue+is%3Aopen+label%3Abuild-request) 
 to see if another user has already submitted a request. Users are strongly
 encourage to vote on which software is to be installed by adding a "like" or
 "thumbs up" on the issue. Due to limited staffing we'll be installing more
@@ -34,7 +34,7 @@ you're looking for already has an EasyBuild recipe.
 
 EasyBuild recipes, called easyconfigs, are text files (python syntax) used to
 instruct EasyBuild how to build software. You can browse the community
-supported [recipes here](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs).
+supported recipes on [EasyBuild's GitHub repository](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs).
 
 The standard EasyBuild recipe filename format is:
 
@@ -55,12 +55,12 @@ When building software with EasyBuild, it's very important to pay attention to
 the compiler and compiler version as it will be much easier to build software
 for [a compiler CCR already supports](releases.md).
 
-For more information about EasyBuild [see here](https://docs.easybuild.io/en/latest/).
+Easybuild proved more information on the [EasyBuild website](https://docs.easybuild.io/en/latest/).
 
 EasyBuild will take care of compiling, installing, and creating a Modulefile
 for you. CCR provides EasyBuild as it's own module and has pre-configured
 EasyBuild with the appropriate settings for CCR's environment. To load CCR's
-easybuild module simply run this:
+"easybuild" module simply run this:
 
 ```
 $ module load easybuild
@@ -115,7 +115,7 @@ $ module avail
    samtools/X.X.X (bio)
 ```
 
-For an excellent tutorial on how to build software with easybuild [see here](https://easybuilders.github.io/easybuild-tutorial/).
+There is an excellent tutorial on how to build software with EasyBuild on the [EasyBuild website](https://easybuilders.github.io/easybuild-tutorial/).
 
 ## Building modules for your group
 
