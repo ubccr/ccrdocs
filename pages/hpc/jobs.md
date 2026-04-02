@@ -159,7 +159,7 @@ Batch jobs are the most common type of job on HPC systems. Batch jobs are resour
 
 CCR maintains a [repository of examples](https://github.com/ubccr/ccr-examples) for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.
 
-New users should start with the [introductory documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/README.md) to get an understanding of how the example scripts are designed.  We provice a [basic Slurm example script](https://github.com/ubccr/ccr-examples/blob/main/slurm/0_Introductory/README.md), [Application specific examples](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/README.md) and [advanced Slurm examples](https://github.com/ubccr/ccr-examples/tree/main/slurm/1_Advanced).
+New users should start with the [introductory documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/README.md) to get an understanding of how the example scripts are designed.  We provide a [basic Slurm example script](https://github.com/ubccr/ccr-examples/blob/main/slurm/0_Introductory/README.md), [application specific examples](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/README.md) and [advanced Slurm examples](https://github.com/ubccr/ccr-examples/tree/main/slurm/1_Advanced).
 
 **To submit a batch script to Slurm for processing:**  
 
