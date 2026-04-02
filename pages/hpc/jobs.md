@@ -157,16 +157,16 @@ Once you're done with the node, use the `exit` or `logout` command and then rele
 
 Batch jobs are the most common type of job on HPC systems. Batch jobs are resource provisions that run applications on compute nodes and do not require supervision or interaction. Batch jobs are commonly used for applications that run for long periods of time and require no manual user input.  Batch scripts should be submitted from a login node and the commands within the script will be executed on a compute node.  
 
-CCR maintains a [repository](https://github.com/ubccr/ccr-examples) of examples for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.
+CCR maintains a [repository of examples](https://github.com/ubccr/ccr-examples) for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.
 
-New users should [start here](https://github.com/ubccr/ccr-examples/blob/main/slurm/README.md) to get an understanding of how the example scripts are designed.  An example of a basic Slurm script can be found [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/0_Introductory/README.md). [Application specific examples](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/README.md) can be found here and advanced Slurm examples will be stored [here](https://github.com/ubccr/ccr-examples/tree/main/slurm/1_Advanced).
+New users should start with the [introductory documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/README.md) to get an understanding of how the example scripts are designed.  We provice a [basic Slurm example script](https://github.com/ubccr/ccr-examples/blob/main/slurm/0_Introductory/README.md), [Application specific examples](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/README.md) and [advanced Slurm examples](https://github.com/ubccr/ccr-examples/tree/main/slurm/1_Advanced).
 
 **To submit a batch script to Slurm for processing:**  
 
 ````
 sbatch script.sh
 ````
-For more information, [visit the Slurm docs on sbatch](https://slurm.schedmd.com/sbatch.html)
+For more information, visit [the Slurm documentation on **sbatch**](https://slurm.schedmd.com/sbatch.html)
 
 
 ## Slurm Directives, Partitions & QoS
@@ -213,10 +213,10 @@ All UB-HPC partitions have a default of 1 CPU per job and a default RAM (memory)
 There are over 50 partitions in the faculty cluster all of which have a default of 1 CPU, wall time of 24 hours and a maximum number of jobs per user of 1000.  The maximum wall time of these partitions ranges from 72 hours to 30 days.  To view details about a particular partition use the `scontrol` command; for example:  `scontrol show partition ub-laser -M faculty`
 
 **Priority Boosts**  
-Supporters of CCR are provided access to the `supporters` QOS which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please [see here](../getting-access.md#supporters-priority-boost).  PIs that were part of the 2019 NIH S10 award that helped to purchase new equipment were granted priority boosts for their group that lasted 5 years.  These allocations were added to your ColdFront project and expired on February 1, 2025.  At this time, any faculty with current NIH funding may apply for the NIH priority boost. This will be available until the hardware is retired.  Please enter your NIH grant information in your ColdFront project and request an allocation for the NIH priority boost.  Once the allocation is activated, your group members should utilize the `nih` QOS value to take advantage of the priority boost.  Those faculty that have active NIH funding and are current CCR supporters will have access to the `nihsupport` QOS value.  NOTE:  These QOS values are only available on the UB-HPC cluster.
+Supporters of CCR are provided access to the `supporters` QOS (Quality of Service) which provides a bump in priority to all jobs run by the group.  To find out how to qualify for this boost, please see [CCR's priority boost documentation](../getting-access.md#supporters-priority-boost).  Primary Investigators (PIs) that were part of the 2019 NIH S10 award that helped to purchase new equipment were granted priority boosts for their group that lasted 5 years.  These allocations were added to your ColdFront project and expired on February 1, 2025.  At this time, any faculty with current NIH funding may apply for the NIH priority boost. This will be available until the hardware is retired.  Please enter your NIH grant information in your ColdFront project and request an allocation for the NIH priority boost.  Once the allocation is activated, your group members should utilize the `nih` QOS value to take advantage of the priority boost.  Those faculty that have active NIH funding and are current CCR supporters will have access to the `nihsupport` QOS value.  NOTE:  These QOS values are only available on the UB-HPC cluster.
 
 **Other Limits**  
-Some Slurm accounts have limitations on them.  For example, accounts associated with courses will have a limit of 1 GPU per job.  The Intro to CCR UB Learns course does not require the use of GPUs; therefore, the `introccr` Slurm account has a limit of 0 GPUs.  Jobs using this account to request GPUs will be blocked in the queue.  The `class` partition has a limit of 1 GPU per job.  [See here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job) for further information.
+Some Slurm accounts have limitations on them.  For example, accounts associated with courses will have a limit of 1 GPU per job.  The Intro to CCR UB Learns course does not require the use of GPUs; therefore, the `introccr` Slurm account has a limit of 0 GPUs.  Jobs using this account to request GPUs will be blocked in the queue.  The `class` partition has a limit of 1 GPU per job.  Attempting to request more GPUs than your account allows will fail in a job status of [AssocMaxGRESPerJob](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job).
 
 ## Node Features    
 
@@ -276,10 +276,10 @@ squeue -M all --me
 This output will show you your jobs and their current status.  `R` means the job is running; `PD` means it's pending;  `CG` means it's in the process of completing (either because it's finished or because it was cancelled).  If your job is pending, there will be a reason in the `NODELIST(REASON)` column for why it's pending.  Remember, you're in line with others so your job is not likely to start immediately.  If you're requesting resources in high demand, wait times can be long.  Some of the most common reasons for jobs pending in the queue, include:  
 
   - `Priority` - this means your job is waiting for resources behind other jobs  
-  - `ReqNodeNotAvail` - you're requesting something that isn't available at the moment.  See more [here](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail) 
-  - `AssocMaxGRESPerJob` - you've requested more of a resource than what is allowed.  See more [here](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job)  
+  - `ReqNodeNotAvail` - you're requesting something that [isn't available at the moment](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail) 
+  - `AssocMaxGRESPerJob` - you've requested [more of a resource than allowed by your account](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job)  
 
-For more information, [visit the Slurm docs on squeue](https://slurm.schedmd.com/squeue.html)
+For more information, [visit the Slurm documentation on **squeue**](https://slurm.schedmd.com/squeue.html)
 
 #### Canceling jobs  
 To cancel a job you have submitted to the UB-HPC cluster:
@@ -292,7 +292,7 @@ To cancel a job you have submitted to the faculty cluster:
 scancel <job_id> -M faculty
 ````
 
-For more information, [visit the Slurm docs on scancel](https://slurm.schedmd.com/scancel.html)
+For more information, [visit the Slurm documentation on **scancel**](https://slurm.schedmd.com/scancel.html)
 
 #### Determining job start time  
 
@@ -364,7 +364,7 @@ sprio -j [JobID] -u [CCRusername]
 **To show Job Priority sorted from highest to lowest:**  
 Use the `sranks` command  
 
-Interested in a priority boost for your group's jobs?  Find out more [here](../howto/purchases.md#supporters-priority-boost)  
+Interested in a priority boost for your group's jobs?  Find out more in [CCR's priority boost documentation](../howto/purchases.md#supporters-priority-boost)  
 
 ## Monitoring Jobs
 
@@ -374,7 +374,7 @@ Watch this virtual workshop to learn more about monitoring your jobs:
 ![type:video](https://youtube.com/embed/ZsXnoH2UQ4E)  
 
 ### Active Jobs Monitoring - command line  
-If your job is currently running, you can login to the compute node(s) it's running on to inspect your program's progress, view output logs, and investigate the node's system status.  You will only be able to login to a compute node where you have a running job.  For instructions on how to login, please see [here](login.md#compute-node-logins). Once on the compute node, you may use Linux commands to view system status such has `top`, `htop`, `cat /proc/meminfo` (for system memory/RAM information), and `cat /proc/cpuinfo` (for system processor/CPU information).  To view currently running processes under your account use `ps -ef|grep [CCRusername]` (replace [CCRusername] with your CCR username and no brackets). To cancel or kill a process running under your account use `kill -9 [pid]` (replace [pid] with the process ID).  When you're done, use the `exit` or `logout` command.  For more info on Linux commands, see the [CCR Linux & Slurm Cheatsheet]().
+If your job is currently running, you can login to the compute node(s) it's running on to inspect your program's progress, view output logs, and investigate the node's system status.  You will only be able to login to a compute node where you have a running job.  For instructions on how to login, please see [CCR's login documentation](login.md#compute-node-logins). Once on the compute node, you may use Linux commands to view system status such has `top`, `htop`, `cat /proc/meminfo` (for system memory/RAM information), and `cat /proc/cpuinfo` (for system processor/CPU information).  To view currently running processes under your account use `ps -ef|grep [CCRusername]` (replace [CCRusername] with your CCR username and no brackets). To cancel or kill a process running under your account use `kill -9 [pid]` (replace [pid] with the process ID).  When you're done, use the `exit` or `logout` command.  For more info on Linux commands, see the [CCR Linux & Slurm Cheatsheet]().
 
 
 ### Active Jobs monitoring - OnDemand
@@ -396,7 +396,7 @@ CCRusername@login:~$ ccr-jobview-url 10457965 ub-hpc
 
 Then you would paste the outputed link into your browser. For example:
 
-[Click here for example Grafana output](https://dashboard.ccr.buffalo.edu/grafana/d/HRLkiLS7k/single-job-stats?orgId=1&theme=light&from=1764861569000&to=1764862598000&var-cluster=ub-hpc&var-JobID=22697475)
+[Example Grafana output](https://dashboard.ccr.buffalo.edu/grafana/d/HRLkiLS7k/single-job-stats?orgId=1&theme=light&from=1764861569000&to=1764862598000&var-cluster=ub-hpc&var-JobID=22697475)
 
 ### Slurm Accounting
 Slurm account information is also available and useful depending on what information you're looking for regarding your jobs.  
@@ -451,4 +451,4 @@ In an effort to maximize the use of all available cores within our center, we pr
     * You must be an advanced user that understands the queuing system, runs efficient jobs, and can get checkpointing working on your jobs independently.  CCR staff can not devote the time to helping you write your code.  
     * If your jobs are determined to cause problems on any of the private cluster nodes and we receive complaints from the owners of those nodes, your access to the scavenger partitions will be removed.  
 
-Refer to our [examples repository](https://github.com/ubccr/ccr-examples/blob/main/slurm/1_Advanced/Scavenger/README.md) for more information and an example scavenger script.
+Refer to the [CCR examples repository](https://github.com/ubccr/ccr-examples/blob/main/slurm/1_Advanced/Scavenger/README.md) for more information and an example scavenger script.

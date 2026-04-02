@@ -12,8 +12,8 @@ number of tasks:
 
 This page covers connecting to a login node using SSH (Secure Shell Protocol).
 When you connect via SSH, you authenticate using a private key file on your
-local machine. For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)
-on Wikipedia. You can also connect to CCR's login nodes using a web browser with the [OnDemand Portal](../portals/ood.md).
+local machine. For more information about SSH, see [Secure Shell on Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell).
+You can also connect to CCR's login nodes using a web browser with the [OnDemand Portal](../portals/ood.md).
 
 !!! Note  
     Login nodes should not be used for resource-intensive tasks such as running
@@ -24,13 +24,13 @@ To get started connecting to CCR's HPC clusters and shared storage you need the
 following:
 
 - A CCR user account with two factor authentication enabled and an active
-  allocation to HPC resources. For more information see our [getting access](../getting-access.md) guide.
+  allocation to HPC resources. For more information see the [CCR getting access guide](../getting-access.md).
 - [An SSH Key added to your account](#generate-new-ssh-key)
 - An SSH client. Linux & MacOS include a terminal app. For Windows users, we recommend using [Git Bash](https://gitforwindows.org/)
 
 !!! Warning "VPN Required"
     Access to CCR login nodes is restricted to UB and Roswell Park networks
-    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
+    (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)).
 
 CCR login nodes hostnames:
 
@@ -112,17 +112,17 @@ allows you to skip entering your SSH key passphrase each time you login and you 
 
 Once you've uploaded your SSH public key to your CCR account you will be able to use the SSH protocol to connect to CCR's login nodes.  Follow these steps:
 
-1. Open your terminal or Git Bash if you're on Windows and, if you're running a SSH agent as [described above](#using-the-ssh-agent), enter the following:  
+1. Open your terminal or Git Bash if you're on Windows and, if you're running a [SSH agent as described above](#using-the-ssh-agent), enter the following:  
     ```bash
     ssh [CCRusername]@vortex.ccr.buffalo.edu
     ```
    
     !!! Warning "Not using ssh-agent?"
-        If you're not running a SSH agent [(see above)](#using-the-ssh-agent) you
-        will need to specify the location and filename of your PRIVATE key using
-        the `-i` option in the SSH command and you'll be prompted for your SSH key
-        passphrase. This is NOT your CCR password. This is the passphrase you
-        set when [creating your SSH key pair](#generate-new-ssh-key). For example:  
+        If you're not running a [SSH agent](#using-the-ssh-agent) you will need to
+        specify the location and filename of your PRIVATE key using the `-i` option
+        in the SSH command and you'll be prompted for your SSH key passphrase.
+        This is NOT your CCR password. This is the passphrase you set when [creating
+        your SSH key pair](#generate-new-ssh-key).  For example:  
         ```bash
         ssh -i /path-to-key/id_ed25519 [CCRusername]@vortex.ccr.buffalo.edu
         Enter passphrase for key 'id_ed25519':
@@ -174,4 +174,5 @@ clusters, storage, visualization servers, and interactive apps.  CCR's OnDemand
 portal offers Linux desktops for GUI-based applications, software applications
 like MatLab, RStudio Desktop, Jupyter Notebook, and vscode, an interactive
 development environment.  OnDemand can be used in any browser from almost any
-device.  More information about OnDemand can be [found here](../portals/ood.md).  
+device.  More information about OnDemand can be found in [CCR's OnDemand Portal 
+Documentation](../portals/ood.md).  
