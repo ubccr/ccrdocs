@@ -253,7 +253,7 @@ If you require other python libraries not included within CCR's python modules, 
   - Already know you want to use containers?  See [CCR's container documentation](../howto/containerization.md).  If you're using GPU-enabled codes, make sure to review [CCR's GPU container guide](../howto/containerization.md#gpu-enabled-containers-with-apptainer) first!  
   - Already using other Easybuild modules and want to build your own Python bundle?  See [here](../howto/easybuild.md) for instructions.  
   - Already have your Python environment ready to go?  See [CCR's Python documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.  
-  - Know you really can't do without conda?  CCR prvides [Conda container documentation](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) for an example of how to build and run a conda container.
+  - Know you really can't do without conda?  CCR provides [Conda container documentation](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) for an example of how to build and run a conda container.
 
  
 
