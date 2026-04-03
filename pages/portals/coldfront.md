@@ -6,8 +6,7 @@ or collaborators have to the many resources in CCR's data center.  In order to o
 resource.  Research faculty, principal investigators, and teaching faculty are able to create projects in ColdFront and request allocations to CCR resources
 for themselves and their group members or students.  
 
-Getting started with ColdFront is easy and all you need is a CCR user account.
-Don't have one yet? [see here](../getting-access.md). Faculty members and principal investigators (PIs) can use ColdFront to:
+Getting started with ColdFront is easy and all you need is a CCR user account.  If you don't have one yet, use [these instructions](../getting-access.md) to create yourself an account. Faculty members and principal investigators (PIs) can use ColdFront to:
 
 - [Request an Allocation](#request-an-allocation)
 - [Add or Remove users](#add-or-remove-users)
@@ -19,15 +18,15 @@ If you're not a faculty member or a PI you can still [login to ColdFront](https:
 projects you're on and what resources you have access to but you will not be able to request allocations.
 
 !!! Warning "VPN Required"
-    Access to ColdFront is restricted to UB and Roswell Park networks (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access) for more information.
+    Access to ColdFront is restricted to UB and Roswell Park networks (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)). 
 
 Access to [CCR resources](../available-resources.md) is managed in ColdFront using Projects and Allocations.  Projects capture information about your research including your group members, publications, grants and any allocations to resources the group has access to. Most PIs have a single project which best describes their research performed at CCR. 
 
 ## Create a Project  
 
-All principal investigators (PIs) or professors must create at least one project in ColdFront to manage access to CCR's resources for their group or course.  If you have not already done so, you need to request that your account be upgraded to "PI Status."  To do so, login to [ColdFront](https://coldfront.ccr.buffalo.edu) and go to your user profile [here](https://coldfront.ccr.buffalo.edu/user/user-profile/).  Then click on the `Upgrade Account` button.  This generates an email to CCR's system administrators who will respond after verifying your university status.  
+All principal investigators (PIs) or professors must create at least one project in ColdFront to manage access to CCR's resources for their group or course.  If you have not already done so, you need to request that your account be upgraded to "PI Status."  To do so, login to [ColdFront](https://coldfront.ccr.buffalo.edu) and go to your [user profile](https://coldfront.ccr.buffalo.edu/user/user-profile/).  Then click on the `Upgrade Account` button.  This generates an email to CCR's system administrators who will respond after verifying your university status.  
 
-Once upgraded you'll be able to create a new project and request allocations to resources.  To create a project, login to ColdFront and click on the `Add a Project` button.  Fill out the short form with a project name of your choice, select the field of science that your research generally falls under (or select `Other` if not in the list), and provide a brief description of your research.  In general, we recommend that each PI maintains only one project in ColdFront for their research group.  Therefore, a general description of your research is appropropriate here.  If you are managing a research group AND using CCR for courses, we recommend creating separate projects for your courses.  This will make it easier for you to manage the students on your projects.  Once your project is created, add your group members or students ([see here](#add-or-remove-users)) and request allocations to the resources you'd like the group to utilize ([see here](#request-an-allocation)).  Once your project has been created take a moment to add any publications, grants, or research output which helps us keep track of the scientific impact of our center.  Once per year, you'll be required to review your project and provide updates if there are any.  [See below](#complete-yearly-project-review) for details on the short yearly project review process.  
+Once upgraded you'll be able to create a new project and request allocations to resources.  To create a project, login to ColdFront and click on the `Add a Project` button.  Fill out the short form with a project name of your choice, select the field of science that your research generally falls under (or select `Other` if not in the list), and provide a brief description of your research.  In general, we recommend that each PI maintains only one project in ColdFront for their research group.  Therefore, a general description of your research is appropropriate here.  If you are managing a research group AND using CCR for courses, we recommend creating separate projects for your courses.  This will make it easier for you to manage the students on your projects.  Once your project is created, [add your group members or students](#add-or-remove-users) and [request allocations](#request-an-allocation) to the resources you'd like the group to utilize.  Once your project has been created take a moment to add any publications, grants, or research output which helps us keep track of the scientific impact of our center.  Once per year, you'll be required to review your project and provide updates if there are any.  [See additional details below](#complete-yearly-project-review) for information on the short yearly project review process.  
 
 
 ## Add or Remove users
@@ -49,7 +48,7 @@ You can also remove users from your project by clicking on your project and unde
     When adding a user to your project you can optionally designate them as a
     "Manager" by selecting their role using the drop down next to their email.
     A "Manager" is a user who has the same permissions as the PI to add/remove
-    users, request/renew allocations, add/remove project info such as grants,
+    users, request/renew allocations, add/remove project information such as grants,
     publications, and research output.  Managers may also complete the annual
     project review. You can modify a user's role at any time by clicking on
     the `Edit` button next to the user's name.
@@ -70,7 +69,7 @@ To request an allocation to a CCR resource follow these easy steps:
 
 Once you submit your allocation request it will be reviewed by center staff members and you will receive an email confirmation when it's approved.  At this point, you will have access to the resource.
 
-**Not sure what to request an allocation for?** [Check out this for more information](../available-resources.md)  
+**Not sure what to request an allocation for?** [Refer to this list of available resources](../available-resources.md)  
 
 !!! Tip "Allocation Review Process"  
     New allocation requests, allocation renewals, and allocation change requests are reviewed and activated by CCR staff once per week. You can login to ColdFront and check the status of your allocation to see what state it is in.  If your allocation status is 'New', access to the resource has not yet been granted.  Email notifications are sent when allocation statuses are updated.  
@@ -82,7 +81,7 @@ Allocations are approved for a specific time period (by default this is 1 year).
 
 Please note that renewing allocations is a separate step from the [annual project review](#complete-yearly-project-review).  Projects must be updated once every 365 days but allocations expire at different intervals.  Sometimes you will need to review your project prior to renewing your allocations and other times you will not.  
 
-When renewing allocations to a service that requires payment, CCR staff will use the account you previously provided to bill for the upcoming term.  If you'd like to change this, please submit an allocation change request updating the account number, or contact [CCR Help](../help.md).  Instructions can be found here:  
+When renewing allocations to a service that requires payment, CCR staff will use the account you previously provided to bill for the upcoming term.  If you'd like to change this, please submit an allocation change request updating the account number, or contact [CCR Help](../help.md).  Instructions can be found for the following topics:  
 [HPC Storage](../howto/purchases.md#how-to-renew-an-existing-hpc-storage-purchase)  
 [Cloud Compute Packages & Storage](../howto/purchases.md#renewing-cloud-purchases)  
 [Supporters Boost](../howto/purchases.md#supporters-priority-boost)
@@ -90,14 +89,14 @@ When renewing allocations to a service that requires payment, CCR staff will use
 
 ## Allocation Change Requests  
 
-To request additional HPC project storage, cloud storage or cloud compute credits, please use the allocation change request feature in ColdFront.  Navigate to your active allocation for the resource that you want to purchase more of, then click on the `Request Change` button.  Some of these services may requirement payment.  Please refer to these instructions for more info on how to fill out the allocation change request form:  
+To request additional HPC project storage, cloud storage or cloud compute credits, please use the allocation change request feature in ColdFront.  Navigate to your active allocation for the resource that you want to purchase more of, then click on the `Request Change` button.  Some of these services may requirement payment.  Please refer to these instructions for more information on how to fill out the allocation change request form:  
 
 [HPC Storage](../howto/purchases.md#how-to-initiate-an-hpc-storage-purchase)  
 [Cloud Compute Packages](../howto/purchases.md#cloud-compute-credits)  
 [Cloud Storage](../howto/purchases.md#cloud-storage)  
 
 **Date Extension Requests:**  
-This should be used for short term extensions such as scratch storage extensions or class access beyond the end of a semester.  If your allocation is up for renewal, please use the allocation renewal process instead.
+This should be used for short term extensions such as scratch storage extensions or class access beyond the end of a semester.  If your allocation is up for renewal, please use the [allocation renewal process](#allocation-renewals) instead.
 
 
 ## Complete yearly project review
@@ -105,7 +104,7 @@ This should be used for short term extensions such as scratch storage extensions
 CCR requires the annual review of all projects.  We ask that PIs or project managers update the project description and field of science, if necessary, and
 remove any users that should no longer have access.  During this review we ask that you update your grant and publication information to ensure it is
 up-to-date. This information is used in reports CCR provides to UB's administration demonstrating the research and work CCR's resources enable each
-year.
+year.  Accurate data input by faculty ensures robust reporting of return on investment and center impact.  Thank you for your assistance!
 
 When your project review is required, you will see a banner at the top of the project detail page that includes a link to the project review process along
 with `You need to review this project`

@@ -1,6 +1,6 @@
 # OnDemand
 
-Open OnDemand is a browser based single point of access for all of CCR's clusters and shared storage.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, and access interactive applications such as remote desktops to cluster nodes, as well as GUI-based software like Jupyter Lab/Notebook, Matlab, RStudio, VMD, and VSCode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
+Open OnDemand is a browser based, single point of access for all of CCR's HPC clusters and shared storage.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, access interactive applications such as remote desktops to cluster nodes and GUI-based software like Jupyter Lab/Notebook, Matlab, RStudio, VMD, and VSCode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
 
 _**This product is an open source project developed by [Ohio Supercomputer Center](https://openondemand.org).**_
 
@@ -10,22 +10,17 @@ Watch this virtual workshop to learn more about Open OnDemand at CCR:
 ## Login to CCR's OnDemand  
 
 !!! Warning "VPN Required"
-    Access to OnDemand is restricted to UB and Roswell Park networks
-    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
+    Access to OnDemand is restricted to UB and Roswell Park networks (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)).
 
-Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Don't have one yet? [See here](../getting-access.md)  
+Login to [OnDemand](https://ondemand.ccr.buffalo.edu) with your CCR account.  Refer to CCR's [account creation instructions](../getting-access.md) if you don't already have an account.  
 
 
 !!! Tip "First Login - Additional Steps"
-    On first login your home directory will need to be created.  Follow the
-    instructions provided after login to initiate the creation of your home
-    directory and SSH key pair for use on the cluster within the OnDemand
-    terminal app. If, after completing the steps, the OnDemand dashboard does
-    not reload, log out and back in again.  
+    On first login your home directory will need to be created.  Follow the instructions provided after login to initiate the creation of your home directory and SSH key pair for use on the cluster within the OnDemand terminal app. If, after completing the steps, the OnDemand dashboard does not reload, log out and back in again.  
 
 ## OnDemand Features  
 
-This video provides a walk through demonstration of using CCR's Open OnDemand portal:
+Watch his video for a walk through demonstration of using CCR's Open OnDemand portal:
 ![type:video](https://www.youtube.com/embed/7hyA1sM7Ftk) 
 
 
@@ -43,7 +38,7 @@ The `Quick Launch` General-Compute and Debug Desktop apps provide a one click ea
 
 ### Clusters (terminal window)  
 
-This provides command line access to cluster login nodes.  CCR's OnDemand portal displays links for the UB-HPC and faculty clusters but these both point to the same login pool: vortex.ccr.buffalo.edu which will login you in to one of several login servers.  Here you can run Linux commands as you would if you were to SSH into a login node.  These login servers provide access to the shared storage and the Slurm scheduler to submit jobs to any of the clusters.  
+This provides command line access to cluster login nodes.  CCR's OnDemand portal displays links for the UB-HPC and faculty clusters but these both point to the same login pool: `login.ccr.buffalo.edu` which will login you in to one of several login servers.  Here you can run Linux commands as you would if you were to SSH into a login node.  These login servers provide access to the shared storage and the Slurm scheduler to submit jobs to any of the clusters.  
 
 !!! Note  
     The default Slurm cluster on these login nodes is ub-hpc cluster so faculty cluster users will need to specify the option "-M faculty" with all Slurm commands.
@@ -57,16 +52,16 @@ The Files App in OnDemand allows users to easily transfer files to or from their
 
 Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/[CCRusername]`.  If you have access to a shared project or global scratch directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
 
-You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  We provide information about using `rclone` to do that [here](../hpc/data-transfer.md#rclone) with an example of setting up a OneDrive link.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done this setup after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
+You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  Refer to the documentation(../hpc/data-transfer.md#rclone) about using `rclone` to setup the connections with UB Box and/or OneDrive.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done this setup after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
 
 **OneDrive**  
-Follow [these instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) to complete the initial connection with OneDrive using RClone.
+Follow [the OneDrive instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) to complete the initial connection with OneDrive using RClone.
 
 **UB Box**  
-Follow [these instructions](https://rclone.org/box/) to complete the initial connection with UB Box using RClone.  
+Follow [the UB Box instructions](https://rclone.org/box/) to complete the initial connection with UB Box using RClone.  
 
 **Globus**  
-The `Globus` button in the `Files` app provides easy access to CCR's mapped collections.  Clicking the button opens a new browser window to the Globus interface and automatically opens the mapped collection associated with the directory you are currently in.  For example, if you are in your home directory in the `Files` app and click the `Globus` button, you'll be placed in the `UBuffalo - Center for Computational Research Home Directories` mapped collection and you'll see your files. If the `Globus` button is greyed out, this means there is no mapped collection associated with that directory.  For more information about using Globus, [see here](../hpc/data-transfer.md#globus-transfers).    
+The `Globus` button in the `Files` app provides easy access to CCR's mapped collections.  Clicking the button opens a new browser window to the Globus interface and automatically opens the mapped collection associated with the directory you are currently in.  For example, if you are in your home directory in the `Files` app and click the `Globus` button, you'll be placed in the `UBuffalo - Center for Computational Research Home Directories` mapped collection and you'll see your files. If the `Globus` button is greyed out, this means there is no mapped collection associated with that directory.  Refer to the [Globus documentation](../hpc/data-transfer.md#globus-transfers) for more information.    
 
 ### Interactive Apps  
 
@@ -82,7 +77,7 @@ All the desktop and interactive apps have select menus that get pre-populated.  
 
 #### Desktop Interactive Apps   
 
-Previously, CCR provided separate desktop apps for the UB-HPC and Faculty clusters.  Now there is one app for both and users are able to select which cluster to submit to.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), amount of memory (RAM), or specific node features you may enter that in the form.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  
+The interactive desktop app launches a job on a compute node in the UB-HPC or Faculty cluster and provides the user with a Linux desktop experience.  The interactive desktop app form requires the user to select which cluster they want the job submitted to, as well as which partition, qos, and account to use for the job.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Access to partitions and QOS values is managed through [allocations in ColdFront](coldfront.md#request-an-allocation).  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), GPUs, amount of memory (RAM), run time (walltime), or specific node features you may enter that in the appropriate form fields.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  The [default walltime](../hpc/jobs.md#slurm-directives-partitions--qos) varies by partition.
 
 
 !!! Info "Missing Something?"  
@@ -102,7 +97,7 @@ Most software GUIs can run on any compute node at CCR through the `UB-HPC & Facu
 
 The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter Notebook apps provided in OnDemand.  For those using the latest CCR software release (`ccrsoft/2023.01`) there are two Jupyter apps available.  
 
-- The "Quick Launch Jupyter Lab/Notebook" app allows you to select which Slurm account you want to run this job under, the number of GPUs to request (if any), whether to use Jupyter Lab instead of Jupyter Notebook, and if you'd like to receive emails about your job.  You may also list additional modules to load with Jupyter.  
+- The "Quick Launch Jupyter Lab/Notebook" app allows you to select which Slurm account you want to run your job under, the number of GPUs to request (if any), whether to use Jupyter Lab instead of Jupyter Notebook, and if you'd like to receive emails about your job.  You may also list additional [software modules](../software/modules.md) to load with Jupyter.  
 - The "Jupyter Lab/Notebook Advanced Options" app gives you the same options as the Quick Launch app but provides many other options for the user to specify including CPUs, RAM (memory), time for job to run (walltime), and [node features](../hpc/jobs.md#node-features).
 
 **Loading additional software modules with Jupyter:**  
@@ -134,22 +129,22 @@ When the Jupyter app starts, it will launch these additional modules with it and
     You do not need to list toolchain dependencies multiple times.  If the modules you want to use all depend on the same toolchain, you can list that one time at the start of your list.  Note that the `foss` toolchain contains GCC and other packages.  The `gcccore` toolchain only contains GCC, while the `gcc` toolchain contains `gcccore` and additional packages.  You can test loading modules on the command line prior to attempting to use them with a Jupyter Notebook to ensure the order you specify works.  
 
 **Accessing a virtual environment from Jupyter**  
-In order to access a [virtual environment](../howto/python.md#virtual-environments) you've created within Jupyter, you must install `ipykernel` in the virtual environment and [create a kernel](../howto/python.md#jupyter-kernels).
+In order to access a [virtual environment](../howto/python.md#virtual-environments) you've created within the Jupyter Notebook/Lab app, you must install `ipykernel` in the virtual environment and [create a kernel](../howto/python.md#jupyter-kernels).
 
 
 #### Jupyter App for Containers  
 
-The "Jupyter Lab/Notebook - Containers" interactive app allows users to utilize [container workflows](../howto/containerization.md#example-gpu-container-workflow) with Jupyter.  Users must specify the full path and name of an Apptainer container which has Jupyter installed within it.  Many official NVIDIA containers, particularly those in the [NVIDIA NGC catalog](https://catalog.ngc.nvidia.com/containers) for deep learning and data science (i.e. PyTorch and TensorFlow), include Jupyter or JupyterLab. These containers are preconfigured to provide an accelerated, GPU-ready environment for developing and running Jupyter notebooks. When using a virtual environment with a container, be sure to install `ipykernel` and [create a kernel](../howto/python.md#jupyter-kernels) to access the virtual environment within Jupyter. 
+The "Jupyter Lab/Notebook - Containers" interactive app allows users to utilize [container workflows](../howto/containerization.md#example-gpu-container-workflow) with Jupyter.  Users must specify the full path and name of an Apptainer container which must have Jupyter installed within it.  Many official NVIDIA containers, particularly those in the [NVIDIA NGC catalog](https://catalog.ngc.nvidia.com/containers) for deep learning and data science (i.e. PyTorch and TensorFlow), include Jupyter or JupyterLab. These containers are preconfigured to provide an accelerated, GPU-ready environment for developing and running Jupyter notebooks. We highly recommend using the NVIDIA provided containers for the most up-to-date software, rather than CCR's older software modules.  When using a virtual environment with a container, be sure to install `ipykernel` and [create a kernel](../howto/python.md#jupyter-kernels) to access the virtual environment within Jupyter. 
 
 **None of the OnDemand applications work with the `arm64` partition. Users must use [interactive or batch jobs](../hpc/jobs.md#running-jobs) for these nodes.**
 
 #### Matlab App  
 
-Matlab is available to UB faculty, staff, and students through the university's site license.  It can be run on the command line via a [batch job](../hpc/jobs.md#running-applications-on-the-clusters), launching the GUI from an [interactive desktop](#desktop-interactive-apps) session, or using the Matlab interactive app in OnDemand.  When using the interactive app, select which version of Matlab you'd like to run from the drop down menu.  When the job launches on a node, the Matlab GUI will display automatically.  
+Matlab is available to UB faculty, staff, and students through the university's site license. Matlab is not available to industry customers.  It can be run on the command line via a [batch job](../hpc/jobs.md#running-applications-on-the-clusters), launching the GUI from an [interactive desktop](#desktop-interactive-apps) session, or using the Matlab interactive app in OnDemand.  When using the interactive app, select which version of Matlab you'd like to run from the drop down menu.  When the job launches on a node, the Matlab GUI will display automatically.  
 
 #### RStudio App
 
-The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users can select from a drop down menu that includes CCR's default R installation or containerized options.  CCR provides 4 additional versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own.  As long as the container includes the RStudio application, it should launch the GUI properly.  When using your own container image, please enter the full path and name of the Apptainer image you'd like to use.  For information on containers, please refer [here](../howto/containerization.md). 
+The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users can select from a drop down menu that includes CCR's default R installation or containerized options.  CCR provides 4 additional versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own.  As long as the container includes the RStudio application, it should launch the GUI properly when using this app.  When using your own container image, please enter the full path and name of the Apptainer image you'd like to use.  Refer to CCR's [container documentation](../howto/containerization.md) for more information.  
 
 !!! Danger "R library installation"  
     Recent versions of R require libraries which are version locked.  To ensure any libraries you install are only available to the R version you installed them with, this app automatically uses the `$HOME/Rlibs/<IMAGE_TAG>` directory. If that doesn't exist, it is automatically created.  
@@ -160,19 +155,21 @@ The [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) int
 
 #### VSCode App  
 
-Visual Studio Code (VSCode) is a popular integrated development environment (IDE) that allows users to edit code in various programming languages.   Extensions available for VSCode allow users to access most popular languages and runtimes, connect to Github, and test workflows.  The application has a built-in SSH client allowing users to connect to remote servers to code directly on the server but while utilizing their personal device.  Unfortunately, almost none of those features work in the CCR HPC environment.  Though we can appreciate how handy many of these features are, they are not easy to support on an HPC system. If you're going to use VSCode in CCR's HPC environment, we HIGHLY recommend first reviewing the material in the UB Learns ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course.  There are two sections dedicated to the proper use of VSCode on our systems.
+Visual Studio Code (VSCode) is a popular integrated development environment (IDE) that allows users to edit code in various programming languages.   Extensions available for VSCode allow users to access most popular languages and runtimes, connect to Github, and test workflows.  The application has a built-in SSH client allowing users to connect to remote servers to code directly on the server from their personal device.  Unfortunately, almost none of those features work in the CCR HPC environment.  Though we can appreciate how handy many of these features are, they are not easy to support on an HPC system. If you're going to use VSCode in CCR's HPC environment, we HIGHLY recommend first reviewing the material in the UB Learns ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course.  There are two sections dedicated to the proper use of VSCode on our systems.
 
 These are just a few of the oddities to note about how VSCode functions at CCR:
 
   - Loading modules when VSCode starts does not work the same way as described above for the Jupyter Lab/Notebook app.  You will need to load the software modules in a VSCode terminal after the application has started.  Despite doing this, not all software modules will work correctly in the VSCode terminal.
-  - VSCode can't detect the CCR software repository and load Python and its dependencies. When choosing an interpreter, the default Python installation will be the system Python and should NOT be used. Instead, you must use a properly set up [virtual environment](../howto/python.md#virtual-environments).
+  - VSCode can't detect the CCR software repository and load Python and its dependencies. When choosing an interpreter, the default Python installation will be the system Python and should NOT be used. Instead, you must use a properly configured [virtual environment](../howto/python.md#virtual-environments).
   - If creating a virtual environment in VSCode, use the terminal and [these instructions](../howto/python.md#virtual-environments), NOT the Python extension and its options for creating virtual environments.  
   - Sometimes installing extensions works and sometimes it doesn't. CCR users have the permission to install extensions in their home directories but CCR support can't guarantee the installation will work, nor can we dedicate time to troubleshooting those issues.  If you're using a Python extension, make sure you pay attention to the first two items in this list  
+  - Port forwarding is not permitted to CCR's login nodes; therefore, you will not be able to use VSCode on your device and connect to CCR's login or compute nodes.  
 
 
 **Job Card Formating**  
 
-There are additions to the job cards in OnDemand 3.0 including a link to submit a help ticket that links directly to the job for easier review by the CCR IT staff.  You'll notice the verbage has changed with respect to actions you can take on a job.  A running or queued job has the `cancel` option which cancels the job and removes it from the queue.  Once a job has been completed, you can `delete` it which removes it from your list of most recent jobs.  This does NOT delete the job data in your home directory so you will need to periodically clean up data you no longer want.  The session ID link will take you directly to the subdirectory where the job's data and output files are stored.  
+Job cards in OnDemand version 3.x include a link to submit a help ticket that links directly to the job for easier review by CCR IT staff.  A running or queued job has the `cancel` option which cancels the job and removes it from the queue.  Once a job has been completed, you can `delete` it which removes it from your list of most recent jobs.  This does NOT delete the job data in your home directory so you will need to periodically [clean up data](../howto/ood-trouble.md#where-can-i-find-the-output-files-for-my-ondemand-sessions) you no longer want.  The session ID link will take you directly to the subdirectory where the job's data and output files are stored.  
+
 
 ![](../images/ood3-job.png)
 
@@ -192,23 +189,23 @@ Below the detailed job information for any job currently running, you will see t
 
 **Job Composer**  
 
-The Job Composer provides a template system for creating and managing batch jobs from within the OnDemand interface.  Please see the documentation provided by [Open OnDemand developers](https://osc.github.io/ood-documentation/latest/applications/job-composer.html) for more information  
+The Job Composer provides a template system for creating and managing batch jobs from within the OnDemand interface.  This application has been discontinued and is no longer supported.  We recommend new users do not use it as it will be replaced in OnDemand version 4.x.  For usage information please refer to the documentation provided by [Open OnDemand developers](https://osc.github.io/ood-documentation/latest/applications/job-composer.html). 
 
 ### My Interactive Sessions  
 
-This section displays your currently running sessions and those that just recently finished.  The completed jobs stay in this list for 2 days allowing you to access the link to the jobs' output files.  You can remove the links by clicking the `Delete` button.  However, this does not delete the job data directory and output files.
+The interactive sessions section of the OnDemand portal displays your currently running sessions and those that just recently finished.  The completed jobs stay in this list for 2 days allowing you to access the link to the jobs' output files.  You can remove the links by clicking the `Delete` button.  However, this does not delete the [job data directory and output files](../howto/ood-trouble.md#where-can-i-find-the-output-files-for-my-ondemand-sessions).
 
 !!! Note "Managing your OnDemand Disk Usage"
     To clear up disk space in your home directory, you can remove directories for completed jobs when you're done retrieving the job output data.  You can find these in subdirectories under: `/user/[CCRusername]/ondemand/data/sys/dashboard/batch_connect/sys`  
 
 ### Develop (Sandbox)  
 
-OnDemand allows users the ability to create their own interactive apps and run them in a 'sandbox' environment.  CCR does not turn this on by default, however.  Please [contact CCR Help](../help.md) to request this feature be enabled for your account.  Once it is, you'll find the `My Sandbox Apps (Development)` option under the `</>Develop` menu in OnDemand.  More information about app development is provided by the [Open OnDemand developers here](https://osc.github.io/ood-documentation/latest/app-development)  
+OnDemand allows users the ability to create their own interactive apps and run them in a 'sandbox' environment.  CCR does not turn this on by default, however.  Please [contact CCR Help](../help.md) to request this feature be enabled for your account.  Once it is, you'll find the `My Sandbox Apps (Development)` option under the `</>Develop` menu in OnDemand.  Please refer to the documentation on app development provided by the [Open OnDemand developers here](https://osc.github.io/ood-documentation/latest/app-development).  
 
 ### Help  
 
-The Help menu offers links to CCR's support contact info, documentation, and the ability to restart your OnDemand web process.  Occasionally, you'll find your OnDemand session may be slow or unresponsive.  Users can choose the `Restart Web Server` option to restart the process that runs their individual OnDemand session.  Most of the time you will not need to do this unless directed to by CCR staff.  You may use the `Submit Support Ticket` option to easily submit a ticket to CCR help.  If you're contacting us regarding a specific job, please use the `Submit Support Ticket` button on the job card so that all the relevent job information is included in the ticket.  Then we don't have to ask you for it!    
+The Help menu offers links to CCR's support contact information, documentation, and the ability to restart your OnDemand web process.  Occasionally, you'll find your OnDemand session may be slow or unresponsive.  Users can choose the `Restart Web Server` option to restart the process that runs their individual OnDemand session.  Most of the time you will not need to do this unless directed to by CCR staff.  You may use the `Submit Support Ticket` option to easily submit a ticket to CCR help.  If you're contacting us regarding a specific job, please use the `Submit Support Ticket` button on the job card so that all the relevent job information is included in the ticket.  Then we don't have to ask you for it!    
 
 ### Troubleshooting  
 
-[See here](../howto/ood-trouble.md)
+Please refer to CCR's OnDemand [troubleshooting guide](../howto/ood-trouble.md).
