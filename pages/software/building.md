@@ -55,7 +55,7 @@ When building software with EasyBuild, it's very important to pay attention to
 the compiler and compiler version as it will be much easier to build software
 for [a compiler CCR already supports](releases.md).
 
-Easybuild proved more information on the [EasyBuild website](https://docs.easybuild.io/en/latest/).
+Easybuild provides more information on the [EasyBuild website](https://docs.easybuild.io/en/latest/).
 
 EasyBuild will take care of compiling, installing, and creating a Modulefile
 for you. CCR provides EasyBuild as it's own module and has pre-configured
