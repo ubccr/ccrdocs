@@ -4,12 +4,11 @@ This page includes information about account policies, including maintaining acc
 
 ## Accounts and Data Retention Policy
 
-CCR accounts are available to UB faculty, their collaborators and students either working with them or in a class that requires access to CCR.  Account requirements and application info can be found [here](../getting-access.md#requirements-for-accessing-ccrs-resources).
+CCR accounts are available to UB faculty, their collaborators and students either working with them or in a class that requires access to CCR.  Account requirements and application information can be found in the [CCR accounts documentation](../getting-access.md#requirements-for-accessing-ccrs-resources).
 
 ### Allocations to Resources
 
-All access to CCR resources (clusters, servers, research cloud, project storage, software licenses)  is granted and revoked via allocations.  Allocations are managed by PIs in ColdFront
-(https://coldfront.ccr.buffalo.edu).  Users should login to ColdFront to see what allocations they have access to and when they expire.  Faculty should renew allocations before expiration.  If an allocation expires, any user on that allocation will be no longer be able to access that resource.  Expired allocations can't be renewed.  A new allocation request must be submitted to gain access to the resource again.  More details can be found in the ColdFront documentation.
+All access to CCR resources (clusters, servers, research cloud, project storage, software licenses)  is granted and revoked via allocations.  Allocations are managed by Primary Investigators (PIs) in [ColdFront](https://coldfront.ccr.buffalo.edu).  Users should login to [ColdFront](https://coldfront.ccr.buffalo.edu) to see what allocations they have access to and when they expire.  Faculty should renew allocations before expiration.  If an allocation expires, any user on that allocation will be no longer be able to access that resource.  Expired allocations can't be renewed.  A new allocation request must be submitted to gain access to the resource again.  More details can be found in the ColdFront documentation.
 
 
 ### Yearly Project Review
@@ -35,7 +34,7 @@ Data – All data owned by your account on our systems will be deleted within 30
 
 **Class Accounts**
 
-Account – Accounts provided for class work are valid for the semester that the class is offered in and automatically terminated at the end of the semester.  If a student requires additional time to complete coursework, the professor teaching the course must [contact CCR help](../help.md) to request an extension on the account.  Student accounts that are also sponsored by a faculty member remain active after the course ends, subject to the policies in the “faculty sponsored accounts” section below.
+Account – Accounts provided for class work are valid for the semester that the class is offered in and automatically terminated at the end of the semester.  If a student requires additional time to complete coursework, the professor teaching the course must contact [CCR help](../help.md) to request an extension on the account.  Student accounts that are also sponsored by a faculty member remain active after the course ends, subject to the policies in the “faculty sponsored accounts” section below.
 
 Data – Data in a student’s home directory created for a class account is deleted 30 days after account termination.  This includes data on CCR’s network attached storage systems (user & course project directories), local compute node and global scratch directories, and cloud instances and storage (if applicable).
 
@@ -150,7 +149,7 @@ iquota -p /projects/academic/[YourGroupName]
 **Requesting a data restore**  
 Every effort will be made to retrieve requested data files from the backups, however we do not guarantee that the data can be recovered.  As stated above, we strongly recommend you keep copies of your important data on your personal machine, external disk, or cloud service.  
 
-To request a file or directory be restored from backup tape, please [contact CCR help](../help.md) providing the following information:  
+To request a file or directory be restored from backup tape, please contact [CCR help](../help.md) providing the following information:  
 
 - Full file location to be restored,  
 - Name of file(s)/directory(ies) to be restored  
@@ -161,7 +160,7 @@ To request a file or directory be restored from backup tape, please [contact CCR
 
 ## Password Policies
 
-CCR maintains the same password policy as the University at Buffalo.  The [full policy can be found here](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/ubit-password.html).  We want to specifically point out these parts:  
+CCR maintains the same password policy as the University at Buffalo.  This full policy is documented on the [UB password policy page](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/ubit-password.html).  We want to specifically point out these parts:  
 
 **Individual Accountability**  
 All users of university systems are individually assigned a user-id (e.g., UBITName) and password for the purpose of accessing UB online systems.  In accordance with UB “acceptable use policies,” users are individually accountable for activities performed with their user-ids and passwords.  Passwords may not be shared with anyone, including with administrative assistants or secretaries.  UB passwords are considered to be regulated, private data.  
@@ -192,10 +191,10 @@ User and system passwords shall be constructed with strength and complexity that
 
 ## Two Factor Authentication Reset Policy  
 
-If a CCR user has lost access to the app they used to generate the time-based one-time passwords they will not be able to login to their CCR account or modify the two-factor authentication settings.  Users must contact CCR help to request the removal of this security feature.  In order to verify the account owner's identity, the user will be directed to present photo identification to a CCR staff member.  Details will be provided once you initiate [contact with CCR help](../help.md).  
+If a CCR user has lost access to the app they used to generate the time-based one-time passwords they will not be able to login to their CCR account or modify the two-factor authentication settings.  Users must contact CCR help to request the removal of this security feature.  In order to verify the account owner's identity, the user will be directed to present photo identification to a CCR staff member.  Details will be provided once you initiate contact with [CCR help](../help.md).  
 
 Once we receive this information, we will remove the two-factor authentication setting from your account and you'll be able to login with your password.
 
 ## Preferred Name  
 
-If you wish to change the name on your CCR account, please contact [CCR Help](../help.md).  No reason for the change is necessary.  The username for the account will remain the same.  CCR does not store pronouns in our account systems at this time.  TeamDynamix currently doesn't store this information either.If you include your pronouns in your ticket details, we will gladly use them when replying to your help tickets.  For additional information on the University at Buffalo's preferred name policy, please see [here](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/student-preferred-name.html)  
+If you wish to change the name on your CCR account, please contact [CCR Help](../help.md).  No reason for the change is necessary.  The username for the account will remain the same.  CCR does not store pronouns in our account systems at this time.  TeamDynamix currently doesn't store this information either.If you include your pronouns in your ticket details, we will gladly use them when replying to your help tickets.  For additional information on the University at Buffalo's preferred name policy, please see [UB's preferred name policy documentation](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/student-preferred-name.html)  
