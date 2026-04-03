@@ -1,13 +1,12 @@
 # Available Software
 
 CCR maintains a suite of software programs, libraries, and toolchains, called
-"Standard Software Environments", for use on our clusters. For details, [see
-here](releases.md).
+["Standard Software Environments"](releases.md), for use on our clusters.
 
-The HPC clusters can execute most software that runs under Linux. In many
+The HPC clusters can execute most software that runs under Linux.  In many
 cases, the software you need will already be installed and available to you on
-the compute nodes. You access the software using what's called a "module".  If
-the software you need is not available, you [can ask our staff](building.md#software-build-requests)
+the compute nodes.  You access the software using what's called a "module".  If
+the software you need is not available as a [module](../modules/#using-modules) or a [container](../howto/containerization.md), you [can ask our staff](building.md#software-build-requests)
 to install it for you or [do it yourself](building.md).
 
 Watch this virtual workshop to learn more about using software on CCR's HPC systems:  
@@ -23,8 +22,8 @@ versions without conflicts. Users can also build and maintain their own modules
 for more fine grained control over your groups environment. 
 
 Modules are managed using a tool called [Lmod](https://lmod.readthedocs.io)
-developed by [TACC](https://www.tacc.utexas.edu/). For a more comprehensive
-overview of Lmod you can read the [user guide here](https://lmod.readthedocs.io/en/latest/010_user.html). 
+developed by the [Texas Advanced Computing Center (TACC)](https://www.tacc.utexas.edu/). For a more comprehensive
+overview of Lmod you can read the [Lmod user guide](https://lmod.readthedocs.io/en/latest/010_user.html). 
 
 To see what software modules are available, ssh into the login node and run:
 
@@ -122,7 +121,7 @@ CCR supports the following CPU architectures:
 | x86-64-v4 (formerly avx512)        | Intel Cascade Lake-SP, Ice Lake-SP, Sapphire Rapids-SP, Emerald Rapids-SP, AMD Zen4              |
 | neoverse-v2          |      ARMv9.0-A NVIDIA Gracehopper                             |
 
-For specific software environment and compiler versions, [see our releases page](releases.md).
+For specific software environment and compiler versions, see [CCR's software releases page](releases.md).
 
 ## Loading Modules in a Job Script
 
@@ -150,15 +149,15 @@ For more information, see the [Running Jobs section](../hpc/jobs.md).
 
 ## Application Specific Notes
 
-CCR maintains a [repository](https://github.com/ubccr/ccr-examples) of examples for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.  
+CCR maintains a [repository of examples](https://github.com/ubccr/ccr-examples) for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.  
 
 ### Abaqus  
 
-See [here](https://github.com/ubccr/ccr-examples/tree/main/containers/2_ApplicationSpecific/abaqus) for an example of running Abaqus with Apptainer.
+See [CCR's Abaqus container documentation](https://github.com/ubccr/ccr-examples/tree/main/containers/2_ApplicationSpecific/abaqus) for an example of running Abaqus with Apptainer.
 
 ### AlphaFold
 
-See [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/alphafold/README.md) for an example of running AlphaFold2.
+See [CCR's AlphaFold container documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/alphafold/README.md) for an example of running AlphaFold2.
 
 ### Anaconda Python
 
@@ -175,14 +174,14 @@ CCR does not support running Anaconda natively in the HPC environment. Please do
 As an alternative, we suggest one of the following options for using and installing Python packages:  
 1. Use CCR's modules that already include many [popular python packages](#python)  
 2. Create your own custom python module bundles using [Easybuild](../howto/easybuild.md).  
-3. Use a container with conda installed.  We provide a simple [example](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) of building and customizing a container for conda in our [`ccr-examples` repository](https://github.com/ubccr/ccr-examples).  For more information about using containers on CCR's systems, [see here](../howto/containerization.md).  
+3. Use a container with conda installed.  We provide a simple [Conda container example](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) of building and customizing a container for conda in our [`ccr-examples` repository](https://github.com/ubccr/ccr-examples).  For more information about using containers on CCR's systems, see [CCR's container documentation](../howto/containerization.md).  
 
 For more details please refer to our [Python documentation](../howto/python.md) or check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  
 
 
 ### LS-DYNA  
 
-See [here](https://github.com/ubccr/ccr-examples/tree/main/slurm/2_ApplicationSpecific/lsdyna) for an example of using LS-DYNA.
+See [CCR's LS-DYNA container documentation](https://github.com/ubccr/ccr-examples/tree/main/slurm/2_ApplicationSpecific/lsdyna) for an example of using LS-DYNA.
 
 ### Perl
 
@@ -251,14 +250,14 @@ If you require other python libraries not included within CCR's python modules, 
 
   - Not sure?  Check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns for a full walk through of all the Python options and suggestions for when to use each one.  
   - Prefer to read documentation?  Check out this [How to Use Python at CCR](../howto/python.md) page.
-  - Already know you want to use containers?  See [here](../howto/containerization.md) for CCR's container docs.  If you're using GPU-enabled codes, make sure to review [this guide](../howto/containerization.md#gpu-enabled-containers-with-apptainer) first!  
+  - Already know you want to use containers?  See [CCR's container documentation](../howto/containerization.md).  If you're using GPU-enabled codes, make sure to review [CCR's GPU container guide](../howto/containerization.md#gpu-enabled-containers-with-apptainer) first!  
   - Already using other Easybuild modules and want to build your own Python bundle?  See [here](../howto/easybuild.md) for instructions.  
-  - Already have your Python environment ready to go?  See [here](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.  
-  - Know you really can't do without conda?  See [here](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) for an example of how to build and run a conda container.
+  - Already have your Python environment ready to go?  See [CCR's Python documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.  
+  - Know you really can't do without conda?  CCR provides [Conda container documentation](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) for an example of how to build and run a conda container.
 
  
 
-### R
+### R - The statistical computing and graphics application
 
 **Software Modules**  
 

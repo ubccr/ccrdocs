@@ -4,7 +4,7 @@ CCR supports a wide variety of CPU Microarchitectures. All of our software is
 compiled with specific optimizations enabled to take advantage of the various
 features of each Microarchitecture. This section includes guidelines for running
 on specific architectures including any additional steps required for successful
-job submission. For more information on CPU Microarchitectures see here:
+job submission. For more information on CPU Microarchitectures see the following:
 
 - [x86\_64 Microarchitecture Levels](https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels)
 - [ARM Architecture Family](https://en.wikipedia.org/wiki/ARM_architecture_family#Cores)
@@ -72,7 +72,7 @@ Example of an sbatch script for running on the Grace Hopper nodes:
 #SBATCH --output=results.txt
 ```
 
-These are simple examples.  For more information on properly requesting cores and nodes, [see here](../hpc/jobs.md#requesting-cores-and-nodes).  For more details on Slurm directives [see here](../hpc/jobs.md#slurm-directives-partitions-qos).  
+These are simple examples.  CCR's documentation provides more information on properly requesting [cores and nodes](../hpc/jobs.md#requesting-cores-and-nodes) and [Slurm directives](../hpc/jobs.md#slurm-directives-partitions-qos).  
 
 For GPU workloads we highly recommend using [NVIDIA NGC containers](https://catalog.ngc.nvidia.com/containers). For example, here's NGC
 [TensorFlow](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow)
