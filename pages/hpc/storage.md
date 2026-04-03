@@ -33,7 +33,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
     - **Project directories for Roswell Park users:**  
         - Directories for individual research groups found in `/projects/rpci`  
         - Use ColdFront to request an allocation for the 'Project Storage' resource  
-        - Quotas are listed on individual allocations in ColdFront & can be viewed on the systems as [described below](#checking-quotas)  
+        - Quotas are listed on individual allocations in ColdFront & can be viewed on the systems as described in the [Checking Quotas section below](#checking-quotas)  
         - RPCI IT staff are responsible for dividing up the storage purchased from CCR.  Please contact them if you'd like your quota increased  
         - ==**NO RPCI DIRECTORIES ARE BACKED UP**==    
 
@@ -41,7 +41,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
       Due to limitations of the campus backup service, any directory containing over 50 million files is **NOT BACKED UP**.  The directory owner will be contacted if their directory reaches this level prior to stopping the backups.
 
 **Requesting a restore from backup:**  
-To request a restore of deleted files, please complete [this form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=363).  Please provide the full path of the file/directory you would like restored and the date and time you would like us to target.  This would be the last known time the file/directory was on the file system.  If it has not been on the system at least 24 hours, it will not have made it to the backup tapes.  There is no guarantee your data is available for recovery but we will attempt to recover it.  
+To request a restore of deleted files, please complete [CCR's Backup Restore Request form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=363).  Please provide the full path of the file/directory you would like restored and the date and time you would like us to target.  This would be the last known time the file/directory was on the file system.  If it has not been on the system at least 24 hours, it will not have made it to the backup tapes.  There is no guarantee your data is available for recovery but we will attempt to recover it.  
 
 ## Global Scratch
   
@@ -73,12 +73,12 @@ To request a restore of deleted files, please complete [this form](https://ubuff
 - Accessible only from cloud instances  
 - There is no guarantee of uptime or performance on cloud storage  
 - Available only to research groups with active cloud subscriptions  
-- [See here](../howto/purchases.md#cloud-storage) for cloud storage pricing
+- cloud storage pricing is explained in the [CCR cloud Storage documentation](../howto/purchases.md#cloud-storage)
 - ==**There is NO backup of data for the research cloud**==  
 
 ## Purchasing Project Storage  
 
-Refer [here](../howto/purchases.md#storage) for instructions on how to initiate a purchase or renew an annual purchase.
+Refer to the [CCR Storage Purchase Guide](../howto/purchases.md#storage) for instructions on how to initiate a purchase or renew an annual purchase.
 
 ## Checking Quotas
 
@@ -98,7 +98,7 @@ iquota -p /user/[CCRusername]
 !!! Tip  
     If you see an error like this it is usually related to conda environments:  
     `kinit: Unknown credential cache type while getting default ccache`  
-    See [the FAQ](../faq.md#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
+    See the [Frequently Asked Querstions](../faq.md#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
 
 
 **Your group's shared project directory quota:**
@@ -196,7 +196,7 @@ Once the group has been given access to Starfish the PI will be able to login us
 
 !!! Warning "VPN Required"
     Access to ColdFront is restricted to UB and Roswell Park networks
-    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
+    (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)).
 
 [Starfish Portal](https://starfish.ccr.buffalo.edu)
 
@@ -216,7 +216,7 @@ You will be considered a Starfish Zone Admin and have access to detailed usage i
 Starfish provides many avenues for viewing metadata about your data.  Users can visualize the data by age, size, and other options.  We're able to view the last time data was accessed.  You can download reports about your data in CSV format allowing you to share information with group members.  Please refer to the documentation above for more information.  
 
 **Hints:**  
-The Starfish GUI offers alot of information and capabilities!  Their "Hints" feature is very useful for basic information about each of the icons, tools, and sections.  Click on the "Hints" button at the top right to see all the available hints.  Then hover over the question mark icons to get more info.  
+The Starfish GUI offers alot of information and capabilities!  Their "Hints" feature is very useful for basic information about each of the icons, tools, and sections.  Click on the "Hints" button at the top right to see all the available hints.  Then hover over the question mark icons to get more information.  
 
 **Tagging Files & Directories:**  
 We provide "action" tags to mark files and directories for deletion in 30 or 60 days and also a "classification" tag to mark a file or directory for off-site backup (archive).  If you mark files or directories with action tags, nothing happens to the data until you tell CCR to move forward with the deletion process. Right click on a file or directory to view the different types of Tags and Actions you can take on them.  CCR does not provide archival storage.  However, groups may wish to go through their data, identify files to backup off of CCR (i.e. archive) and then generate a report for their group members to review those marked for archive.  Groups would do the archiving on their own outside of Starfish but this classification process is a nice way for groups to periodically review whether old and untouched data needs to remain taking up quota on CCR's systems.  

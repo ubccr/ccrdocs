@@ -2,9 +2,9 @@
 
 CCR maintains two clusters; *ub-hpc* and *faculty*. Within each cluster exist partitions (queues) that users can request to have their jobs run on. Not all partitions are available to all users. Below are descriptions of the clusters and the partitions. 
 
-Compute nodes on all CCR clusters are subject to monthly downtimes. Downtime information can be found [here](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)
+Compute nodes on all CCR clusters are subject to monthly downtimes. Downtime information is listed on the [Downtime Schedule page](https://docs.ccr.buffalo.edu/en/latest/changelogs/downtime-schedule)
 
-Examples on how to run on these clusters and partitions can be found [here](https://docs.ccr.buffalo.edu/en/latest/hpc/jobs/).
+Examples on how to run on these clusters and partitions can be found on the [HPC jobs page](https://docs.ccr.buffalo.edu/en/latest/hpc/jobs).
  
 ## UB-HPC Compute Cluster
 
@@ -20,7 +20,7 @@ The ub-hpc cluster contains the following partitions:
 * scavenger: Preemptible jobs on all ub-hpc nodes  
 * viz: Dedicated compute nodes to allow short jobs for visualization purposes  
 
-Access to clusters and partitions is managed through allocations in the CCR allocations portal, ColdFront.  For more details on allocation requests and using ColdFront, see [here](../portals/coldfront.md).  
+Access to clusters and partitions is managed through allocations in the CCR allocations portal, ColdFront.  For more details on allocation requests and using ColdFront, see the [Coldfront page](../portals/coldfront.md).  
 
 
 ### UB-HPC Detailed Hardware Specifications  
@@ -69,7 +69,7 @@ Use the [Slurm dashboard](https://dashboard.ccr.buffalo.edu/slurm/ubhpc) for det
 This cluster contains over 50 faculty owned or project specific partitions. Access to these partitions is determined by the owner and managed via allocations in [ColdFront](../portals/coldfront.md). All idle nodes in the faculty cluster are accessible to UB-HPC users in the scavenger partition.  Scavenger jobs will be [preemptively canceled](jobs.md#scavenging-idle-cycles) when jobs are submitted by members of the group that owns the node. To view hardware specifications for nodes in the faculty cluster, use the command:  `snodes all faculty/scavenger`     
 
 !!! Warning "Caution: Maintenance Downtimes"  
-    Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff on maintenance days.  See the [schedule here](../changelogs/downtime-schedule.md)
+    Jobs on the faculty cluster are allowed to run up until the downtime starts. Please ensure your jobs checkpoint and can restart where they left off OR request only enough time to run your job prior to the 7am cutoff on maintenance days.  See the [Downtime Schedule](../changelogs/downtime-schedule.md) for more information.
 
 
 ## Node types
@@ -97,14 +97,14 @@ CCR has several node types available in our clusters.  Each node type is meant f
 * Intended for heavy computation  
 * When running an [interactive job](./jobs.md) will be performing tasks directly on the compute nodes  
 * Only users with active jobs can log in to allocated nodes  
-* See detailed specs in [this list](#ub-hpc-detailed-hardware-specifications)  
+* See detailed specs in the [hardware specifications list](#ub-hpc-detailed-hardware-specifications)  
 
 ### Debug Nodes
 
 * Compute nodes reserved for testing and debugging jobs  
 * Accessed by submitting a debug job in slurm  
 * 1 hour walltime limit on debug jobs  
-* See detailed specs in [this list](#ub-hpc-detailed-hardware-specifications)  
+* See detailed specs in the [hardware specifications list](#ub-hpc-detailed-hardware-specifications)  
 
 ### Visualization Nodes
 
@@ -112,9 +112,9 @@ CCR has several node types available in our clusters.  Each node type is meant f
 * Accessed through [Open OnDemand](../portals/ood.md) 
 * 24 hour walltime limit on visualization jobs   
 * Select `viz` in the partition and qos drop down menus of the OnDemand apps  
-* See detailed specs in [this list](#ub-hpc-detailed-hardware-specifications)  
+* See detailed specs in the [hardware specifications list](#ub-hpc-detailed-hardware-specifications)  
 
 
 ### Data Transfer Nodes
 
-* Data Transfer Nodes (DTNs) are nodes which provide Globus [data transfer](./data-transfer.md) services at CCR
+* Data Transfer Nodes (DTNs) are nodes which provide [Globus data transfer](./data-transfer.md) services at CCR

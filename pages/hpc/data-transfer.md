@@ -22,11 +22,11 @@ CCR Supported Methods for inbound and outbound Data transfer include:
 
 !!! Warning "VPN Required" 
     Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
-    (either on campus or connected to their VPN services). [See here](../getting-access.md#vpn-access)
+    (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)).
 
 **_ * Globus transfers are available from everywhere, You do not need to be on the UB or Roswell Park networks to use Globus._**
 
-Watch this virtual workshop to learn more about data transfer options at CCR:  
+Watch the virtual workshop video to learn more about data transfer options at CCR:  
 ![type:video](https://youtube.com/embed/yYInBnY7S9Q)  
 
 ---
@@ -79,8 +79,7 @@ GUI.
 Using a Guest Collection (also known as a "Shared Endpoint"), you can share any file or folder that you have access to with anyone who
 has a Globus account. This is particularly useful for external collaborations in which data sharing is necessary.  
 
-Detailed information on creating Guest Collections is available at
-[docs.globus.org](https://docs.globus.org/how-to/share-files/)
+Globus provides detailed information on [creating Guest Collections](https://docs.globus.org/how-to/share-files/)
 
 ### Using Globus to transfer files to and from UB Box
 
@@ -140,13 +139,13 @@ From here you can initiate a file transfer by clicking your source files or dire
 
 #### Globus Integration with OnDemand  
 
-CCR users may also access Globus using the OnDemand Files app.  For more information [see here](../portals/ood.md#files-app).
+CCR users may also access Globus using the [OnDemand Files app](../portals/ood.md#files-app).
 
 
 ## Secure Shell Copy
 
 Command line terminal access is provided via the SSH protocol, while command line file transfer 
-is available with `sftp` (Secure File Transfer Protocol) and `scp` (Secure Copy).  [See here](../hpc/login.md#connecting-with-ssh) for more info on using SSH on CCR's systems.   
+is available with `sftp` (Secure File Transfer Protocol) and `scp` (Secure Copy).  More information on using SSH on CCR's system is on the [SSH login page](../hpc/login.md#connecting-with-ssh).   
 
 **to/from the Frontends:**
 
@@ -234,7 +233,7 @@ For more information on rsync [check out some of our listed resources](#more-rea
 
 ### Filezilla
 
-There are additional software products available for Windows, Mac, and Linux distributions that provide secure drag and drop interfaces for file transfer such as Filezilla which can be installed from [here](http://www.buffalo.edu/ubit/service-guides/software/downloading/windows-software/managing-your-software/filezilla.html).
+There are additional software products available for Windows, Mac, and Linux distributions that provide secure drag and drop interfaces for file transfer such as [Filezilla](http://www.buffalo.edu/ubit/service-guides/software/downloading/windows-software/managing-your-software/filezilla.html).
 
 Once installed, follow these steps to connect to CCR resources with Filezilla:
 
@@ -306,14 +305,13 @@ After the Site has been added you can connect to CCR by selecting it from the Si
 
 ## rclone
 
-**rclone** is a tool that can be used to transfer files to/from cloud storage such as Microsoft OneDrive and Box from the command line. The following are instructions on how to use rclone to transfer data to/from OneDrive. For instructions with other cloud storage, check [**rclone** Online documentation](https://rclone.org/docs/)
+**rclone** is a tool that can be used to transfer files to/from cloud storage such as Microsoft OneDrive and Box from the command line. The following are instructions on how to use rclone to transfer data to/from OneDrive. For instructions with other cloud storage, check the [**rclone** Online documentation](https://rclone.org/docs/)
 
 
-**rclone** is available as a module at CCR and needs to be loaded in the users environment first.
-See [here](../software/modules.md#using-modules) for information on using CCR's modules system.
+**rclone** is available as a [module](../software/modules.md#using-modules) at CCR and needs to be loaded in the users environment first.
 
 !!! Note
-    OneDrive requires an Internet connected web browser to obtain an authentication token from Microsoft. CCR compute nodes do not have browsers, so you will need access to a machine with rclone and a web browser. **rclone** is available for almost any platform [here](https://rclone.org/downloads/) 
+    OneDrive requires an Internet connected web browser to obtain an authentication token from Microsoft. CCR compute nodes do not have browsers, so you will need access to a machine with [**rclone**](https://rclone.org/downloads/) and a web browser.
 
 
 ### Using rclone with OneDrive
@@ -383,11 +381,11 @@ Once those steps have been completed you can paste the token into the config_tok
 > * "**Keep this "OneDrive" remote?**"
 >> * Type "**y**" for Yes this is OK (default)
 
-For additional information on remote setup including additional options see [here](https://rclone.org/remote_setup/)
+For additional information on remote setup including additional options see the [rclone setup guide](https://rclone.org/remote_setup/)
 
 !!! Error "Security Warning"
     **rclone** stores your access tokens and information about your cloud services in your configuration file. You should keep your rclone.conf file in a secure location with proper permissions set.
-    As added protection, we recommend encrypting your configuration file. Information on how to do this can be found [here](https://rclone.org/docs/#configuration-encryption)
+    As added protection, we recommend encrypting your configuration file, as per the [rclone configuration encryption guide](https://rclone.org/docs/#configuration-encryption).
 
 To test the connection, create a file with the touch command or copy an existing file to your OneDrive
 
@@ -423,7 +421,7 @@ it is considerably faster than the alternatives.  To use "ftps" (i.e. ftp over S
 login node (if the transfer will take less than 15 minutes), by running an interactive job or using an OnDemand desktop 
 to run for longer periods of time. Prior to doing so, UB users must create an FTP password within Box.  
 
-Please refer the UBit documentation for Using FTP with UBbox found [Here](https://www.buffalo.edu/content/www/ubit/information-for-it-staff-pw/box/ftp.html)
+UBit provides documentation on [using FTP with UBbox](https://www.buffalo.edu/content/www/ubit/information-for-it-staff-pw/box/ftp.html)
 
 Once your UBbox ftp password is setup, you can transfer files from CCR to UB Box using SFTP. 
 
@@ -448,7 +446,7 @@ lftp UBID@buffalo.edu@ftp.box.com:/somedir~> exit
 $ lftp
 ```
 
-Additional information from Box on using Using Box with FTP or FTPS along with examples is [Here]( https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS)
+Box support provides additional information for using [Box with FTP or FTPS]( https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS)
 -->
 
 
