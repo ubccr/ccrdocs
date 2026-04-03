@@ -6,7 +6,7 @@ or collaborators have to the many resources in CCR's data center.  In order to o
 resource.  Research faculty, principal investigators, and teaching faculty are able to create projects in ColdFront and request allocations to CCR resources
 for themselves and their group members or students.  
 
-Getting started with ColdFront is easy and all you need is a CCR user account.  If you don't have one yet, use [these instructions](../getting-access.md) to create yourself an account. Faculty members and principal investigators (PIs) can use ColdFront to:
+Getting started with ColdFront is easy and all you need is a CCR user account.  If you don't have one yet, use [CCR's getting access documentation](../getting-access.md) to create yourself an account. Faculty members and principal investigators (PIs) can use ColdFront to:
 
 - [Request an Allocation](#request-an-allocation)
 - [Add or Remove users](#add-or-remove-users)

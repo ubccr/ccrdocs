@@ -52,7 +52,7 @@ The Files App in OnDemand allows users to easily transfer files to or from their
 
 Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/[CCRusername]`.  If you have access to a shared project or global scratch directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
 
-You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  Refer to the documentation(../hpc/data-transfer.md#rclone) about using `rclone` to setup the connections with UB Box and/or OneDrive.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done this setup after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
+You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  Refer to the [rclone documentation](../hpc/data-transfer.md#rclone) for instructions on setting up the connections with UB Box and OneDrive.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done this setup after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
 
 **OneDrive**  
 Follow [the OneDrive instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) to complete the initial connection with OneDrive using RClone.
@@ -144,7 +144,7 @@ Matlab is available to UB faculty, staff, and students through the university's 
 
 #### RStudio App
 
-The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users can select from a drop down menu that includes CCR's default R installation or containerized options.  CCR provides 4 additional versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own.  As long as the container includes the RStudio application, it should launch the GUI properly when using this app.  When using your own container image, please enter the full path and name of the Apptainer image you'd like to use.  Refer to CCR's [container documentation](../howto/containerization.md) for more information.  
+The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users can select from a drop down menu that includes CCR's default R installation or containerized options.  CCR provides 4 additional versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own.  As long as the container includes the RStudio application, it should launch the GUI properly when using this app.  When using your own container image, please enter the full path and name of the Apptainer image you'd like to use.  Refer to [CCR's container documentation](../howto/containerization.md) for more information.  
 
 !!! Danger "R library installation"  
     Recent versions of R require libraries which are version locked.  To ensure any libraries you install are only available to the R version you installed them with, this app automatically uses the `$HOME/Rlibs/<IMAGE_TAG>` directory. If that doesn't exist, it is automatically created.  
@@ -161,7 +161,7 @@ These are just a few of the oddities to note about how VSCode functions at CCR:
 
   - Loading modules when VSCode starts does not work the same way as described above for the Jupyter Lab/Notebook app.  You will need to load the software modules in a VSCode terminal after the application has started.  Despite doing this, not all software modules will work correctly in the VSCode terminal.
   - VSCode can't detect the CCR software repository and load Python and its dependencies. When choosing an interpreter, the default Python installation will be the system Python and should NOT be used. Instead, you must use a properly configured [virtual environment](../howto/python.md#virtual-environments).
-  - If creating a virtual environment in VSCode, use the terminal and [these instructions](../howto/python.md#virtual-environments), NOT the Python extension and its options for creating virtual environments.  
+  - If creating a virtual environment in VSCode, use the terminal and follow [CCR's virtual environment documentation](../howto/python.md#virtual-environments), NOT the Python extension and its options for creating virtual environments.  
   - Sometimes installing extensions works and sometimes it doesn't. CCR users have the permission to install extensions in their home directories but CCR support can't guarantee the installation will work, nor can we dedicate time to troubleshooting those issues.  If you're using a Python extension, make sure you pay attention to the first two items in this list  
   - Port forwarding is not permitted to CCR's login nodes; therefore, you will not be able to use VSCode on your device and connect to CCR's login or compute nodes.  
 
@@ -200,7 +200,7 @@ The interactive sessions section of the OnDemand portal displays your currently 
 
 ### Develop (Sandbox)  
 
-OnDemand allows users the ability to create their own interactive apps and run them in a 'sandbox' environment.  CCR does not turn this on by default, however.  Please [contact CCR Help](../help.md) to request this feature be enabled for your account.  Once it is, you'll find the `My Sandbox Apps (Development)` option under the `</>Develop` menu in OnDemand.  Please refer to the documentation on app development provided by the [Open OnDemand developers here](https://osc.github.io/ood-documentation/latest/app-development).  
+OnDemand allows users the ability to create their own interactive apps and run them in a 'sandbox' environment.  Please note, CCR does NOT enable this feature by default; please request this feature be enabled for your account via [CCR Help](../help.md).  Once it is enabled, you'll find the `My Sandbox Apps (Development)` option under the `</>Develop` menu in OnDemand.  Please refer to the documentation on app development provided by the [Open OnDemand developers here](https://osc.github.io/ood-documentation/latest/app-development) for more information.  
 
 ### Help  
 
@@ -208,4 +208,4 @@ The Help menu offers links to CCR's support contact information, documentation, 
 
 ### Troubleshooting  
 
-Please refer to CCR's OnDemand [troubleshooting guide](../howto/ood-trouble.md).
+Please refer to [CCR's OnDemand troubleshooting guide](../howto/ood-trouble.md).

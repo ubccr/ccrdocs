@@ -27,7 +27,7 @@ If you forgot your password or can not login using the password you think you se
 
 Things to keep in mind:  
 
-- You can only change your password once per hour.  If you attempt to change it   more that, you will get an error and will need to wait for the hour to pass
+- You can only change your password once per hour.  If you attempt to change it more that, you will get an error and will need to wait for the hour to pass
   before attempting to change it again.
 - The link contained in the password reset email is valid for 15 minutes.  
 - If you don't receive an email promptly, please check your spam or junk folder.  
@@ -50,4 +50,4 @@ You can add new ssh keys by [logging into the IDM portal](https://idm.ccr.buffal
 !!! Warning "Two factor auth required"
     You will not be able to upload SSH keys to the IDM portal unless you have two factor authentication enabled.  
 
-Additional information on creating ssh keys and logging in to the login nodes is available in CCR's [HPC documentation](../hpc/login.md#connecting-with-ssh).
+Additional information on creating ssh keys and logging in to the login nodes is available in [CCR's HPC documentation](../hpc/login.md#connecting-with-ssh).
