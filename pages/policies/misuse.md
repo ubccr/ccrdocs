@@ -62,7 +62,7 @@ What you need to know about global scratch space:
 - Groups have a 10 TB default quota for their global scratch directory  
 - Groups are also subject to a quota of 200 million files  
 - We set these group quotas for the total number of files in accordance with our system size and projected usage.  Users generating more than a million files per job could affect the performance of the system for everyone.  If you feel your research requires this, we’d like to engage with you to determine if there is an alternate approach  
-
+<a id="touch"></a>
 **Automatic Deletion of Files in Global Scratch**  
 - The allowed lifespan of files in global scratch is 60 days from the last file access date.  This is based on the file’s last access timestamp ("atime") on the file servers.  
 - CCR runs an automated cleanup process daily on the filesystem to delete files whose “atime” has reached the maximum lifespan.  
