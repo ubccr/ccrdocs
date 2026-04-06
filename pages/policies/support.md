@@ -8,7 +8,7 @@ CCR staff provide systems and user support during regular business hours, Monday
 Emergency support is provided off-hours for critical infrastructure outages only (i.e. storage, networking, batch scheduler, cooling, electric, and cloud infrastructure) that affect large numbers of users.  We are unable to provide emergency support for individual cloud instance or compute node outages.  
 
 **Requesting Support**    
-Requests for support are to be submitted through the [CCR help portal](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Home/) or by emailing CCR Help and are handled on a first come, first served basis.  We strive to respond within 2 business days to all requests for help.  Though hardware and software installations and configurations may take longer, they are usually completed within two weeks.  Please see the [CCR Help page for more information](../help.md).  
+Requests for support are to be submitted through the [CCR help](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Home/) portal or by emailing CCR Help and are handled on a first come, first served basis.  We strive to respond within 2 business days to all requests for help.  Though hardware and software installations and configurations may take longer, they are usually completed within two weeks.  Please see the [CCR Help](../help.md) for more information.  
 
 ## System Maintenance Policies  
 
@@ -19,7 +19,7 @@ CCR staff strive to maintain up-to-date and secure resources for the UB research
 Regularly scheduled maintenance periods are conducted for all CCR clusters.  The clusters are offline on the last Tuesday of every month, unless otherwise noted.  The downtime starts at 7am and is usually completed by 5pm.  Jobs are held in the UB-HPC queue unless otherwise noted by CCR beforehand.  Reservations are put in place for the academic and industry partitions of the UB-HPC cluster.  This means jobs will not run prior to the downtime if they can not be completed before the downtime starts.  The faculty cluster allows jobs to run right up until the downtime.  Any running jobs are killed when the downtime starts.  Faculty cluster users should make sure their jobs are scheduled to end prior to the start of the downtime or are able to checkpoint and restart.  
 
 !!! Note
-    If you're the owner of nodes in the faculty cluster and want a reservation put on your partition prior to these maintenance downtimes, please [contact CCR Help](../help.md)
+    If you're the owner of nodes in the faculty cluster and want a reservation put on your partition prior to these maintenance downtimes, please contact [CCR Help](../help.md)
 
 **Non-cluster Services Maintenance**  
 Other CCR services may experience maintenance downtimes several times a year.  Notifications are made in our [help desk client portal](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Home/) and often via email to those users affected by the outage.
@@ -29,7 +29,7 @@ Other CCR services may experience maintenance downtimes several times a year.  N
 
 ## Software Installation Policy  
 
-This has been moved [here](software.md).  
+See the [Software Policy Documentation](software.md).  
 
 ## Hardware Purchase & Installation Policy  
 
@@ -57,13 +57,13 @@ CCR is able to provide the following options to faculty groups:
 **Comparing the Options:**  
 
 - Dedicated compute nodes  
-    - Cost: One time co-location fee **PLUS the cost of the compute node** ==(see rate info below)==
+    - Cost: One time co-location fee **PLUS the cost of the compute node** ==(see rate information below)==
     - PI responsibility: None, except facilitating the compute node purchase and delivery with your department  
     - CCR responsibility: Physical hardware install/maintenance/repairs, operating system and software install, updates, security
     - Pros/Cons:  Same setup as compute nodes in UB academic cluster, access to CCR’s network attached storage (home & project directories, high speed scratch space), no long term storage on local disks, no local software installations, maximum job runtime of 30 days, maintenance downtimes every 30 days, no local hardware backups, no administrative access  
 
 - Lake Effect IAAS Research Cloud  
-    - Cost: - Usage based subscription, optional fees for additional storage and consulting ==(see rate info below)==
+    - Cost: - Usage based subscription, optional fees for additional storage and consulting ==(see rate information below)==
     - PI responsibility: Faculty group is entirely responsible for OS & software install, setup, updates & security    
     - CCR responsibility: Responsible for cloud infrastructure only  
     - Pros/Cons:  No backups provided, no maximum run time, 1-2 annual maintenance downtimes, full administrative access, NO access to CCR’s network attached storage (home & project directories, high speed scratch space)    
@@ -71,7 +71,7 @@ CCR is able to provide the following options to faculty groups:
 ==**Rates are based on the type of account they're paid out of:**==  
 
 - Rack fee: $315/u*, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $362.07/u (includes GUSF fee imposed by UB).  External rate is $590/u  
-- Cloud subscriptions - purchased in packs ([more info here](../cloud/lake-effect.md#subscriptions))  
+- Cloud subscriptions - purchased in packs (see [CCR's cloud documentation](../cloud/lake-effect.md#subscriptions) for more information)  
 - Consulting fee:  $63/hr, if paying with internal State, RF, UBF, or FSA accounts. If paying with other internal funds, rate is $72.41/hour (includes GUSF fee imposed by UB).  **Purchased in 8 hour increments.**  External rates - contact [CCR Help](../help.md) for quote.  
 
 **The fine print and specifics for each option:**  
@@ -86,10 +86,10 @@ Dedicated resources (nodes) for a faculty group or research lab built into the e
     - **NOTE:** We reserve the right to refuse to house hardware from vendors that we have had difficulty working with in the past.  
 
 - ***Infrastructure (co-location) fee:**  
-    - CCR charges a one-time fee for the infrastructure to run your compute node (rack space, cables, Ethernet network switches, electricity and cooling).
+    - CCR charges a [one-time co-location fee](../howto/purchases.md#co-location-fees) for the infrastructure to run your compute node (rack space, cables, Ethernet network switches, electricity and cooling).
     - The co-location per rack "u" fee is based on the standard slot of a compute rack. If machines purchased are more than 1 “u”, the infrastructure charge is multiplied. For example, if the machine you purchase takes up 2 “u” in rack space, the infrastructure charge is $630 (if paying with internal State, RF, UBF, or FSA funds).
     - This one-time charge goes towards cost-sharing of the infrastructure used to house and support your equipment (rack, network switches, cabling, physical installation and maintenance).  
-    - This will be invoiced through Blue Services as described [here](../howto/purchases.md#co-location-fees).    
+    - This will be invoiced through [Blue Services](../howto/purchases.md#using-blue-services-for-ccr-purchases).  
 
 - **Support:**  
     - CCR staff provide support during regular business hours, Monday through Friday 8am-5pm excluding University at Buffalo holidays. No weekend support is provided.
@@ -137,4 +137,4 @@ Cloud environment that provides researchers the ability to launch fully customiz
     - Cloud instances are available outside the UB networks.  It is imperative cloud users utilize security standards to lock down their instances (i.e. firewall policies, cloud security groups)  
 
 - **Pricing:**  
-    -  Pricing information can be [found here](../cloud/lake-effect.md#subscriptions).
+    -  Pricing information can be found in [CCR's cloud documentation](../cloud/lake-effect.md#subscriptions).

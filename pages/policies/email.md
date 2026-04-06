@@ -12,9 +12,10 @@ We commit to notify all active CCR users through email before we make significan
 We occasionally send a newsletter with information about CCR.  This comes from Mailchimp.  We automatically add all active CCR users to this list but you are welcome to unsubscribe from that if you no longer want to receive these newsletters.  We will not re-subscribe you to this list (or at least not purposely).  
 
 ### ColdFront allocation notifications  
-The ColdFront resource and allocations management portal will send notifications to users when allocations are coming up for renewal.  PIs and managers on the ColdFront project may not turn off notifications; however, users can disable these.  Login to ColdFront - [https://coldfront.ccr.buffalo.edu](https://coldfront.ccr.buffalo.edu) - click on the project name and then click to uncheck the box next to your name to turn off notifications.   
+The ColdFront resource and allocations management portal will send notifications to users when allocations are coming up for renewal.  PIs and managers on the ColdFront project may not turn off notifications; however, users can disable these.  Login to [ColdFront](https://coldfront.ccr.buffalo.edu) - click on the project name and then click to uncheck the box next to your name to turn off notifications.   
 
 ### Additional places you can get CCR information
-[Downtime schedule and planned tasks](https://ubccr.freshdesk.com/support/discussions/forums/5000296650)  
-[Emergency or important alerts are posted here](https://ubccr.freshdesk.com/support/discussions/forums/5000120071) and on [Twitter](https://twitter.com/UBCCR)  
-[Event notices are posted here](https://ubccr.freshdesk.com/support/discussions/forums/13000000490)  
+[Downtime schedule and planned tasks](../changelogs/downtime-schedule.md)  
+[Emergency or important alerts](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Home/) and on [Twitter](https://twitter.com/UBCCR)  
+[Latest news](https://www.buffalo.edu/ccr/about-us/news-events/latest_news.html)  
+[Event notices](https://www.buffalo.edu/ccr/about-us/news-events/upcoming_events.html)  
