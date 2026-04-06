@@ -445,7 +445,7 @@ NOTE: This procedure assumes that you have MATLAB R2023b (Currently the only sup
 
 You will need to download the MATLAB CCR Slurm integration script and place them on your local machine in the MATLAB
 
-Download the [CCR Matlab Integration Scripts](https://g-ac407a.8c185.08cc.data.globus.org/R2023b/University-at-Buffalo.zip) and start MATLAB.  The ZIP file should be unzipped in the location returned by calling…
+Download the [CCR Matlab Integration Scripts](https://g-e70f44.8c185.08cc.data.globus.org/University-at-Buffalo.zip) and start MATLAB.  The ZIP file should be unzipped in the location returned by calling…
 
 ```
 >> userpath
