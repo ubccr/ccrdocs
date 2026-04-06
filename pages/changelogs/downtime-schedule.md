@@ -9,7 +9,7 @@ Please note: This schedule can, and likely will change, to respond to vendor sof
 
 **Schedule of Maintenance Downtimes & Links to Details About Each Planned Outage:**
 
-12/30/25 - [Decemner 2025 Details](2025.md#december-2025-downtime) - CANCELLED  
+12/30/25 - [December 2025 Details](2025.md#december-2025-downtime) - CANCELLED  
 
 1/20/26 - [January 2026 Details](2026.md#january-2026-downtime)  
 
