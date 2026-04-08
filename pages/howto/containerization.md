@@ -21,7 +21,7 @@ Containers distinguish themselves through their low computational overhead and t
 
 ## Container engines
 
-[Docker](https://www.docker.com/) is the most widely used container engine, and  can be used on any system where you have administrative privileges. _Docker cannot be run on high-performance computing (HPC) platforms because users do not have administrative privileges._
+[Docker](https://www.docker.com/) is the most widely used container engine, and can be used on any system where you have administrative privileges. _Docker cannot be run on high-performance computing (HPC) platforms because users do not have administrative privileges._
 
 [Apptainer](https://apptainer.org/) (formerly Singularity) is a container engine that does not require administrative privileges to execute and was developed specifically for HPC environments. Therefore, it is safe to run on CCR's HPC platforms. Docker images are widely available for many software packages, therefore a common use case is to use Apptainer to run Docker images.  Users can also build Apptainer containers to run on CCR's clusters.  
 
@@ -45,7 +45,7 @@ export APPTAINER_CACHEDIR=$SLURMTMPDIR
 
 ### Pulling Images
 
-Pulling images from public repositories is often the easiest method of using a containerized application. Be aware large containers can take a long time to download.  We recommend you pull containers on a compute node in a [running job](../hpc/jobs.md#interactive-job-submission).  The compile nodes can be used as well; however, very large containers may not successfully build.  Apptainer is not available on the CCR login nodes.  See more on node types [here](../hpc/clusters.md).
+Pulling images from public repositories is often the easiest method of using a containerized application. Be aware large containers can take a long time to download.  We recommend you pull containers on a compute node in a [running job](../hpc/jobs.md#interactive-job-submission).  The compile nodes can be used as well; however, very large containers may not successfully build.  Apptainer is not available on the CCR login nodes.  See more on node types in [CCR's Cluster documentation](../hpc/clusters.md).
 
 We can use the `apptainer pull` command to remotely download our chosen image file and convert it to the Apptainer `.sif` format. The command requires the container registry we would like to use, followed by the repository’s name:
 
@@ -122,7 +122,7 @@ Then run, execute, or shell into the container as normal.
 ### Building Images with Apptainer
 
 !!! Danger "Compute Node Use Only"  
-    We recommend you build and pull containers on a compute node in a [running job](../hpc/jobs.md#interactive-job-submission).  Apptainer is not available on the CCR login nodes and some features may  not work on the compile nodes.  See more on node types [here](../hpc/clusters.md) 
+    We recommend you build and pull containers on a compute node in a [running job](../hpc/jobs.md#interactive-job-submission).  Apptainer is not available on the CCR login nodes and some features may  not work on the compile nodes.  See more on node types in [CCR's Cluster documentation](../hpc/clusters.md) 
 
 In the event that a container is unavailable for a given application, you may need to build your own container from scratch. Apptainer allows a user to build images using a *definition file*. Just like a Dockerfile, this file has a variety of directives that allow for the customization of your image. A sample image would look something like this: 
 
@@ -264,7 +264,7 @@ It is possible to run GPU workloads within Apptainer containers. To do so, merel
 
 `apptainer run --nv <image_name>.sif`
 
-NVIDIA also hosts a [number of containers](https://catalog.ngc.nvidia.com/containers) as part of their own container library. This will allow you to run more up-to-date versions of software like PyTorch which may have older versions installed in CCR's [software environment](../software/modules.md).  These can be pulled and run by Apptainer, though the pulling process can take several hours depending on the image size.  As stated previously, we recommend you do this on a compute node in a [running job](../hpc/jobs.md#interactive-job-submission).  
+NVIDIA also hosts a [number of containers](https://catalog.ngc.nvidia.com/containers) as part of their own container library. This will allow you to run more up-to-date versions of software like PyTorch which may have older versions installed in [CCR's software environment](../software/modules.md).  These can be pulled and run by Apptainer, though the pulling process can take several hours depending on the image size.  As stated previously, we recommend you do this on a compute node in a [running job](../hpc/jobs.md#interactive-job-submission).  
 
 NOTE: The URL format for using the NVIDIA container registry with Apptainer is:  
 `docker://nvcr.io/nvidia/name:version`
@@ -285,7 +285,7 @@ The Python-based software applications that we get the most requests for (i.e. P
 
 **Tips on how to navigate the NVIDIA catalog:**  
 
-- Looking at the [Pytorch info](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch), we see a description of the package on the main page that includes instructions on how to run the container, what is in the container, and more on the Pytorch software itself (NOTE: container run commands are in Docker format which is slightly different than Apptainer)  
+- Looking at the [Pytorch information](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch), we see a description of the package on the main page that includes instructions on how to run the container, what is in the container, and more on the Pytorch software itself (NOTE: container run commands are in Docker format which is slightly different than Apptainer)  
 - On the left is the latest version name (tag) and when it was published.  This tag name is version that you'll input in the pull, run, and exec commands    
 - If you want a different version than the latest, click on the `Tags` tab at the top of the page  
 - Make sure to select a version that supports AMD64 architecture (not the containers named `-igpu`), unless you're using an [`arm64` node](#arm64-containers)  
@@ -322,7 +322,7 @@ Apptainer> exit
 exit
 ```
 
-5: Now you've got an updated container, running a much newer version of pytorch than what CCR provides!  That's great but what do you do if you want to install additional software?  We recommend using a python virtual environment.  You can store this virtual environment in your group's project space so that it is outside the container and backed up.  If you're not familiar with virtual environments, check out our [documentation here](../howto/python.md#virtual-environments). For this example, we'll install a popular python package `imageio` in a virtual environment and access it in the container. This time when we start our container, we're going to bind mount our group's project directory so we can access it in the container.  
+5: Now you've got an updated container, running a much newer version of pytorch than what CCR provides!  That's great but what do you do if you want to install additional software?  We recommend using a python virtual environment.  You can store this virtual environment in your group's project space so that it is outside the container and backed up.  If you're not familiar with virtual environments, check out [CCR's virtual environment documentation](../howto/python.md#virtual-environments). For this example, we'll install a popular python package `imageio` in a virtual environment and access it in the container. This time when we start our container, we're going to bind mount our group's project directory so we can access it in the container.  
 
 !!! Danger "Planning to use this in Jupyter?"  
     In the case of creating a virtual environment to use with a Jupyter Notebook, it is important to bind mount your project directory in the container using the full path.  If that isn't done, when attempting to access the kernel in a Jupyter notebook, the virtual environment will not be accessible.  
@@ -345,9 +345,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 Apptainer> exit
 ```
 
-NOTE: In our [virtual environment documentation](python.md#using-virtual-environments), we do NOT use the `--system-site-packages` option when creating a virtual environment in our example.  Here we ARE using this option because we want the virtual environment to use all of the Python packages that come pre-installed in the NVIDIA container.  We do NOT want to do this when using CCR's software environment modules because we may see conflicts between the different Python packages that get installed.
+NOTE: In [CCR's virtual environment documentation](python.md#using-virtual-environments), we do NOT use the `--system-site-packages` option when creating a virtual environment in our example.  Here we ARE using this option because we want the virtual environment to use all of the Python packages that come pre-installed in the NVIDIA container.  We do NOT want to do this when using CCR's software environment modules because we may see conflicts between the different Python packages that get installed.
 
-6: Optional:  Do you need to use this container and virtual environment with the OnDemand Jupyter app?  If so, you'll need to install `ipykernel` in the virtual environment and create a kernel.  See [here](python.md#jupyter-kernels) for instructions.  
+6: Optional:  Do you need to use this container and virtual environment with the OnDemand Jupyter app?  If so, you'll need to install `ipykernel` in the virtual environment and create a kernel.  See [CCR's Jupiter documentation](python.md#jupyter-kernels) for instructions.  
 
 7: Test this out using a GPU node:  
 
@@ -375,6 +375,6 @@ This virtual environment is accessible outside of the container as well as insid
 - Make sure to create the virtual environment IN the container.  
 - The virtual environment includes system site packages which will only work inside the container.  So although you can access it outside of the container, it can really only be used inside.    
 - Make sure to specify the full path of the virtual environment python executable in any scripts you run otherwise it will automatically use your container's python.  In this example that would be:  `/projects/academic/[YourGroupName]/myenv/bin/python3`   
-- Not all packages will install correctly inside a virtual environment.  See our warnings over [here](../howto/python.md#installing-packages-inside-the-virtual-environment).  
+- Not all packages will install correctly inside a virtual environment.  See [CCR's virtual enviroment documentation](../howto/python.md#installing-packages-inside-the-virtual-environment) for more information.  
 - Because you are intentionally attempting to use already installed python packages with your virtual environment, you may run into conflicts.  In that event, you may need to [create your own container](#building-images-with-apptainer) from scratch installing all the packages you need rather than using a pre-built one from NVIDIA.  However, you can start with the NVIDIA container of your choice as the base image.    
-- If you're using a container, we do NOT recommend also using modules CCR's [software environment](../software/modules.md).  These will most likely conflict.
+- If you're using a container, we do NOT recommend also using modules [CCR's software environment](../software/modules.md).  These will most likely conflict.
