@@ -2,7 +2,7 @@
 
 The [Center for Computational Research (CCR)](https://buffalo.edu/ccr) at the [University at Buffalo](https://buffalo.edu) is a high-performance research computing center offering faculty, staff, students, and local businesses access to supercomputing environments, an on-premise research cloud infrastructure, and experienced staff to help you move your research forward.  
 
-This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Information about CCR support services can be [found here](help.md).   
+This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Information about CCR support services can be found in [CCR's help documentation](help.md).   
 
 !!! Tip   
     CCR provides UB's research computing and research cloud resources. All other IT services and support at UB are provided by [UBIT](https://buffalo.edu/ubit)  
@@ -40,9 +40,9 @@ search box at the top left for context searching.
 
 
 !!! note "Can't find what you need?"
-    Provide feedback on these docs [here](https://github.com/ubccr/ccrdocs/issues)!
+    Provide feedback on these docs on [CCR's documentaton issues page](https://github.com/ubccr/ccrdocs/issues)!
 
-If you have any questions, please [contact CCR Help](help.md)
+If you have any questions, please contact [CCR Help](help.md)
 
 ## Acknowledgments
 

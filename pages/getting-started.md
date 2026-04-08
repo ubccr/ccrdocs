@@ -3,7 +3,7 @@
 The Center for Computational Research (CCR) at the University at Buffalo is a high-performance computing center offering faculty, staff, students, and local businesses access to supercomputing environments, high-end visualization services, an on-premise research cloud environment, and experienced staff to help you move your research forward.
 
 !!! Note  
-    CCR provides UB's research computing resources.  All other IT services and support at UB is provided by [UBIT](https://buffalo.edu/ubit)  
+    CCR provides UB's research computing resources.  All other IT services and support at UB is provided by [UB Information Technology (UBIT)](https://buffalo.edu/ubit)  
 
 If you are unfamiliar with CCR and what services and resources we provide, please take a look at our detailed website: [https://buffalo.edu/ccr](https://buffalo.edu/ccr)    
 
@@ -15,7 +15,7 @@ This 30 minute presentation provides a succinct overview of what CCR does and do
 
 We highly encourage all users new to CCR to complete the [Intro to CCR](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/285151) course available in [UB Learns](https://ublearns.buffalo.edu/).  This course contains modules and examples (assignments) to guide you through the most important concepts of using CCR's high performance computing environment.  It is available for free to all UB faculty, staff, and students.  If you are an external collaborator, RPCI faculty/staff, or industry customer, you can access the recorded videos on our [YouTube channel](https://youtube.com/playlist?list=PL4Z5ac7PLRb1Su9J9BXs_TUXNG_RxOcgM&si=LX-JXlv6ggnc7bL8).  
 
-==As of the fall 2024 semester, completing this course is a pre-requisite for access to CCR for all undergraduate and graduate students using CCR for their coursework.  See [here](getting-access.md#intro-to-ccr-course-requirement) for more info.==  
+==As of the fall 2024 semester, completing this course is a pre-requisite for access to CCR for all undergraduate and graduate students using CCR for their coursework.  See [CCR's "Introduction to CCR Course Requirement" documentation](getting-access.md#intro-to-ccr-course-requirement) for more information.==  
 
 
 ## What do you want to do?  
@@ -39,7 +39,7 @@ We highly encourage all users new to CCR to complete the [Intro to CCR](https://
 - If you want to use software or develop services that aren't conducive to traditional HPC systems, please read about our [on-premise research cloud](cloud/lake-effect.md)  
 
 !!! Tip
-    Need more assistance?  [Contact CCR Help](help.md)  
+    Need more assistance?  contact [CCR Help](help.md)  
 
 ## Computing Resources at CCR
 
@@ -61,10 +61,10 @@ We highly encourage all users new to CCR to complete the [Intro to CCR](https://
 - Researchers utilize the on-premise cloud for projects not suited for the HPC environment  
 - Examples of cloud uses: database warehouses, websites, container orchestration, software development projects, proof-of-concept testing, and other non-HPC scientific applications  
 - Cloud compute time is billed by CPU hour & storage is sold in increments of 1TB  
-- Billing info can be found [here](cloud/lake-effect.md)  
+- Billing info can be found in [CCR's LakeEffect Cloud documentation](cloud/lake-effect.md)  
 
 !!! Note  
-    You must be on an active allocation for the resource(s) you want to use.  [More info here](getting-access.md)  
+    You must be on an active allocation for the resource(s) you want to use as per [CCR's Getting Access documenation](getting-access.md)  
 
 **What Resources Should I Use?**
 This question is difficult to answer because of the range of needs we serve, disciplines we support, and resources we offer.  If the descriptions above were not sufficient, please contact [CCR Help](https://ubccr.freshdesk.com) to discuss.  
