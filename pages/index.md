@@ -9,7 +9,7 @@ This documentation covers the use of CCR's research computing and research cloud
 
 ## What do you want to do?
 
-These links provide info on the most popular topics while the left navigation
+These links provide information on the most popular topics while the left navigation
 provides the full documentation organized by topics.  You can also use the
 search box at the top left for context searching.  
 
@@ -34,13 +34,13 @@ search box at the top left for context searching.
 - **Research Cloud Specific Topics:**  
     - [LakeEffect Cloud Quick Start](cloud/lake-effect.md#lakeeffect-quick-start)  
     - [Cloud Subscription Costs](cloud/lake-effect.md#subscriptions)  
-    - [Detailed info on Utilizing the Cloud](cloud/using.md)  
+    - [Detailed information on Utilizing the Cloud](cloud/using.md)  
 - **Detailed Step-by-Step Documentation:**  
     - See the "How To" menu on the left for a growing list of topics
 
 
 !!! note "Can't find what you need?"
-    Provide feedback on these docs on [CCR's documentaton issues page](https://github.com/ubccr/ccrdocs/issues)!
+    Provide feedback on our documentation on [CCR's documentaton issues page](https://github.com/ubccr/ccrdocs/issues)!
 
 If you have any questions, please contact [CCR Help](help.md)
 

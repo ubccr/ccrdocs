@@ -61,7 +61,7 @@ We highly encourage all users new to CCR to complete the [Intro to CCR](https://
 - Researchers utilize the on-premise cloud for projects not suited for the HPC environment  
 - Examples of cloud uses: database warehouses, websites, container orchestration, software development projects, proof-of-concept testing, and other non-HPC scientific applications  
 - Cloud compute time is billed by CPU hour & storage is sold in increments of 1TB  
-- Billing info can be found in [CCR's LakeEffect Cloud documentation](cloud/lake-effect.md)  
+- Billing information can be found in [CCR's LakeEffect Cloud documentation](cloud/lake-effect.md)  
 
 !!! Note  
     You must be on an active allocation for the resource(s) you want to use as per [CCR's Getting Access documenation](getting-access.md)  

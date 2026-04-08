@@ -10,7 +10,7 @@ While there is no cost for UB faculty groups to use CCR high performance computi
 
 1. **Acknowledge CCR support in publications** - see [CCR's Frequently Asked Questions document on acknowledgement](faq.md#how-do-i-acknowledge-the-use-of-ccr-resources) for recommended wording   
 2. Include a **percent recognition credit to CCR (at least a 5%)** on the Sponsored Programs Approval Form (though this can be larger for grants requiring significant CCR resources - see the ["Supporters Priority Boost" section below](#supporters-priority-boost)).  NOTE:  Clicking the "use CCR" box on the Sponsored Programs Approval Form is not the same as including a percent recognition credit to CCR.  
-3. Communicate with CCR about the nature of your research, publications and any funding that you have.  The ability to provide this information to us is handled by the [resource allocation management portal](portals/coldfront.md), [Coldfront](https://coldfront.ccr.buffalo.edu), and you will be required to update this info once per year.  
+3. Communicate with CCR about the nature of your research, publications and any funding that you have.  The ability to provide this information to us is handled by the [resource allocation management portal](portals/coldfront.md), [Coldfront](https://coldfront.ccr.buffalo.edu), and you will be required to update this information once per year.  
 
 #### UB Faculty Account Application Process  
 

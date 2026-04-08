@@ -51,7 +51,7 @@ $ mkdocs serve
 
 - Documentation is written in [Markdown syntax](https://www.markdownguide.org/basic-syntax)
 
-- Add notes (note, warning, danger, important) to your docs leveraging the [Markdown Admonition extension](https://python-markdown.github.io/extensions/admonition/)
+- Add notes (note, warning, danger, important) to your documentation leveraging the [Markdown Admonition extension](https://python-markdown.github.io/extensions/admonition/)
 
 ## License
 
