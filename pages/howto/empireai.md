@@ -13,7 +13,7 @@ If you are using CCR's systems to prepare to onboard to Empire AI and need assis
 
 ##  Call for Allocation Proposals  
 
-Access to Empire AI resources is done via allocations and is organized under collaborating institutions.  UB's allocations fall under the SUNY umbrella.  Requests for proposals for access to Empire AI resources are currently CLOSED for 2025.  We anticipate another round of allocation RFPs to be initiated in 2026.  This will be communicated to UB Primary Investigators (PIs) from the VPR's office.  
+Access to Empire AI resources is done via allocations and is organized under collaborating institutions.  UB's allocations fall under the SUNY umbrella.  Requests for proposals for access to Empire AI resources are currently CLOSED for 2025.  We anticipate another round of allocation RFPs to be initiated in 2026.  This will be communicated to UB Principal Investigators (PIs) from the VPR's office.  
 
 ##  Allocations  
 
