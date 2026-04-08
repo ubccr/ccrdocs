@@ -138,7 +138,7 @@ Most of the time, running MATLAB in single-threaded mode (as described above) wi
 For multi-node jobs you will need to use the [MATLAB Parallel Server](#running-multi-node-jobs-using-matlab-parallel-server).  You should always use `#SBATCH --nodes=1` for multi-threaded and serial calculations.
 
 
-MathWorks provide the following [MATLAB parallel example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html), using multiple cores (`for_loop.m`):
+MathWorks provides the following [MATLAB parallel example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html), using multiple cores (`for_loop.m`):
 
 ```
 poolobj = parpool;
