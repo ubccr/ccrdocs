@@ -199,7 +199,7 @@ Elapsed time is 31.030224 seconds.
 Parallel pool using the 'Processes' profile is shutting down.
 ```
 
-Note that the matlab command line option **-singleCompThread** does not appear in this Slurm script, in contrast to the serial case.  One must tune the value of the Slurm **#SBATCH** directive **--cpus-per-task** for optimum performance. Use the smallest value that gives you a significant performance boost because the more resources you request the longer your queue time may be.
+Note that the MATLAB command line option **-singleCompThread** does not appear in this Slurm script, in contrast to the serial case.  One must tune the value of the Slurm **#SBATCH** directive **--cpus-per-task** for optimum performance. Use the smallest value that gives you a significant performance boost because the more resources you request the longer your queue time may be.
 
 By default MATLAB will restrict you to 12 worker threads. You can override this when making the parallel pool with the following line, for example, with 24 threads:
 
