@@ -12,11 +12,12 @@ These methods include:
 - Running MATLAB interactively on the command line
 - Using MATLAB Parallel Compute Server to submit jobs from within Matlab
 
-This guide does not give information on using MATLAB itself; it is assumed that the audience is already familiar with using it. If you are looking for specific MATLAB related info their documentation is located [here](https://www.mathworks.com/help/matlab/).
+This guide does not give information on using MATLAB itself; it is assumed that the audience is already familiar with using it. If you are looking for specific MATLAB related information see [MathWork's MATLAB documentation](https://www.mathworks.com/help/matlab/).
 
 ## Versions of MATLAB available at CCR
 
-Software is updated regularly at CCR so users need to know how to search the existing software repositories to find the available versions of software they're interested in running. In the MATLAB OnDemand app, the form provides a drop down menu listing the available versions of MATLAB. For those using the command line, you can search using the module spider command. First, specify a [software release](https://github.com/ubccr/ccrdocs/software/releases) version and then search for MATLAB:
+Software is updated regularly at CCR so users need to know how to search the existing software repositories to find the available versions of software they're interested in running. In the MATLAB OnDemand app, the form provides a drop down menu listing the available versions of MATLAB. For those using the command line, you can search using the module spider command. First, specify a [CCR software release](../software/releases.md) version and then search for MATLAB:  
+for example:
 
 ```
 module load ccrsoft/2023.01
@@ -32,7 +33,7 @@ matlab:
 
 ## Running MATLAB GUI though OpenOndemand 
 
-The easiest way to use MATLAB on the HPC clusters is through the [CCR OnDemand Portal](../portals/ood.md). This method provides a more interactive use of MATLAB but requires a hands on approach. If you are looking for something more automated and scripted [see below](#running-matlab-batch-jobs-on-the-clusters-through-slurm)
+The easiest way to use MATLAB on the HPC clusters is through the [CCR OnDemand Portal](../portals/ood.md). This method provides a more interactive use of MATLAB but requires a hands on approach. If you are looking for something more automated and scripted [see the Slurm information below](#running-matlab-batch-jobs-on-the-clusters-through-slurm)
 
 To begin a session, click on the "Interactive Apps" menu and then on the "Matlab GUI" menu option.  Select from the form's drop down menus the cluster you'd like to submit this job to, the partition & associated QOS, and your Slurm account.  By default, MATLAB sessions are allocated 1 CPU, 2.8GB of RAM and 24 hours wall time (run time). You can override the defaults by changing the form values; however, unless you are sure that your script has been explicitly parallelized using, for example, the [Parallel Computing Toolbox](#running-a-multi-threaded-matlab-job-with-the-parallel-computing-toolbox), leave the "Number of cores" set to 1.  To choose a specific version of MATLAB to run, select from the "MATLAB version" drop down menu.  Once the form is filled out, click the "Launch" button.  When your session starts, click the "Launch Matlab GUI" button. NOTE: the more resources you request, the longer you may have to wait for your session to be scheduled on a compute node.
 
@@ -40,7 +41,7 @@ To begin a session, click on the "Interactive Apps" menu and then on the "Matlab
 
 ## Running MATLAB interactively on the command line
 
-You can run MATLAB interactively from the command line either by submitting an [interactive job](../hpc/jobs.md/#interactive-job-submission) through Slurm and logging in to the allocated compute node or
+You can run MATLAB interactively from the command line either by submitting an [interactive job](../hpc/jobs.md#interactive-job-submission) through Slurm and logging in to the allocated compute node or
 if you need to use MATLAB to edit and test your script you can run it on one of the CCR login nodes.  
  **NOTE:** The login nodes are a shared resource and have resource limits in place so once you hit one of the limits, your session will be terminated. This use case is only for quick testing or verification that requires very little resources and time.
 
@@ -137,7 +138,7 @@ Most of the time, running MATLAB in single-threaded mode (as described above) wi
 For multi-node jobs you will need to use the [MATLAB Parallel Server](#running-multi-node-jobs-using-matlab-parallel-server).  You should always use `#SBATCH --nodes=1` for multi-threaded and serial calculations.
 
 
-Here is an [example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html) from MathWorks of using multiple cores (`for_loop.m`):
+MathWorks provides the following [MATLAB parallel example](https://www.mathworks.com/help/parallel-computing/interactively-run-a-loop-in-parallel.html), using multiple cores (`for_loop.m`):
 
 ```
 poolobj = parpool;
@@ -153,7 +154,8 @@ end
 toc
 ```
 
-This is an example Slurm script (`matlab-mp.sh`) that can be modified to run a single node, multi-threaded MATLAB job.  NOTE:  this example uses the `general-compute` partition of the `ub-hpc` cluster.  Please refer to our [Slurm documentation](../hpc/jobs.md) for more options.
+This is an example Slurm script (`matlab-mp.sh`) that can be modified to run a single node, multi-threaded MATLAB job.  
+NOTE:  this example uses the `general-compute` partition of the `ub-hpc` cluster.  Please refer to our [Slurm documentation](../hpc/jobs.md) for more options.
 
 ```
 #!/bin/bash -l
@@ -197,7 +199,7 @@ Elapsed time is 31.030224 seconds.
 Parallel pool using the 'Processes' profile is shutting down.
 ```
 
-Note that **-singleCompThread** does not appear in the Slurm script in contrast to the serial case. One must tune the value of **--cpus-per-task** for optimum performance. Use the smallest value that gives you a significant performance boost because the more resources you request the longer your queue time may be.
+Note that the MATLAB command line option **-singleCompThread** does not appear in this Slurm script, in contrast to the serial case.  One must tune the value of the Slurm **#SBATCH** directive **--cpus-per-task** for optimum performance. Use the smallest value that gives you a significant performance boost because the more resources you request the longer your queue time may be.
 
 By default MATLAB will restrict you to 12 worker threads. You can override this when making the parallel pool with the following line, for example, with 24 threads:
 
@@ -250,7 +252,7 @@ matlab -singleCompThread -nodisplay -nosplash -r svd_matlab
 ```
 
 In the above Slurm script, notice the new line: **#SBATCH --gpus-per-node=1**
-This tells slurm to request a node with 1 GPU. See [here](../hpc/jobs.md#slurm-directives-partitions-qos) for additional Slurm directives, including how to request a specific GPU type.
+This tells slurm to request a node with 1 GPU. See [CCR's Slurm documentation](../hpc/jobs.md#slurm-directives-partitions-qos) for additional Slurm directives, including how to request a specific GPU type.
 
 For interactive MATLAB jobs as described [above](#unning-matlab-interactively-on-the-command-line), a GPU can be requested the same way.  For example, add this to your `salloc` command to request 1 GPU:  `--gpus-per-node=1`
 
@@ -408,7 +410,7 @@ For example, a job that needs eight workers will request nine CPU cores.
 
 Configuring the Slurm integration using the MATLAB GUI is pretty straight forward. 
 
-- Start up MATLAB through an OnDemand session as described [here](#running-matlab-gui-though-openondemand)
+- Start up MATLAB through an OnDemand session as described in [CCR's OnDemand documentation](#running-matlab-gui-though-openondemand)
 
 - From the MATLAB Session Click on `Parallel` -> `Discover Clusters`
 
@@ -443,7 +445,7 @@ NOTE: This procedure assumes that you have MATLAB R2023b (Currently the only sup
 
 You will need to download the MATLAB CCR Slurm integration script and place them on your local machine in the MATLAB
 
-Download the [CCR Matlab Integration Scripts](https://g-ac407a.8c185.08cc.data.globus.org/R2023b/University-at-Buffalo.zip) and start MATLAB.  The ZIP file should be unzipped in the location returned by calling…
+Download the [CCR Matlab Integration Scripts](https://g-e70f44.8c185.08cc.data.globus.org/University-at-Buffalo.zip) and start MATLAB.  The ZIP file should be unzipped in the location returned by calling…
 
 ```
 >> userpath
@@ -467,7 +469,7 @@ Complete.  Default cluster profile set to "ub-hpc R2023b".
 >> 
 
 ```
-You will need to configure your user infomation into the Profile including the location to your private SSH key stored on your computer:
+You will need to configure your user information into the Profile including the location to your private SSH key stored on your computer:
 
 ```
 >> c = parcluster;
@@ -511,6 +513,6 @@ ans =
 >> 
 ```
 
-More information on MATLAB Parallel Computing can be found here: [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/help/parallel-computing/)
+More information on MATLAB Parallel Computing can be found in the [MATLAB Parallel Computing Toolbox documentation](https://www.mathworks.com/help/parallel-computing/)
 
 
