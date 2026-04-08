@@ -72,7 +72,7 @@ For more information on storage on Alpha, please see [EIA's Alpha cluster storag
 
 At this time there are no quotas on these filesystems; however, we've been told to expect that this will be coming soon.  There is also no automatic clearing of the scratch directories, as there are at CCR.  With the implementation of allocations for Beta, there will be quotas on the filesystem.  
 
-There are no shared project or scratch directories, like we offer at CCR.  Instructions for sharing files on Alpha can be found in [EIA's file sharing documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000010953-how-can-i-share-data-with-other-users-).
+There are no shared project or scratch directories, like we offer at CCR.  Instructions for sharing files on Alpha can be found in [EAI's file sharing documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000010953-how-can-i-share-data-with-other-users-).
 
 ### Data Transfer  
 
