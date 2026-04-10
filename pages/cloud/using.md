@@ -234,7 +234,7 @@ A **Flavor** defines the compute, memory, and storage capacity of our instance.
 
 The ___ccr-public___ is the default Provider Network available to Instances. This network will allocate an IP on the UB public network.
 
-![The LakeEffect "Launch Instance Network" window with is a single row showing the allocated network showing "Network": "ccr-public", "Subnets Associated": "ccr-128.205.11", "Shared": "Yes", "Admin State": "Up", "Status": "Active".  Below this there is an "Available" section with a text search field and an empty list of akternate networks.  There are three buttons bottom right: \[Back\] \[Next\] \[Launch Instance\]](../images/cloud/instance-network.png)
+![The LakeEffect "Launch Instance Network" window with is a single row showing the allocated network showing "Network": "ccr-public", "Subnets Associated": "ccr-128.205.11", "Shared": "Yes", "Admin State": "Up", "Status": "Active".  Below this there is an "Available" section with a text search field and an empty list of alternate networks.  There are three buttons bottom right: \[Back\] \[Next\] \[Launch Instance\]](../images/cloud/instance-network.png)
 
 LakeEffect users have the ability to create their own Private networks.  For more information, see [CCR's Advanced Cloud Topics documentation](./advanced.md).
 
