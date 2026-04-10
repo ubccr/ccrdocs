@@ -273,7 +273,7 @@ You will need to assign a security group to the instance that allows access via 
 
 This tab allows you to script certain configuration details when an instance is launched.  Please click the question mark icon on this tab for more details.  This is for advanced users only.
 
-![The LakeEffect "Launch Instance Configuration" window.  There is a \[Choose File\] button to load the Customization Script from a file, alternatevely there is a text field below to enter the "Customization Script".  Below these there is a "Disk Partition" pulldown with "Automatic" with a "Configuration Drive" radio button below.  There are three buttons bottom right: \[Back\] \[Next\] \[Launch Instance\]](../images/cloud/instance-config.png)
+![The LakeEffect "Launch Instance Configuration" window.  There is a \[Choose File\] button to load the Customization Script from a file, alternatively there is a text field below to enter the "Customization Script".  Below these there is a "Disk Partition" pulldown with "Automatic" with a "Configuration Drive" radio button below.  There are three buttons bottom right: \[Back\] \[Next\] \[Launch Instance\]](../images/cloud/instance-config.png)
 
 
 Some users may want to partition the root disk of an instance in a specific way.  To do this, change the Automatic to Manual under Disk Partition and you will be prompted to setup the partitions when the instance is launched.
