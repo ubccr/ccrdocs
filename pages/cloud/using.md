@@ -265,7 +265,7 @@ You will need to assign a security group to the instance that allows access via 
 
 **Key Pair** allows you to SSH into your instance.  You may select an existing key pair, import a key pair you've already created (see the previous section on [Key Pairs](#keypairs) ), or generate a new key pair from this tab.
 
-![The LakeEffect "Launch Instance Key Pair" window.  AT the top there are two buttons, \[Create Key Pair\] \[Import Key Pair\], below that there is an "Allocated" section showing one row with the key pair: "Name": "test-keypair", "Type": "ssh" followed by a "Down Arrow" button.  Below this there is an "Available" section with a text search field and a list of other key pairs, each with an "Up Arrow" button next to them.  Below this there are two text fields to set and confirm the admin password.  There are three buttons bottom right: \[Back\] \[Next\] \[Launch Instance\]](../images/cloud/instance-keypair.png)
+![The LakeEffect "Launch Instance Key Pair" window.  At the top there are two buttons, \[Create Key Pair\] \[Import Key Pair\], below that there is an "Allocated" section showing one row with the key pair: "Name": "test-keypair", "Type": "ssh" followed by a "Down Arrow" button.  Below this there is an "Available" section with a text search field and a list of other key pairs, each with an "Up Arrow" button next to them.  Below this there are two text fields to set and confirm the admin password.  There are three buttons bottom right: \[Back\] \[Next\] \[Launch Instance\]](../images/cloud/instance-keypair.png)
 
 > * click `Next` when done to go to the ___Configuration___ screen.
 
