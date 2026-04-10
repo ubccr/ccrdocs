@@ -2,14 +2,14 @@
 
 The [Center for Computational Research (CCR)](https://buffalo.edu/ccr) at the [University at Buffalo](https://buffalo.edu) is a high-performance research computing center offering faculty, staff, students, and local businesses access to supercomputing environments, an on-premise research cloud infrastructure, and experienced staff to help you move your research forward.  
 
-This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Information about CCR support services can be [found here](help.md).   
+This documentation covers the use of CCR's research computing and research cloud resources. More general information about CCR can be found on [our website](https://buffalo.edu/ccr).  Information about CCR support services can be found in [CCR's help documentation](help.md).   
 
 !!! Tip   
     CCR provides UB's research computing and research cloud resources. All other IT services and support at UB are provided by [UBIT](https://buffalo.edu/ubit)  
 
 ## What do you want to do?
 
-These links provide info on the most popular topics while the left navigation
+These links provide information on the most popular topics while the left navigation
 provides the full documentation organized by topics.  You can also use the
 search box at the top left for context searching.  
 
@@ -34,15 +34,15 @@ search box at the top left for context searching.
 - **Research Cloud Specific Topics:**  
     - [LakeEffect Cloud Quick Start](cloud/lake-effect.md#lakeeffect-quick-start)  
     - [Cloud Subscription Costs](cloud/lake-effect.md#subscriptions)  
-    - [Detailed info on Utilizing the Cloud](cloud/using.md)  
+    - [Detailed information on Utilizing the Cloud](cloud/using.md)  
 - **Detailed Step-by-Step Documentation:**  
     - See the "How To" menu on the left for a growing list of topics
 
 
 !!! note "Can't find what you need?"
-    Provide feedback on these docs [here](https://github.com/ubccr/ccrdocs/issues)!
+    Provide feedback on our documentation on [CCR's documentaton issues page](https://github.com/ubccr/ccrdocs/issues)!
 
-If you have any questions, please [contact CCR Help](help.md)
+If you have any questions, please contact [CCR Help](help.md)
 
 ## Acknowledgments
 

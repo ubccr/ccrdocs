@@ -10,7 +10,7 @@ Find an error? Feel free to [submit an issue](https://github.com/ubccr/ccrdocs/i
 
 ## How to contribute
 
-Contributions and PRs welcome! Follow the instructions below to learn how to
+Contributions and Pull Requests (PRs) welcome! Follow the instructions below to learn how to
 develop and make changes to the documentation source.
 
 1. [Fork this repo](https://github.com/ubccr/ccrdocs/fork)
@@ -40,7 +40,7 @@ $ mkdocs serve
 
 6. Start hacking on the markdown in the `pages/` directory
 
-7. Submit a [PR](https://github.com/ubccr/ccrdocs/pulls)
+7. Submit a [Pull Request (PR)](https://github.com/ubccr/ccrdocs/pulls)
 
 
 ## Coding style, tips and conventions
@@ -49,9 +49,9 @@ $ mkdocs serve
 
 - Remember to add any new pages to the nav config in `mkdocs.yml`
 
-- For a nice overview of markdown syntax [see here](https://www.markdownguide.org/basic-syntax)
+- Documentation is written in [Markdown syntax](https://www.markdownguide.org/basic-syntax)
 
-- Add notes (note, warning, danger, important) to your docs. [See here for markdown syntax](https://python-markdown.github.io/extensions/admonition/)
+- Add notes (note, warning, danger, important) to your documentation leveraging the [Markdown Admonition extension](https://python-markdown.github.io/extensions/admonition/)
 
 ## License
 

@@ -8,9 +8,9 @@ Faculty act as the principal investigator for their research groups and courses 
 
 While there is no cost for UB faculty groups to use CCR high performance computing resources, [queue priority](hpc/jobs.md#job-priority) is based on [contribution level](#supporters-priority-boost).   At a minimum, faculty using CCR resources are required to:
 
-1. **Acknowledge CCR support in publications** - see [here](faq.md#how-do-i-acknowledge-the-use-of-ccr-resources) for recommended wording   
-2. Include a **percent recognition credit to CCR (at least a 5%)** on the Sponsored Programs Approval Form (though this can be larger for grants requiring significant CCR resources - see [below](#supporters-priority-boost)).  NOTE:  Clicking the "use CCR" box on the Sponsored Programs Approval Form is not the same as including a percent recognition credit to CCR.  
-3. Communicate with CCR about the nature of your research, publications and any funding that you have.  The ability to provide this information to us is handled by the [resource allocation management portal](portals/coldfront.md), [Coldfront](https://coldfront.ccr.buffalo.edu), and you will be required to update this info once per year.  
+1. **Acknowledge CCR support in publications** - see [CCR's Frequently Asked Questions documentation on acknowledgement](faq.md#how-do-i-acknowledge-the-use-of-ccr-resources) for recommended wording   
+2. Include a **percent recognition credit to CCR (at least a 5%)** on the Sponsored Programs Approval Form (though this can be larger for grants requiring significant CCR resources - see the ["Supporters Priority Boost" section below](#supporters-priority-boost)).  NOTE:  Clicking the "use CCR" box on the Sponsored Programs Approval Form is not the same as including a percent recognition credit to CCR.  
+3. Communicate with CCR about the nature of your research, publications and any funding that you have.  The ability to provide this information to us is handled by the [resource allocation management portal](portals/coldfront.md), [Coldfront](https://coldfront.ccr.buffalo.edu), and you will be required to update this information once per year.  
 
 #### UB Faculty Account Application Process  
 
@@ -19,11 +19,11 @@ While there is no cost for UB faculty groups to use CCR high performance computi
 
 **Faculty account creation is a three step process:**  
 
-1. Create a CCR system account and enable two factor authentication.  Step-by-step instructions are [below](#setting-up-access).  
+1. Create a CCR system account and enable two factor authentication.  Step-by-step instructions are in the ["Setting Up Access" section below](#setting-up-access).  
 2. Using the ColdFront allocations portal, go to your [user profile](https://coldfront.ccr.buffalo.edu/user/user-profile/) and request an upgrade to PI status by clicking on the `Upgrade Account` button.  This will initiate a request to CCR staff who will verify your status at the university and contact you once your account has been upgraded.  
-3. Once you hear back from CCR letting you know that your status is upgraded to 'PI,' you must create a new project in the allocation management portal, [Coldfront](https://coldfront.ccr.buffalo.edu), and request an allocation to the resources (clusters, storage, cloud, etc) you want access to. Please follow these instructions to [create a project](portals/coldfront.md#create-a-project), [request allocations](portals/coldfront.md#request-an-allocation), and [add users](portals/coldfront.md#add-or-remove-users), if desired.  If you're unsure what to request access to, please see [this list](available-resources.md) of currently available resources.  
+3. Once you hear back from CCR letting you know that your status is upgraded to 'PI,' you must create a new project in the allocation management portal, [Coldfront](https://coldfront.ccr.buffalo.edu), and request an allocation to the resources (clusters, storage, cloud, etc) you want access to. Please follow these instructions to [create a project](portals/coldfront.md#create-a-project), [request allocations](portals/coldfront.md#request-an-allocation), and [add users](portals/coldfront.md#add-or-remove-users), if desired.  If you're unsure what to request access to, please see [CCR's Resources List](available-resources.md) of currently available resources.  
 
-NOTE: Students utilizing CCR's resources for class work are required to complete the "Intro to CCR" course in UB Learns prior to receiving access to the course allocations.  They will receive a certificate of completion which should be verified by faculty prior to adding them to your allocations.  This is not a requirement for graduate student research assistants, but it is highly recommended.  Please see [below](#intro-to-ccr-course-requirement) for more information.  
+NOTE: Students utilizing CCR's resources for class work are required to complete the "Intro to CCR" course in UB Learns prior to receiving access to the course allocations.  They will receive a certificate of completion which should be verified by faculty prior to adding them to your allocations.  This is not a requirement for graduate student research assistants, but it is highly recommended.  Please see the ["Introduction to CCR Course Requirement" section below](#intro-to-ccr-course-requirement) for more information.  
 
 !!! Tip "Adding Users to Your Project"  
     Faculty can add users to their project and allocations at any time.  Please ensure they have created themselves a CCR account prior to attempting to add them in ColdFront.  
@@ -31,12 +31,12 @@ NOTE: Students utilizing CCR's resources for class work are required to complete
 
 ### Students
 
-UB students must be working for a UB faculty member that will sponsor them for a CCR account or be taking a class that requires use of the CCR resources.  If you qualify for an account, follow the instructions [below](#setting-up-access) to create yourself an account and enable two factor authentication.  Once you've completed the account creation process, please contact the faculty member or course instructor who is sponsoring your account.  They should utilize the allocation management portal, [Coldfront](https://coldfront.ccr.buffalo.edu), and add you to their project.  CCR's systems sync once per day at 5pm with ColdFront, which updates your account to provide you with access to your group's allocations, allowing you to login to the systems.  Please refer to the student section of the [account and data management policy](policies/accounts.md#students) for detailed information.    
+UB students must be working for a UB faculty member that will sponsor them for a CCR account or be taking a class that requires use of the CCR resources.  If you qualify for an account, follow the instructions in the ["Setting Up Access" section below](#setting-up-access) to create yourself an account and enable two factor authentication.  Once you've completed the account creation process, please contact the faculty member or course instructor who is sponsoring your account.  They should utilize the allocation management portal, [Coldfront](https://coldfront.ccr.buffalo.edu), and add you to their project.  CCR's systems sync once per day at 5pm with ColdFront, which updates your account to provide you with access to your group's allocations, allowing you to login to the systems.  Please refer to the student section of the [account and data management policy](policies/accounts.md#students) for detailed information.    
 
-NOTE: Students utilizing CCR's resources for class work are required to complete the "Intro to CCR" course in UB Learns prior to receiving access to the course allocations.  Please see [below](#intro-to-ccr-course-requirement) for more information.  
+NOTE: Students utilizing CCR's resources for class work are required to complete the "Intro to CCR" course in UB Learns prior to receiving access to the course allocations.  Please see the ["Introduction to CCR Course Requirement" section below](#intro-to-ccr-course-requirement) for more information.  
 
 ### Staff  
-UB staff accounts should be added to the research group's project and allocations by the principal investigator.  If you have not yet created a CCR system account, proceed to the [next section](#setting-up-access) to complete this step.  Once you've completed the account creation process, please contact the faculty member or course instructor who is sponsoring your account.  They should utilize the allocation management portal, Coldfront, and add you to their project.  CCR's systems sync once per day at 5pm with ColdFront, which updates your account to provide you with access to your group's allocations, allowing you to login to the systems.  
+UB staff accounts should be added to the research group's project and allocations by the principal investigator.  If you have not yet created a CCR system account, proceed to the following ["Setting Up Access" section](#setting-up-access) to complete this step.  Once you've completed the account creation process, please contact the faculty member or course instructor who is sponsoring your account.  They should utilize the allocation management portal, Coldfront, and add you to their project.  CCR's systems sync once per day at 5pm with ColdFront, which updates your account to provide you with access to your group's allocations, allowing you to login to the systems.  
 
 
 ### External Users
@@ -57,9 +57,9 @@ To get started with CCR resources you need the following:
 Access to all CCR resources, including creating accounts is restricted to UB
 and Roswell Park networks. You must be either on campus or connected to
 [UBVPN](https://www.buffalo.edu/ubit/service-guides/connecting/vpn.html) or
-Roswell Park VPN. For more information on connecting to UBVPN [see here](https://www.buffalo.edu/ubit/service-guides/connecting/vpn/computer.html).
+Roswell Park VPN. For more information on connecting to UBVPN see [UBIT's VPN documentation](https://www.buffalo.edu/ubit/service-guides/connecting/vpn/computer.html).
 If you do not have a UBIT account or a Roswell Park user account please
-[contact CCR Help](help.md) to inquire about VPN access.
+contact [CCR Help](help.md) to inquire about VPN access.
 
 ### Creating a CCR user account
 
@@ -68,8 +68,8 @@ communities. You must create an individual CCR account and enable two factor
 authentication if you wish to access any CCR resources. Please note that CCR
 user accounts are separate from your UBIT or Roswell Park accounts.
 
-A CCR user account can be created quickly and easily by [filling out the
-form here](https://idm.ccr.buffalo.edu/signup) using your UB or Roswell Park
+A CCR user account can be created quickly and easily by [filling out CCR's 
+Sign Up form](https://idm.ccr.buffalo.edu/signup) using your UB or Roswell Park
 email address. Once your account is created you will need to verify your email
 address and enable two factor authentication.
 
@@ -86,20 +86,19 @@ To enable two factor authentication on your account, follow these easy steps:
 1. Install an authenticator app on your phone. Authentication apps like Authy,
    Google Authenticator, and Duo are supported. We recommend Duo as it's also used by UBIT.
 
-2. Login to CCR IDM portal [here](https://idm.ccr.buffalo.edu/) and click on
+2. Login to [CCR Identity Management (IDM) portal](https://idm.ccr.buffalo.edu/) and click on
    [OTP Tokens](https://idm.ccr.buffalo.edu/otp) in the side menu.
 
 3. Click on the "New Token" button and follow the directions to scan the QR
    code using your authenticator app. Enter the six digit passcode generated by the app.
 
-For more details on two factor authentication [see here](2fa.md).
+For more details on two factor authentication see [CCR'a 2FA documentation](2fa.md).
 
 !!! Warning "Faculty accounts and PI status"
     If you are a Faculty member or PI, an additional step is required after
     you have enabled 2FA. You will also need to login to ColdFront
     and request that your account be upgraded to "PI Status" so you can request
-    allocations. Go to your user profile
-    [here](https://coldfront.ccr.buffalo.edu/user/user-profile/) and click
+    allocations. Go to your [ColdFront user profile](https://coldfront.ccr.buffalo.edu/user/user-profile/) and click
     on the `Upgrade Account` button.
 
 ## Intro to CCR Course Requirement  
@@ -120,23 +119,23 @@ entire center. In order to access CCR resources you must be on an active allocat
   [ColdFront](https://coldfront.ccr.buffalo.edu) to create projects, add group
   members, and request allocations to resources.  Once an allocation is
   activated, users on that allocation will be able to access the resource.
-  More details about ColdFront can be found [here](portals/coldfront.md#request-an-allocation).
+  More details about ColdFront can be found in [CCR's ColdFront documentation](portals/coldfront.md#request-an-allocation).
 
 - __Students and postdocs__ can contact the faculty member (PI) who is
   sponsoring your account to request that they add you to their project and
   allocations.
 
 - __External Collaborators__ the faculty member you're working with needs to
-  request a CCR account and VPN access by [contacting CCR Help](help.md)
+  request a CCR account and VPN access by contacting [CCR Help](help.md)
 
-- __Industry customers__ please [contact CCR Help](help.md) to request access.  
+- __Industry customers__ please contact [CCR Help](help.md) to request access.  
 
 ## Supporters Priority Boost  
 
-In order to receive a priority boost for your jobs, you must have a funded grant that meets the [criteria above](#ub-faculty) AND includes **direct funds** to CCR or you may pay an annual supporters fee.  At minimum, you should budget $2,600 per year.  This is approximately 40 hours/year of CCR staff time at the UB Financial Services approved rate of $65/hour for typical projects.  Higher amounts are appropriate for projects that are expected to more heavily utilize CCR services.  Note that these rates are generally updated annually, so please contact us or UB Financial Services for current rates.  Boosting your group's priority will substantially increase your job throughput.  Please update your project in Coldfront and submit an [allocation request](howto/purchases.md#supporters-priority-boost) for the Supporters Boost resource so we can provide you with the boost in queue priority.  If you did not add CCR to your grant but have funding you'd like to use for this purpose, please use the allocation request process and we will initiate a purchase for you.  
+In order to receive a priority boost for your jobs, you must have a funded grant that meets the [UB faculty criteria above](#ub-faculty) AND includes **direct funds** to CCR or you may pay an annual supporters fee.  At minimum, you should budget $2,600 per year.  This is approximately 40 hours/year of CCR staff time at the UB Financial Services approved rate of $65/hour for typical projects.  Higher amounts are appropriate for projects that are expected to more heavily utilize CCR services.  Note that these rates are generally updated annually, so please contact us or UB Financial Services for current rates.  Boosting your group's priority will substantially increase your job throughput.  Please update your project in Coldfront and submit an [allocation request](howto/purchases.md#supporters-priority-boost) for the Supporters Boost resource so we can provide you with the boost in queue priority.  If you did not add CCR to your grant but have funding you'd like to use for this purpose, please use the allocation request process and we will initiate a purchase for you.  
 
-Before you submit a grant, we are happy to work with you on the budget to help ensure that we can best support your project. We provide a [CCR Facility Description for PIs](https://www.buffalo.edu/content/dam/www/ccr/pdfs/CCRFacilityDescriptionPIs.pdf) document as reference material for your proposals.  Also, if you would like a letter of support for your proposal, please complete [this form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=388).
+Before you submit a grant, we are happy to work with you on the budget to help ensure that we can best support your project. We provide a [CCR Facility Description for PIs](https://www.buffalo.edu/content/dam/www/ccr/pdfs/CCRFacilityDescriptionPIs.pdf) document as reference material for your proposals.  Also, if you would like a letter of support for your proposal, please complete [CCR's Letter of Support form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=388).
 
-Acknowledging CCR in publications and grant proposals is important because it provides a metric by which the university can gauge the utility and impact that CCR resources (hardware, software, and personnel) have on externally funded research at UB.  See [here](faq.md#how-do-i-acknowledge-the-use-of-ccr-resources) for our recommended format.
+Acknowledging CCR in publications and grant proposals is important because it provides a metric by which the university can gauge the utility and impact that CCR resources (hardware, software, and personnel) have on externally funded research at UB.  See [CCR's Frequently Asked Questions documentation on acknowledgement](faq.md#how-do-i-acknowledge-the-use-of-ccr-resources) for our recommended format.
 
 **Thank you for your support!**

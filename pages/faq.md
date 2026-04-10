@@ -6,11 +6,11 @@ CCR's resources are available to research faculty at UB, their students and coll
 
 ## What is my CCR username?
 
-Your CCR username is the same as your UBIT username.  If you do not have a UB account, your CCR username is usually the first letter of your first name plus your last name.  However, if you're unsure, please [contact CCR Help](help.md).
+Your CCR username is the same as your UBIT username.  If you do not have a UB account, your CCR username is usually the first letter of your first name plus your last name.  However, if you're unsure, please contact [CCR Help](help.md).
 
 ## I have a new phone, how do I update my two factor authentication?  
 
-We highly recommend if you are switching phones, that you add another device to  your CCR account first.  For example, add a tablet or personal computer as an addition device to your account before getting rid of your old phone.  If you have access to both old and new phone, you can add your new phone to your CCR account prior to removing the token from the old phone. Follow the [instructions here](2fa.md#managing-tokens-for-devices) for adding a new device.   If neither of these options is available and you no longer have access to the only device connected to your CCR account, your account is locked out.  Please contact [CCR Help](help.md) to receive instructions for unlocking the account.
+We highly recommend if you are switching phones, that you add another device to  your CCR account first.  For example, add a tablet or personal computer as an addition device to your account before getting rid of your old phone.  If you have access to both old and new phone, you can add your new phone to your CCR account prior to removing the token from the old phone.  Follow [CCR's two factor authentication instructions](2fa.md#managing-tokens-for-devices) for adding a new device.  If neither of these options is available and you no longer have access to the only device connected to your CCR account, your account is locked out.  Please contact [CCR Help](help.md) to receive instructions for unlocking the account.
 
 ## Why can't I login?  
 
@@ -22,12 +22,12 @@ This is a very generic question that is difficult for us to answer.  CCR support
 
 _**Common errors:**_  
 
-- **SSH error "no supported authentication methods available":**  SSH keys are required for command line SSH and SFTP access to CCR's login nodes.  Password logins are not accepted.  Please see [more info here](hpc/login.md#connecting-with-ssh)  
--  **SSH error "Permission denied (publickey)":** This will depend on what you're trying to login to.  If you're attempting to access a [login node](hpc/clusters.md#login-nodes) and see this error, you either do not have your SSH public key uploaded to your CCR account (see error above) or you are not specifying the private key on your personal device when trying to login to CCR.  For more information, see [here](hpc/login.md#logging-in).  If you're attempting to login to a [compile node](hpc/clusters.md#compile-nodes) or you're getting errors launching an application on multiple nodes, see [here](hpc/login.md#compile-compute-node-login-ssh-keys).  
--  **Missing home directory:**  See [here for more info](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
--  **Password expired:**  Reset your password using the [identity management portal](https://idm.ccr.buffalo.edu).   instructions can be [found here](portals/idm.md#change-your-ccr-password)  
--  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly. Please ensure you're using CCR's two factor authentication correctly.  See [here](2fa.md) for instructions as it's different than our UBIT accounts.  If you're sure of this, then we recommend [changing your password](portals/idm.md#change-your-ccr-password).  
--  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [these instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
+- **SSH error "no supported authentication methods available":**  SSH keys are required for command line SSH and SFTP access to CCR's login nodes.  Password logins are not accepted.  More information available in the [CCR ssh login documentation](hpc/login.md#connecting-with-ssh)  
+-  **SSH error "Permission denied (publickey)":** This will depend on what you're trying to login to.  If you're attempting to access a [login node](hpc/clusters.md#login-nodes) and see this error, you either do not have your SSH public key uploaded to your CCR account (see error above) or you are not specifying the private key on your personal device when trying to login to CCR.  For more information, see [CCR's login documentation](hpc/login.md#logging-in).  If you're attempting to login to a [compile node](hpc/clusters.md#compile-nodes) or you're getting errors launching an application on multiple nodes, see [CCR's compilation node documentation](hpc/login.md#compile-compute-node-login-ssh-keys).  
+-  **Missing home directory:**  See [CCR's home directory documentation](#why-am-i-seeing-a-home-directory-missing-error-on-login)  
+-  **Password expired:**  Reset your password using the [Identity Management (IDM) portal](https://idm.ccr.buffalo.edu).  Instructions can be found in [CCR's password documentation](portals/idm.md#change-your-ccr-password)  
+-  **Invalid credentials:**  This means either your password, one time token, or both were entered incorrectly.  Please ensure you're using CCR's two factor authentication correctly.  See [CCR's Two Factor Authentication documentation](2fa.md) for instructions, because it's different to our UBIT accounts.  If you're sure of this, then we recommend [changing your password](portals/idm.md#change-your-ccr-password).  
+-  **Access denied or You don't have access to this resource:**  If receiving this when attempting to login to ColdFront or OnDemand, this means you do not have two factor authentication enabled.  2FA is required.  Follow [CCR's Two Factor Authentication instructions](2fa.md#enabling-two-factor-authentication) to enable it.  
 - When trying to login to **OnDemand, ColdFront, or the IDM portal** you see an error like: **Bad request**, **Server not available** or **Something Bad Happened.  Please contact site admin**:  These are often caused by corrupted cache files in your browser.  Clear your browser cache and cookies data and restart your browser or try a different browser.  Incognito windows often do not solve this problem.  
 - When trying to login to **OnDemand, ColdFront, or the IDM portal** you see the error: **Too many requests** - Most likely you are coming from a Roswell Park network and this can't be avoided.  All RPCI traffic comes from only a few IP addresses and if there are many requests coming from those IPs at the same time, it appears to be malicious and the servers will block it.  We recommend waiting a few minutes and trying again.  
 
@@ -68,7 +68,7 @@ If you see an error box that says `XFCE PolicyKit Agent` you can click the `Clos
 
 ## Why does my OnDemand desktop or app show it's starting but then it immediately ends?  
 
-Refer to [this OnDemand troubleshooting](howto/ood-trouble.md#why-does-my-ondemand-desktop-or-app-show-its-starting-but-then-it-immediately-ends) info.  
+Refer to [CCR's OnDemand troubleshooting documentation](howto/ood-trouble.md#why-does-my-ondemand-desktop-or-app-show-its-starting-but-then-it-immediately-ends) for more information.  
 
 ## How can I check how full my directories are?  
 
@@ -86,11 +86,11 @@ iquota --path /projects/academic/[YourGroupName]
 iquota --path /vscratch/grp-[YourGroupName]  
 ```
 
-Alternatively, you can view this information on the [ColdFront](https://coldfront.ccr.buffalo.edu) dashboard. More details about storage and quotas can be [found here](hpc/storage.md).
+Alternatively, you can view this information on the [ColdFront](https://coldfront.ccr.buffalo.edu) dashboard.  More details about storage and quotas can be found in [CCR's Storage documentation](hpc/storage.md).
 
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 
-This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `~/.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!).  To fix this, edit the file and remove everything between the two `>>> conda initialize >>>` lines.  Then save the file, log out of CCR, and log back in again.  Do NOT delete the `~/.bashrc` file!  Anaconda is not recommended for HPC systems and is no longer supported on CCR's systems for [these reasons](software/modules.md#anaconda-python). Please refrain from using this software and if you need help finding an alternative for your workflow, contact [CCR Help](help.md) for recommendations.  
+This error is caused by Anaconda conflicting with the Kerberos used by CCR's authentication system.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `~/.bashrc` file (found in your home directory).  These environments break Kerberos (and also OnDemand desktops and apps!).  To fix this, edit the file and remove everything between the two `>>> conda initialize >>>` lines.  Then save the file, log out of CCR, and log back in again.  Do NOT delete the `~/.bashrc` file!  Anaconda is not recommended for HPC systems and [Anaconda is NOT supported on CCR's systems](software/modules.md#anaconda-python).  Please refrain from using this software and if you need help finding an alternative for your workflow, contact [CCR Help](help.md) for recommendations.  
 
 ## Why am I getting 'no space left on device' errors?  
 
@@ -110,7 +110,7 @@ The `getfacl` command is an easy way to see the permissions of a file or directo
 
 ## How can I transfer my files to/from UB Box?
 
-Please see [these instructions](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) and utilize Globus to transfer files to UB Box. 
+Please see [CCR's Globus documentation](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) regarding how to utilize Globus to transfer files to UB Box. 
 
 ## Why am I'm getting module not found errors?  
 
@@ -118,8 +118,8 @@ There are a few types of module errors you might see:
 - `module command not found` means the system doesn't know anything about the software modules.  Ensure the first line of your batch script is: `#!/bin/bash -l`  
 - `module not found` means the system can't find the specifc module you're trying to load.  
   - If you're using the faculty cluster, make sure the node you're running on supports the software you want to use.  If you're running on an x86-64-v3 (avx2) CPU, the software may not be built yet.  Submit a [build request](software/building.md#software-build-requests)  
-  - You have not loaded the module's dependencies prior to loading the module you want to use.  [See here](software/modules.md#hierarchical-modules) for more info on the hierarchical module scheme  
-  - You are trying to load modules from a different software release.  CCR sets a default software release on all systems.  If you want to use a module from a different release than what is the default, you must load the software release version first.  [See here](software/releases.md) for more details.  
+  - You have not loaded the module's dependencies prior to loading the module you want to use.  See [CCR's module documentation](software/modules.md#hierarchical-modules) for more information on the hierarchical module scheme  
+  - You are trying to load modules from a different software release.  CCR sets a default software release on all systems.  If you want to use a module from a different release than what is the default, you must load the software release version first.  See [CCR's Software releases documentation](software/releases.md) for more details.  
 
 
 ## When will my job start?
@@ -134,11 +134,11 @@ For more information on the `squeue` command, take a look at our [Useful Slurm C
 
 ## How can I tell what my job's priority is?  
 
-For more information on job priority [see here](hpc/jobs.md#job-priority).  
+For more information on job priority see [CCR's Slurm Job documentation](hpc/jobs.md#job-priority).  
 
 ## Why isn't my job running immediately using a priority boost QOS?
 
-The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.  For more information on job priority and fairshare calculations [see here](hpc/jobs.md#job-priority).  
+The priority boost is not a ticket to the front of the line (queue).  It is one of multiple factors that go into calculating a job's priority.  Your group's jobs get an additional boost on the QOS portion of the job's fairshare calculation.  For more information on job priority and fairshare calculations see [CCR's Job Priority documentation](hpc/jobs.md#job-priority).  
 
 ## Why is my job pending with reason ‘ReqNodeNotAvail’?  
 
@@ -154,7 +154,7 @@ If this message is not due to an upcoming maintenance downtime, then it means th
 
 ## How can I get information on CCR clusters such as how busy they are and wait times?  
 
-From a login node, use the command `sqstat` to see a comprehensive overview of cluster usage.  To find more detailed information on node availability, use the `snodes` command.  The [Slurm dashboard](https://dashboard.ccr.buffalo.edu/slurm/ubhpc) (VPN required) displays an array of information and can be filtered to show idle and partially allocated nodes, GPU nodes, and job information. Wait times are not possible to calculate accurately as jobs are constantly ending and new ones are submitted.  However, you can get your job's rank in the queue using the `sranks` command, as well as information on your [job's status](hpc/jobs.md#view-your-jobs-in-queue) and your [job's priority](hpc/jobs.md#job-priority). Depending on how many jobs are currently waiting in the queue, the scheduler may be able to estimate your [job's start time](hpc/jobs.md#determining-job-start-time).  This is only an estimate and may change if new jobs are queued with a higher priority than yours.  The [UBMoD analytics tool](https://ubmod.ccr.buffalo.edu/) (VPN required) provides detailed information about your group's average wait times over a selected period of time such as weeks or months.  
+From a login node, use the command `sqstat` to see a comprehensive overview of cluster usage.  To find more detailed information on node availability, use the `snodes` command.  The [Slurm dashboard](https://dashboard.ccr.buffalo.edu/slurm/ubhpc) (VPN required) displays an array of information and can be filtered to show idle and partially allocated nodes, GPU nodes, and job information. Wait times are not possible to calculate accurately as jobs are constantly ending and new ones are submitted.  However, you can get your job's rank in the queue using the `sranks` command, as well as information on your [job's status](hpc/jobs.md#view-your-jobs-in-queue) and your [job's priority](hpc/jobs.md#job-priority).  Depending on how many jobs are currently waiting in the queue, the scheduler may be able to estimate your [job's start time](hpc/jobs.md#determining-job-start-time).  This is only an estimate and may change if new jobs are queued with a higher priority than yours.  The [UBMoD analytics tool](https://ubmod.ccr.buffalo.edu/) (VPN required) provides detailed information about your group's average wait times over a selected period of time such as weeks or months.  
 
 ## Why do I get an ‘Invalid Account, Partition, or QOS Specification’ error when I try to run a job?  
 
@@ -166,7 +166,7 @@ salloc: error: Job submit/allocate failed: Invalid account or account/partition 
 sbatch: error: Batch job submission failed: Invalid partition or qos specification
 ```
 
-CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](portals/coldfront.md).   More details on QOS and partition limits can be [found here](hpc/jobs.md#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
+CCR uses Quality of Service (QOS) to restrict access to partitions and to provide research groups that support CCR financially with a boost in their job priorities. Slurm will use your default account, unless you specify differently in your job script or when starting an OnDemand app.  Use the `slimits` command to see what accounts and QOS settings you have access to. This is managed in [ColdFront under allocations](portals/coldfront.md).   More details on QOS and partition limits can be found in [CCR's Slurm Job documentation](hpc/jobs.md#slurm-directives-partitions-qos).  Information on [becoming a CCR supporter can be found on our website](https://www.buffalo.edu/ccr/support/ccr-help/accounts.html#boost).  
 
 
 ## Why am I getting a QOSMaxSubmitJobPerUserLimit error when I try to submit a job?
@@ -177,7 +177,7 @@ sbatch: error: QOSMaxSubmitJobPerUserLimit
 sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)
 ```
 
-You will get this error if you have reached the partition or per user limits as [described here](hpc/jobs.md#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
+You will get this error if you have reached the partition or per user limits as described in [CCR's Job documentation](hpc/jobs.md#slurm-directives-partitions-qos).  For example, if you have 1000 jobs in the general-compute partition and try to submit another one, you will get this error.  If you've already launched one viz desktop, you've reached your limit.  Wait for some of your jobs to finish and submit more at that time.  
 
 ## Why am I seeing the job status AssocMaxGRESPerJob on my pending job?  
 
@@ -185,11 +185,11 @@ You may see `AssocMaxGRESPerJob` as a reason your job isn't running.  This means
 
 ## Why do I get an "Invalid feature specification?" error  
 
-Compute nodes in the clusters are tagged with Slurm "features" including CPU and GPU types, high speed interconnects (like Infiniband), rack locations, CPU architectures, and more.  You can read more about these features or tags [here](hpc/jobs.md#node-features).  When specifying them either in a Slurm batch script or in the node features field in OnDemand apps, you must ensure that the requests you're making match up with the available compute nodes.  Usually when you see the `invalid feature specification` error, this means the combination of resources you're requesting is not available in the CCR cluster and partition that you're requesting.  Refer to the link above for more information on evaluating what features are available on which compute nodes.  
+Compute nodes in the clusters are tagged with Slurm "features" including CPU and GPU types, high speed interconnects (like Infiniband), rack locations, CPU architectures, and more.  You can read more about these features or tags in [CCR's Node Features documentation](hpc/jobs.md#node-features).  When specifying them either in a Slurm batch script or in the node features field in OnDemand apps, you must ensure that the requests you're making match up with the available compute nodes.  Usually when you see the `invalid feature specification` error, this means the combination of resources you're requesting is not available in the CCR cluster and partition that you're requesting.  Refer to the link above for more information on evaluating what features are available on which compute nodes.  
 
 ## How do I login to the compute node my job is running on?  
 
-Please refer to [these instructions](hpc/login.md#compute-node-logins). 
+Please refer to [CCR's Login documentation](hpc/login.md#compute-node-logins). 
 
 ## How do I fix "sbatch: error: Batch script contains DOS line breaks"?
 
@@ -230,23 +230,23 @@ SSH connections will time out either due to inactivity or network disruptions.  
 
 ## Where can I find a list of linux commands?  
 
-There are lots of resources on the internet to learn basic linux commands.  We provide a cheat sheet of useful linux and Slurm commands [here](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n).  
+There are lots of resources on the internet to learn basic linux commands.  CCR provides a [cheat sheet of useful linux and Slurm commands](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n).  
 
 ## How do I know what to request an allocation for?  
 
-Please see [this section of the Getting Access](getting-access.md#available-resources) page for a break down of currently available resources at CCR.
+Please see the ["Available Resources" section of CCR's Getting Access page](getting-access.md#available-resources) for a break down of currently available resources at CCR.
 
 ## How can I check what allocations I am on?  
 
-Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be [found here](portals/coldfront.md).  Please note our systems sync with ColdFront daily at 5pm, updating accounts and providing access to resources.  This means it can be up to 24 hours after getting added to an allocation before you're able to use it, which includes logging into the HPC environment.
+Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be found in [CCR's ColdFront documentation](portals/coldfront.md).  Please note our systems sync with ColdFront daily at 5pm, updating accounts and providing access to resources.  This means it can be up to 24 hours after getting added to an allocation before you're able to use it, which includes logging into the HPC environment.
 
 ## How can I turn off notifications in ColdFront?  
 
-Coldfront users are automatically subscribed to receive notifications regarding their project(s) and allocation(s).  These email notifications include things like allocations that are expiring soon and allocation status changes.  Users can turn off these notifications by logging in to [ColdFront](https://coldfront.ccr.buffalo.edu), clicking on your project, and unchecking the check box by your name under the "Enable Notifications" column.  PIs and managers on projects are not able to turn off notifications.  If you're certain you do not want to be reminded of allocation renewals, please [contact CCR Help](help.md) for a manual override.  
+Coldfront users are automatically subscribed to receive notifications regarding their project(s) and allocation(s).  These email notifications include things like allocations that are expiring soon and allocation status changes.  Users can turn off these notifications by logging in to [ColdFront](https://coldfront.ccr.buffalo.edu), clicking on your project, and unchecking the check box by your name under the "Enable Notifications" column.  PIs and managers on projects are not able to turn off notifications.  If you're certain you do not want to be reminded of allocation renewals, please contact [CCR Help](help.md) for a manual override.  
 
 ## How can I get my class access to CCR?  
 
-CCR **may** be able to accommodate small classes that require small amounts of cycles on the primary UB-HPC cluster.  Please [contact us](help.md) to discuss your course's needs. If you've already discussed with us, you should create a project and request allocations in ColdFront as [detailed here](portals/coldfront.md).  Students need to have created themselves a [CCR system account](getting-access.md) before you can add them to your ColdFront project.
+CCR **may** be able to accommodate small classes that require small amounts of cycles on the primary UB-HPC cluster.  Please contact [CCR Help](help.md) to discuss your course's needs. If you've already discussed with us, you should create a project and request allocations in ColdFront as per [CCR's ColdFront documentation](portals/coldfront.md).  Students need to have created themselves a [CCR system account](getting-access.md) before you can add them to your ColdFront project.
 
 ## How can I access my project directory from a Jupyter Notebook?  
 
@@ -257,7 +257,7 @@ You'll then have the link `/user/[CCRusername]/projects` that takes you to your 
 
 ## Where can I find examples for running on CCR's HPC clusters?  
 
-CCR staff curate a [GitHub repository](https://github.com/ubccr/ccr-examples) of specific examples for running applications on the HPC clusters and installing software using Easybuild.  These examples include basic Slurm batch scripts, specific examples for popular software applications, and examples for building and running containers.  Not every application installed at CCR has an example so these are intended to be modified by users for their specific use case.  This repository is actively developed so we encourage you to visit regularly for new content.
+CCR staff curate a [GitHub Examples repository](https://github.com/ubccr/ccr-examples) of specific examples for running applications on the HPC clusters and installing software using Easybuild.  These examples include basic Slurm batch scripts, specific examples for popular software applications, and examples for building and running containers.  Not every application installed at CCR has an example so these are intended to be modified by users for their specific use case.  This repository is actively developed so we encourage you to visit regularly for new content.
 
 ## How do I acknowledge the use of CCR resources?  
 
