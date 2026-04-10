@@ -64,7 +64,7 @@ We highly encourage all users new to CCR to complete the [Intro to CCR](https://
 - Billing information can be found in [CCR's LakeEffect Cloud documentation](cloud/lake-effect.md)  
 
 !!! Note  
-    You must be on an active allocation for the resource(s) you want to use as per [CCR's Getting Access documenation](getting-access.md)  
+    You must be on an active allocation for the resource(s) you want to use as per [CCR's Getting Access documentation](getting-access.md)  
 
 **What Resources Should I Use?**
 This question is difficult to answer because of the range of needs we serve, disciplines we support, and resources we offer.  If the descriptions above were not sufficient, please contact [CCR Help](https://ubccr.freshdesk.com) to discuss.  
