@@ -36,7 +36,7 @@ UB students must be working for a UB faculty member that will sponsor them for a
 NOTE: Students utilizing CCR's resources for class work are required to complete the "Intro to CCR" course in UB Learns prior to receiving access to the course allocations.  Please see the ["Introduction to CCR Course Requirement" section below](#intro-to-ccr-course-requirement) for more information.  
 
 ### Staff  
-UB staff accounts should be added to the research group's project and allocations by the principal investigator.  If you have not yet created a CCR system account, proceed to the following ["Settin Up Access" section](#setting-up-access) to complete this step.  Once you've completed the account creation process, please contact the faculty member or course instructor who is sponsoring your account.  They should utilize the allocation management portal, Coldfront, and add you to their project.  CCR's systems sync once per day at 5pm with ColdFront, which updates your account to provide you with access to your group's allocations, allowing you to login to the systems.  
+UB staff accounts should be added to the research group's project and allocations by the principal investigator.  If you have not yet created a CCR system account, proceed to the following ["Setting Up Access" section](#setting-up-access) to complete this step.  Once you've completed the account creation process, please contact the faculty member or course instructor who is sponsoring your account.  They should utilize the allocation management portal, Coldfront, and add you to their project.  CCR's systems sync once per day at 5pm with ColdFront, which updates your account to provide you with access to your group's allocations, allowing you to login to the systems.  
 
 
 ### External Users
