@@ -1,7 +1,7 @@
 ## LakeEffect Research Cloud _(On-Premise Cloud)_
 
 
-![](../images/cloud/LakeEffectLogo_2.jpg)
+![The LakeEffect Cloud logo](../images/cloud/LakeEffectLogo_2.jpg)
 
 CCR hosts a subscription based on-premise cloud service affectionately known as **"LakeEffect"**, which provides access to virtual servers, storage and networking that users setup and manage themselves. It is what is referred to as Infrastructure as a Service and is equivalent in functionality to Amazon's EC2 Cloud service.
 
@@ -10,9 +10,9 @@ Although high performance computing (HPC) is our largest and most widely used se
 
 ### LakeEffect Quick Start
 
-1. Details on Pricing and Subscription packages is [here](#subscriptions)
+1. Details on Pricing and Subscription packages are documented in the [Subscriptions section below](#subscriptions)
 2. Request access through the [coldfront](../portals/coldfront.md) allocations management portal
-3. Once you have an active allocation, you can access the cloud through the [Dashboard](https://dashboard.cloud.ccr.buffalo.edu)
+3. Once you have an active allocation, you can access the cloud through the [LakeEffect Dashboard](https://dashboard.cloud.ccr.buffalo.edu)
 4. Documentation on using LakeEffect Cloud and Openstack:
 	* [Using LakeEffect Cloud](./using.md)
 	* [OpenStack Documentation](https://docs.openstack.org/)
@@ -65,14 +65,14 @@ In order to use LakeEffect Research cloud, you will need to purchase a subscript
 
     * Must be purchased in 8 hour increments
     * Can be used in 30 minute chunks
-    * [Contact CCR Help](../help.md) for estimates on required time
+    * Contact [CCR Help](../help.md) for estimates on required time
 
 !!! Note "Rate Fineprint"
-    These are internal rates for UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds.   UB users using alternate funding are subject to the addition of the [GUSF](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/general-univ-service-fee.html) fee.  External users please [Contact CCR Help](../help.md) to discuss your individual needs.
+    These are internal rates for UB users including academic, research, administrative, and auxiliary units whose originating source of funds is within or flows through the university.  This includes state, RF, UBF, and Faculty Student Association (FSA) funds.   UB users using alternate funding are subject to the addition of the [General University Service Fee (GUSF)](https://www.buffalo.edu/administrative-services/policy1/ub-policy-lib/general-univ-service-fee.html) fee.  External users please contact [CCR Help](../help.md) to discuss your individual needs.
 
 ### How to Initiate a Purchase  
 
-To initiate the purchase of additional cloud storage or compute time, the PI or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an allocation for the `Lake Effect Cloud Compute` and/or `Lake Effect Cloud Storage` resource.  See [here](../howto/purchases.md#cloud-compute-credits) for instructions.  If you have an existing allocation for either of these and wish to purchase additional CPU credits or storage, please submit an Allocation Change Request on your `Lake Effect Cloud Storage` or `Lake Effect Cloud Compute` allocation.  [See here](../howto/purchases.md#purchasing-increases-to-existing-cloud-allocations) for instructions.  Once a new allocation request or an allocation change request has been submitted, your request will be processed through Blue Services (iLab).  Please see [here](../howto/purchases.md#invoice-processing) for information on Blue Services invoice approval process. We will allocate the cloud resources at the time we submit the purchase request in iLab and you'll hear back from CCR Staff with instructions on how to access your cloud allocation.   If payment doesn't go through, you'll be contacted about alternate payment arrangements.  If none are available within 30 days, your quota or access to services will be reduced to the previous amount or removed entirely.
+To initiate the purchase of additional cloud storage or compute time, the Primary Investigator (PI) or project owner should login to [ColdFront](https://coldfront.ccr.buffalo.edu) and request an allocation for the `Lake Effect Cloud Compute` and/or `Lake Effect Cloud Storage` resource.  See the [Cloud Compute Credits documentation](../howto/purchases.md#cloud-compute-credits) for instructions.  If you have an existing allocation for either of these and wish to purchase additional CPU credits or storage, please submit an Allocation Change Request on your `Lake Effect Cloud Storage` or `Lake Effect Cloud Compute` allocation as per the [Purchasing increases to existing cloud allocations docuentation](../howto/purchases.md#purchasing-increases-to-existing-cloud-allocations).  Once a new allocation request or an allocation change request has been submitted, your request will be processed through [Blue Services (iLab)](../howto/purchases.md#using-blue-services-for-ccr-purchases).  Please see [CCR's invoicing documentation](../howto/purchases.md#invoice-processing) for information on Blue Services invoice approval process.  We will allocate the cloud resources at the time we submit the purchase request in iLab and you'll hear back from CCR Staff with instructions on how to access your cloud allocation.   If payment doesn't go through, you'll be contacted about alternate payment arrangements.  If none are available within 30 days, your quota or access to services will be reduced to the previous amount or removed entirely.
 
 ### Use and Misuse
 

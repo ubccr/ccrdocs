@@ -57,7 +57,7 @@ $ source ~/openstack-cli/bin/activate
 +--------------------------------------+----------+--------+------------------------------------------------------+--------------------------+----------------+
 ```
 
-The **python-openstackclient** project is a common client that supports most of the various Openstack Projects, however You may need to install an individual project’s client because coverage is not yet sufficient in the OpenStack client. For example, the **python-cinderclient** may be needed if less common cinder commands are needed. This is installed the same way as the python-openstackclient package was installed. For more information on the individual project clients go [here](https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html).
+The **python-openstackclient** project is a common client that supports most of the various Openstack Projects, however You may need to install an individual project’s client because coverage is not yet sufficient in the OpenStack client. For example, the **python-cinderclient** may be needed if less common cinder commands are needed. This is installed the same way as the python-openstackclient package was installed. For more information on the individual project clients see the [Openstack command line documentation](https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html).
 
 
 ## Useful Openstack Commands
