@@ -136,6 +136,6 @@ In order to receive a priority boost for your jobs, you must have a funded grant
 
 Before you submit a grant, we are happy to work with you on the budget to help ensure that we can best support your project. We provide a [CCR Facility Description for PIs](https://www.buffalo.edu/content/dam/www/ccr/pdfs/CCRFacilityDescriptionPIs.pdf) document as reference material for your proposals.  Also, if you would like a letter of support for your proposal, please complete [CCR's Letter of Support form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=388).
 
-Acknowledging CCR in publications and grant proposals is important because it provides a metric by which the university can gauge the utility and impact that CCR resources (hardware, software, and personnel) have on externally funded research at UB.  See [CCR's Frequently Asked Questions document on acknowledgement](faq.md#how-do-i-acknowledge-the-use-of-ccr-resources) for our recommended format.
+Acknowledging CCR in publications and grant proposals is important because it provides a metric by which the university can gauge the utility and impact that CCR resources (hardware, software, and personnel) have on externally funded research at UB.  See [CCR's Frequently Asked Questions documentation on acknowledgement](faq.md#how-do-i-acknowledge-the-use-of-ccr-resources) for our recommended format.
 
 **Thank you for your support!**
