@@ -3,7 +3,7 @@
 ### Managing your Project with the Cloud Dashboard
 
 Allocations to the LakeEffect Cloud are requested and managed through the ColdFront Resource Allocations Management Tool.
-To request an allocation to LakeEffect follow [CCR's ClodFront Allocation Requests documentation](../getting-access.md#allocation-requests).  
+To request an allocation to LakeEffect follow [CCR's ColdFront Allocation Requests documentation](../getting-access.md#allocation-requests).  
 Once approved through ColdFront you will be informed when your cloud access is ready and you will be able to login in to the LakeEffect Web Console
 where you can manage your project's cloud resources and view information on your group's usage.  
 
