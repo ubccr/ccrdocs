@@ -110,7 +110,7 @@ The `getfacl` command is an easy way to see the permissions of a file or directo
 
 ## How can I transfer my files to/from UB Box?
 
-Please see [CCR's Globnus documentation](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) regarding how to utilize Globus to transfer files to UB Box. 
+Please see [CCR's Globus documentation](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) regarding how to utilize Globus to transfer files to UB Box. 
 
 ## Why am I'm getting module not found errors?  
 
