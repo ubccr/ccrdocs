@@ -230,7 +230,7 @@ SSH connections will time out either due to inactivity or network disruptions.  
 
 ## Where can I find a list of linux commands?  
 
-There are lots of resources on the internet to learn basic linux commands.  CCR  provides a [cheat sheet of useful linux and Slurm commands](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n).  
+There are lots of resources on the internet to learn basic linux commands.  CCR provides a [cheat sheet of useful linux and Slurm commands](https://buffalo.box.com/s/nqj3neyt2w1dtb3gix6zxqx5gcc9x30n).  
 
 ## How do I know what to request an allocation for?  
 
