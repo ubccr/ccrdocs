@@ -238,7 +238,7 @@ Please see the ["Available Resources" section of CCR's Getting Access page](gett
 
 ## How can I check what allocations I am on?  
 
-Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be found in [CCR's ColdFront Cloud documentation](portals/coldfront.md).  Please note our systems sync with ColdFront daily at 5pm, updating accounts and providing access to resources.  This means it can be up to 24 hours after getting added to an allocation before you're able to use it, which includes logging into the HPC environment.
+Use [ColdFront](https://coldfront.ccr.buffalo.edu) to view the projects and allocations you have access to. These dictate what resources you have access to as well as what Slurm accounts and shared group directories you may have access to.  More information about ColdFront can be found in [CCR's ColdFront documentation](portals/coldfront.md).  Please note our systems sync with ColdFront daily at 5pm, updating accounts and providing access to resources.  This means it can be up to 24 hours after getting added to an allocation before you're able to use it, which includes logging into the HPC environment.
 
 ## How can I turn off notifications in ColdFront?  
 
