@@ -1,12 +1,12 @@
 # Processes for Purchasing CCR Services  
 
-For those who wish to purchase additional project storage in the HPC environment, Lake Effect cloud compute credits or storage, or other CCR paid services, CCR tracks this information as allocations in the [ColdFront](../portals/coldfront.md) portal.  Once allocation requests are submitted, CCR will enter the purchase request in [Blue Services, UB's iLab service](#processes-for-purchasing-ccr-services).  Customers will receive email notifications when invoices are ready for approval.  Once the PI approves the invoice, it will be processed for payment.  Refer to this information for how to go about initiating purchases and renewing expiring purchases:
+For those who wish to purchase additional project storage in the HPC environment, Lake Effect cloud compute credits or storage, or other CCR paid services, CCR tracks this information as allocations in the [ColdFront](../portals/coldfront.md) portal.  Once allocation requests are submitted, CCR will enter the purchase request in [Blue Services, UB's iLab service](https://www.buffalo.edu/administrative-services/managing-money/fee-development-and-cost-accounting/service-centers/blue-services.html).  Customers will receive email notifications when invoices are ready for approval.  Once the PI approves the invoice, it will be processed for payment.  Refer to this information for how to go about initiating purchases and renewing expiring purchases:
 
 - [HPC Storage](#hpc-storage)  
 - [Lake Effect Cloud Credits & Storage](#lake-effect-cloud)  
 - [Co-Location Fees](#co-location-fees)  
 - [System Administration Fees](#miscellaneous-support-fees) 
-- [Using Blue Services for Payments](#processes-for-purchasing-ccr-services) 
+- [Using Blue Services for Payments](https://www.buffalo.edu/administrative-services/managing-money/fee-development-and-cost-accounting/service-centers/blue-services.html)
 
 
 ## HPC Storage  
