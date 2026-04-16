@@ -178,7 +178,7 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Clusters          | Specify a cluster (ub-hpc or faculty) | --clusters=cluster |
 | Partition          | Specify a partition | --partition=partition |
 | Quality of service | Specify a QoS (usually same as partition or priority boost) | --qos=qos               |
-| Account    | Specify which Slurm account you'd like to run the job under.  Use `slimits` to see your account(s).  If not specified, your default Slurm account will be used | --account=SlurmAccountName               |
+| Account    | Specify which Slurm account you'd like to run the job under.<br>Use `slimits` to see your account(s).  If not specified, your default<br>Slurm account will be used | --account=SlurmAccountName               |
 | Sending email      | Receive email at beginning or end of job completion | --mail-type=type           |
 | Email address      | Email address to receive the email                  | --mail-user=user           |
 | Number of nodes    | The number of nodes needed to run the job           | --nodes=nodes              |
