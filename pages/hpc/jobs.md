@@ -136,10 +136,8 @@ There are two types of jobs you can run on CCR's HPC clusters: interactive and b
 
 Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job you will request time and resources. Once available, you will be able to log into the assigned node.  The job will end when the requested time limit is reached or when you log out and cancel it.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
 
-Job Environment Propogation"  
-    Because CCR's clusters contain a mix of CPU architectures for which environments may
-    differ, we recommend you utilize the `--no-shell` option when requesting interactive
-    jobs.  Then use the `srun` command to login to the allocated node.   
+!!! Note "Job Environment Propogation"  
+    Because CCR's clusters contain a mix of CPU architectures for which environments may differ, we recommend you utilize the `--no-shell` option when requesting interactive jobs.  Then use the `srun` command to login to the allocated node.   
 
 This example requests an interactive job using the `salloc` command on the general-compute partition for 1 node, a single process with 32 cores and 50GB of memory for 1 hour.  Once the requested node is available, use the `srun` command as shown to login to the compute node:    
 
