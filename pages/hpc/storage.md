@@ -33,7 +33,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
     - **Project directories for Roswell Park users:**  
         - Directories for individual research groups found in `/projects/rpci`  
         - Use ColdFront to request an allocation for the 'Project Storage' resource  
-        - Quotas are listed on individual allocations in ColdFront & can be viewed on the systems as described in the [Checking Quotas section below](#checking-quotas)  
+        - Quotas are listed on individual allocations in ColdFront.  Usage can be viewed on the systems as described in the [Checking Quotas section below](#checking-quotas)  
         - RPCI IT staff are responsible for dividing up the storage purchased from CCR.  Please contact them if you'd like your quota increased  
         - ==**NO RPCI DIRECTORIES ARE BACKED UP**==    
 
@@ -85,20 +85,9 @@ Refer to the [CCR Storage Purchase Guide](../howto/purchases.md#storage) for ins
 **Your user quota (home directory - `/user/[CCRusername]`):**
 
 ```
-ccrkinit
-NOTE: You will see "Enter OTP Token Value:" - Enter your password AND one-time token all in the same line here
+rquota
 
-iquota
-
-or
-
-iquota -p /user/[CCRusername]
 ```
-
-!!! Tip  
-    If you see an error like this it is usually related to conda environments:  
-    `kinit: Unknown credential cache type while getting default ccache`  
-    See the [Frequently Asked Querstions](../faq.md#why-am-i-see-the-error-kinit-unknown-credential-cache-type-while-getting-default-ccache-when-using-ccrkinit) for more details  
 
 
 **Your group's shared project directory quota:**
@@ -107,11 +96,8 @@ NOTE: You must specify the full path of your directory.  Not all project directo
 
 
 ```
-ccrkinit
-NOTE: You will see "Enter OTP Token Value:" - Enter your password AND one-time token all in the same line here
-
-
-iquota -p /projects/academic/[YourGroupName]
+rquota --path /projects/academic/[YourGroupName]
+(or -p)
 
 HINT: Do not include the trailing slash in the directory name
 ```
@@ -119,59 +105,24 @@ HINT: Do not include the trailing slash in the directory name
 **Your group's shared global scratch directory quota:**
 
 ```
-ccrkinit
-NOTE: You will see "Enter OTP Token Value:" - Enter your password AND one-time token all in the same line here
-
-iquota -p /vscratch/grp-[YourGroupName]
+rquota -p /vscratch/grp-[YourGroupName]
 
 HINT: Do not include the trailing slash in the directory name
 ```
 
 !!! Tip  
-    iquota only reports the total number of files for the group on the storage. If you're getting 'out of space' or I/O errors and the group is not over the file limit, it could be your individual limit has been reached. Please email CCR help to request a file quota check.
+    rquota only reports the total number of files for the group on the storage. If you're getting 'out of space' or I/O errors and the group is not over the file limit, it could be your [individual limit](#enterprise-level-network-attached-storage) has been reached. Please email CCR help to request a file quota check.
 
 ```
-iquota usage:
+rquota usage:
 
-The iquota command has much more built into it than former versions.  Use iquota -h to see all the options.  
+Usage:
+  rquota [flags]
 
-NOTE: You will need to get a kerberos key before running the command, with:  kinit
+Flags:
+  -h, --help          help for rquota
+  -p, --path string   Path to directory
 
-[ccruser@login1:~]$ iquota -h
-
-NAME:
-
-   iquota - displays CCR quotas
-
-USAGE:
-
-   iquota [global options] command [command options] [arguments...]
-
-AUTHOR:
-
-   Andrew E. Bruno <aebruno2@buffalo.edu>
-
-COMMANDS:
-
-   help, h  Shows a list of commands or help for one command
-
-GLOBAL OPTIONS:
-
-   --conf value, -c value                                Path to conf file
-
-   --debug, -d                                           Print debug messages
-
-   --user, -u                                            Print user quota
-
-   --long, -l                                            display long listing
-
-   --show-user value                                     Print user quota for specified user (super-user only)
-
-   --show-group value                                    Print group quota for specified group
-
-   -p value, --path value, -f value, --filesystem value  report quota for filesystem path
-
-   --help, -h                                            show help
 ```
 
 **What do quotas limit?**  
@@ -182,10 +133,6 @@ These spaces all have a quota for usage AND number of files.  This is to prevent
 Knowing your quota and how much of it you've used is helpful, but often we want to know where the disk usage is actually taking place.  You can run the `ncdu` command (NCurses Disk Usage) to calculate the total size of each file and sub-directory and then sort it from largest to smallest.  You will only be able to run this where you have permission to read files, so it's appropriate to run in your home directory:  `/user/[CCRusername]` or your group's project directory.
 
 There are many options for sorting as well as the ability to delete files within this interface.  Use the `man` command to see options: `man ncdu`  
-
-## Alternative Quota Lookup  
-
-Users can access their quota information in [ColdFront](../portals/coldfront.md) as well as on the command line
 
 ## Starfish Storage Usage  
 
