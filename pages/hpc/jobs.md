@@ -71,14 +71,9 @@ three disjointed InfiniBand networks (islands):
 | IB Network             | Nodes   | Speed              |
 | ---------------------- | ------- | ------------------ |
 | **CASCADE-LAKE-IB**    | 128     | HDR 100G           |
-| **ICE-LAKE-IB**        |   99 (see tip below)     | HDR 100G           |
+| **ICE-LAKE-IB**        |   99     | HDR 100G           |
 | **SAPPHIRE-RAPIDS-IB** |   85     | NDR 200G           |
 | **EMERALD-RAPIDS-IB**  |   48     | NDR 200G           |
-
-Node counts are estimates.  Use `snodes` to get an accurate count if needed  
-
-!!! Tip "ICE LAKE IB"
-    The ICE-LAKE-IB fabric spans two different partitions: general-compute and industry.  You will not be able to submit a job to use all the nodes in that fabric except using the scavenger partition.  It is unlikely a job running in scavenger requesting that many nodes will run, or run for long, as it will be preempted.  
 
 If you plan on running a multi-node MPI job which leverages InfiniBand you must
 run on exactly ONE of the above fabrics. The easiest way to do this is to add
@@ -137,7 +132,9 @@ There are two types of jobs you can run on CCR's HPC clusters: interactive and b
 Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job you will request time and resources. Once available, you will be able to log into the assigned node.  The job will end when the requested time limit is reached or when you log out and cancel it.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
 
 !!! Note "Job Environment Propogation"  
-    Because CCR's clusters contain a mix of CPU architectures for which environments may differ, we recommend you utilize the `--no-shell` option when requesting interactive jobs.  Then use the `srun` command to login to the allocated node.   
+    Because CCR's clusters contain a mix of CPU architectures for which environments may
+    differ, we recommend you utilize the `--no-shell` option when requesting interactive
+    jobs.  Then use the `srun` command to login to the allocated node.   
 
 This example requests an interactive job using the `salloc` command on the general-compute partition for 1 node, a single process with 32 cores and 50GB of memory for 1 hour.  Once the requested node is available, use the `srun` command as shown to login to the compute node:    
 
@@ -377,7 +374,7 @@ Watch this virtual workshop to learn more about monitoring your jobs:
 ![type:video](https://youtube.com/embed/ZsXnoH2UQ4E)  
 
 ### Active Jobs Monitoring - command line  
-If your job is currently running, you can login to the compute node(s) it's running on to inspect your program's progress, view output logs, and investigate the node's system status.  You will only be able to login to a compute node where you have a running job.  For instructions on how to login, please see [CCR's login documentation](login.md#compute-node-logins). Once on the compute node, you may use Linux commands to view system status such has `top`, `htop`, `cat /proc/meminfo` (for system memory/RAM information), and `cat /proc/cpuinfo` (for system processor/CPU information).  To view currently running processes under your account use `ps -ef|grep [CCRusername]` (replace [CCRusername] with your CCR username and no brackets). To cancel or kill a process running under your account use `kill -9 [pid]` (replace [pid] with the process ID).  When you're done, use the `exit` or `logout` command.  For more info on Linux commands, see the [CCR Linux & Slurm Cheatsheet]().
+If your job is currently running, you can login to the compute node(s) it's running on to inspect your program's progress, view output logs, and investigate the node's system status.  You will only be able to login to a compute node where you have a running job.  For instructions on how to login, please see [CCR's login documentation](login.md#compute-node-logins). Once on the compute node, you may use Linux commands to view system status such has `top`, `htop`, `cat /proc/meminfo` (for system memory/RAM information), and `cat /proc/cpuinfo` (for system processor/CPU information).  To view currently running processes under your account use `ps -ef|grep [CCRusername]` (replace [CCRusername] with your CCR username and no brackets). To cancel or kill a process running under your account use `kill -9 [pid]` (replace [pid] with the process ID).  When you're done, use the `exit` or `logout` command.  For more info on Linux commands, see the [CCR Linux & Slurm Cheatsheet](https://buffalo.box.com/s/2ejjhxbm8cc3m26vq98iynhi6qjhr3we).
 
 
 ### Active Jobs monitoring - OnDemand
