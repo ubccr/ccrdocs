@@ -91,7 +91,7 @@ Slurm [interactive jobs or batch scripts](../hpc/jobs.md) and via [OnDemand](../
 ### Storage
 
 !!! Warning "Restricted Data Not Allowed"  
-    Personally identifiable information (PII), restricted data, research data that has not been de-identified, and private data including but not limited to social security numbers, passport numbers, credit card numbers, dates of birth, passwords, and medical records, are not to be stored on CCR's systems.  Please refer to our [data storage policy](../policies/accounts.md#protected-status-data-policy) for more details.  
+    The CCR HPC environment does not support storage or processing of sensitive, regulated, or controlled data, including but not limited to private health information (PHI), personally identifiable information (PII), or NIH controlled‑access datasets (e.g., data obtained from NIH controlled‑access data repositories).  It is a violation of RPCCC policy to store such data on CCR systems. Investigators are responsible for ensuring that any data used within CCR is appropriate for this environment and complies with all applicable institutional, sponsor, and regulatory requirements. 
 
 **Project directories:**  RPCI research groups are provided a shared directory and portion of the RPCI storage quota that can be found in `/projects/rpci/[YourGroupName]`.  Please request an allocation for the `Project Storage` resource in ColdFront.  Roswell provides an initial quota of 500GB per research group.  If you require additional storage, please use the [Allocation Change Request](../portals/coldfront.md#allocation-change-requests) feature in ColdFront and provide a justification.  We're required to get approval from RPCI IT for storage increases.  
 

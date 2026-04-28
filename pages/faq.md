@@ -72,21 +72,15 @@ Refer to [CCR's OnDemand troubleshooting documentation](howto/ood-trouble.md#why
 
 ## How can I check how full my directories are?  
 
-CCR's `iquota` tool will provide you quota and usage for your home directory and any shared project or global scratch directories you may also have access to.  You'll first need to authenticate with the `ccrkinit` command.  Enter your password and 6 digit one time token (OTP) when prompted, as shown here:  
+CCR's `rquota` tool will provide you quota and usage for your home directory and any shared project or global scratch directories you may also have access to.  
 
 ```
-CCRusername@login:~$ ccrkinit
-Enter OTP Token Value:
-```
-NOTE: You will not see the characters typed when entering your password and OTP.  
-
-```
-iquota --path /user/[CCRusername]  
-iquota --path /projects/academic/[YourGroupName]  
-iquota --path /vscratch/grp-[YourGroupName]  
+rquota   
+rquota --path /projects/academic/[YourGroupName]  
+rquota --path /vscratch/grp-[YourGroupName]  
 ```
 
-Alternatively, you can view this information on the [ColdFront](https://coldfront.ccr.buffalo.edu) dashboard.  More details about storage and quotas can be found in [CCR's Storage documentation](hpc/storage.md).
+More details about storage and quotas can be found in [CCR's Storage documentation](hpc/storage.md).
 
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 
