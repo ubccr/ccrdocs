@@ -71,9 +71,14 @@ three disjointed InfiniBand networks (islands):
 | IB Network             | Nodes   | Speed              |
 | ---------------------- | ------- | ------------------ |
 | **CASCADE-LAKE-IB**    | 128     | HDR 100G           |
-| **ICE-LAKE-IB**        |   99     | HDR 100G           |
+| **ICE-LAKE-IB**        |   99 (see tip below)     | HDR 100G           |
 | **SAPPHIRE-RAPIDS-IB** |   85     | NDR 200G           |
 | **EMERALD-RAPIDS-IB**  |   48     | NDR 200G           |
+
+Node counts are estimates.  Use `snodes` to get an accurate count if needed  
+
+!!! Tip "ICE LAKE IB"
+    The ICE-LAKE-IB fabric spans two different partitions: general-compute and industry.  You will not be able to submit a job to use all the nodes in that fabric except using the scavenger partition.  It is unlikely a job running in scavenger requesting that many nodes will run, or run for long, as it will be preempted.  
 
 If you plan on running a multi-node MPI job which leverages InfiniBand you must
 run on exactly ONE of the above fabrics. The easiest way to do this is to add
@@ -131,7 +136,7 @@ There are two types of jobs you can run on CCR's HPC clusters: interactive and b
 
 Slurm interactive jobs allow users to interact with applications on the compute node. With an interactive job you will request time and resources. Once available, you will be able to log into the assigned node.  The job will end when the requested time limit is reached or when you log out and cancel it.  This is different compared to a batch job where you submit your job for execution with no user interaction.  
 
-!!! Note "Job Environment Propogation"  
+Job Environment Propogation"  
     Because CCR's clusters contain a mix of CPU architectures for which environments may
     differ, we recommend you utilize the `--no-shell` option when requesting interactive
     jobs.  Then use the `srun` command to login to the allocated node.   

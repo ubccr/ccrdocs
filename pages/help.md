@@ -26,6 +26,7 @@ Connection info:
 Meeting ID: 934 5479 1604  
 Passcode: 751387  
 ```
+NOTE:  Office hours end on 5/19/26 and will be on sabbatical for the summer.  To request an appointment for assistance, please submit a ticket to [CCR Help](#ccr-help)
 
 ## CCR Help Portal  
 

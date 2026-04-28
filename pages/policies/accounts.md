@@ -139,11 +139,11 @@ This includes, but is not limited to:
     By agreement with Roswell Park **/projects/rpci** and subdirectories within this space are **NOT backed up**
 
 **Limits of the backup service**  
-CCR is unable to backup user or project directories with more than 50 million files in them.  Any directory that reaches this limit will be excluded from the daily backups.  We will notify the faculty member/PI of the group before the directory is removed from backups.  However, it is the PI's responsibility to notify his/her group of this exclusion.  You can check how many files are in your directory using the iquota command:
+CCR is unable to backup user or project directories with more than 50 million files in them.  Any directory that reaches this limit will be excluded from the daily backups.  We will notify the faculty member/PI of the group before the directory is removed from backups.  However, it is the PI's responsibility to notify his/her group of this exclusion.  You can check how many files are in your directory using the `rquota` command:
 
 ```
-iquota -u [CCRusername]  
-iquota -p /projects/academic/[YourGroupName]
+rquota
+rquota -p /projects/academic/[YourGroupName]
 ```
 
 **Requesting a data restore**  

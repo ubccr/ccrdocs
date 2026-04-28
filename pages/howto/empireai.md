@@ -1,33 +1,27 @@
 # Empire AI Cluster Information  
 
-The first test system of the Empire AI Consortium is in production.  This system is provided and managed by the Flatiron Institute.  System specifications for the Alpha cluster are on the [Empire AI Alpha Hardware page](https://empireai.freshdesk.com/en/support/solutions/articles/157000007946-alpha-hardware).  This system is referred to as Alpha and its successor Beta is expected to be available in early 2026.  
-
-Initial project applications have been submitted to consortium members, reviewed, and are being onboarded on an ongoing basis by the Empire AI director and Flatiron system administrators.  CCR staff provide support to UB research groups that have access to Alpha - both on using the EAI system and in helping to prepare groups to utilize those resources efficiently.
-
+The first test system of the Empire AI Consortium is in production.  This system is referred to as Alpha+ (it's the original alpha cluster plus additional compute nodes added after the initial deployment). Its successor, Beta, is expected to be available in late May 2026.  System specifications for both the clusters are in the [Empire AI Alpha+ Beta announcement](https://empireai.freshdesk.com/a/solutions/articles/157000363466).
 
 ## Support  
 
-All requests for help should be emailed to `help` `@` `empire-ai.org`.  CCR staff help with supporting researchers and their group members with non-system related questions.  If you are having a system issue, we will help facilitate a resolution but do not have elevated privileges on the Empire AI cluster.  
+All requests for help should be emailed to `help` `@` `empire-ai.org`.  A subset of CCR staff assist with supporting researchers and their group members with non-system related questions on Empire AI clusters.  If we're able, we will respond to your ticket.  If you are having a system issue, we will help facilitate a resolution with the Empire AI system administrators but do not have elevated privileges on the Empire AI clusters.  
 
-If you are using CCR's systems to prepare to onboard to Empire AI and need assistance, please submit a ticket to [CCR Help](../help.md).  
+If you are using CCR's systems to prepare to onboard to Empire AI and need assistance with that, please submit a ticket to [CCR Help](../help.md).  
 
 ##  Call for Allocation Proposals  
 
-Access to Empire AI resources is done via allocations and is organized under collaborating institutions.  UB's allocations fall under the SUNY umbrella.  Requests for proposals for access to Empire AI resources are currently CLOSED for 2025.  We anticipate another round of allocation RFPs to be initiated in 2026.  This will be communicated to UB Principal Investigators (PIs) from the VPR's office.  
+Access to Empire AI resources is done via allocations and is organized under collaborating institutions.  UB's allocations fall under the SUNY umbrella.  Requests for proposals for access to Empire AI resources are currently CLOSED for early 2026.  We anticipate another round of allocation RFPs to be initiated later this year.  This will be communicated to UB Principal Investigators (PIs) from the VPR's office.  
 
 ##  Allocations  
 
-Currently, the process of awarding SUNY allocations is reviewed by SUNY following campus recommendations.  UB's Empire AI allocation committee has reviewed all proposal applications for the Fall 2025 call for proposals and has provided the SUNY allocations committee with a recommended list.  It will be up to SUNY which projects across the institution are awarded with allocations on the Empire AI cluster.  Applicants will be notified by the UB allocations committee as to the results of the review process.  It is the intention that CCR staff will work with all research groups on preparing to onboard to Empire AI or to help enhance future allocation proposals.  To request a meeting with CCR's research computing & data science facilitators to discuss your group's computing needs or prepare allocation proposals, please fill out the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).
+Currently, the process of awarding SUNY allocations is reviewed by SUNY following campus recommendations.  UB's Empire AI allocation committee has reviewed all proposal applications for the Fall 2025 call for proposals and SUNY has selected which projects across the institution are to be awarded with allocations on the Empire AI Alpha+ and Beta clusters.  Applicants have been notified by the UB allocations committee as to the results of the review process.  
 
-
-### Awarded Proposals  
-
-When decisions have been made, those awarded an allocation on Empire AI will be notified.  It is expected that these decisions will be made well in advance of the Beta cluster being available.  Therefore, we highly encourage research groups to work with CCR to prepare your workflow for the Beta cluster.  Please refer to the [Preparing for Onboarding](#preparing-for-eai-onboarding) section for more information.
+It is the intention that CCR staff will work with all research groups on preparing to onboard to Empire AI or to help enhance future allocation proposals.  All PIs awarded allocations have been contacted by CCR staff regarding the steps to take to test their workflows and get onboarded to the alpha cluster.  If you require additional assistance, please request a meeting with CCR's research computing & data science facilitators by completing the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).  We highly encourage research groups to work with CCR to prepare your workflow for the Beta cluster.  Please refer to the [Preparing for Onboarding](#preparing-for-eai-onboarding) section for more information.
 
 
 ### Unsuccessful Proposals  
 
-If you were not awarded an allocation in this round, don't be discouraged!  There are many more proposals than the system can support.  It is the intention of the teams at CCR and the [Institute for Artificial Intelligence & Data Science (IAD)](https://www.buffalo.edu/ai-data-science.html) to help you and your research group prepare for the next round of proposals.  In the coming months, your group should work to enhance your workflow in CCR's HPC environment so that you will be better prepared for the next call for Empire AI proposals.  If your research group does not have access to CCR, please start by [creating up your accounts](../getting-access.md).  The PI of the group should then [create a project and request allocations](../getting-access.md#requirements-for-accessing-ccrs-resources) in the CCR allocations portal, [ColdFront](https://coldfront.ccr.buffalo.edu).  After access is granted, we recommend reviewing the many [training and documentation resources](../getting-started.md) provided by the CCR support team.  To request a meeting with CCR's research computing & data science facilitators to discuss your group's computing needs, please fill out the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).
+If you were not awarded an allocation in this round, don't be discouraged!  There were many more proposals than the system can support.  It is the intention of the teams at CCR and the [Institute for Artificial Intelligence & Data Science (IAD)](https://www.buffalo.edu/ai-data-science.html) to help you and your research group prepare for the next round of proposals.  In the coming months, your group should work to enhance your workflow in CCR's HPC environment so that you will be better prepared for the next call for Empire AI proposals.  If your research group does not have access to CCR, please start by [creating up your accounts](../getting-access.md).  The PI of the group should then [create a project and request allocations](../getting-access.md#requirements-for-accessing-ccrs-resources) in the CCR allocations portal, [ColdFront](https://coldfront.ccr.buffalo.edu).  After access is granted, we recommend reviewing the many [training and documentation resources](../getting-started.md) provided by the CCR support team.  To request a meeting with CCR's research computing & data science facilitators to discuss your group's computing needs, please fill out the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).
 
 
 ## Preparing for EAI Onboarding  
@@ -37,18 +31,18 @@ The best way for a research group to prepare for onboarding to Empire AI's clust
 
 ## Project Onboarding  
 
-We anticipate an updated procedure for account creation and setup will be in place for the Beta cluster.  This section will be updated when that procedure is available.  CCR will also provide an updated onboarding workshop at that time. 
+CCR staff are equipped to create accounts on the Empire AI cluster for approved PIs and members of their research groups.  Please submit a ticket to [CCR Help](../help.md) to request account creation for your group.  Once the Beta cluster is available for users, CCR will invite research groups to an onboarding workshop. 
 
-Recording of the Empire AI On-boarding Workshop from June 2025:
+This recording of the Empire AI On-boarding Workshop from June 2025 is mostly accurate for utilizing the Alpha cluster:
 ![type:video](https://youtube.com/embed/WoACuDqJC0c)  
 
 ## Accounts for Research Group Members  
 
-Once the PI of the project has access to EAI, they may request additional accounts for their students and collaborators.  **DO NOT SHARE ACCOUNTS.**  Submit a ticket to the [EAI support desk](#support) and a CCR staff member will facilitate the account setup.  New users will be asked to complete a form and then the user information is passed to the EAI system administrators for account creation.
+Once the PI of the project has access to EAI, they may request additional accounts for their students and collaborators.  **DO NOT SHARE ACCOUNTS.**  Submit a ticket to the [CCR Help](../help.md) and include the person's full name, institutional email address, and cell phone number.  External collaborators are not permitted access the the Empire AI clusters.    
 
 ## Account Setup  
 
-You will receive notification from the Empire AI system administration team when your account is ready.  Please follow [EAI's account activation instructions](https://empireai.freshdesk.com/en/support/solutions/articles/157000366996-activating-your-new-empire-ai-account) to properly setup your account.  
+You will receive an notification when your account is ready.  Please follow [EAI's account activation instructions](https://empireai.freshdesk.com/en/support/solutions/articles/157000366996-activating-your-new-empire-ai-account) to properly setup your account.  
 
 ## Logging In - Alpha Cluster 
 
@@ -70,7 +64,7 @@ In addition to this, each user has a directory in the global scratch storage.  Y
 
 For more information on storage on Alpha, please see [EIA's Alpha cluster storage documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000175046-empire-ai-alpha-storage).
 
-At this time there are no quotas on these filesystems; however, we've been told to expect that this will be coming soon.  There is also no automatic clearing of the scratch directories, as there are at CCR.  With the implementation of allocations for Beta, there will be quotas on the filesystem.  
+At this time there are no quotas on these filesystems; however, quotas will be enforced once the Beta cluster is in production.  Additional details about quotas and allocations is forthcoming.  There is also no automatic clearing of the scratch directories, as there are at CCR.  With the implementation of allocations for Beta, there will be quotas on the filesystem.  
 
 There are no shared project or scratch directories, like we offer at CCR.  Instructions for sharing files on Alpha can be found in [EAI's file sharing documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000010953-how-can-i-share-data-with-other-users-).
 
@@ -148,12 +142,12 @@ To help with preparing to migrate your workflow to Empire AI, CCR has several op
   - **Scavenger partitions:**  
   Idle compute nodes in both the `UB-HPC` and `Faculty` clusters, including those reserved for industry customers, are available to CCR users.  You may run on these idle nodes until a user with a higher priority (the compute node owner or business customer) submit jobs to run on them. All allocations to the "UB-HPC academic partitions" resource have access to scavenger partitions in both the UB-HPC and Faculty clusters.  See [CCR's scavenger documentation](../hpc/jobs.md#scavenging-idle-cycles) for details on utitlizing these partitions.  
   - **EAI partition:**  
-  This is a test partition for Empire AI projects that are able to scale beyond the GPUs available in CCR's general-compute partition.  Once you're ready for access to this partition, please submit a ticket to [CCR Help](../help.md) and include Grafana charts of recent jobs showing the GPU usage.  
+  This is a test partition for Empire AI projects that are able to scale beyond the GPUs available in CCR's general-compute partition.  Once you're ready for access to this partition, please submit a ticket to [CCR Help](../help.md) and include Grafana charts of recent jobs showing the GPU usage.  It's important to be aware that the nodes in this partition are shared with that of the `industry-dgx` partition.  These nodes were purchased with economic development money; therefore, industry customers get first access to them.  This means jobs submitted to the `eai-test` partition may be preempted, just as if using the [`scavenger` partition](../hpc/jobs.md#scavenging-idle-cycles).  
   - **ARM64 partition:**  
   Any research group may [request an allocation](../portals/coldfront.md#request-an-allocation) for the `ARM64` partition in ColdFront.  This partition contains NVIDIA Gracehopper nodes with 2 GH200 GPUs and 72 ARM64 Neoverse CPUs per node.  These are similar to the next iteration of Empire AI equipment ("Beta").  This partition will be an important part of your testing as you prepare to migrate your workflow to Beta in the coming months.  NVIDIA containers for this architecture are named with the suffix `-igpu` in the container library.  See the [container section below](#containers) for more information on these.  
 
-  !!! Tip  
-      When running jobs on the `arm64` partition, please be aware of additional [environment setup](../software/march.md#neoverse-v2) required. 
+    !!! Tip  
+        When running jobs on the `arm64` partition, please be aware of additional [environment setup](../software/march.md#neoverse-v2) required. 
 
 ## GUI Applications and IDE Tools  
 
@@ -162,6 +156,16 @@ The Empire AI cluster does not provide an interface for GUI-based applications o
 ## Containers  
 
 CCR **HIGHLY** recommends utilizing [NVIDIA containers](https://catalog.ngc.nvidia.com/containers) for use with our GPUs, as does Empire AI and our NVIDIA tech support partners.  By using the same pre-built containers on CCR, EAI, and your personal workstations, you can easily transition from one system to the next.  CCR provides detailed documentation on best practices for using [Python](../howto/python.md) and [containers](../howto/containerization.md) as well as a self-paced ["Using Python at CCR" course](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) in UB Learns that covers these topics in detail.  For an example workflow of how to use the NVIDIA containers, see [CCR's GPU container example](../howto/containerization.md#example-gpu-container-workflow). To prepare for the EAI Beta cluster, you will want to use the `ARM64` containers and CCR's `arm64` partition.  Refer to the [Scaling Up at CCR](#scaling-up-at-ccr) section for more information.     
+
+### Apptainer & Singularity  
+
+Empire AI provides [Singularity/Apptainer](../howto/containerization.md#apptainer) on the cluster for users to run containers.  Unlike CCR, you'll need to load the module in order to use this software.  Once loaded, you can use with the `singularity` or `apptainer` command:  
+```
+module load singularity  
+which singularity
+alias singularity='apptainer'
+        /cm/local/apps/apptainer/current/bin/apptainer
+```
 
 ### NVIDIA Resources  
 
