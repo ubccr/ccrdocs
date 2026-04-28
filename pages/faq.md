@@ -80,7 +80,7 @@ rquota --path /projects/academic/[YourGroupName]
 rquota --path /vscratch/grp-[YourGroupName]  
 ```
 
-Alternatively, you can view this information on the [ColdFront](https://coldfront.ccr.buffalo.edu) dashboard.  More details about storage and quotas can be found in [CCR's Storage documentation](hpc/storage.md).
+More details about storage and quotas can be found in [CCR's Storage documentation](hpc/storage.md).
 
 ##  Why am I see the error "kinit: Unknown credential cache type while getting default ccache" when using ccrkinit?  
 

@@ -33,7 +33,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
     - **Project directories for Roswell Park users:**  
         - Directories for individual research groups found in `/projects/rpci`  
         - Use ColdFront to request an allocation for the 'Project Storage' resource  
-        - Quotas are listed on individual allocations in ColdFront & can be viewed on the systems as described in the [Checking Quotas section below](#checking-quotas)  
+        - Quotas are listed on individual allocations in ColdFront.  Usage can be viewed on the systems as described in the [Checking Quotas section below](#checking-quotas)  
         - RPCI IT staff are responsible for dividing up the storage purchased from CCR.  Please contact them if you'd like your quota increased  
         - ==**NO RPCI DIRECTORIES ARE BACKED UP**==    
 
@@ -133,10 +133,6 @@ These spaces all have a quota for usage AND number of files.  This is to prevent
 Knowing your quota and how much of it you've used is helpful, but often we want to know where the disk usage is actually taking place.  You can run the `ncdu` command (NCurses Disk Usage) to calculate the total size of each file and sub-directory and then sort it from largest to smallest.  You will only be able to run this where you have permission to read files, so it's appropriate to run in your home directory:  `/user/[CCRusername]` or your group's project directory.
 
 There are many options for sorting as well as the ability to delete files within this interface.  Use the `man` command to see options: `man ncdu`  
-
-## Alternative Quota Lookup  
-
-Users can access their quota information in [ColdFront](../portals/coldfront.md) as well as on the command line
 
 ## Starfish Storage Usage  
 
