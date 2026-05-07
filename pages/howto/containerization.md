@@ -378,3 +378,37 @@ This virtual environment is accessible outside of the container as well as insid
 - Not all packages will install correctly inside a virtual environment.  See [CCR's virtual enviroment documentation](../howto/python.md#installing-packages-inside-the-virtual-environment) for more information.  
 - Because you are intentionally attempting to use already installed python packages with your virtual environment, you may run into conflicts.  In that event, you may need to [create your own container](#building-images-with-apptainer) from scratch installing all the packages you need rather than using a pre-built one from NVIDIA.  However, you can start with the NVIDIA container of your choice as the base image.    
 - If you're using a container, we do NOT recommend also using modules [CCR's software environment](../software/modules.md).  These will most likely conflict.
+
+## container-mod
+
+`container-mod` is a [tool designed by the Tufts University](https://github.com/TuftsRT/container-mod) to simplify the use of containers in High Performance Computing (HPC) environments. It is built to bridge the gap between container platforms such as Docker or Singularity/Apptainer and traditional HPC setups like CCR, by converting container images into environment modules that are easy to load and use.
+
+We recommend and support the use of `container-mod` for basic and straightforward containerized applications.
+
+### Key Features
+
+1. **Container Image Access**:- Pulls container images from DockerHub or locally stored files.
+2. **Modulefile Generation**:- Automatically creates modulefiles compatible with Lmod at CCR.
+3. **Wrapper Scripts**:- Generates scripts for programs used by the container, so they can be used as native binaries.
+4. **Jupyter Kernel (Optional with partial functionality)**:- Creates Jupyter kernels for supported containers, allowing interactive workflows through Jupyter Lab/Notebook.
+
+### Benefits and Limitations
+
+**Benefits:**
+
+- `container-mod` works well with HPC environments where module based systems are already present, and you want to use the portability and consistency of containerized software without directly engaging with the container itself.
+- Users can load and unload container modules in a predictable and consistent way, just as they would with traditionally installed applications.
+- Container modules can work across different CCR software releases, improving portability and reproducibility.
+
+**Limitations:**
+
+- `container-mod` introduces an additional layer between the user and the container, which can sometimes make debugging more challenging when problems occur inside the container.
+- Personal tuning and customization are more limited than direct container usage.
+- Additionally, not all application features or programs are usable through the module interface with wrapper scripts, which limits an array of use cases.
+
+!!! Warning "Important"
+    As of this release, the Jupyter kernel and profile selection options are available with limited functionality. CCR staff cannot guarantee stability or provide support for it.
+
+### Example container-mod Workflow
+
+Please refer to our [ccr-examples](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/README.md) repository for an example workflow of using `container-mod`.
