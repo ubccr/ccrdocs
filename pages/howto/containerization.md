@@ -388,9 +388,9 @@ We recommend and support the use of `container-mod` for basic and straightforwar
 ### Key Features
 
 1. **Container Image Access**:- Pulls container images from DockerHub or locally stored files.
-2. **Modulefile Generation**:- Automatically creates modulefiles compatible with Lmod at CCR.
-3. **Wrapper Scripts**:- Generates scripts for programs used by the container, so they can be used as native binaries.
-4. **Jupyter Kernel (Optional with partial functionality)**:- Creates Jupyter kernels for supported containers, allowing interactive workflows through Jupyter Lab/Notebook.
+2. **Modulefile Generation**: Automatically creates modulefiles compatible with Lmod at CCR.
+3. **Wrapper Scripts**: Generates scripts for programs used by the container, so they can be used as native binaries.
+4. **Jupyter Kernel (Optional with partial functionality)**: Creates Jupyter kernels for supported containers, allowing interactive workflows through Jupyter Lab/Notebook.
 
 ### Benefits and Limitations
 
