@@ -381,13 +381,12 @@ This virtual environment is accessible outside of the container as well as insid
 
 ## container-mod
 
-`container-mod` is a [tool designed by the Tufts University](https://github.com/TuftsRT/container-mod) to simplify the use of containers in High Performance Computing (HPC) environments. It is built to bridge the gap between container platforms such as Docker or Singularity/Apptainer and traditional HPC setups like CCR, by converting container images into environment modules that are easy to load and use.
+`container-mod` is a tool designed by the [Research Technology group at Tufts University](https://github.com/TuftsRT/container-mod) to simplify the use of containers in High Performance Computing (HPC) environments. It is built to bridge the gap between container platforms such as Docker or Singularity/Apptainer and traditional HPC setups like CCR, by creating environment modules for containers that are easy to load and use.  Though CCR does not directly support this software, we do provide an [example](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/README.md) of how to use it on our systems.
 
-We recommend and support the use of `container-mod` for basic and straightforward containerized applications.
 
 ### Key Features
 
-1. **Container Image Access**:- Pulls container images from DockerHub or locally stored files.
+1. **Container Image Access**: Pulls container images from DockerHub or locally stored files.
 2. **Modulefile Generation**: Automatically creates modulefiles compatible with Lmod at CCR.
 3. **Wrapper Scripts**: Generates scripts for programs used by the container, so they can be used as native binaries.
 4. **Jupyter Kernel (Optional with partial functionality)**: Creates Jupyter kernels for supported containers, allowing interactive workflows through Jupyter Lab/Notebook.
@@ -404,7 +403,7 @@ We recommend and support the use of `container-mod` for basic and straightforwar
 
 - `container-mod` introduces an additional layer between the user and the container, which can sometimes make debugging more challenging when problems occur inside the container.
 - Personal tuning and customization are more limited than direct container usage.
-- Additionally, not all application features or programs are usable through the module interface with wrapper scripts, which limits an array of use cases.
+- Not all application features or programs are usable through the module interface with wrapper scripts, which limits an array of use cases.
 
 !!! Warning "Important"
     As of this release, the Jupyter kernel and profile selection options are available with limited functionality. CCR staff cannot guarantee stability or provide support for it.
