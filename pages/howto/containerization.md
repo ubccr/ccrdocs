@@ -387,7 +387,7 @@ This virtual environment is accessible outside of the container as well as insid
 ### Key Features
 
 1. **Container Image Access**: Pulls container images from DockerHub or locally stored files.
-2. **Modulefile Generation**: Automatically creates modulefiles compatible with Lmod at CCR.
+2. **Modulefile Generation**: Automatically creates modulefiles compatible with [Lmod](https://lmod.readthedocs.io/en/latest/) at CCR.
 3. **Wrapper Scripts**: Generates scripts for programs used by the container, so they can be used as native binaries.
 4. **Jupyter Kernel (Optional with partial functionality)**: Creates Jupyter kernels for supported containers, allowing interactive workflows through Jupyter Lab/Notebook.
 
