@@ -179,8 +179,8 @@ Slurm allows the use of flags to specify resources needed for a job. Below is a 
 | Partition          | Specify a partition | --partition=partition |
 | Quality of service | Specify a QoS (usually same as partition or priority boost) | --qos=qos               |
 | Account    | Specify which Slurm account you'd like to run the job under.<br>Use `slimits` to see your account(s).  If not specified, your default<br>Slurm account will be used | --account=SlurmAccountName               |
-| Sending email      | Receive email at beginning or end of job completion | --mail-type=type           |
-| Email address      | Email address to receive the email                  | --mail-user=user           |
+| Sending email      | When to send email.  Options include: NONE, BEGIN, END, FAIL, REQUEUE, ALL <br> See cautionary note in orange callout below! | --mail-type=type           |
+| Email address      | Email address to receive the email                  | --mail-user=your_email_address           |
 | Number of nodes    | The number of nodes needed to run the job           | --nodes=nodes              |
 | Number of tasks    | The ***total*** number of processes needed to run the job | --ntasks=processes   |
 | Tasks per node     | The number of processes you wish to assign to each node | --ntasks-per-node=processes |
@@ -397,6 +397,19 @@ CCRusername@login:~$ ccr-jobview-url 10457965 ub-hpc
 Then you would paste the outputed link into your browser. For example:
 
 [Example Grafana output](https://dashboard.ccr.buffalo.edu/grafana/d/HRLkiLS7k/single-job-stats?orgId=1&theme=light&from=1764861569000&to=1764862598000&var-cluster=ub-hpc&var-JobID=22697475)
+
+### Jobstats Usage Reporting  
+CCR employs [Princeton's JobStats software](https://princetonuniversity.github.io/jobstats/) for node usage reporting. If you enable notifications in your batch script to send emails at the completion of the job, this information will be included in that email.  
+```
+#SBATCH --mail-user=your_email_address
+#SBATCH --mail-type=end
+```
+
+Alternatively, you can get job usage information at the command line using:  
+`jobstats <jobid>`
+
+Jobstats information includes CPU, GPU, and RAM (memory) usage as well as the name of the node(s) the job ran on, start, and end times.  This information is incredibly useful for troubleshooting workloads and can provide helpful information when working to improve job efficiency.  
+
 
 ### Slurm Accounting
 Slurm account information is also available and useful depending on what information you're looking for regarding your jobs.  
