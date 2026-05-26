@@ -144,10 +144,15 @@ Matlab is available to UB faculty, staff, and students through the university's 
 
 #### RStudio App
 
-The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users can select from a drop down menu that includes CCR's default R installation or containerized options.  CCR provides 4 additional versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own.  As long as the container includes the RStudio application, it should launch the GUI properly when using this app.  When using your own container image, please enter the full path and name of the Apptainer image you'd like to use.  Refer to [CCR's container documentation](../howto/containerization.md) for more information.  
+The RStudio interactive app in OnDemand allows the user to select where or how to launch RStudio.  Users may choose from launching the R 4.2 application published in CCR's `ccrsoft/2023.01` [software environment](../software/releases.md) or they may choose to use R in a container. Users can select from a drop down menu that includes containers provided by CCR or the option to run your own container.  CCR provides multiple versions of R, RStudio, and Bioconductor via containers from [Bioconductor](https://hub.docker.com/u/bioconductor). Alternatively, users may choose to utilize their own container for launching RStudio.  You may download alternate versions from Bioconductor or create your own container that includes additional R libraries you need to utilize.  As long as your container includes the RStudio application, it should launch the GUI properly when using this app.  Refer to [CCR's container documentation](../howto/containerization.md) for more information.  
 
-!!! Danger "R library installation"  
-    Recent versions of R require libraries which are version locked.  To ensure any libraries you install are only available to the R version you installed them with, this app automatically uses the `$HOME/Rlibs/<IMAGE_TAG>` directory. If that doesn't exist, it is automatically created.  
+This app allows users to choose which cluster and partition to run the job as well as amount of RAM, time, and specific node features. If not specified, the application will run on 1 node with 2.8GB of RAM, for 24 hours.  When using your own container image, please enter the full directory path where the container resides, including the name of the Apptainer image.  
+
+NOTE: Recent versions of R require libraries which are version locked.  To ensure any libraries you install are only available to the R version you installed them with, this app automatically uses the `$HOME/Rlibs/<IMAGE_TAG>` directory. If that doesn't exist, it is automatically created. 
+
+!!! Danger "R environment configurations"  
+    When using a container to launch RStudio, it's important to ensure you have not setup `.Renviron` or `.R/Makevars` files as these will override the container environment when launching RStudio, often breaking library installation and loading.  
+
 
 #### VMD App  
 
