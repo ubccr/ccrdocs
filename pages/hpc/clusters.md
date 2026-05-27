@@ -62,7 +62,7 @@ This is a listing of available compute node types in the UB-HPC cluster.  Please
 
 ### UB-HPC Cluster Status  
 
-Use the [Slurm dashboard](https://dashboard.ccr.buffalo.edu/slurm/ubhpc) for detailed information on current node status.  
+Use the command `sqstat` for detailed information on cluster status. To find more detailed information on node availability, use the `snodes` command. 
 
 ## Faculty Compute Cluster
 
