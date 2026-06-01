@@ -381,8 +381,7 @@ This virtual environment is accessible outside of the container as well as insid
 
 ## container-mod
 
-`container-mod` is a tool designed by the [Research Technology group at Tufts University](https://github.com/TuftsRT/container-mod) to simplify the use of containers in High Performance Computing (HPC) environments. It is built to bridge the gap between container platforms such as Docker or Singularity/Apptainer and traditional HPC setups like CCR, by creating environment modules for containers that are easy to load and use.  Though CCR does not directly support this software, we do provide an [example](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/README.md) of how to use it on our systems.
-
+`container-mod` is a tool designed by the [Research Technology group at Tufts University](https://github.com/TuftsRT/container-mod) to simplify the use of containers in High Performance Computing (HPC) environments. It is built to bridge the gap between container platforms such as Docker or Singularity/Apptainer and traditional HPC setups like CCR, by creating environment modules for containers that are easy to load and use.  Though CCR does not directly support this software, we do provide [examples](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/README.md) of how to use it on our systems.
 
 ### Key Features
 
@@ -391,13 +390,17 @@ This virtual environment is accessible outside of the container as well as insid
 3. **Wrapper Scripts**: Generates scripts for programs used by the container, so they can be used as native binaries.
 4. **Jupyter Kernel (Optional with partial functionality)**: Creates Jupyter kernels for supported containers, allowing interactive workflows through Jupyter Lab/Notebook.
 
-### Benefits and Limitations
+!!! Warning "Important"
+    As of this release, the Jupyter kernel option is available with limited functionality. CCR staff cannot guarantee stability or provide support for it.
 
-**Benefits:**
+### Applications and Limitations
 
-- `container-mod` works well with HPC environments where module based systems are already present, and you want to use the portability and consistency of containerized software without directly engaging with the container itself.
+**Use cases:**
+
+- `container-mod` works well with CCR's existing module based environment, enabling use of containerized software without direct container interaction.
 - Users can load and unload container modules in a predictable and consistent way, just as they would with traditionally installed applications.
 - Container modules can work across different CCR software releases, improving portability and reproducibility.
+- Container modules can be generated in shared directories, allowing research groups to create easily accessible modules for all members.
 
 **Limitations:**
 
@@ -405,9 +408,9 @@ This virtual environment is accessible outside of the container as well as insid
 - Personal tuning and customization are more limited than direct container usage.
 - Not all application features or programs are usable through the module interface with wrapper scripts, which limits an array of use cases.
 
-!!! Warning "Important"
-    As of this release, the Jupyter kernel and profile selection options are available with limited functionality. CCR staff cannot guarantee stability or provide support for it.
+### Example container-mod Workflows
 
-### Example container-mod Workflow
+We provide two `container-mod` workflow examples in our [ccr-examples repository](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/README.md): `personal` and `project`.
 
-Please refer to our [ccr-examples](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/README.md) repository for an example workflow of using `container-mod`.
+1. The [personal workflow](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/personal) uses a container from DockerHub and runs in the default (`personal`) mode, where all generated output files are stored in the user’s home directory.
+2. The [project workflow](https://github.com/ubccr/ccr-examples/tree/main/containers/1_Advanced/container-mod/project) uses a locally stored `.sif` file along with a custom profile which stores generated modulefiles in a project directory. This is suited for research groups, enabling shared container modules for all users.
