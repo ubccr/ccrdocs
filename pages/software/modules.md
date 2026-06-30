@@ -103,11 +103,11 @@ MPI-dependent modules
 
 CCR supports the following compiler toolchains:
 
-| Toolchain   | Included compilers and libraries                             |
-| ----------- | ------------------------------------------------------------ |
-| **intel**   | Intel compilers, Intel MPI, and Intel MKL                    |
-| **foss**    | GCC, OpenMPI, FlexiBLAS, OpenBLAS, LAPACK, ScaLAPACK, FFTW   |
-| **GCC**     | GCC compiler only                                            |
+| Toolchain | Included compilers and libraries                           |
+| --------- | ---------------------------------------------------------- |
+| **intel** | Intel compilers, Intel MPI, and Intel MKL                  |
+| **foss**  | GCC, OpenMPI, FlexiBLAS, OpenBLAS, LAPACK, ScaLAPACK, FFTW |
+| **GCC**   | GCC compiler only                                          |
 
 In addition to the compiler toolchains, the hierarchical module system is also
 "CPU architecture" aware. The module system will auto-detect what type of CPU
@@ -115,11 +115,11 @@ you're running on and display modules built for that specific architecture.
 
 CCR supports the following CPU architectures:
 
-| Architecture  | Supported CPUs                                             |
-| ------------- | ---------------------------------------------------------- |
-| x86-64-v3 (formerly avx2)          | Intel Haswell, Broadwell                                   |
-| x86-64-v4 (formerly avx512)        | Intel Cascade Lake-SP, Ice Lake-SP, Sapphire Rapids-SP, Emerald Rapids-SP, AMD Zen4              |
-| neoverse-v2          |      ARMv9.0-A NVIDIA Gracehopper                             |
+| Architecture                | Supported CPUs                                                                      |
+| --------------------------- | ----------------------------------------------------------------------------------- |
+| x86-64-v3 (formerly avx2)   | Intel Haswell, Broadwell                                                            |
+| x86-64-v4 (formerly avx512) | Intel Cascade Lake-SP, Ice Lake-SP, Sapphire Rapids-SP, Emerald Rapids-SP, AMD Zen4 |
+| neoverse-v2                 | ARMv9.0-A NVIDIA Gracehopper                                                        |
 
 For specific software environment and compiler versions, see [CCR's software releases page](releases.md).
 
@@ -151,7 +151,7 @@ For more information, see the [Running Jobs section](../hpc/jobs.md).
 
 CCR maintains a [repository of examples](https://github.com/ubccr/ccr-examples) for use in the HPC environment.  This includes example Slurm scripts for a variety of use cases, some application-specific usage examples, and examples on using containers.  This repository will be updated over time so check back frequently for updates.  
 
-### Abaqus  
+### Abaqus
 
 See [CCR's Abaqus container documentation](https://github.com/ubccr/ccr-examples/tree/main/containers/2_ApplicationSpecific/abaqus) for an example of running Abaqus with Apptainer.
 
@@ -172,14 +172,14 @@ CCR does not support running Anaconda natively in the HPC environment. Please do
 - May not be free for all users.  Please refer to the [Anaconda terms of service documentation](https://legal.anaconda.com/policies/en/)  
 
 As an alternative, we suggest one of the following options for using and installing Python packages:  
+
 1. Use CCR's modules that already include many [popular python packages](#python)  
 2. Create your own custom python module bundles using [Easybuild](../howto/easybuild.md).  
 3. Use a container with conda installed.  We provide a simple [Conda container example](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) of building and customizing a container for conda in our [`ccr-examples` repository](https://github.com/ubccr/ccr-examples).  For more information about using containers on CCR's systems, see [CCR's container documentation](../howto/containerization.md).  
 
 For more details please refer to our [Python documentation](../howto/python.md) or check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns.  
 
-
-### LS-DYNA  
+### LS-DYNA
 
 See [CCR's LS-DYNA container documentation](https://github.com/ubccr/ccr-examples/tree/main/slurm/2_ApplicationSpecific/lsdyna) for an example of using LS-DYNA.
 
@@ -245,17 +245,14 @@ Several python modules are available for use. We encourage users to checkout the
 | tensorflow   | TensorFlow                                                                                   |
 | pytorch      | PyTorch                                                                                      |
 
-
 If you require other python libraries not included within CCR's python modules, you can install them yourself but you MUST be careful in doing so.  Instructions you may find online for installing python packages may not work the same in CCR's HPC environment.  We provide extensive documentation and training guides for Python to ensure you have a successful experience.  Which method you use will depend on your workflow and your needs.  We have some suggestions:  
 
-  - Not sure?  Check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns for a full walk through of all the Python options and suggestions for when to use each one.  
-  - Prefer to read documentation?  Check out this [How to Use Python at CCR](../howto/python.md) page.
-  - Already know you want to use containers?  See [CCR's container documentation](../howto/containerization.md).  If you're using GPU-enabled codes, make sure to review [CCR's GPU container guide](../howto/containerization.md#gpu-enabled-containers-with-apptainer) first!  
-  - Already using other Easybuild modules and want to build your own Python bundle?  See [here](../howto/easybuild.md) for instructions.  
-  - Already have your Python environment ready to go?  See [CCR's Python documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.  
-  - Know you really can't do without conda?  CCR provides [Conda container documentation](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) for an example of how to build and run a conda container.
-
- 
+- Not sure?  Check out the ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course in UB Learns for a full walk through of all the Python options and suggestions for when to use each one.  
+- Prefer to read documentation?  Check out this [How to Use Python at CCR](../howto/python.md) page.
+- Already know you want to use containers?  See [CCR's container documentation](../howto/containerization.md).  If you're using GPU-enabled codes, make sure to review [CCR's GPU container guide](../howto/containerization.md#gpu-enabled-containers-with-apptainer) first!  
+- Already using other Easybuild modules and want to build your own Python bundle?  See [here](../howto/easybuild.md) for instructions.  
+- Already have your Python environment ready to go?  See [CCR's Python documentation](https://github.com/ubccr/ccr-examples/blob/main/slurm/2_ApplicationSpecific/python/README.md) for examples on how to run Python using Slurm scripts.  
+- Know you really can't do without conda?  CCR provides [Conda container documentation](https://github.com/ubccr/ccr-examples/blob/main/containers/2_ApplicationSpecific/conda/README.md) for an example of how to build and run a conda container.
 
 ### R - The statistical computing and graphics application
 
@@ -304,14 +301,14 @@ $ R CMD INSTALL -l /projects/academic/[YourGroupName]/$USER/software/$CCR_VERSIO
     to search for existing installations.  
 
 Sometimes R library installations will fail with errors such as `installation of package ‘library_name’ had non-zero exit status` or similar.  This is a result of the software trying to save temporary files where you do not have permission to write files.  As a workaround, create a temporary directory within your home or project directory and point the R library installation to use it.  As an example:  
+
 ```
 $ mkdir ~/tmp  
 $ module load gcc openmpi r  
 $ R 
 > Sys.setenv(TMPDIR="/user/$USER/tmp")  
 > install.packages("ggplot2", repos="http://cran.r-project.org", lib = "/projects/academic/[YourGroupName]/$USER/software/$CCR_VERSION/rlibs")  
-``` 
-
+```
 
 If your research group requires many R libraries not already available in one of CCR's R installations, we recommend you [ask CCR to build
 them](../software/building.md#software-build-requests) or create your own custom R bundle with easybuild.
@@ -319,16 +316,21 @@ them](../software/building.md#software-build-requests) or create your own custom
 **Bioconductor Containers**  
 
 CCR provides 4 containers from [Docker Hub](https://hub.docker.com/u/bioconductor) that include R, RStudio, and Bioconductor libraries.  These containers can be used on the command line in [interactive or batch jobs](../hpc/jobs.md#running-applications-on-the-clusters).  They can be found here:  
+
 ```
 /util/software/containers/x86_64
 ```
-They are named the same as on Docker Hub and relate to Bioconductor's naming convention - starting with either `tidyverse` or `ml-verse`.  These are available in the [RStudio app](../portals/ood.md#rstudio-app) in OnDemand as well.
 
+They are named the same as on Docker Hub and relate to Bioconductor's naming convention - starting with either `tidyverse` or `ml-verse`.  
 
-### RStudio  
+**These can be used with the [RStudio app](../portals/ood.md#rstudio-app) in OnDemand as well.**
+
+Please refer to CCR's extensive [container documentation](../howto/containerization.md) for more information on using and building your own containers.
+
+### RStudio
 
 Multiple versions of RStudio are available within the available R installations and containers.  In order to launch the RStudio GUI, you must do so using the [RStudio app](../portals/ood.md#rstudio-app) in OnDemand.  
 
-### SAS  
+### SAS
 
 See [here](https://github.com/ubccr/ccr-examples/tree/main/containers/2_ApplicationSpecific/sas) for an example of running SAS using Apptainer.
