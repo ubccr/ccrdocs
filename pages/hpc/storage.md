@@ -48,7 +48,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
 To request a restore of deleted files, please complete [CCR's Backup Restore Request form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=363).  Please provide the full path of the file/directory you would like restored and the date and time you would like us to target.  This would be the last known time the file/directory was on the file system.  If it has not been on the system at least 24 hours, it will not have made it to the backup tapes.  There is no guarantee your data is available for recovery but we will attempt to recover it.  
 
 ## Global Scratch
-
+==Global scratch is being phased out.  No new directories will be created==
 - There is no guarantee of uptime  
 - Scratch file systems are designed for temporary storage and shorter-term processing of data  
 - To be used during job runs and moved or deleted at the completion of a job
