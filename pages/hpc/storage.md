@@ -22,8 +22,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
     - Daily snapshots are available for 30 days for users to restore data from their home directories themselves.  Instructions can be found in the [backup policies documentation](../policies/accounts.md#self-service-home-directory-data-restore)
   - **Project directories for academics:**  
     - Shared by a single research group or course  
-    - Directories found in `/projects/academic` or `/projects/academic/courses` for classes
-    - 1TB provided for free to UB faculty groups
+    - By default, 1TB provided for free to UB faculty groups
     - Use ColdFront to request an allocation for the `Project Storage` resource
     - Additional [storage can be purchased](#purchasing-project-storage)  
     - To protect the file system, there is a limit of 200 million files per project directory
@@ -32,7 +31,6 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
   - **Project directories for industry customers:**  
     - Quotas vary based on Cooperative Use Agreement  
     - **NOT backed up unless specified in your company's Cooperative Use Agreement**  
-    - Directories found in `/projects/industry/`  
     - Use ColdFront to request an allocation for the `Project Storage` resource  
   - **Project directories for Roswell Park users:**  
     - Directories for individual research groups found in `/projects/rpci`  
@@ -40,6 +38,9 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
     - Quotas are listed on individual allocations in ColdFront.  Usage can be viewed on the systems as described in the [Checking Quotas section below](#checking-quotas)  
     - RPCI IT staff are responsible for dividing up the storage purchased from CCR.  Please contact them if you'd like your quota increased  
     - ==**NO RPCI DIRECTORIES ARE BACKED UP**==    
+
+**How do I know what directory I have access to?**
+Directories are auto-mounted when accessed.  Therefore, you need to know which directory or directories you have access to and navigate directly to it.  Your group's shared directory path can be found on your storage allocation in [ColdFront](../portals/coldfront.md).  Users may have access to multiple storage allocations.  Please see [this information](../changelogs/2026/#july-2026-downtime) for more details on the auto-mounting of directories.
 
 !!! Warning  
       Due to limitations of the campus backup service, any directory containing over 50 million files is **NOT BACKED UP**.  The directory owner will be contacted if their directory reaches this level prior to stopping the backups.

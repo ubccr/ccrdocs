@@ -82,6 +82,41 @@ If your username on Beta is not the same as on your computer, you will need to s
 
 Your username on Beta will be provided in the Empire AI new account information received via email.
 
+## Running Jobs
+
+Please refer to the [documentation](https://empireai.freshdesk.com/support/solutions/articles/157000374441-empire-ai-getting-started-alpha-grace-beta-) provided by Empire AI for full details on running jobs on the Alpha and Beta clusters.  Here we want to draw your attention to changes being made on the Alpha cluster in September 2026.  The partition names and QOS values will be made to align with the Beta cluster setup.  Therefore, if you're using the `suny` partition and QOS values to submit jobs, you'll need to update your batch scripts or interactive job requests.  All jobs will also need to use the research group's Slurm subaccount. We will no longer use `--account=suny`  
+
+To view your Slurm account and association access use this formatting: 
+`sacctmgr show user [YourUsername] format=user,cluster,account%30,QOS%50`
+This will display your Slurm account (`suny`) and your subaccount in the form of: `su_PIusername_tag`
+For example: `su_jsmith_llm`
+This is the value you'll use for Slurm account.  If you have access to multiple projects, you may use any subaccounts you have access to.
+
+Users of the **original alpha cluster nodes (x86_64)** should use:  
+```
+--account=suny
+--partition=alpha
+--qos=depends...see link below
+```
+[Alpha QOS tiers](https://empireai.freshdesk.com/support/solutions/articles/157000374474-alpha-job-submission-and-qos-overview)
+
+Users of the **alpha cluster Grace nodes (arm64/aarch64)** should use:
+```
+--account=suny
+--partition=grace
+--qos=depends...see link below
+```
+[Alpha Grace nodes QOS tiers](https://empireai.freshdesk.com/support/solutions/articles/157000374494-empire-ai-grace-%E2%80%94-job-submission-and-qos-overview)
+
+Users of the **beta cluster** should use:
+```
+--account=suny
+--partition=beta
+--qos=depends...see link below
+```
+Beta cluster QOS tiers - coming soon.  Documentation on using Beta can be [found here](https://empireai.freshdesk.com/support/solutions/articles/157000373786-getting-started-on-the-nvidia-gb200-nvl72).  
+
+
 ## Storage
 
 Each user is provided a home directory in `/mnt/home/[YourUsername]`  
@@ -97,7 +132,7 @@ Project directories will be available on Beta.  With the implementation of alloc
 ### Data Transfer
 
 **Globus**  
-The Globus data transfer service provides the fastest and most secure data transfer speeds. Refer to CCR's [Globus documentation](../hpc/data-transfer.md#globus-transfers) for information on how to use the web interface and search for "Empire AI Alpha" to find the EAI Globus servers.  You'll be prompted to enter your EAI username and password for access to their Globus collection.  
+The Globus data transfer service provides the fastest and most secure data transfer speeds. Please refer to [Empire AI's Globus documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000374523-transfer-data-with-globus) for information on authentication and connection to their collections.  If you'd like to transfer between Empire AI and CCR, refer to CCR's [Globus documentation](../hpc/data-transfer.md#globus-transfers) for information on how to use the web interface and search connect to CCR's collections.  
 
 **SFTP**  
 Secure FTP is also an option for moving data to the EAI cluster.  You can initiate transfers via the command line or using a SSH client that provides a GUI, such as FileZilla or CyberDuck.  Refer to [CCR's data transfer documentation](../hpc/data-transfer.md#secure-shell-copy) for guidance, substituting the EAI login node with CCR's where appropriate. 
