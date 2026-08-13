@@ -25,7 +25,7 @@ Please note: This schedule can, and likely will change, to respond to vendor sof
 
 7/28/26 - [July 2026 Details](2026.md#july-2026-downtime)  
 
-8/25/26 - [August 2026 Details](2026.md#august-2026-downtime)
+8/18/26 - [August 2026 Details](2026.md#august-2026-downtime) **NOTE DATE CHANGE**
 
 9/29/26 - September 2026 Details available approximately 2 weeks before downtime  
 
