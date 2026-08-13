@@ -86,15 +86,14 @@ Your username on Beta will be provided in the Empire AI new account information 
 
 Please refer to the [documentation](https://empireai.freshdesk.com/support/solutions/articles/157000374441-empire-ai-getting-started-alpha-grace-beta-) provided by Empire AI for full details on running jobs on the Alpha and Beta clusters.  Here we want to draw your attention to changes being made on the Alpha cluster in September 2026.  The partition names and QOS values will be made to align with the Beta cluster setup.  Therefore, if you're using the `suny` partition and QOS values to submit jobs, you'll need to update your batch scripts or interactive job requests.  All jobs will also need to use the research group's Slurm subaccount. We will no longer use `--account=suny`  
 
-To view your Slurm account and association access use this formatting: 
-`sacctmgr show user [YourUsername] format=user,cluster,account%30,QOS%50`
-This will display your Slurm account (`suny`) and your subaccount in the form of: `su_PIusername_tag`
-For example: `su_jsmith_llm`
-This is the value you'll use for Slurm account.  If you have access to multiple projects, you may use any subaccounts you have access to.
+To view your Slurm account and association access use this formatting:  
+`sacctmgr show user [YourUsername] format=user,cluster,account%30,QOS%50`  
+This will display your Slurm account (`suny`) and your subaccount in the form of: `su_PIusername_tag`  
+For example: `su_jsmith_llm`  
+This is the value you'll use for Slurm account.  If you have access to multiple projects, you may use any subaccounts you have access to.  
 
 Users of the **original alpha cluster nodes (x86_64)** should use:  
 ```
---account=suny
 --partition=alpha
 --qos=depends...see link below
 ```
@@ -102,7 +101,6 @@ Users of the **original alpha cluster nodes (x86_64)** should use:
 
 Users of the **alpha cluster Grace nodes (arm64/aarch64)** should use:
 ```
---account=suny
 --partition=grace
 --qos=depends...see link below
 ```
@@ -110,7 +108,6 @@ Users of the **alpha cluster Grace nodes (arm64/aarch64)** should use:
 
 Users of the **beta cluster** should use:
 ```
---account=suny
 --partition=beta
 --qos=depends...see link below
 ```
