@@ -16,13 +16,18 @@ Access to Empire AI resources is done via allocations and is organized under col
 
 ## Allocations
 
-Currently, the process of awarding SUNY allocations is reviewed by SUNY following campus recommendations.  UB's Empire AI allocation committee has reviewed all proposal applications for the Fall 2025 call for proposals and SUNY has selected which projects across the institution are to be awarded with allocations on the Empire AI Alpha+ and Beta clusters.  Applicants have been notified by the UB allocations committee as to the results of the review process.  
+Empire AI conducts an annual call for proposals to allocate access to its computing clusters. Resource allocation is managed through a Multi-Factor Priority scheduling system that helps ensure equitable access across the ten participating institutions.
 
-It is the intention that CCR staff will work with all research groups on preparing to onboard to Empire AI or to help enhance future allocation proposals.  All PIs awarded allocations have been contacted by CCR staff regarding the steps to take to test their workflows and get onboarded to the alpha cluster.  If you require additional assistance, please request a meeting with CCR's research computing & data science facilitators by completing the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).  We highly encourage research groups to work with CCR to prepare your workflow for the Beta cluster.  Please refer to the [Preparing for Onboarding](#preparing-for-eai-onboarding) section for more information.
+Applicants for the 2025 cyncle have been notified by the UB allocations committee as to the results of the review process.  All PIs awarded allocations have been contacted by CCR staff regarding the steps to take to test their workflows and get onboarded to the Alpha and Beta clusters.  If you require additional assistance, please request a meeting with CCR's research computing & data science facilitators by completing the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).  Please refer to the [Preparing for Onboarding](#preparing-for-eai-onboarding) section for more information on testing workflows for the Beta cluster architecture.
 
 ### Unsuccessful Proposals
 
 If you were not awarded an allocation in this round, don't be discouraged!  There were many more proposals than the system can support.  It is the intention of the teams at CCR and the [Institute for Artificial Intelligence & Data Science (IAD)](https://www.buffalo.edu/ai-data-science.html) to help you and your research group prepare for the next round of proposals.  In the coming months, your group should work to enhance your workflow in CCR's HPC environment so that you will be better prepared for the next call for Empire AI proposals.  If your research group does not have access to CCR, please start by [creating up your accounts](../getting-access.md).  The PI of the group should then [create a project and request allocations](../getting-access.md#requirements-for-accessing-ccrs-resources) in the CCR allocations portal, [ColdFront](https://coldfront.ccr.buffalo.edu).  After access is granted, we recommend reviewing the many [training and documentation resources](../getting-started.md) provided by the CCR support team.  To request a meeting with CCR's research computing & data science facilitators to discuss your group's computing needs, please fill out the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).
+
+### Allocations Requests Outside Annual Cycle  
+
+UB faculty seeking access outside of the annual proposal cycle may request consideration for available service units. To do so, please complete [this form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/Service/542/Empire-AI-Allocation-Request) (UBIT login required) with information about your project. Requests will be reviewed by the Office of Research, Innovation and Economic Development and submitted to Empire AI for consideration based on available resources.
+
 
 ## Preparing for EAI Onboarding
 
@@ -87,26 +92,29 @@ Your username on Beta will be provided in the Empire AI new account information 
 Please refer to the [documentation](https://empireai.freshdesk.com/support/solutions/articles/157000374441-empire-ai-getting-started-alpha-grace-beta-) provided by Empire AI for full details on running jobs on the Alpha and Beta clusters.  Here we want to draw your attention to changes being made on the Alpha cluster in September 2026.  The partition names and QOS values will be made to align with the Beta cluster setup.  Therefore, if you're using the `suny` partition and QOS values to submit jobs, you'll need to update your batch scripts or interactive job requests.  All jobs will also need to use the research group's Slurm subaccount. We will no longer use `--account=suny`  
 
 To view your Slurm account and association access use this formatting:  
-`sacctmgr show user [YourUsername] format=user,cluster,account%30,QOS%50`  
+```
+sacctmgr show user [YourUsername] format=user,cluster,account%30,QOS%50  
+```
 This will display your Slurm account (`suny`) and your subaccount in the form of: `su_PIusername_tag`  
 For example: `su_jsmith_llm`  
-This is the value you'll use for Slurm account.  If you have access to multiple projects, you may use any subaccounts you have access to.  
 
-Users of the **original alpha cluster nodes (x86_64)** should use:  
+This is the value you'll use for the Slurm account directive in batch scripts and interactive job requests.  If you have access to multiple projects, you may use any sub-account you have access to.  
+
+Users of the **original Alpha cluster nodes (x86_64)** should use:  
 ```
 --partition=alpha
 --qos=depends...see link below
 ```
 [Alpha QOS tiers](https://empireai.freshdesk.com/support/solutions/articles/157000374474-alpha-job-submission-and-qos-overview)
 
-Users of the **alpha cluster Grace nodes (arm64/aarch64)** should use:
+Users of the **Alpha cluster Grace-Grace nodes (arm64/aarch64)** should use:
 ```
 --partition=grace
 --qos=depends...see link below
 ```
-[Alpha Grace nodes QOS tiers](https://empireai.freshdesk.com/support/solutions/articles/157000374494-empire-ai-grace-%E2%80%94-job-submission-and-qos-overview)
+[Alpha Grace-Grace nodes QOS tiers](https://empireai.freshdesk.com/support/solutions/articles/157000374494-empire-ai-grace-%E2%80%94-job-submission-and-qos-overview)
 
-Users of the **beta cluster** should use:
+Users of the **Beta cluster** should use:
 ```
 --partition=beta
 --qos=depends...see link below

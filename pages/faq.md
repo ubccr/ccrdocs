@@ -104,7 +104,7 @@ The `getfacl` command is an easy way to see the permissions of a file or directo
 
 ## How can I transfer my files to/from UB Box?
 
-Please see [CCR's Globus documentation](hpc/data-transfer.md##using-globus-to-transfer-files-to-and-from-ub-box) regarding how to utilize Globus to transfer files to UB Box. 
+Please see [CCR's Globus documentation](hpc/data-transfer.md#using-globus-to-transfer-files-to-and-from-ub-box) regarding how to utilize Globus to transfer files to UB Box. 
 
 ## Why am I'm getting module not found errors?  
 
@@ -124,7 +124,7 @@ You can list information on your job’s start time using the squeue command:
 
 Note that Slurm’s estimated start time can be a bit inaccurate. This is because Slurm calculates this estimation off the jobs that are currently running or queued in the system. Any job that is submitted after yours with a higher priority may delay your job.  Alternatively, if jobs complete in less time than they've requested, more jobs can start sooner than anticipated.  
 
-For more information on the `squeue` command, take a look at our [Useful Slurm Commands](hpc/jobs.md#useful-slurm-commands) information or visit the [Slurm page on squeue](https://slurm.schedmd.com/squeue.html)  
+For more information on the `squeue` command, take a look at our [Managing Jobs](hpc/jobs.md#view-your-jobs-in-queue) information or visit the [Slurm page on squeue](https://slurm.schedmd.com/squeue.html)  
 
 ## How can I tell what my job's priority is?  
 
@@ -216,7 +216,7 @@ Refer to the [Slurm documentation](https://slurm.schedmd.com/gres.conf.html#OPT_
 
 ## Why does my application keep getting killed on the login nodes?  
 
-[Login nodes](hpc/clusters.md#login-nodes) have a 15 minute time limit on running processes and are not intended for running applications.  Please submit a [job to the cluster](hpc/jobs.md#running-applications-with-jobs) for running or debugging applications or use a [compile node](hpc/clusters.md#compile-nodes) for installing software.
+[Login nodes](hpc/clusters.md#login-nodes) have a 15 minute time limit on running processes and are not intended for running applications.  Please submit a [job to the cluster](hpc/jobs.md#running-applications-on-the-clusters) for running or debugging applications or use a [compile node](hpc/clusters.md#compile-nodes) for installing software.
 
 ## Why does my SSH session automatically disconnect?  
 
@@ -228,7 +228,7 @@ There are lots of resources on the internet to learn basic linux commands.  CCR 
 
 ## How do I know what to request an allocation for?  
 
-Please see the ["Available Resources" section of CCR's Getting Access page](getting-access.md#available-resources) for a break down of currently available resources at CCR.
+Please see the ["Available Resources" page](available-resources.md) for a break down of currently available resources at CCR.
 
 ## How can I check what allocations I am on?  
 
