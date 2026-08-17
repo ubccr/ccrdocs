@@ -2,7 +2,7 @@
 
 CCR maintains a global suite of software available to all users via
 [Modules](modules.md). If you need a particular software package or library
-that's not available as a [module](../modules/#using-modules) or a [container](../howto/containerization.md) you can [ask us to build it](#software-build-requests) or
+that's not available as a [module](modules.md#using-modules) or a [container](../howto/containerization.md) you can [ask us to build it](#software-build-requests) or
 attempt to [build yourself](#building-a-new-software-module).  This document
 provides some pointers on building custom modules for your group or personal
 use. 

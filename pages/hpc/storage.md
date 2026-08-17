@@ -40,7 +40,7 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
     - ==**NO RPCI DIRECTORIES ARE BACKED UP**==    
 
 **How do I know what directory I have access to?**
-Directories are auto-mounted when accessed.  Therefore, you need to know which directory or directories you have access to and navigate directly to it.  Your group's shared directory path can be found on your storage allocation in [ColdFront](../portals/coldfront.md).  Users may have access to multiple storage allocations.  Please see [this information](../changelogs/2026/#july-2026-downtime) for more details on the auto-mounting of directories.
+Directories are auto-mounted when accessed.  Therefore, you need to know which directory or directories you have access to and navigate directly to it.  Your group's shared directory path can be found on your storage allocation in [ColdFront](../portals/coldfront.md).  Users may have access to multiple storage allocations.  Please see [this information](../changelogs/2026.md#july-2026-downtime) for more details on the auto-mounting of directories.
 
 !!! Warning  
       Due to limitations of the campus backup service, any directory containing over 50 million files is **NOT BACKED UP**.  The directory owner will be contacted if their directory reaches this level prior to stopping the backups.
@@ -83,7 +83,7 @@ To request a restore of deleted files, please complete [CCR's Backup Restore Req
 
 ## Purchasing Project Storage
 
-Refer to the [CCR Storage Purchase Guide](../howto/purchases.md#storage) for instructions on how to initiate a purchase or renew an annual purchase.
+Refer to the [CCR Storage Purchase Guide](../howto/purchases.md#hpc-storage) for instructions on how to initiate a purchase or renew an annual purchase.
 
 ## Checking Quotas
 

@@ -158,7 +158,7 @@ is available with `sftp` (Secure File Transfer Protocol) and `scp` (Secure Copy)
 * You must have an active job with an allocated compute node to get access to the node  
 
 !!! Note "SSH Keys required"
-    Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
+    Users must use SSH keys to connect to CCR servers using SSH/SFTP/SCP.  Please [follow these instructions to upload your public SSH key](../portals/idm.md#manage-ssh-keys) to the CCR identity management portal before attempting to connect to CCR's servers.  
 
 ### Command line SCP
 

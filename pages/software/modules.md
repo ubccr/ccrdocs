@@ -6,7 +6,7 @@ CCR maintains a suite of software programs, libraries, and toolchains, called
 The HPC clusters can execute most software that runs under Linux.  In many
 cases, the software you need will already be installed and available to you on
 the compute nodes.  You access the software using what's called a "module".  If
-the software you need is not available as a [module](../modules/#using-modules) or a [container](../howto/containerization.md), you [can ask our staff](building.md#software-build-requests)
+the software you need is not available as a [module](#using-modules) or a [container](../howto/containerization.md), you [can ask our staff](building.md#software-build-requests)
 to install it for you or [do it yourself](building.md).
 
 Watch this virtual workshop to learn more about using software on CCR's HPC systems:  
@@ -311,7 +311,7 @@ $ R
 ```
 
 If your research group requires many R libraries not already available in one of CCR's R installations, we recommend you [ask CCR to build
-them](../software/building.md#software-build-requests) or create your own custom R bundle with easybuild.
+them](building.md#software-build-requests) or create your own custom R bundle with easybuild.
 
 **Bioconductor Containers**  
 
