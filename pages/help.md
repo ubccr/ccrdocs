@@ -15,18 +15,6 @@ CCR staff provide the majority of support to users via our [TeamDynamix client p
 
 **Alerts & Important Notices:** We post alerts and [downtime schedules](changelogs/downtime-schedule.md) on [X/Twitter](https://twitter.com/ubccr) and in [Slack](#slack).  Crucial information affecting all users will be emailed to you.
 
-## CCR Help Office Hours  
-
-CCR help desk student assistants are available for office hours over Zoom to help with problems related to creating new accounts, resetting passwords and two factor authentication, getting access or allocations worked out, and solving basic issues like logging in or quotas.  Anything more advanced should be submitted via the [help desk portal](#ccr-help-portal).  
-
-The office hours are available **Tuesdays** from 11am-12pm ET  
-[Zoom link](https://buffalo.zoom.us/j/93454791604?pwd=TE0zOGNrTDNacndLeWY1SHd5ejZkdz09)
-```
-Connection info:  
-Meeting ID: 934 5479 1604  
-Passcode: 751387  
-```
-NOTE:  Office hours will be on sabbatical for the summer.  To request an appointment for assistance, please submit a ticket to [CCR Help](#ccr-help)
 
 ## CCR Help Portal  
 
