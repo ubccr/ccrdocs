@@ -121,6 +121,10 @@ Users of the **Beta cluster** should use:
 ```
 Beta cluster QOS tiers - coming soon.  Documentation on using Beta can be [found here](https://empireai.freshdesk.com/support/solutions/articles/157000373786-getting-started-on-the-nvidia-gb200-nvl72).  
 
+### Cluster Status  
+
+You may view current and historical system status using the [EAI System Status](https://rootly.com/teams/empireai/status-pages/public-system-status-page/public) page.  This tool provides the ability to subscribe to receive updates in real time.
+
 
 ## Storage
 
