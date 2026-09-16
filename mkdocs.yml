@@ -75,11 +75,13 @@ nav:
     - Overview: policies/overview.md
     - Accessibility: policies/accessibility.md
     - Accounts & Data Policies: policies/accounts.md
+    - AI Tools & Use Policies: policies/aipolicies.md  
     - Communications Policy: policies/email.md
     - Permitted Use & Misuse of CCR: policies/misuse.md
     - Software Policies: policies/software.md
     - Support & Maintenance Policies: policies/support.md
   - How To:  
+    - AI Coding Tools: howto/aitools.md
     - Containers: howto/containerization.md
     - External User Access:  howto/external.md  
     - Easybuild Example: howto/easybuild.md   
@@ -90,6 +92,7 @@ nav:
     - Using Python: howto/python.md
   - Change Logs:
     - Downtime Schedule: changelogs/downtime-schedule.md
+    - Global Scratch Decommissioning: changelogs/scratch-shutdown.md
     - 2026: changelogs/2026.md
     - 2025: changelogs/2025.md
     - 2024: changelogs/2024.md
