@@ -1,4 +1,4 @@
-# AI Coding Tools
+# AI Coding Tools & Large Language Models
 
 This page collects practical guidance for using large language models (LLMs) and coding agents as part of a CCR workflow.  Large language model (LLM) agents are developing rapidly, so the practices in this section are not necessarily the best or final approaches. We will update our recommendations here frequently so please check back often. An agent’s configuration does not make it safe by itself: remain present, review proposed actions, and follow the precautions below.
 
@@ -48,6 +48,13 @@ Because users have access to shared files and data, we recommend using workspace
 We recommend using working directories located in your `$HOME` directory. If the files you want to manipulate are in your group's `/projects` directory, you should copy them to a fresh working directory in `$HOME`. Agents in workspace-write mode have read access everywhere you do, so they can read files in `/projects` that you have access to for necessary context, but cannot make changes there without your permission. It is best practice to use version control in the working directory and commit often while vibe coding.
 
 This strategy relies on workspace-write permissions to safeguard against malicious or erroneous agent behavior. Avoid `full access` and test what is actually blocked. For stronger isolation, use an operating-system sandbox, container, or virtual machine that exposes only the required project directories.  If you want to safely run without approval prompts in full-access mode, you can use a [container-based sandbox](../howto/containerization.md) that has network access disabled and read-only mounts to data and files in `/projects` needed for context.
+
+
+## BullsAI
+
+**[BullsAI](https://www.buffalo.edu/ubit/services/BullsAI.html)** is the University at Buffalo's AI platform, providing faculty, staff, and students with access to a growing suite of UB-hosted AI tools for research, teaching, learning, and development. The platform includes **[BullsAI Chat](https://www.buffalo.edu/ubit/services/BullsAI/chat.html)** for interacting with multiple AI models, **BullsAI Agents** for creating custom AI assistants based on curated knowledge sources, and **BullsAI Labs** for hands-on coding and data science work using tools such as Jupyter notebooks and VS Code. BullsAI is hosted on UB-managed infrastructure, offering a secure environment for exploring and developing AI-enabled workflows.
+
+CCR users interested in leveraging generative AI for coding assistance, research support, documentation, data analysis, or general productivity are encouraged to evaluate BullsAI before using commercial AI services. Because BullsAI is operated on UB-managed infrastructure, it provides a university-supported alternative that may be better aligned with institutional data security, privacy, and compliance requirements. Users remain responsible for ensuring that any AI tool used in conjunction with CCR resources complies with applicable university policies and data use restrictions.
 
 
 ## CCR Recommendations  
