@@ -11,7 +11,7 @@ For those who wish to purchase additional project storage in the HPC environment
 
 ## HPC Storage  
 
-Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks in annual installments.  
+Additional storage for shared project directories can be purchased in 1 terabyte (TB) chunks annually. We are unable to bill for storage in anything other than yearly increments. Depending on the funding source, multiple year payments may be possible.  
 
 ### HPC Storage Rates  
 
@@ -40,21 +40,22 @@ To initiate the purchase of additional project storage, the PI or project owner 
 In the `Allocation attributes` section, please enter:
 
 - What you'd like your storage quota to be.  This is in gigabytes (GB) and we sell in increments of 1000GB (or 1TB).  
-- What account number we should bill this purchase to.  
+- What account number we should bill this purchase to (if this attribute is available to edit).   
 
 In the `Justification for Changes` box, please include:  
 
 - What type of account are you paying with?  This determines the cost:  
     - UB internal funds: State, RF, UBF, FSA   
     - Other internal funds   
-    - External funds    
+    - External funds
+- Account number, if not provided under allocation attributes
 - If you do not have signatory authority on this account, please let us know who the invoice should be directed to on your behalf  
-- If you'd like to purchase the storage for more than one year, you must pay with a State account.  RF will not allow purchases of more than 1 year.  Please indicate how many years you'd like to purchase  
+- Please indicate how many years you'd like to purchase. If you'd like to purchase the storage for more than one year, you must pay with a State account or get permission from your SPS program manager to use an RF account.  In general, RF does not allow purchases of more than 1 year.    
 
 !!! Warning "Please verify grant dates!"  
-    We are required to bill for storage in yearly increments.  Please do not provide an account number that is not valid for the entire length of the storage payment as these will be rejected by SPS.  We are not permitted to prorate payments or split charges across accounts to accomodate grants ending in less than 1 year.
+    We are required to bill for storage in yearly increments.  Please do not provide an RF account number that is not valid for the entire length of the storage payment as these will be rejected by SPS.  We are not permitted to prorate payments or split charges across accounts to accommodate grants ending in less than 1 year.
 
-Once an allocation change request has been submitted, your request will be processed through [Blue Services (iLab)](#processes-for-purchasing-ccr-services).  see the [Blue Services section below](#using-blue-services-for-ccr-purchases) for further information on the Blue Services invoice process.  Because billing through Blue Services is only conducted once per month, your quota will be increased at the time of request, not the time of payment.  If payment doesn't go through, you'll be contacted about alternate payment arrangements.  If none are available within 30 days, your quota will be reduced to the previous quota.  
+Once an allocation change request has been submitted, your request will be processed through [Blue Services (iLab)](#processes-for-purchasing-ccr-services).  See the [Blue Services section below](#using-blue-services-for-ccr-purchases) for further information on the Blue Services invoice process.  Because billing through Blue Services is only conducted once per month, your quota will be increased at the time of request, not the time of payment.  If payment doesn't go through, you'll be contacted about alternate payment arrangements.  If none are available within 30 days, your quota will be reduced to the previous quota.  
 
 ### How to Renew an Existing HPC Storage Purchase  
 

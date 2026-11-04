@@ -12,19 +12,16 @@ applications exist. (e.g., Git Bash, FileZilla)
 
 CCR Supported Methods for inbound and outbound Data transfer include:
 
-1. ** [Globus File Transfer Service](#globus-transfers) **
+1. **[Globus File Transfer Service](#globus-transfers)**
 
-2. ** [Secure Shell Copy (scp/sftp)](#secure-shell-copy) **
+2. **[Secure Shell Copy (scp/sftp)](#secure-shell-copy)**
 
-3. ** [rclone](#rclone) **
+3. **[rclone](#rclone)**
 
-4. ** [OnDemand File Manager App](#ondemand-file-manager-app) **
+4. **[OnDemand File Manager App](#ondemand-file-manager-app)**
 
 !!! Warning "VPN Required" 
-    Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks
-    (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)).
-
-**_ * Globus transfers are available from everywhere, You do not need to be on the UB or Roswell Park networks to use Globus._**
+    Access to Secure Shell Copy and OnDemand is restricted to UB and Roswell Park networks (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)).  Globus transfers are available from everywhere. You do not need to be on the UB or Roswell Park networks to use Globus.
 
 Watch the virtual workshop video to learn more about data transfer options at CCR:  
 ![type:video](https://youtube.com/embed/yYInBnY7S9Q)  
@@ -33,64 +30,69 @@ Watch the virtual workshop video to learn more about data transfer options at CC
 
 ## Globus transfers
 
-Globus file transfers are typically initiated through an interactive
-web application (command-line access to Globus is also available, but
-is beyond the scope of this document). Globus addresses deficiencies
-in traditional file-transfer mechanisms by automating large data
-transfers, resuming failed transfers, distributing large transfers
-across multiple servers, and brokering direct transfers between remote
-computing centers. Globus performs an MD5-Checksum for transfer verification.
+Globus file transfers are typically initiated through an interactive web application (command-line access to Globus is also available, but is beyond the scope of this document). Globus addresses deficiencies in traditional file-transfer mechanisms by automating large data transfers, resuming failed transfers, distributing large transfers across multiple servers, and brokering direct transfers between remote computing centers. Globus performs an MD5-Checksum for transfer verification.
 
-Globus can be used on macOS, Linux, and Windows operating systems and
-is CCR's recommended way of transferring files, especially for large amounts of data.
+Globus can be used on macOS, Linux, and Windows operating systems and is CCR's recommended way of transferring files, especially for large amounts of data.
 
-### Globus Web App
-To use Globus, go to the [Globus Web App](https://app.globus.org/) and sign in by
-selecting "The State University of New York at Buffalo" from the dropdown menu
-and by logging in using your UB credentials. Roswell Park users should search for "Roswell Park Comprehensive Cancer Center" and authenticate with their Roswell Park account, not their UB account.  
+### Globus Web App  
+
+To use Globus, go to the [Globus Web App](https://app.globus.org/) and sign in by selecting "The State University of New York at Buffalo" from the drop-down menu and by logging in using your UB credentials. Roswell Park users should search for "Roswell Park Comprehensive Cancer Center" and authenticate with their Roswell Park account, not their UB account.  
 
 !!! Note "non-UB users:"
     If you are with an institution other than UB or Roswell Park, you will need to [create a Globus account](https://www.globusid.org/create) and contact [CCR Help](../help.md) to map your globusid to your CCR account.
 
 ![](../images/globus-login.png)
 
-CCR storage resources are available in Globus as mapped collections.
-You can connect to a CCR endpoint using the "collections"
-field in the Globus web interface and searching for `UBuffalo`
+CCR storage resources are available in Globus as mapped collections. You can connect to a CCR endpoint using the "collections" field in the Globus web interface and searching for `UBuffalo`
 
-CCR Currently has 3 Mapped Collections:
+CCR currently has 5 Mapped Collections:
 
 * UBuffalo - Center for Computational Research Project Directories
 * UBuffalo - Center for Computational Research Home Directories
-* UBuffalo - Center for Computational Research Vast Global Scratch (/vscratch)  
+* UBuffalo - Center for Computational Research Vast Global Scratch (/vscratch)
+* UBuffalo-CCR Box Collection (for accessing your UB Box account)
+* UBuffalo-CCR OneDrive Collection (for accessing your Microsoft OneDrive account)
 
-Log into the endpoint using your UB or RPCI account credentials (not your CCR account). The system will map your @buffalo.edu or @roswellpark.org account to your local CCR user and you will have access to the same directories that you do when logged into any other CCR system.  NOTE: Some RPCI accounts will not map correctly to CCR accounts.  If this is affecting you, please contact [CCR Help](../help.md) and we'll resolve the mapping issues.  
+Log into the endpoint you'd like to access using your UB or RPCI account credentials (not your CCR account). The system will map your @buffalo.edu or @roswellpark.org account to your local CCR user and you will have access to the same directories that you do when logged into any other CCR system.  
 
-You can download single files through the browser but to take advantage of the benefits of Globus you will need to do endpoint to endpoint transfers. To do this, you must configure a local endpoint in order to transfer files to/from your local computer. You can easily set up a Globus endpoint by installing [Globus Connect Personal](https://www.globus.org/globus-connect-personal) and setting up a personal endpoint.
+NOTE: Some RPCI accounts will not automatically map correctly to CCR accounts.  If this is affecting you, please contact [CCR Help](../help.md) and we'll resolve the mapping issues.  
 
-Using the web app, connect your local workstation endpoint with the CCR endpoint and transfer files easily using the Globus
-GUI.
+**Usage Notes:**  
 
+- You can download single files through the browser but to take advantage of the benefits of Globus you will need to do endpoint to endpoint transfers. To do this, you must configure a local endpoint in order to transfer files to/from your local computer. To configure a local Globus endpoint, install the [Globus Connect Personal](https://www.globus.org/globus-connect-personal) and create a personal endpoint following the instructions relevant for your operating system.
+- Using the File Manager in the [Globus web app](https://app.globus.org/), you can upload or download files between your local endpoint, CCR's endpoints, UB Box and OneDrive.  For example, to transfer between your computer and CCR's storage, on one side, connect to your local endpoint and on the other side navigate to the CCR endpoint where you've stored your files.  Select the file(s) or directory to transfer and click the transfer button.  This will initiate the transfer from one to the other.
+  
 ![](../images/globus-filemanager.png)
 
+- Globus transfers will run unattended and you'll receive an email when the transfer completes.
+- If any interruptions occur on either end, Globus will pickup the transfer where it left off when the issue is resolved.
+- When using the Globus web app, file sizes larger than 2GB will be blocked.  Please use the [Globus command line interface](https://docs.globus.org/cli/) for large file transfers.
+- When accessing CCR's home directory collection, you will be automatically directed to your personal home directory
+- When accessing the collections for project and vscratch directories, **you will need to enter the full path of the directory you'd like to access**.  This is demonstrated in the screenshots below.  Please see [this information](../changelogs/2026.md#july-2026-downtime) for more details on the auto-mounting of directories.
+- How do I know the full path of the directories I have access to?  Your group's shared directory path can be found on your storage allocation in [ColdFront](../portals/coldfront.md).  Note: Users may have access to multiple storage allocations on multiple projects.
+- Once you've navigated to a CCR collection and preferred directory, we recommend you bookmark it for faster access next time.  Click on the bookmark icon to the right of the Path field.
 
-### Guest Collections (Globus Shared Endpoints)
+When descending into the `/projects/academic` subdirectory, it appears that there are no available directories.  
 
-Using a Guest Collection (also known as a "Shared Endpoint"), you can share any file or folder that you have access to with anyone who
-has a Globus account. This is particularly useful for external collaborations in which data sharing is necessary.  
+![](../images/globus-paths.png)
 
-Globus provides detailed information on [creating Guest Collections](https://docs.globus.org/how-to/share-files/)
+
+However, once you enter the name of the subdirectory you have access to, you will see your group's files and subdirectories:  
+
+![](../images/globus-paths2.png)
+
 
 ### Using Globus to transfer files to and from UB Box
 
-CCR users are able to move data between CCR and UB Box within Globus using an integrated Box Connector App (UBuffalo-CCR Globus Box Connector). Initial setup will require you to log into UB Box and give the app consent to access UB Box on your behalf.
+CCR users are able to move data between CCR and UB Box within Globus using an integrated Box Connector App. Initial setup will require you to log into UB Box and give the app consent to access UB Box on your behalf.  You will also be prompted to renew the access if it's been awhile since you last connected to UB Box through Globus.  
 
-!!! Note
-    The UB Box Collection is accessed the same way the CCR Mapped collections are as described in the [Globus Web App](#globus-web-app) section above with one notable exception: you will be prompted to grant access to UB Box the first time you access the collection.  You will also be prompted to renew the access if it's been awhile since you last connected to UB Box through Globus.
+!!! Note 
+    The Box API implements rate limiting so depending on the type of transfer and number of files you may get connection resets in the transfer log. These will not stop the transfer because Globus will just retry the connection until the transfer is complete.  
+    
 
-#### Grant Access to the UBuffalo-CCR Globus Box Connector App
+#### Granting Access to the UBuffalo-CCR Globus Box Connector App
 
-*These steps are only needed when accessing the UB Box Collection for the first time:*
+*These steps are only needed when accessing the UB Box Collection for the first time or when prompted to renew consent:*
 
 Log onto the [Globus Web App](#globus-web-app)
 
@@ -125,21 +127,36 @@ If the panel is blank, you will need to search again for the "UBuffalo-CCR Box C
 
 Once you have completed the Access Consent steps above, you should now be able to access UB Box just like any of the other CCR Mapped Collections.
 
-#### To transfer files to or from UB Box to CCR Collections:
+### Using Globus to transfer files to and from Microsoft OneDrive
 
-From the File Manager in the second window of the split screen, you can connect to one of the the CCR Mapped collections (ex. UBuffalo - Center for Computational Research Project Directories)
-listed above it will appear in the other panel.
+CCR users are able to move data between CCR and their Microsoft OneDrive account(s) within Globus using an integrated OneDrive Connector App. Initial setup will require you to give the app consent to access OneDrive on your behalf.  You may also be prompted to renew the access if it's been awhile since you last connected to Microsoft through Globus.  
 
-![](../images/globus-ubbox-fm-2.png)
 
-From here you can initiate a file transfer by clicking your source files or directories and click `Start`
+#### Granting Access to the UBuffalo-CCR Globus OneDrive Connector App 
 
-!!! Note 
-    The Box API implements rate limiting so depending on the type of transfer and number of files you may get connection resets in the transfer log. These will not stop the transfer because Globus will just retry the connection until the transfer is complete.
+*These steps are only needed when accessing the OneDrive Collection for the first time or when prompted to renew consent:*
 
-#### Globus Integration with OnDemand  
+Log onto the [Globus Web App](#globus-web-app)
+
+Go to the File Manager tab and search for the "UBuffalo-CCR OneDrive Collection" in the Collection search bar.
+
+When you attempt to access the UBuffalo-CCR OneDrive Collection for the first time, you will be prompted to setup your OneDrive credentials.  Click the Continue button to be redirected to the Credentials management page.  
+
+![](../images/globus-onedrive.png)
+
+Enter the email address for the OneDrive account that you'd like to connect to and click Continue.  If you haven't already authenticated to that account, you will be prompted to login.  After this completes, you can go back to the OneDrive collection and access your files.
+
+![](../images/globus-onedrive2.png)
+
+
+### Globus Integration with OnDemand  
 
 CCR users may also access Globus using the [OnDemand Files app](../portals/ood.md#files-app).
+
+
+### Sharing Data on CCR's systems via Globus
+
+CCR users can share any file or folder that they have access to on CCR's systems with anyone who has a Globus account using Guest Collections (Globus Shared Endpoints). This is particularly useful for external collaborations in which data sharing is necessary but collaborators don't need direct access to CCR's systems.  Guest collections can be set to read only mode or read and write.  This provides a mechanism for collaborators to upload data to your CCR directory as well as download data.  Please refer to the Globus documentation for detailed information on [creating Guest Collections](https://docs.globus.org/how-to/share-files/).
 
 
 ## Secure Shell Copy

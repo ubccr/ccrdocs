@@ -18,7 +18,7 @@ Access to Empire AI resources is done via allocations and is organized under col
 
 Empire AI conducts an annual call for proposals to allocate access to its computing clusters. Resource allocation is managed through a Multi-Factor Priority scheduling system that helps ensure equitable access across the ten participating institutions.
 
-Applicants for the 2025 cyncle have been notified by the UB allocations committee as to the results of the review process.  All PIs awarded allocations have been contacted by CCR staff regarding the steps to take to test their workflows and get onboarded to the Alpha and Beta clusters.  If you require additional assistance, please request a meeting with CCR's research computing & data science facilitators by completing the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).  Please refer to the [Preparing for Onboarding](#preparing-for-eai-onboarding) section for more information on testing workflows for the Beta cluster architecture.
+Applicants for the 2025-26 cycle have been notified by the UB allocations committee as to the results of the review process.  All PIs awarded allocations have been contacted by CCR staff regarding the steps to take to test their workflows and get onboarded to the Alpha and Beta clusters.  If you require additional assistance, please request a meeting with CCR's research computing & data science facilitators by completing the [CCR Consultation form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=486).  Please refer to the [Preparing for Onboarding](#preparing-for-eai-onboarding) section for more information on testing workflows for the Beta cluster architecture.
 
 ### Unsuccessful Proposals
 
@@ -35,7 +35,9 @@ The best way for a research group to prepare for onboarding to Empire AI's clust
 
 ## Project Onboarding
 
-CCR staff are equipped to create accounts on the Empire AI cluster for approved PIs and members of their research groups.  Please submit a ticket to [Empire AI](#support) to request account creation for your group.  
+New projects are created by CCR staff - first creating an account for the PI and then creating a project in ColdFront.  These projects are reviewed, activated, and provisioned by EAI staff.  Once approved, you may begin submitting jobs.  Faculty with active EAI accounts may submit a ticket to [Empire AI](#support) to request additional accounts for your group members.
+
+We highly recommend all new users watch this [Empire AI Orientation video](https://ub.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fa690d07-453a-4ac0-91c0-b4ec00cc4481) (Panopto login required) creating October 2026.
 
 ## Accounts for Research Group Members
 
@@ -61,7 +63,8 @@ NVIDIA's Grace-Blackwell 200 SuperPod makes up the NVL72 system which is designe
 
 ## Service Units and Allocations for Alpha+Beta
 
-Empire AI will begin enforcing allocations on September 1, 2026.  To prepare for this, please review their [documentation](https://empireai.freshdesk.com/support/solutions/articles/157000363467-service-units-and-allocations-for-alpha-beta) on service unit calculations and usage.  UB research groups have access to a share of the SUNY allocation.
+Empire AI will begin enforcing allocation usage on October 1, 2026.  SUNY has assigned service units to each project based on the proposals and requests submitted. You are now able to view your project usage in [Empire AI’s ColdFront](https://coldfront.empireai.edu/) allocation portal.  This round of service units will end in June 2027.  Please review the [EAI documentation](https://empireai.freshdesk.com/support/solutions/articles/157000363467-service-units-and-allocations-for-alpha-beta) for more details on service unit calculations.
+
 
 ## Logging In
 
@@ -87,7 +90,7 @@ If your username on Beta is not the same as on your computer, you will need to s
 
 Your username on Beta will be provided in the Empire AI new account information received via email.
 
-## Running Jobs
+## Submitting Jobs
 
 Please refer to the [documentation](https://empireai.freshdesk.com/support/solutions/articles/157000374441-empire-ai-getting-started-alpha-grace-beta-) provided by Empire AI for full details on running jobs on the Alpha and Beta clusters.  Here we want to draw your attention to changes being made on the Alpha cluster in September 2026.  The partition names and QOS values will be made to align with the Beta cluster setup.  Therefore, if you're using the `suny` partition and QOS values to submit jobs, you'll need to update your batch scripts or interactive job requests.  All jobs will also need to use the research group's Slurm subaccount. We will no longer use `--account=suny`  
 
@@ -98,7 +101,7 @@ sacctmgr show user [YourUsername] format=user,cluster,account%30,QOS%50
 This will display your Slurm account (`suny`) and your subaccount in the form of: `su_PIusername_tag`  
 For example: `su_jsmith_llm`  
 
-This is the value you'll use for the Slurm account directive in batch scripts and interactive job requests.  If you have access to multiple projects, you may use any sub-account you have access to.  
+This is the value you'll use for the Slurm account directive in batch scripts and interactive job requests.  If you have access to multiple projects, you may use any sub-account you have access to.  **As of 9/21/26, all jobs are required to specify an account.**  
 
 Users of the **original Alpha cluster nodes (x86_64)** should use:  
 ```
@@ -113,13 +116,45 @@ Users of the **Alpha cluster Grace-Grace nodes (arm64/aarch64)** should use:
 --qos=depends...see link below
 ```
 [Alpha Grace-Grace nodes QOS tiers](https://empireai.freshdesk.com/support/solutions/articles/157000374494-empire-ai-grace-%E2%80%94-job-submission-and-qos-overview)
+Documentation on using Alpha can be [found here](https://empireai.freshdesk.com/en/support/solutions/articles/157000374441-empire-ai-getting-started-alpha-grace-beta-).
 
 Users of the **Beta cluster** should use:
 ```
 --partition=beta
 --qos=depends...see link below
 ```
-Beta cluster QOS tiers - coming soon.  Documentation on using Beta can be [found here](https://empireai.freshdesk.com/support/solutions/articles/157000373786-getting-started-on-the-nvidia-gb200-nvl72).  
+[Beta cluster QOS tiers](https://empireai.freshdesk.com/support/solutions/articles/157000375992-empire-ai-beta-%E2%80%94-job-submission-and-qos-overview)  
+Documentation on using Beta can be [found here](https://empireai.freshdesk.com/support/solutions/articles/157000373786-getting-started-on-the-nvidia-gb200-nvl72).  
+
+### Job Limits
+
+Job submission limits on both the Alpha and Beta cluster are set on the QOS.  Please see the links in the above section for more information.  
+
+#### Alpha
+
+Users must request at least 1 GPU to gain access to all but the CPU-only compute node.  Jobs requesting one GPU will be automatically redirected to an RTX 6000 node.  You will notice the following feature added to your job in the job information:  
+```
+Features=rtx6000
+```
+ If you request a specific type of GPU but only one of them, the job will be redirected to an RTX node, and you will see this notice:
+```
+job\_submit/rtx6000\_gpu\_governance: this is a --gres=gpu:1 job - it will be queued to the RTX 6000 node pool
+```
+Jobs requesting more than 1 GPU will not be altered at this time.
+
+
+#### Beta
+
+Jobs are required to request a minimum of 4 GPUs per job to ensure proper alignment with workloads designed for the NVL72 system.  Jobs that do not request 4 or more GPUs will see the error:  
+```
+srun/sbatch: error: QOSMinGRES\
+srun/sbatch: error: Unable to allocate resources: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)
+```
+
+#### GPU Usage Monitoring
+
+Monitoring of GPU usage is in place and jobs not utilizing the GPUs may be automatically canceled without notice if they are not using the resources requested.  
+
 
 ### Cluster Status  
 
@@ -128,15 +163,30 @@ You may view current and historical system status using the [EAI System Status](
 
 ## Storage
 
-Each user is provided a home directory in `/mnt/home/[YourUsername]`  
+### Storage Options  
 
-**There are 100GB quotas on home directories.**
+Please refer to the [Empire AI storage documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000376738-empire-ai-storage-architecture-user-workflow-guide) for details and workflow suggestions.  This is an overview of the storage options:  
 
-In addition to this, each user has a directory in the global scratch storage.  You'll find yours under `/mnt/lustre/suny`  
+**Home Directories:**  
+- Each user is provided a home directory in `/mnt/home/[YourUsername]`  
+- There are 100GB quotas on home directories
+- Usage is not charged to the group's service units  
 
-For more information on storage on Alpha, please see [EAI's Alpha cluster storage documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000175046-empire-ai-alpha-storage).  There are no **shared ** project or scratch directories on alpha, like we offer at CCR. Instructions for sharing files on Alpha can be found in [EAI's file sharing documentation](https://empireai.freshdesk.com/en/support/solutions/articles/157000010953-how-can-i-share-data-with-other-users-).
+**Project Directories:**  
+- Each project has it's own subdirectory under `/projects/suny/[PIusername]/[ProjectName]`  
+- Quotas are based on requests made in the project proposal  
+- Usage is billed in [service units per month](https://empireai.freshdesk.com/en/support/solutions/articles/157000363467-service-units-and-allocations-for-alpha-beta)  
+- Usage billing can be viewed and tracked in [ColdFront](https://coldfront.empireai.edu/)  
+- If your project needs more than 100TB, please contact [CCR Help](../help.md) to discuss charges  
 
-Project directories will be available on Beta.  With the implementation of allocations for Beta, there will be quotas on these directories as well and allocations will be charged for storage usage.  More information on this will be provided by the Empire AI team prior to implementation.
+**Global Scratch Directories:**  
+- Each user has a directory in the global scratch storage.  
+- You'll find yours under `/mnt/lustre/suny/[YourUsername]` (on Alpha) and `/ddn/scratch/suny/[YourUsername]` (on Beta)  
+- Quotas are 5TB and do NOT get charged to the group's service units  
+- There is a 30-day purge policy on this scratch filesystem.  **Any data not accessed in 30 days is automatically deleted.**  
+
+**==NO DATA ON EMPIRE AI SYSTEMS IS BACKED UP!==**
+
 
 ### Data Transfer
 
@@ -175,7 +225,7 @@ The NVL72 system uses NVIDIA's Enroot tool for containers.  Please refer to the 
 
 The [NVIDIA catalog](https://catalog.ngc.nvidia.com) includes [pre-built containers](https://catalog.ngc.nvidia.com/containers) for AI/ML, metaverse, and HPC applications and are performance-optimized, tested, and ready to deploy on CCR's GPUs.  NVIDIA also provides hundreds of [pre-trained models](https://catalog.ngc.nvidia.com/models) for computer vision, speech, recommendation, and more.  The NVIDIA [developer program](https://developer.nvidia.com/) offers hundreds of courses 
 
-### Scaling Up at CCR
+## Scaling Up at CCR
 
 CCR's academic (`UB-HPC`) cluster has a mix of compute nodes from various generations of hardware with a variety of GPU types in them. Most of these compute nodes have either 1 or 2 GPUs in them; one node has 12 A16 GPUs. Though you could request multiple nodes with GPUs, our GPU nodes are under heavy demand and wait times can be long, even when only requesting a single GPU. This, combined with the long wait times on the EAI cluster, can make scaling your work more difficult. CCR provides a detailed listing of its resources in [CCR's hardware specification documentation](../hpc/clusters.md#ub-hpc-detailed-hardware-specifications).
 
@@ -189,7 +239,14 @@ To help with preparing to migrate your workflow to Empire AI, CCR has several op
 
 - **ARM64 partition:**  
   Any research group may [request an allocation](../portals/coldfront.md#request-an-allocation) for the `ARM64` partition in ColdFront. This partition contains NVIDIA Gracehopper nodes with 2 GH200 GPUs and 72 ARM64 Neoverse CPUs per node. These are similar to the next iteration of Empire AI equipment ("Beta"). This partition will be an important part of your testing as you prepare to migrate your workflow to Beta in the coming months. NVIDIA containers for this architecture are named with the suffix `-igpu` in the container library. See the [container section below](#containers) for more information on these.
-  
+
+  The high demand and pre-emptibility make using these partitions challenging.  To make more resources more accessible to more users, we ask that you:
+ 
+* Request only the walltime you need.  When testing on the `arm64` partition, please do not request 72-hour interactive jobs as much of this time will leave the GPU idle and prevent other jobs from running.  
+* If you need to compile codes or download and test containers on the `arm64` architecture, you can request CPU-only jobs on the `arm64` partition, allowing the GPUs to be left available for other jobs.  
+* Monitor your jobs for usage and request only what your job requires.  CCR provides multiple tools for job monitoring as well as [documentation ](https://docs.ccr.buffalo.edu/en/latest/hpc/jobs/#monitoring-jobs)and a [recorded workshop](https://www.youtube.com/watch?v=6DIkXhuYPoY\&t=1s) on the topic.  It’s important to understand that if you request all of the CPUs or RAM (memory) on an `eai-test` compute node without using all of the GPUs, other jobs can’t run.  Monitoring using Grafana will help you understand exactly what resources your job can use so future requests align better with your actual needs.  
+* At most, you may submit 4 jobs per user per partition.  If you’re submitting interactive requests, please limit this to one job at a time to prevent resources from sitting idle.
+
   
 
 !!! Tip  

@@ -261,4 +261,4 @@ Please acknowledge resources provided by CCR in publications as follows:
 
 and cite as (using the appropriate citation format):  
 
-[1] Center for Computational Research, University at Buffalo, http://hdl.handle.net/10477/79221.  
+[1] Center for Computational Research, University at Buffalo, https://ubir.buffalo.edu/xmlui/handle/10477/79221.  

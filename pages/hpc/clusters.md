@@ -36,9 +36,9 @@ This is a listing of available compute node types in the UB-HPC cluster.  Please
 | "Ice Lake" Standard Node<sup>1<sup> | 67 | 56 | Intel Xeon Gold 6330 | - | 512GB | Infiniband | CPU-Gold-6330, ICE-LAKE-IB | 880GB |  industry, general-compute, scavenger |
 | "Ice Lake" Large Memory Node<sup>1<sup> | 20 | 56 | Intel Xeon Gold 6330 | - | 1TB | Infiniband | CPU-Gold-6230, CASCADE-LAKE-IB, LM | 7TB | industry, general-compute, scavenger |
 | "Ice Lake" GPU Node<sup>1<sup> | 20 | 56 | Intel Xeon Gold 6330 | 2x A100 40GB (GPU memory) | 512GB | Infiniband | CPU-Gold-6230, CASCADE-LAKE-IB, A100 | 880GB | industry, general-compute, scavenger |
-| "Sapphire Rapids" Standard Node<sup>1<sup> | 81 | 64 | Intel Gold 6448Y | - | 512GB | Infiniband | CPU-Gold-6448Y, SAPPHIRE-RAPIDS-IB | 880GB | class, debug, industry, general-compute, scavenger |
-| "Sapphire Rapids" Large Memory Node<sup>1<sup> | 4 | 64 | Intel Gold 6448Y | - | 2TB | Infiniband | CPU-Gold-6448Y, SAPPHIRE-RAPIDS-IB, LM | 7TB | industry, general-compute, scavenger |
-| "Sapphire Rapids" GPU Node<sup>1<sup> | 8 | 64 | Intel Gold 6448Y | H100 80GB (GPU memory) | 512GB | Infiniband | CPU-Gold-6448Y, SAPPHIRE-RAPIDS-IB, H100 | 7TB | debug, industry, general-compute, scavenger, viz |
+| "Sapphire Rapids" Standard Node<sup>1<sup> | 81 | 64 | Intel Gold 6448Y | - | 512GB | Infiniband | CPU-Gold-6448Y, SAPPHIRE-RAPIDS-IB | 880GB | class, debug, general-compute, scavenger |
+| "Sapphire Rapids" Large Memory Node<sup>1<sup> | 4 | 64 | Intel Gold 6448Y | - | 2TB | Infiniband | CPU-Gold-6448Y, SAPPHIRE-RAPIDS-IB, LM | 7TB | general-compute, scavenger |
+| "Sapphire Rapids" GPU Node<sup>1<sup> | 8 | 64 | Intel Gold 6448Y | H100 80GB (GPU memory) | 512GB | Infiniband | CPU-Gold-6448Y, SAPPHIRE-RAPIDS-IB, H100 | 7TB | debug, general-compute, scavenger, viz |
 | "Emerald Rapids" Standard Node | 74 | 64 | Intel Platinum 8562Y+ | - | 512GB | HDR Infiniband | CPU-Platinum-8562Y, EMERALD-RAPIDS-IB | 880GB | class, industry, scavenger |
 | "Emerald Rapids" Large Memory Node | 6 | 64 | Intel Platinum 8562Y+ | - | 2TB | HDR Infiniband | CPU-Platinum-8562Y, EMERALD-RAPIDS-IB, LM | 7TB | industry, scavenger |
 | "Emerald Rapids" High Bandwidth Memory Node<sup>2<sup> | 8 | 64 | Intel Max 9462 | - | 125GB | HDR Infiniband | CPU-Max-9462, HBM | 833GB | industry-hbm |

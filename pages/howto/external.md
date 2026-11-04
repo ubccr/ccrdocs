@@ -94,7 +94,7 @@ CCR's HPC resources that RPCI research groups have access to consist of:
 !!! Danger  
     **RPCI DIRECTORIES ARE NOT BACKED UP BY CCR!**
 
-**Global scratch directories:**  Global scratch directories are being phased out.  No new directories will be created.  For those with existing directories, more details about global scratch storage, see [CCR's scratch space documentation](../hpc/storage.md#global-scratch).  Please review the [global scratch policy](../policies/misuse.md#scratch-usage-policies) prior to use.  
+**Global scratch directories:**  Global scratch directories are being phased out.  No new directories will be created.  Refer to the [decommissioning announcement](../changelogs/scratch-shutdown.md) for further details.  For those with existing directories, more details about global scratch storage, see [CCR's scratch space documentation](../hpc/storage.md#global-scratch).  Please review the [global scratch policy](../policies/misuse.md#scratch-usage-policies) prior to use.  
 
 ### Data Transfer
 

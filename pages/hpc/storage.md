@@ -1,8 +1,6 @@
 # Storage
 
-Watch this virtual workshop to learn more about CCR's storage options & policies:  
-![type:video](https://youtube.com/embed/EzQuL59DPjA)    
-
+  
 ## Enterprise-level Network Attached Storage
 
 - Vast Data 4.6PB flash disk system designed for 99% uptime
@@ -15,50 +13,52 @@ Watch this virtual workshop to learn more about CCR's storage options & policies
     - Directories found in `/user/[CCRusername]`  
     - Home directories are owned and accessible only to the user.  Access should not be shared with other users.  Data sharing should be done with shared project directories.  
     - 25GB quota  
-    - To protect the filesystem, there is a limit of 10 million files per home directory
+    - To protect the file system, there is a limit of 10 million files per home directory
     - Automatically created for new users  
-    - Backed up nightly off campus by UBIT
-    - Backups maintained for 30 days
-    - Daily snapshots are available for 30 days for users to restore data from their home directories themselves.  Instructions can be found in the [backup policies documentation](../policies/accounts.md#self-service-home-directory-data-restore)
+    - Snapshots are available for 30 days (see [below](#data-backup))   
+
   - **Project directories for academics:**  
-    - Shared by a single research group or course  
+    - Shared by a single research group or course
     - By default, 1TB provided for free to UB faculty groups
     - Use ColdFront to request an allocation for the `Project Storage` resource
-    - Additional [storage can be purchased](#purchasing-project-storage)  
+    - Requests for free quota increases up to 5TB may be submitted using the [allocation change request](../portals/coldfront.md#allocation-change-requests) feature in ColdFront.  The PI **must** provide a valid justification or use case.  Requests should be made incrementally as storage needs change, unless your use case involves a large dataset.  
+    - Groups that require more than 5TB of space, can [purchase additional storage](#purchasing-project-storage) at the current rate.  Please submit an [allocation change request](../portals/coldfront.md#allocation-change-requests) to begin the purchase process.  Include your account number and account signatory in the justification field.  
     - To protect the file system, there is a limit of 200 million files per project directory
-    - Backed up nightly off campus by UBIT  
-    - Backups maintained for 30 days    
-  - **Project directories for industry customers:**  
-    - Quotas vary based on Cooperative Use Agreement  
-    - **NOT backed up unless specified in your company's Cooperative Use Agreement**  
-    - Use ColdFront to request an allocation for the `Project Storage` resource  
+    - Snapshots are available for 30 days (see [below](#data-backup))   
+
   - **Project directories for Roswell Park users:**  
     - Directories for individual research groups found in `/projects/rpci`  
-    - Use ColdFront to request an allocation for the 'Project Storage' resource  
+    - Use ColdFront to request an allocation for the `Project Storage` resource  
     - Quotas are listed on individual allocations in ColdFront.  Usage can be viewed on the systems as described in the [Checking Quotas section below](#checking-quotas)  
     - RPCI IT staff are responsible for dividing up the storage purchased from CCR.  Please contact them if you'd like your quota increased  
-    - ==**NO RPCI DIRECTORIES ARE BACKED UP**==    
+    - ==**NO RPCI DIRECTORIES ARE BACKED UP**==
+    - Snapshots are available for 30 days (see [below](#data-backup))    
 
-**How do I know what directory I have access to?**
-Directories are auto-mounted when accessed.  Therefore, you need to know which directory or directories you have access to and navigate directly to it.  Your group's shared directory path can be found on your storage allocation in [ColdFront](../portals/coldfront.md).  Users may have access to multiple storage allocations.  Please see [this information](../changelogs/2026.md#july-2026-downtime) for more details on the auto-mounting of directories.
+  - **Project directories for industry customers:**  
+    - Quotas vary based on Cooperative Use Agreement
+    - Managed in [ColdFront](../portals/coldfront.md) via allocations for the `Project Storage` resource  
+    - **NOT backed up unless specified in your company's Cooperative Use Agreement**
+    - Snapshots are available for 30 days (see [below](#data-backup))    
+
+**==How do I know what directory I have access to?==**
+Directories are auto-mounted when accessed.  Therefore, you need to know which directory or directories you have access to and enter the full path to gain access to them.  Your group's shared directory path can be found on your storage allocation in [ColdFront](../portals/coldfront.md).  Users may have access to multiple storage allocations.  Please see [this information](../changelogs/2026.md#july-2026-downtime) for more details on the auto-mounting of directories.
+
+### Data Backup
+
+**Data Snapshots**  
+Daily snapshots are available for 30 days for users to restore data from any of their directories themselves.  Instructions can be found in the [backup policies documentation](../policies/accounts.md#self-service-data-restore)
+
+**Requesting a restore from backup:**  
+To request a restore of deleted files, please complete [CCR's Backup Restore Request form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=363).  Please provide the full path of the file/directory you would like restored and the date and time you would like us to target.  This would be the last known time the file/directory was on the file system.  If it has not been on the system at least 24 hours, it will not have made it to the backup tapes.  There is no guarantee your data is available for recovery but we will attempt to recover it. For self-service, you can utilize the daily snapshots available in home and project directories.  Instructions can be found in the [backup policies documentation.](../policies/accounts.md#self-service-data-restore)
 
 !!! Warning  
       Due to limitations of the campus backup service, any directory containing over 50 million files is **NOT BACKED UP**.  The directory owner will be contacted if their directory reaches this level prior to stopping the backups.
 
-**Requesting a restore from backup:**  
-To request a restore of deleted files, please complete [CCR's Backup Restore Request form](https://ubuffalo.teamdynamix.com/TDClient/55/Portal/Requests/ServiceDet?ID=363).  Please provide the full path of the file/directory you would like restored and the date and time you would like us to target.  This would be the last known time the file/directory was on the file system.  If it has not been on the system at least 24 hours, it will not have made it to the backup tapes.  There is no guarantee your data is available for recovery but we will attempt to recover it.  
 
-## Global Scratch
-==Global scratch is being phased out.  No new directories will be created==
-- There is no guarantee of uptime  
-- Scratch file systems are designed for temporary storage and shorter-term processing of data  
-- To be used during job runs and moved or deleted at the completion of a job
+### Global Scratch
+==Global scratch is being phased out.  No new directories will be created.  Get [more information](../changelogs/scratch-shutdown.md) and move any data you'd like to preserve **BEFORE 7am on November 24, 2026**!==  
 - Data that has not been accessed in more than 60 days is automatically deleted nightly. See [Scratch Usage Policy](../policies/misuse.md#scratch-usage-policies)  
-- 10TB provided for free to all groups
-- Use ColdFront to request an allocation for the `Global Scratch Storage` resource
-- Directories found in `/vscratch/grp-[YourGroupName]`  
-- To protect the file system, groups are limited to 200 million files per directory.
-- ==**NO SCRATCH FILE SYSTEMS ARE BACKED UP**==  
+- ==**NO SCRATCH FILE SYSTEMS ARE BACKED UP**==   
 
 !!! Danger "Automatic data deletions!"  
     Data that has not been accessed in more than 60 days is automatically deleted nightly.  To avoid data loss, please remove all data promptly after your job completes
@@ -71,15 +71,17 @@ To request a restore of deleted files, please complete [CCR's Backup Restore Req
 - Users should copy all data from local disks before the job ends  
 - Limited by the space available on the node which varies across node types  
 - In theory, local scratch will provide the fastest I/O because there will be no network latency that other storage options may contend with  
-- ==**There is NO backup of data in /scratch**==  
+- **==There is NO backup of data in /scratch==**
+- Snapshots are not available for local scratch directories
+  
 
 ## Cloud Storage
 
 - Accessible only from cloud instances  
 - There is no guarantee of uptime or performance on cloud storage  
 - Available only to research groups with active cloud subscriptions  
-- cloud storage pricing is explained in the [CCR cloud Storage documentation](../howto/purchases.md#cloud-storage)
-- ==**There is NO backup of data for the research cloud**==  
+- Cloud storage pricing is explained in the [CCR cloud Storage documentation](../howto/purchases.md#cloud-storage)
+- **==There is NO backup of data for the research cloud==**  
 
 ## Purchasing Project Storage
 
@@ -95,7 +97,7 @@ rquota
 
 **Your group's shared project directory quota:**
 
-NOTE: You must specify the full path of your directory.  Not all project directories are in /projects/academic
+NOTE: You must specify the full path of your directory.  Not all project directories are in `/projects/academic`
 
 ```
 rquota --path /projects/academic/[YourGroupName]
@@ -143,7 +145,7 @@ CCR offers [Starfish](https://starfishstorage.com/) portal access to provide res
 Once the group has been given access to Starfish the PI will be able to login using their CCR username, password, and one time token.  
 
 !!! Warning "VPN Required"
-    Access to ColdFront is restricted to UB and Roswell Park networks
+    Access to Starfish is restricted to UB and Roswell Park networks
     (either on campus or connected to their [VPN services](../getting-access.md#vpn-access)).
 
 [Starfish Portal](https://starfish.ccr.buffalo.edu)
@@ -163,6 +165,9 @@ You will be considered a Starfish Zone Admin and have access to detailed usage i
 
 Starfish provides many avenues for viewing metadata about your data.  Users can visualize the data by age, size, and other options.  We're able to view the last time data was accessed.  You can download reports about your data in CSV format allowing you to share information with group members.  Please refer to the documentation above for more information.  
 
+!!! Tip
+    Starfish usage is reported in tebibytes (TiB) while quotas on the system are reported in terabytes (TB).  One TiB is about 10% larger than one TB (1 TiB ≈ 1.10 TB).  
+    
 **Hints:**  
 The Starfish GUI offers alot of information and capabilities!  Their "Hints" feature is very useful for basic information about each of the icons, tools, and sections.  Click on the "Hints" button at the top right to see all the available hints.  Then hover over the question mark icons to get more information.  
 
