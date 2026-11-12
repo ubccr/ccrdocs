@@ -33,4 +33,4 @@ Please note: This schedule can, and likely will change, to respond to vendor sof
 
 11/24/26 - [November 2026 Details](2026.md#november-2026-downtime)  
 
-12/29/26 - December 2026 Details available approximately 2 weeks before downtime  
+12/29/26 - [December 2026 Details](2026.md#december-2026-downtime) 

@@ -55,14 +55,6 @@ To request a restore of deleted files, please complete [CCR's Backup Restore Req
       Due to limitations of the campus backup service, any directory containing over 50 million files is **NOT BACKED UP**.  The directory owner will be contacted if their directory reaches this level prior to stopping the backups.
 
 
-### Global Scratch
-==Global scratch is being phased out.  No new directories will be created.  Get [more information](../changelogs/scratch-shutdown.md) and move any data you'd like to preserve **BEFORE 7am on November 24, 2026**!==  
-- Data that has not been accessed in more than 60 days is automatically deleted nightly. See [Scratch Usage Policy](../policies/misuse.md#scratch-usage-policies)  
-- ==**NO SCRATCH FILE SYSTEMS ARE BACKED UP**==   
-
-!!! Danger "Automatic data deletions!"  
-    Data that has not been accessed in more than 60 days is automatically deleted nightly.  To avoid data loss, please remove all data promptly after your job completes
-
 ## Local Scratch
 
 - All compute nodes have local disk space in `/scratch`
@@ -102,14 +94,6 @@ NOTE: You must specify the full path of your directory.  Not all project directo
 ```
 rquota --path /projects/academic/[YourGroupName]
 (or -p)
-
-HINT: Do not include the trailing slash in the directory name
-```
-
-**Your group's shared global scratch directory quota:**
-
-```
-rquota -p /vscratch/grp-[YourGroupName]
 
 HINT: Do not include the trailing slash in the directory name
 ```
