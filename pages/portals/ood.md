@@ -25,20 +25,20 @@ Watch his video for a walk through demonstration of using CCR's Open OnDemand po
 
 
 ### Dashboard  
-Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, our message of the day (MOTD), recently used apps, and pinned apps (popular applications organized into sections).  On the right side of the dashboard you will see any currently active Interactive Sessions.  Along the top are tabs for the different features offered in OnDemand.
+Once you have logged into OnDemand you will be redirected to the dashboard.  On the dashboard, CCR displays important messages in the announcement bar at the top, CCR's message of the day (MOTD), recently used apps, and pinned apps (popular applications organized into sections).  On the right side of the dashboard you will see any currently active Interactive Sessions.  Along the top are tabs for the different features offered in OnDemand.
 
 **Recently Used Apps**  
 
-The `Recently Used Apps` section on the OnDemand dashboard is a new feature of OnDemand 3.0.  This will list the last 3 applications you launched in OnDemand.  When you click on one, it immediately launches a new session with the same options you last selected.  This saves you time from having to select all the options repeatedly.  This is a one-click easy button for re-launching desktops or interactive apps.
+The `Recently Used Apps` section on the OnDemand dashboard will list the last 3 applications you launched in OnDemand.  When you click on one, it immediately launches a new session with the same options you last selected.  This saves you time from having to select all the options repeatedly.  This is a one-click easy button for re-launching desktops or interactive apps.
 
 **Quick Launch App**  
 
-The `Quick Launch` General-Compute and Debug Desktop apps provide a one click easy button for launching a desktop session on the either the debug or general-compute partition of the UB-HPC cluster.  Your job will be allocated 1 CPU, 2.8GB of RAM, and 24 hours of walltime on the general-compute partition or 1 hour for the debug partition.  You can't change any of the options for these quick launch apps.  If you require different settings, use the `UB-HPC & Faculty Cluster Desktop` app which provides many options.  
+The `Quick Launch` General-Compute and Debug Desktop apps provide a one click easy button for launching a desktop session on the either the debug or general-compute partition of the UB-HPC cluster.  Your job will be allocated 1 CPU, 2.8GB of RAM, and 24 hours of wall time on the general-compute partition or 1 hour for the debug partition.  You can't change any of the options for these quick launch apps.  If you require different settings, use the `UB-HPC & Faculty Cluster Desktop` app which provides many options.  
 
 
 ### Clusters (terminal window)  
 
-This provides command line access to cluster login nodes.  CCR's OnDemand portal displays links for the UB-HPC and faculty clusters but these both point to the same login pool: `login.ccr.buffalo.edu` which will login you in to one of several login servers.  Here you can run Linux commands as you would if you were to SSH into a login node.  These login servers provide access to the shared storage and the Slurm scheduler to submit jobs to any of the clusters.  
+This provides command line access to cluster login nodes.  CCR's OnDemand portal displays links for the UB-HPC and faculty clusters but these both point to the same login pool: `login.ccr.buffalo.edu` which will login you in to one of several login servers.  Here you can run Linux commands as you would if you were to SSH into a login node.  These login servers provide access to the shared storage and the Slurm scheduler to submit jobs to any of the clusters. Please refer to our [documentation](../hpc/clusters.md#login-nodes) on the appropriate use of the login nodes.
 
 !!! Note  
     The default Slurm cluster on these login nodes is ub-hpc cluster so faculty cluster users will need to specify the option "-M faculty" with all Slurm commands.
@@ -47,12 +47,12 @@ This provides command line access to cluster login nodes.  CCR's OnDemand portal
 
 The Files App in OnDemand allows users to easily transfer files to or from their local computers, view and edit files on the CCR systems, and other basic file management tasks.   Here users can access files in their home directory, as well as any project directories they may have access to.  
 
-!!! Warning  
-    Do NOT transfer large files or large amounts of files using this app.  File transfer is limited to the amount of memory on the OnDemand server, the number of users currently using it, and browser limitations.  Please use the integrated [Globus service](../hpc/data-transfer.md#globus-transfers) for large file transfers.    
+!!! Tip  
+    Large file transfers are not possible using the OnDemand Files app.  File size is limit to 10GB. Please use the integrated [Globus service](../hpc/data-transfer.md#globus-transfers) for large file transfers.    
 
 Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/[CCRusername]`.  If you have access to a shared project directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
 
-You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  Refer to the [rclone documentation](../hpc/data-transfer.md#rclone) for instructions on setting up the connections with UB Box and OneDrive.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done this setup after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
+You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  Refer to the [rclone documentation](../hpc/data-transfer.md#rclone) for instructions on setting up the connections with UB Box and OneDrive.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done the rclone configuration after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
 
 **OneDrive**  
 Follow [the OneDrive instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) to complete the initial connection with OneDrive using RClone.
@@ -67,17 +67,17 @@ The `Globus` button in the `Files` app provides easy access to CCR's mapped coll
 
 Interactive apps provide a way for users to launch and connect to an interactive batch job running on the cluster.  Users will either connect to the compute node in a Linux desktop environment or to the application they're launching.  
 
-All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information based on the logged in user.  It's important to note that you may see some options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, users should not select the option `normal` in the QOS drop down menu.  You will see the `class` and `industry` partitions; however, if you do not have the `class` or  `industry` QOS in your drop down menu, this means you don't have access to it.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.   
+All the desktop and interactive apps have select menus that get pre-populated.  Depending on which cluster you choose, some of the available options, like partitions and QOS, will change.  The forms also pre-populate the Slurm account information and QOS availability based on the logged in user.  It's important to note that you may see partition options that you don't have access to or aren't permitted to use through the OnDemand apps.  For the `UB-HPC` cluster, you will see the `class` and `industry` partitions; however, if you do not have the `class` or  `industry` QOS in your drop down menu, this means you don't have access to it.  Users should not select the option `normal` in the QOS drop down menu as it will result in an error.  Similarly, for the `Faculty` cluster, users will see all the partitions listed; however, you will only have access to a partition if the associated QOS is listed in your drop down menu.   
 
 **None of the OnDemand applications work with the `arm64` partition. Users must use [interactive or batch jobs](../hpc/jobs.md#running-jobs) for these nodes.**
 
 
 !!! Warning "Scavenger Partition Warning!"  
-    Prior to using the `scavenger` partition, we STRONGLY recommend [reading about it](../hpc/jobs.md#scavenging-idle-cycles) to understand how it works.  When using the `scavenger` partition you are using nodes not otherwise available to you and your jobs will get cancelled when the owner of those nodes wants to use them.  
+    Prior to using the `scavenger` partition, we STRONGLY recommend [reading about it](../hpc/jobs.md#scavenging-idle-cycles) to understand how it works.  When using the `scavenger` partition you are using nodes not otherwise available to you and your jobs will get canceled when the owner of those nodes wants to use them.  
 
 #### Desktop Interactive Apps   
 
-The interactive desktop app launches a job on a compute node in the UB-HPC or Faculty cluster and provides the user with a Linux desktop experience.  The interactive desktop app form requires the user to select which cluster they want the job submitted to, as well as which partition, qos, and account to use for the job.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Access to partitions and QOS values is managed through [allocations in ColdFront](coldfront.md#request-an-allocation).  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), GPUs, amount of memory (RAM), run time (walltime), or specific node features you may enter that in the appropriate form fields.  If you do not care what type of hardware your desktop runs on, you can leave these blank and the scheduler will allocate one CPU and 2.8GB of RAM for your session.  The [default walltime](../hpc/jobs.md#slurm-directives-partitions-qos) varies by partition.
+The interactive desktop app launches a job on a compute node in the UB-HPC or Faculty cluster and provides the user with a Linux desktop experience.  The interactive desktop app form requires the user to select which cluster they want the job submitted to, as well as which partition, qos, and account to use for the job.  Though users will see all partitions listed in the Faculty cluster, they will only be able to use the one(s) that match the QOS values shown in their drop down menu.  For example, to use the `ub-laser` partition in the faculty cluster, you must select the `ub-laser` QOS.  Access to partitions and QOS values is managed through [allocations in ColdFront](coldfront.md#request-an-allocation).  Interactive desktop sessions are limited to one node; however if you have other requirements such as number of cores (CPUs), GPUs, amount of memory (RAM), run time (wall time), or specific node features you may enter that in the appropriate form fields.  If left blank, the scheduler will allocate one CPU and 2.8GB of RAM for your session.  The [default wall time](../hpc/jobs.md#slurm-directives-partitions-qos) varies by partition.
 
 
 !!! Info "Missing Something?"  
@@ -85,10 +85,10 @@ The interactive desktop app launches a job on a compute node in the UB-HPC or Fa
 
 **Using the viz partition**  
 
-Most software GUIs can run on any compute node at CCR through the `UB-HPC & Faculty Cluster Desktop` app.  If your software requires hardware accelerated graphics, you should request a GPU in the desktop session form.  All GPU nodes in CCR's clusters are capable of hardware accelerated graphics.  However, because the GPU nodes are often in heavy demand, we provide several nodes for those who require GPUs specifically for graphics rendering.  To access one of these GPU nodes, select the `viz` partition and QOS in the desktop session drop down menus.  Users are permitted to run one session on the viz partition at a time which is limited to 24 hours of run time.  If you require longer run time, please select the `general-compute` partition.
+Most software GUIs can run on any compute node at CCR through the `UB-HPC & Faculty Cluster Desktop` app.  If your software requires hardware accelerated graphics, you should request a GPU in the desktop session form.  All GPU nodes in CCR's clusters are capable of hardware accelerated graphics.  However, because the GPU nodes are often in heavy demand, we provide several nodes for those who require GPUs specifically for graphics rendering.  To access one of these GPU nodes, select the `viz` partition and QOS in the desktop session drop down menus.  Users are permitted to run one session on the viz partition at a time which is limited to 24 hours of wall time.  If you require longer run time, please select the `general-compute` partition.
 
 !!! Danger "All done?  Make sure to delete your job"  
-    OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then delete the running session under the `My interactive sessions` menu.  
+    OnDemand desktops and apps are jobs running on the clusters.  When you're done, please make sure to close the app or desktop and then cancel the running session under the `My interactive sessions` menu.  
 
 #### Jupyter Notebook Apps  
 

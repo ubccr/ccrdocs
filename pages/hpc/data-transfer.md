@@ -1,4 +1,4 @@
-# Data Transfer
+d# Data Transfer
 
 
 CCR supports multiple ways to transfer Data in and out of CCR and the method 
@@ -187,7 +187,7 @@ username, and `<target-path>` with the full path to the directory you would like
 ```bash
 # Copying files from a local workstation to CCR Frontend Servers
 
-scp -i <path-to-yourSSHKey> <path-to-file> [CCRusername]@vortex.ccr.buffalo.edu.edu:<target-path>
+scp -i <path-to-yourSSHKey> <path-to-file> [CCRusername]@vortex.ccr.buffalo.edu:<target-path>
 ```
 
 !!! Note
