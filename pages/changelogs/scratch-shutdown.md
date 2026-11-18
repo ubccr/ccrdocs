@@ -9,7 +9,7 @@ To prepare for this migration, please begin updating your job scripts and workfl
 
 - **October 27:** During the maintenance downtime,`/vscratch` will be set to `read only` mode.  You will have 30 days to copy anything you wish to keep but **you will not be able to write any new files or update existing files** any longer.
   
-- **November 24:** During the maintenance downtime, `vscratch` will be unmounted and become unavailable to all users.  Please be sure to copy any important data over to your shared project directory prior to this date. ==You will **NOT** be able to access data in `/vscratch` after 7am on this date!==
+- **November 24:** During the maintenance downtime, `vscratch` will be unmounted and become unavailable to all users.  Please be sure to copy any important data over to your shared project directory prior to this date. ==You will **NOT** be able to access data in `/vscratch` after 6am on this date!==
 
     
 **What if my group needs more space?**  
