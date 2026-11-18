@@ -38,7 +38,7 @@ There are two ways to accomplish this:
     The Private key of the Keypairs should be stored in a safe place and kept very secure.
     If these credentials were to be compromised, an attacker would gain full access to your Instances.
     Do NOT store these credentials on front end machines of the clusters or shared storage
-    (such as home or project directories or global scratch).
+    (such as home or project directories).
 
 #### Creating a key pair in Openstack
 

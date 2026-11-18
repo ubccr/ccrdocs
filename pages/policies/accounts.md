@@ -22,7 +22,7 @@ Faculty are required to review their projects and verify all accounts in their g
 Account - When a faculty member leaves the University, access to the UB network will be removed as soon as your employment ends.  Unless arrangements have been made, your CCR account will be terminated at the
 same time as your UB account.
 
-Data – All data owned by your account on our systems will be deleted within 30 days of account termination.  This includes data on CCR’s network attached storage systems (user & project directories), local compute node and global scratch directories, data stored on servers owned by the faculty group (if applicable), and cloud instances and storage (if applicable).
+Data – All data owned by your account on our systems will be deleted within 30 days of account termination.  This includes data on CCR’s network attached storage systems (user & project directories), local compute node scratch directories, data stored on servers owned by the faculty group (if applicable), and cloud instances and storage (if applicable).
 
 !!! warning "Important"
     When a faculty member leaves behind students at UB, arrangements MUST be made with those students and another faculty member to take over their account sponsorship. Student accounts must be sponsored by an active faculty member, so unless prior arrangements have been made, when a faculty member leaves, any accounts sponsored by them are also terminated and data is removed.
@@ -33,7 +33,7 @@ Data – All data owned by your account on our systems will be deleted within 30
 
 Account – Accounts provided for class work are valid for the semester that the class is offered in and automatically terminated at the end of the semester.  If a student requires additional time to complete coursework, the professor teaching the course must contact [CCR help](../help.md) to request an extension on the account.  Student accounts that are also sponsored by a faculty member remain active after the course ends, subject to the policies in the “faculty sponsored accounts” section below.
 
-Data – Data in a student’s home directory created for a class account is deleted 30 days after account termination.  This includes data on CCR’s network attached storage systems (user & course project directories), local compute node and global scratch directories, and cloud instances and storage (if applicable).
+Data – Data in a student’s home directory created for a class account is deleted 30 days after account termination.  This includes data on CCR’s network attached storage systems (user & course project directories), local compute node scratch directories, and cloud instances and storage (if applicable).
 
 Usage - Usage of the cluster by students in a class is reported back to the instructor of the class.  Requests for assistance, software installations, or other communications by students to CCR staff could potentially be shared with the instructor.
 
@@ -41,7 +41,7 @@ Usage - Usage of the cluster by students in a class is reported back to the inst
 
 Account – An account sponsored by a faculty member is terminated when a student leaves the University at Buffalo or when the sponsoring faculty member requests the student’s access to CCR be removed.  If a faculty member wants a student to continue to access CCR resources after leaving the university, the PI should request an [allocation in ColdFront](../portals/coldfront.md) for the `UBVPN Software` resource, adding just this one user to the allocation.  The account will then be moved under the “non-UB collaborator” category of accounts (see below).  The student will be contacted by CCR staff with information about VPN access.  
 
-Data - Data stored on CCR’s network attached storage systems in the user’s home directory and local compute node scratch directories are deleted when the student’s account is terminated.  If there is data stored by the student in a faculty member’s project directory or cloud project, this data is not removed. It is up to the faculty member to manage the data in their project and global scratch spaces.
+Data - Data stored on CCR’s network attached storage systems in the user’s home directory and local compute node scratch directories are deleted when the student’s account is terminated.  If there is data stored by the student in a faculty member’s project directory or cloud project, this data is not removed. It is up to the faculty member to manage the data in their project spaces.
 
 Usage - Usage of the cluster by students is reported to the faculty member sponsoring the student's account.  Requests for assistance, software installations, or other communications by students to CCR staff could potentially be shared with that faculty member as well.
 
@@ -49,7 +49,7 @@ Usage - Usage of the cluster by students is reported to the faculty member spons
 
 Account – Accounts granted to non-UB collaborators are dependent on the sponsorship of a UB faculty member.  If at any time, the sponsor of your account wants your access to CCR resources cut off, we are required to terminate the account.
 
-Data - Data stored on CCR’s network attached storage systems in the user’s home directory and local compute node scratch directories are deleted when the account is terminated. If there is data stored by the collaborator in a sponsor’s project directory, global scratch directory, or research cloud, this data is not removed. It is up to the sponsor (UB faculty member) to manage the data in these spaces.
+Data - Data stored on CCR’s network attached storage systems in the user’s home directory and local compute node scratch directories are deleted when the account is terminated. If there is data stored by the collaborator in a sponsor’s project directory or research cloud, this data is not removed. It is up to the sponsor (UB faculty member) to manage the data in these spaces.
 
 ### Research Cloud
 
@@ -75,9 +75,9 @@ CCR provides each cluster user with a home directory ``/user/[CCRusername]`` and
 !!! Note
     We can not provide anyone with access to the home directory of another user without the user's express written consent  
 
-### Shared project directories & global scratch directories
+### Shared project directories directories
 
-These directories are accessible on all CCR servers by only your group.  Anyone in the group, by default, has access to all the files in these shared group directories, unless explicitly changed by the file owner.  Please be aware that any data in the group's project or global scratch directories is ultimately owned by the group's principal investigator (PI) or faculty group lead, regardless of the unix ownership permissions set on the file or directory.  
+These directories are accessible on all CCR servers by only your group.  Anyone in the group, by default, has access to all the files in these shared group directories, unless explicitly changed by the file owner.  Please be aware that any data in the group's project directories is ultimately owned by the group's principal investigator (PI) or faculty group lead, regardless of the unix ownership permissions set on the file or directory.  
 
 **We strongly encourage PIs to ask their group members to store files in these shared spaces so when they leave the university, the PI still has access to the data generated by the student while working with the group.**  
 
@@ -113,6 +113,7 @@ Home directories ``/user/[CCRusername]`` and project directories in ``/projects/
 - Incremental backups occur daily  
 - Backups are retained for 30 days  
 
+[Snapshots](#self-service-data-restore) are created daily and are available for users to retrieve past versions of files.
 
 **What is NOT backed up?**  
 
@@ -121,7 +122,6 @@ Home directories ``/user/[CCRusername]`` and project directories in ``/projects/
 This includes, but is not limited to:  
 
 - Data residing in ``/tmp`` or ``/scratch`` on ANY server or compute node  
-- The global scratch directories - ``/vscratch``  
 - Anything in the Lake Effect research cloud or any instances (virtual machines) running in the cloud  
 - Industry cluster client directories located in ``/projects/industry`` are NOT backed up unless it is specified in the company's Cooperative Use Agreement to do so.  
 

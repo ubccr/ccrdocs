@@ -1,6 +1,6 @@
 # System Usage Policies  
 
-Here we define policies for the proper use of CCR systems.  This is not an exhaustive list, by any means, however, it covers critical points of interest to users such as shared system usage, scratch usage, and the batch scheduler policy.  
+Here we define policies for the proper use of CCR systems.  This is not an exhaustive list, by any means, however, it covers critical points of interest to users such as shared system usage and the batch scheduler policy.  
 
 ## Permitted Usage
 
@@ -32,18 +32,12 @@ CCR offers project storage space for groups to securely share data and can work 
 **Fairshare system for batch job scheduling:**  
 The clusters' batch queuing system is designed to give everyone a fair shot at the highest level of throughput for their jobs.  Attempting to circumvent the queue or fairshare system (i.e. cut to the front of the line) is strictly prohibited and will result in your account being deactivated and potential disciplinary action by the University at Buffalo IT security office. See below for more information on this policy.  
 
-**Scratch Scrubber Policy**  
-CCR provides free, high throughput scratch storage space for use when running your jobs.  However, this is TEMPORARY storage space intended for transient storage while jobs are running.  Users are expected to move their data from `/vscratch` to their home or project directory when their job is complete.  Any data over 60 days old is deleted automatically nightly.  Any efforts to modify file dates to purposely subvert this policy are prohibited.  We have sophisticated scripts that monitor for attempts to subvert the system.  Users violating this policy risk ALL of their data in `/vscratch` being deleted without notice and account deactivation. [Refer to the scratch policy](#touch) for more information on file date or access time manipulation.   
-
-
-!!! Warning
-    Violation of CCR policies is a violation of UB Computing and Use policies.  Offenders can be referred to the University at Buffalo's IT security office for disciplinary procedures.
 
 ## Scratch Usage Policies
 
 **Temporary Storage on CCR Servers**  
 
-Scratch space is temporary, volatile storage for files. Temporary scratch space is available to users in two different forms: global and local.
+Scratch space is temporary, volatile storage for files. 
 
 **Local Scratch (/scratch)**  
 What you need to know about local scratch space:  
@@ -54,24 +48,6 @@ What you need to know about local scratch space:
 !!! Tip
     **CCR STRONGLY RECOMMENDS** using the Slurm environment variable ``$SLURMTMPDIR`` to manage local scratch. Using this variable in your job script will place temporary job data in ``/scratch/<jobid>`` on the node running the job. This data is removed automatically at the completion of your job.
 
-**Global Scratch (/vscratch)**  
-What you need to know about global scratch space:  
-- Accessible from all compute and front-end login nodes at CCR  
-- Temporary file system that should be used during job execution rather than a user’s home or project directory  
-- Groups with active allocation to the Global Scratch resource have access to a sub-directory in ``/vscratch/grp-[YourGroupName]`` - this might be your research group name starting with grp-PIusername or your company name     
-- Groups have a 10 TB default quota for their global scratch directory  
-- Groups are also subject to a quota of 200 million files  
-- We set these group quotas for the total number of files in accordance with our system size and projected usage.  Users generating more than a million files per job could affect the performance of the system for everyone.  If you feel your research requires this, we’d like to engage with you to determine if there is an alternate approach  
-<a id="touch"></a>
-**Automatic Deletion of Files in Global Scratch**  
-- The allowed lifespan of files in global scratch is 60 days from the last file access date.  This is based on the file’s last access timestamp ("atime") on the file servers.  
-- CCR runs an automated cleanup process daily on the filesystem to delete files whose “atime” has reached the maximum lifespan.  
-- Altering or duplicating files solely to circumvent the scratch cleanup process is against policy.  
-
-==**Your user account privileges will be revoked if you attempt to get around this rule (i.e. scripting the touching of files to keep them current).**==  
-
-!!! Note "Be a good citizen"
-    Global scratch is a shared resource and policies are set to benefit the entire CCR user community.  If you have any questions about the use of these scratch spaces, please contact [CCR Help](../help.md).
 
 ## Batch Scheduler Policy
 

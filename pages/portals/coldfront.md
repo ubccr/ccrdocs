@@ -96,7 +96,7 @@ To request additional HPC project storage, cloud storage or cloud compute credit
 [Cloud Storage](../howto/purchases.md#cloud-storage)  
 
 **Date Extension Requests:**  
-This should be used for short term extensions such as scratch storage extensions or class access beyond the end of a semester.  If your allocation is up for renewal, please use the [allocation renewal process](#allocation-renewals) instead.
+This should be used for short term extensions such as class access required beyond the end of a semester.  If your allocation is up for renewal, please use the [allocation renewal process](#allocation-renewals) instead.
 
 
 ## Complete yearly project review

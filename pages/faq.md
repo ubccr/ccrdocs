@@ -72,12 +72,11 @@ Refer to [CCR's OnDemand troubleshooting documentation](howto/ood-trouble.md#why
 
 ## How can I check how full my directories are?  
 
-CCR's `rquota` tool will provide you quota and usage for your home directory and any shared project or global scratch directories you may also have access to.  
+CCR's `rquota` tool will provide you quota and usage for your home directory and any shared project directories you may also have access to.  
 
 ```
 rquota   
-rquota --path /projects/academic/[YourGroupName]  
-rquota --path /vscratch/grp-[YourGroupName]  
+rquota --path /projects/academic/[YourGroupName]   
 ```
 
 More details about storage and quotas can be found in [CCR's Storage documentation](hpc/storage.md).
@@ -88,13 +87,13 @@ This error is caused by Anaconda conflicting with the Kerberos used by CCR's aut
 
 ## Why am I getting 'no space left on device' errors?  
 
-If you're sure you're not [over quota](hpc/storage.md) in either file size or number of files, it may be an issue with file permissions.  In the shared project and global scratch directories, users must ensure the group ownership of a file or directory is set to the faculty or project group of that directory.  This is set automatically for new files and when copying files.  However, sometimes users override these defaults.  If you get this error, this is definitely the problem:  
+If you're sure you're not [over quota](hpc/storage.md) in either file size or number of files, it may be an issue with file permissions.  In the shared project directories, users must ensure the group ownership of a file or directory is set to the faculty or project group of that directory.  This is set automatically for new files and when copying files.  However, sometimes users override these defaults.  If you get this error, this is definitely the problem:  
 `mv: failed to preserve ownership for 'filename': no space left on device`  
 
 **Other possible reasons for this error:**  
 :  **Moving Files:**  If you are trying to move a file from another location, change the group ownership of the file before moving it or use the copy command instead.
 
-:  **Editing or Creating New Files:**  If you get this error when trying to edit an existing file or trying to create a new one, it is because the 'sticky bit' is not set correctly on the subdirectory you are trying to write in.  You must add the sticky bit to the group permissions on the subdirectory to fix this: `chmod g+s directory_name` NOTE: You will NOT have to do this if you do not alter the default permissions within the project or scratch directory.  This is only if you copy over subdirectories that do not have this set or accidentally change the permissions and want to set them back.
+:  **Editing or Creating New Files:**  If you get this error when trying to edit an existing file or trying to create a new one, it is because the 'sticky bit' is not set correctly on the subdirectory you are trying to write in.  You must add the sticky bit to the group permissions on the subdirectory to fix this: `chmod g+s directory_name` NOTE: You will NOT have to do this if you do not alter the default permissions within the project directory.  This is only if you copy over subdirectories that do not have this set or accidentally change the permissions and want to set them back.
 
 :  **Compiling Code:**  It could be that your permissions are correct but the code you're compiling is using your primary unix group when creating new files.  When running `make install` you may see an error like `file INSTALL cannot copy file` or when trying to install a conda package you may see ` An error occurred while installing package 'None'. OSError(28, 'No space left on device'` As a work around, switch to your research group unix group using the command `newgrp group-name` and then proceed with the install.  
 
