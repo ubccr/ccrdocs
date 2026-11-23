@@ -42,7 +42,7 @@ CCR is able to provide the following options to faculty groups:
     - Great for users who want dedicated compute cluster resources built into the existing SLURM batch scheduler environment  
     - NO wait time! (aside from the time it takes to schedule and launch a job)  
     - Longer wall time than academic cluster (up to 30 days)  
-    - Access to same infrastructure as academic cluster (home and project directories and high speed scratch storage)  
+    - Access to same infrastructure as academic cluster (home and project directories)  
     - One-time fee charged to cover cost sharing of infrastructure used to house and support your equipment  
     - Give back to the UB research community by providing idle compute cores to other users for their research use  
 
@@ -60,13 +60,13 @@ CCR is able to provide the following options to faculty groups:
     - Cost: One time co-location fee **PLUS the cost of the compute node** ==(see rate information below)==
     - PI responsibility: None, except facilitating the compute node purchase and delivery with your department  
     - CCR responsibility: Physical hardware install/maintenance/repairs, operating system and software install, updates, security
-    - Pros/Cons:  Same setup as compute nodes in UB academic cluster, access to CCR’s network attached storage (home & project directories, high speed scratch space), no long term storage on local disks, no local software installations, maximum job runtime of 30 days, maintenance downtimes every 30 days, no local hardware backups, no administrative access  
+    - Pros/Cons:  Same setup as compute nodes in UB academic cluster, access to CCR’s network attached storage (home & project directories), no long term storage on local disks, no local software installations, maximum job runtime of 30 days, maintenance downtimes every 30 days, no local hardware backups, no administrative access  
 
 - Lake Effect IAAS Research Cloud  
     - Cost: - Usage based subscription, optional fees for additional storage and consulting ==(see rate information below)==
     - PI responsibility: Faculty group is entirely responsible for OS & software install, setup, updates & security    
     - CCR responsibility: Responsible for cloud infrastructure only  
-    - Pros/Cons:  No backups provided, no maximum run time, 1-2 annual maintenance downtimes, full administrative access, NO access to CCR’s network attached storage (home & project directories, high speed scratch space)    
+    - Pros/Cons:  No backups provided, no maximum run time, 1-2 annual maintenance downtimes, full administrative access, NO access to CCR’s network attached storage (home & project directories)    
 
 ==**Rates are based on the type of account they're paid out of:**==  
 
@@ -104,7 +104,7 @@ Dedicated resources (nodes) for a faculty group or research lab built into the e
 
 - **Installation and configuration:**  
     - Compute nodes are installed with the same image used by CCR for all compute nodes.  You will not have the ability to choose your operating system or additional software installed on the compute nodes.
-    - Compute nodes have access to CCR’s internal network attached storage (project & home directories) and high speed scratch storage.  
+    - Compute nodes have access to CCR’s internal network attached storage (project & home directories).  
     - Compute nodes are not backed up.  No permanent data storage is permitted on the local hard drives of compute nodes.  Users must use the network attached storage systems for storing data.  
     - No system administrative (elevated) privileges are given to the hardware owner or group members on compute nodes.  
 
@@ -122,7 +122,7 @@ Cloud environment that provides researchers the ability to launch fully customiz
     - Users of the cloud (faculty project leaders & their groups) are responsible for all operating system and software installations, as well as updates and security on their cloud instances. Faculty must comply with UB server security requirements and should consult with UBIT for specifics and assistance.  
     - Cloud users (faculty project leaders & those they permit in their groups) have full administrative access to their instances (virtual machines)  
     - Operating systems currently supported in the research cloud are CentOS and Ubuntu.  Windows is not currently supported due to the complex Microsoft licensing requirements but may be in the future.  Contact us for information on uploading your own images to the cloud.  
-    - Cloud instances do not have access to CCR’s internal network attached storage (project & home directories) or high speed scratch storage.  
+    - Cloud instances do not have access to CCR’s internal network attached storage (project & home directories).  
     - Cloud instances are not backed up.  It is the users’ responsibility to backup all data in the research cloud.  
     - Maintenance downtimes twice annually may be required on the cloud infrastructure for software and operating system updates.  Emergency downtimes may occur as needed for critical security patches.  
 
