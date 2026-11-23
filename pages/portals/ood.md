@@ -2,6 +2,8 @@
 
 Open OnDemand is a browser based, single point of access for all of CCR's HPC clusters and shared storage.  OnDemand provides a graphical interface to view, edit, download, and upload files, manage and create job templates for CCR's clusters, access interactive applications such as remote desktops to cluster nodes and GUI-based software like Jupyter Lab/Notebook, Matlab, RStudio, VMD, and VSCode.  All of this is done through the browser on almost any device, requires no additional software to be installed, and with minimal knowledge of Linux and job scheduler commands.  
 
+==**OnDemand 4.x Updates:**== Learn more about [new features](../changelogs/2026.md#november-2026-downtime) in OnDemand.
+
 _**This product is an open source project developed by [Ohio Supercomputer Center](https://openondemand.org).**_
 
 Watch this virtual workshop to learn more about Open OnDemand at CCR:   
