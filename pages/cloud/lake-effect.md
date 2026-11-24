@@ -1,7 +1,7 @@
 ## LakeEffect Research Cloud _(On-Premise Cloud)_
 
 
-![The LakeEffect Cloud logo](../images/cloud/LakeEffectLogo_2.jpg)
+![The LakeEffect Cloud logo](../images/cloud/LakeEffectLogo_2.jpg "The LakeEffect Cloud logo")
 
 CCR hosts a subscription based on-premise cloud service affectionately known as **"LakeEffect"**, which provides access to virtual servers, storage and networking that users setup and manage themselves. It is what is referred to as Infrastructure as a Service and is equivalent in functionality to Amazon's EC2 Cloud service.
 

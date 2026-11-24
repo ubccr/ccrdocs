@@ -38,12 +38,29 @@ The `Recently Used Apps` section on the OnDemand dashboard will list the last 3 
 The `Quick Launch` General-Compute and Debug Desktop apps provide a one click easy button for launching a desktop session on the either the debug or general-compute partition of the UB-HPC cluster.  Your job will be allocated 1 CPU, 2.8GB of RAM, and 24 hours of wall time on the general-compute partition or 1 hour for the debug partition.  You can't change any of the options for these quick launch apps.  If you require different settings, use the `UB-HPC & Faculty Cluster Desktop` app which provides many options.  
 
 
-### Clusters (terminal window)  
+### Clusters   
+
+<a id="module-browser"></a>
+**Module Browser**
+  
+
+The Module Browser can be used to search CCR's software repository and access the command needed to load the selected software's module environment and dependencies. To use, search for the software you're interested in and click on the version you'd like to use. Under dependencies, click on the option for the toolchain (if shown) to ensure you're loading the module and it's dependencies correctly. If a toolchain is listed, you must select that option to access to full set of modules to load for your selected software.  The module browser then displays the full `module load` command to run to load that software's environment properly.  Use the `Copy` button for easy pasting into the terminal window or Jupyter app form.  
+
+![Screenshot of module browser](../images/module-browser.png)
+
+<a id="shell"></a>
+**Cluster Shell (terminal window)**
 
 This provides command line access to cluster login nodes.  CCR's OnDemand portal displays links for the UB-HPC and faculty clusters but these both point to the same login pool: `login.ccr.buffalo.edu` which will login you in to one of several login servers.  Here you can run Linux commands as you would if you were to SSH into a login node.  These login servers provide access to the shared storage and the Slurm scheduler to submit jobs to any of the clusters. Please refer to our [documentation](../hpc/clusters.md#login-nodes) on the appropriate use of the login nodes.
 
 !!! Note  
-    The default Slurm cluster on these login nodes is ub-hpc cluster so faculty cluster users will need to specify the option "-M faculty" with all Slurm commands.
+    The default Slurm cluster on these login nodes is ub-hpc cluster so faculty cluster users will need to specify the option `-M faculty` with all Slurm commands.
+
+<a id="system-status"></a>
+**System Status**  
+
+The System Status page makes overall cluster utilization available for both clusters.  Users can get a quick snapshot of how much of the clusters are utilized.  Total number of nodes, CPUs, and GPUs are displayed as well as the number of each of these currently in use. Also displayed are the total number of jobs queued and running.  Information is updated every 10 seconds.
+
 
 ### Files App  
 
@@ -52,14 +69,27 @@ The Files App in OnDemand allows users to easily transfer files to or from their
 !!! Tip  
     Large file transfers are not possible using the OnDemand Files app.  File size is limit to 10GB. Please use the integrated [Globus service](../hpc/data-transfer.md#globus-transfers) for large file transfers.    
 
-Under the `Files` tab all users will see the `Home Directory` option.  On the systems this points to `/user/[CCRusername]`.  If you have access to a shared project directory, you will see this in the Files drop down menu. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md) (https://coldfront.ccr.buffalo.edu)  
+**Home Directory**  
+Under the `Files` tab all users will see the `Home Directory` option.  On the systems, this points to `/user/[CCRusername]`.  
 
-You can add links to OneDrive and UB Box in the Files app as well.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  Refer to the [rclone documentation](../hpc/data-transfer.md#rclone) for instructions on setting up the connections with UB Box and OneDrive.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done the rclone configuration after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
+<a id="project-dirs"></a>
+**Project Directories**  
+If you have access to a shared project directory, you will be able to access this in the Files app as well. You can verify what you should have access to by viewing your [active allocations in ColdFront](coldfront.md).
+
+In order to access your group's project directory, you must use the `Change directory` button in the Files app and specify the **FULL PATH** to the directory.  Even if you descend into the upper level directory that your group's subdirectory resides in, you may not see your subdirectory as CCR uses automounting on our servers.  
+
+![Screenshot of OnDemand files app](../images/files-path.png)
+
+If you're unsure what the full path of your group's shared directory is, you can get that from the allocation information in [ColdFront](https://coldfront.ccr.buffalo.edu).  
+
+
+**OneDrive and Box Access**  
+You can add links to OneDrive and UB Box in the Files app too.  You will need to use the command line to setup authentication with your UB Box and/or OneDrive account(s).  Refer to the [rclone documentation](../hpc/data-transfer.md#rclone) for instructions on setting up the connections with UB Box and OneDrive.  Once this authentication is setup, you'll see the links in the OnDemand Files app.  If you've done the rclone configuration after logging into OnDemand, you may need to restart the OnDemand web service to see the changes.  To do so, under the `Help` menu click on `Restart Web Server`  
 
 **OneDrive**  
 Follow [the OneDrive instructions](../hpc/data-transfer.md#using-rclone-with-onedrive) to complete the initial connection with OneDrive using RClone.
 
-**UB Box**  
+**UB Box** 
 Follow [the UB Box instructions](https://rclone.org/box/) to complete the initial connection with UB Box using RClone.  
 
 **Globus**  
@@ -103,7 +133,17 @@ The only way to run Jupyter Notebooks on the CCR clusters is using the Jupyter N
 - The "Jupyter Lab/Notebook Advanced Options" app gives you the same options as the Quick Launch app but provides many other options for the user to specify including CPUs, RAM (memory), time for job to run (walltime), and [node features](../hpc/jobs.md#node-features).
 
 **Loading additional software modules with Jupyter:**  
-The "Extra Modules to Load with Jupyter" box on the Quick Launch and Advanced Options Jupyter/Lab Notebook apps provides a way for users to load additional software modules with Jupyter.  Enter the list of all software modules you'd like to load, including any dependencies they have, in order, and with only a space separating them.  For example, if we search for the module `pytorch` using `module spider pytorch` in the OnDemand terminal app, we will see:  
+The "Extra Modules to Load with Jupyter" box on the Quick Launch and Advanced Options Jupyter/Lab Notebook apps provides a way for users to load additional software modules with Jupyter.  Enter the list of all software modules you'd like to load, including any dependencies they have, in order, and with only a space separating them.  
+
+There are two ways to determine what application modules are available in CCR's software repository and what, if any, dependencies need to be loaded with them.
+
+**Module Browser:**  
+
+Refer to the information [above](#clusters) for details on how to use the module browser.  
+
+**Command Line:** 
+
+Using the OnDemand terminal app, search for the software you'd like to use.  In this example we're looking for `pytorch` using `module spider pytorch`.  This returns the following information:  
 ```
 [login:~]$ module spider pytorch
 
@@ -123,14 +163,17 @@ The "Extra Modules to Load with Jupyter" box on the Quick Launch and Advanced Op
       gcc/11.2.0  openmpi/4.1.1
 
 ```
-This means pytorch depends on both the gcc and openmpi modules. So in the "Extra Modules to Load with Jupyter" box we will enter:  `gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0`  
+This means `pytorch` depends on both the `gcc` and `openmpi` modules. So in the "Extra Modules to Load with Jupyter" box we will enter:  
+`gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0`  
 
-When the Jupyter app starts, it will launch these additional modules with it and you'll have access to the pytorch software.  If you want to load several modules and they all require the same dependencies, these only need to be listed once.  For example, torchvision also requires gcc and openmpi.  If you wanted to load pytorch and torchvision, specify this in the "Extra modules to load with Jupyter" box:  `gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0 torchvision/0.14.1-CUDA-11.8.0`  
+When the Jupyter app starts, it will launch these additional modules with it and you'll have access to the `pytorch` software.  If you want to load several modules and they all require the same dependencies, these only need to be listed once.  For example, `torchvision` also requires `gcc` and `openmpi`.  If you wanted to load `pytorch` and `torchvision`, specify this in the "Extra modules to load with Jupyter" box:  
+`gcc/11.2.0  openmpi/4.1.1 pytorch/1.13.1-CUDA-11.8.0 torchvision/0.14.1-CUDA-11.8.0`  
 
 !!! Tip "Properly listing multiple module dependencies"  
-    You do not need to list toolchain dependencies multiple times.  If the modules you want to use all depend on the same toolchain, you can list that one time at the start of your list.  Note that the `foss` toolchain contains GCC and other packages.  The `gcccore` toolchain only contains GCC, while the `gcc` toolchain contains `gcccore` and additional packages.  You can test loading modules on the command line prior to attempting to use them with a Jupyter Notebook to ensure the order you specify works.  
+    You do not need to list toolchain dependencies multiple times.  If the modules you want to use all depend on the same toolchain, you can list that one time at the start of your list.  Note that the `foss` toolchain contains GCC and other packages.  The `gcccore` toolchain only contains GCC, while the `gcc` toolchain contains `gcccore` and additional packages.  You can test loading modules on the command line prior to attempting to use them with a Jupyter Notebook to ensure the order you specify works.  Please refer to the [software documentation](../software/modules.md) for more information on using modules. 
 
-**Accessing a virtual environment from Jupyter**  
+**Accessing a virtual environment from Jupyter**:  
+
 In order to access a [virtual environment](../howto/python.md#virtual-environments) you've created within the Jupyter Notebook/Lab app, you must install `ipykernel` in the virtual environment and [create a kernel](../howto/python.md#jupyter-kernels).
 
 
@@ -160,6 +203,7 @@ NOTE: Recent versions of R require libraries which are version locked.  To ensur
 
 The [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) interactive app launches the VMD GUI on a GPU node.  We recommend requesting 64GB of RAM for VMD (or 64000 in the memory form field) to start, and [monitor your job](../hpc/jobs.md#monitoring-jobs) to determine system usage.  VMD requires a GPU so one is automatically requested when the app launches.  Though you can request a specific type of GPU, this can extend wait times and is not recommended.  VMD will run on all GPU nodes at CCR except for the `arm64` partition.  
 
+
 #### VSCode App  
 
 Visual Studio Code (VSCode) is a popular integrated development environment (IDE) that allows users to edit code in various programming languages.   Extensions available for VSCode allow users to access most popular languages and runtimes, connect to Github, and test workflows.  The application has a built-in SSH client allowing users to connect to remote servers to code directly on the server from their personal device.  Unfortunately, almost none of those features work in the CCR HPC environment.  Though we can appreciate how handy many of these features are, they are not easy to support on an HPC system. If you're going to use VSCode in CCR's HPC environment, we HIGHLY recommend first reviewing the material in the UB Learns ["Using Python at CCR"](https://ublearns.buffalo.edu/d2l/le/discovery/view/course/288741) course.  There are two sections dedicated to the proper use of VSCode on our systems.
@@ -173,16 +217,24 @@ These are just a few of the oddities to note about how VSCode functions at CCR:
   - Port forwarding is not permitted to CCR's login nodes; therefore, you will not be able to use VSCode on your device and connect to CCR's login or compute nodes.  
 
 
-**Job Card Formating**  
+#### Job Cards
 
-Job cards in OnDemand version 3.x include a link to submit a help ticket that links directly to the job for easier review by CCR IT staff.  A running or queued job has the `cancel` option which cancels the job and removes it from the queue.  Once a job has been completed, you can `delete` it which removes it from your list of most recent jobs.  This does NOT delete the job data in your home directory so you will need to periodically [clean up data](../howto/ood-trouble.md#where-can-i-find-the-output-files-for-my-ondemand-sessions) you no longer want.  The session ID link will take you directly to the subdirectory where the job's data and output files are stored.  
+Job cards include information about the jobs you've launched including the status (queued, running, canceled, completed).  This includes:  
+
+- **Session ID:** This link will take you directly to the subdirectory where the job's data and output files are stored.
+- **Submit Ticket:** Use this button to submit a help ticket that links directly to the job for easier review by CCR IT staff.
+- **Cancel:** A running or queued job has the `cancel` option which cancels the job and removes it from the queue.
+- **Delete:** Once a job has completed or been canceled, you can `delete` it which removes it from your list of most recent jobs.  This does NOT delete the job data in your home directory so you will need to periodically [clean up data](#where-are-the-output-files-for-my-ondemand-sessions) you no longer want.
+- **Running Jobs:** When a job is running, you will also see what compute node the job is running on, how many nodes/cores/GPUs were requested, and how much time is left on the job.  Running jobs also display a button to "Launch" the application or desktop.  Clicking on that opens the app or desktop in a new browser tab.
+- **View Only Link:** This link is available for running jobs and can be shared with support staff to help troubleshoot issues.
+- **Download as zip:** This button is available for completed or canceled jobs.  It compresses the job data into a zipped file and downloads it to your computer.  
 
 
-![](../images/ood3-job.png)
+![](../images/job-running.png)
 
-Once a job is completed, the job card will display an icon with circular arrows next to the "Completed" status.  To launch another job with the same specifications as the completed job requested, click on the arrow button.  
+Once a job is completed, the job card will display an icon with circular arrows next to the "Completed" status.  To launch another job with the same specifications as the completed job requested, click on the circular arrow button.  
 
-![](../images/ood3-completed.png)
+![](../images/job-completed.png)
 
   
 
@@ -192,27 +244,63 @@ Once a job is completed, the job card will display an icon with circular arrows 
 The Active Jobs menu option takes you to a list of your jobs (pending, running, and recently completed) on the CCR clusters.  You can filter by cluster and show all jobs or just your jobs.  This includes jobs you may be running outside of OnDemand.  Once the list is displayed, more details about individual jobs can be viewed by clicking on the arrow to the left of the job id.   Job information includes: Job ID, Job Name, User, Account, Partition, State (pending, running, completed, blocked), Total Nodes, Node List, Total CPUs, Time Limit, Time Used, and Memory Requested.  For jobs running via OnDemand, the full path of the output files for the job is displayed.  Below this there are buttons to open this location in either the file manager or the terminal, for easy access to view the job script, job log, and any error files that may have been created.  If you are reporting an error to CCR Help or asking for assistance with a job, please provide the full path of the OnDemand job files.  
 
 **Job Metrics:**  
-Below the detailed job information for any job currently running, you will see two graphs that display CPU and memory usage of the job.  This is a great tool for determining if your job is performing as expected.  For even more information about the performance of the node, click on the `Detailed Metrics` link which opens a new tab to CCR's Grafana dashboards.  Grafana displays an array of detailed hardware statistics for the node(s) your job is running on including CPU, RAM, network, Infiniband/Omnipath, Disk usage and I/O, and GPU information.  More job metrics are available in the [UBMoD metrics portal](metrics.md).  
+Below the detailed job information for any job currently running, you will see two graphs that display CPU and memory usage of the job.  This is a great tool for determining if your job is performing as expected.  For even more information about the performance of the node, click on the `Detailed Metrics` link which opens a new tab to CCR's Grafana dashboards.  Grafana displays an array of detailed hardware statistics for the node(s) your job is running on including CPU, RAM, network, Infiniband/Omnipath, Disk usage and I/O, and GPU information.  More job metrics are available in the [UBMoD metrics portal](metrics.md).  Detailed information on job monitoring is available in our [documentation](../hpc/jobs.md#monitoring-jobs).
 
 **Job Composer**  
 
-The Job Composer provides a template system for creating and managing batch jobs from within the OnDemand interface.  This application has been discontinued and is no longer supported.  We recommend new users do not use it as it will be replaced in OnDemand version 4.x.  For usage information please refer to the documentation provided by [Open OnDemand developers](https://osc.github.io/ood-documentation/latest/applications/job-composer.html). 
+The Job Composer will be removed from CCR's OnDemand instance during the December 2026 maintenance downtime.  Please migrate your workflows to use the Project Manager app.  
+
+**Project Manager**  
+
+Project Manager is a replacement for the Job Composer.  It provides a suite of tools to leverage the Open OnDemand features from batch connect apps for each user's own personal scripts, track and organize their job history, assemble individual jobs into large-scale workflows, and easily share and collaborate on these projects with their team. For more details view the [Project Manager tutorial](https://osc.github.io/ood-documentation/latest/tutorials/tutorials-project-manager.html) from the Open OnDemand team.
+
 
 ### My Interactive Sessions  
 
-The interactive sessions section of the OnDemand portal displays your currently running sessions and those that just recently finished.  The completed jobs stay in this list for 2 days allowing you to access the link to the jobs' output files.  You can remove the links by clicking the `Delete` button.  However, this does not delete the [job data directory and output files](../howto/ood-trouble.md#where-can-i-find-the-output-files-for-my-ondemand-sessions).
+The interactive sessions section of the OnDemand portal displays your currently running sessions and those that just recently finished.  The completed jobs stay in this list for 6 days allowing you to access the link to the jobs' output files.  You can remove the links by clicking the `Delete` button.  However, this does not delete the [job data directory and output files](#where-are-the-output-files-for-my-ondemand-sessions).
 
 !!! Note "Managing your OnDemand Disk Usage"
     To clear up disk space in your home directory, you can remove directories for completed jobs when you're done retrieving the job output data.  You can find these in subdirectories under: `/user/[CCRusername]/ondemand/data/sys/dashboard/batch_connect/sys`  
 
-### Develop (Sandbox)  
-
-OnDemand allows users the ability to create their own interactive apps and run them in a 'sandbox' environment.  Please note, CCR does NOT enable this feature by default; please request this feature be enabled for your account via [CCR Help](../help.md).  Once it is enabled, you'll find the `My Sandbox Apps (Development)` option under the `</>Develop` menu in OnDemand.  Please refer to the documentation on app development provided by the [Open OnDemand developers here](https://osc.github.io/ood-documentation/latest/app-development) for more information.  
 
 ### Help  
 
 The Help menu offers links to CCR's support contact information, documentation, and the ability to restart your OnDemand web process.  Occasionally, you'll find your OnDemand session may be slow or unresponsive.  Users can choose the `Restart Web Server` option to restart the process that runs their individual OnDemand session.  Most of the time you will not need to do this unless directed to by CCR staff.  You may use the `Submit Support Ticket` option to easily submit a ticket to CCR help.  If you're contacting us regarding a specific job, please use the `Submit Support Ticket` button on the job card so that all the relevent job information is included in the ticket.  Then we don't have to ask you for it!    
 
-### Troubleshooting  
 
-Please refer to [CCR's OnDemand troubleshooting guide](../howto/ood-trouble.md).
+### OnDemand Frequently Asked Questions  
+
+#### Why is my session not starting?  
+
+OnDemand sessions are submitted as jobs to CCR's clusters.  The Slurm scheduler schedules jobs on compute nodes based on the resources requested.  Basically, your OnDemand session is in line with all the other batch jobs and OnDemand sessions submitted by all the other users of CCR.  If you are asking for resources that are in high demand, you will need to wait.  Overall, most jobs start within a few hours of being submitted to CCR's clusters.  However, some resources such as GPU nodes are limited in quantity and almost always under high demand.  This means you could wait many hours, days or potentially a week for your job to get scheduled.  Please see [CCR's Slurm job priority documentation](../hpc/jobs.md#job-priority) for more information on job priority and [CCR's job start documentation](../faq.md#when-will-my-job-start) on how to tell when your job will start.  If your job is pending for a specific reason other than `resources` or `priority`, refer to these sections in our FAQ:  
+[`reqnodenotavail` status](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail)  
+[`qosmaxsubmitjobperuserlimit` status](../faq.md#why-am-i-getting-a-qosmaxsubmitjobperuserlimit-error-when-i-try-to-submit-a-job)  
+[`AssocMaxGRESPerJob` status](../faq.md#why-am-i-seeing-the-job-status-assocmaxgresperjob-on-my-pending-job)  
+
+
+#### Why does my session start but then immediately completes?  
+
+There are three common reasons why you might not be able to launch OnDemand sessions including interactive desktops and apps like Jupyter Notebook and Matlab.  
+
+1. You are [over quota](../hpc/storage.md#checking-quotas) in your home directory.  See CCR's documentation on managing [OnDemand job data](../portals/ood.md#my-interactive-sessions)  
+2. You have not requested enough memory for the job to run.  If not specified, a job will be allocated 2.8GB of RAM (memory).  This is enough for some basic jobs, including launching OnDemand interactive desktops.  This will not be enough for most interactive apps (Jupyter, Matlab, RStudio) or for more intense workloads in desktop sessions.  We can't tell you how much RAM your program will need.  We recommend starting low with 4 or 6GB of RAM and [monitoring your job](../hpc/jobs.md#monitoring-jobs) to determine whether it's getting used. NOTE: the OnDemand forms ask for memory to be specified in megabytes, not gigabytes.  So if you want to request 4GB of RAM, please enter 4000 in the form field.
+2. The application is looking for a software module to load and can't find it. For OnDemand desktop and apps specifically, this problem might be introduced by you having a `module load` statement in your `~/.bashrc` file or if you are using a [CCR software environment](../software/releases.md) that does not contain the module the app is trying to start. See [CCR's module FAQ](../faq.md#why-am-im-getting-module-not-found-errors) for more information.  
+3. You have an Anaconda environment loading in your `~/.bashrc` environment file or are loading a Python module in your `~/.bashrc` file that is interfering with the OnDemand desktop setup.  Some users load Anaconda environments or personal/group Python or Anaconda modules in their `~/.bashrc` file (found in your home directory).  These environments break OnDemand desktops and apps and prevent them from starting.  To fix this, use the OnDemand Files app to navigate to your home directory.  Click the `Show Dotfiles` checkbox, find and open the `.bashrc` file for editing.  Remove everything in this file between the two `>>> conda initialize >>>` lines.  Then save the file and close the Files app.  Click on the Help menu and choose "Restart Web Server" to refresh your OnDemand process.  Do NOT delete the `~/.bashrc` file!  Anaconda is not recommended for HPC systems and is [not supported on CCR's systems](../software/modules.md#anaconda-python).  Please refrain from using this software and if you need help finding an alternative for your workflow, contact [CCR Help](../help.md) for recommendations.  
+4. You are attempting to start a Jupyter notebook and have Python package conflicts.  Check your job's [output log](#where-are-the-output-files-for-my-ondemand-sessions) for more information.
+
+#### Where are the output files for my OnDemand sessions?  
+
+The easiest way to find these is by clicking on the `Session ID` link on the job card as this will open the Files app and take you directly to the output directory for that job.  If the session card has been deleted, you can find all your OnDemand output files in your home directory, in sub-directories of `/user/[CCRusername]/ondemand/data/sys/dashboard/batch_connect/sys`  In each job directory, you will find, at minimum, an `output.log` file.  Though this file will contain what appears to be errors, much of this can be ignored until the end of the file.  If the job ends prematurely, you will often see the reason why it failed.  The three most frequent reasons are:  
+
+- Out of memory: You might see an error like `Detected 1 oom-kill event(s) in StepId=999999.batch. Some of your processes may have been killed by the cgroup out-of-memory handler` - Solution: Request more memory  
+- Time limit reached:  You might see an error like `CANCELLED AT 2024-02-20T03:24:08 DUE TO TIME LIMIT` - Solution: Request more wall time.  See [CCR's Slurm documentation](../hpc/jobs.md#slurm-directives-partitions-qos) for more information on cluster limits.  
+- Out of disk space:  You might see errors like `no space left on device` or `I/O error` - Solution: Clear up space in your home directory to allow more room for OnDemand output files.  See [CCR's out of space documentation](../faq.md#why-am-i-getting-no-space-left-on-device-errors) for more information.  
+
+
+We also have answers to other OnDemand questions on our Frequently Asked Questions page, including:  
+
+[Why can't I login?](../faq.md#why-cant-i-login)  
+[No Home Directory Found on Login to OnDemand](../faq.md#why-am-i-seeing-a-home-directory-missing-error-on-login)  
+[Blank window after starting OnDemand session](../faq.md#why-do-i-see-a-blank-window-when-starting-an-ondemand-desktop-why-are-the-desktop-icons-not-working)  
+[Invalid account, partition, or QOS error](../faq.md#why-do-i-get-an-invalid-account-partition-or-qos-specification-error-when-i-try-to-run-a-job)  
+[Why is my job showing `reqnodenotavail`?](../faq.md#why-is-my-job-pending-with-reason-reqnodenotavail)   

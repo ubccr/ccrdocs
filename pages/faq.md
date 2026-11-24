@@ -62,13 +62,9 @@ rm -rf ~/.cache
 rm -rf ~/.config/xfce4  
 ```
 
-## How can I fix the `XFCE PolicyKit Agent` error in OnDemand desktop sessions?  
-
-If you see an error box that says `XFCE PolicyKit Agent` you can click the `Close` button and proceed with using the OnDemand desktop.  
-
 ## Why does my OnDemand desktop or app show it's starting but then it immediately ends?  
 
-Refer to [CCR's OnDemand troubleshooting documentation](howto/ood-trouble.md#why-does-my-ondemand-desktop-or-app-show-its-starting-but-then-it-immediately-ends) for more information.  
+Refer to [CCR's OnDemand troubleshooting documentation](portals/ood.md#why-does-my-session-start-but-then-immediately-completes) for more information.  
 
 ## How can I check how full my directories are?  
 
@@ -147,7 +143,7 @@ If this message is not due to an upcoming maintenance downtime, then it means th
 
 ## How can I get information on CCR clusters such as how busy they are and wait times?  
 
-From a login node, use the command `sqstat` to see a comprehensive overview of cluster usage.  To find more detailed information on node availability, use the `snodes` command.  Wait times are not possible to calculate accurately as jobs are constantly ending and new ones are submitted.  However, you can get your job's rank in the queue using the `sranks` command, as well as information on your [job's status](hpc/jobs.md#view-your-jobs-in-queue) and your [job's priority](hpc/jobs.md#job-priority).  Depending on how many jobs are currently waiting in the queue, the scheduler may be able to estimate your [job's start time](hpc/jobs.md#determining-job-start-time).  This is only an estimate and may change if new jobs are queued with a higher priority than yours.  The [UBMoD analytics tool](https://ubmod.ccr.buffalo.edu/) (VPN required) provides detailed information about your group's average wait times over a selected period of time such as weeks or months.  
+There are several ways to get varying degrees of information about cluster utilization.  Use the [OnDemand System Status](portals/ood.md#system-status) tool to get overall cluster utilization, available nodes, and running vs. queued jobs.  From a login node, use the command `sqstat` to see a comprehensive overview of cluster usage.  To find more detailed information on node availability, use the `snodes` command.  Wait times are not possible to calculate accurately as jobs are constantly ending and new ones are submitted.  However, you can get your job's rank in the queue using the `sranks` command, as well as information on your [job's status](hpc/jobs.md#view-your-jobs-in-queue) and your [job's priority](hpc/jobs.md#job-priority).  Depending on how many jobs are currently waiting in the queue, the scheduler may be able to estimate your [job's start time](hpc/jobs.md#determining-job-start-time).  This is only an estimate and may change if new jobs are queued with a higher priority than yours.  The [UBMoD analytics tool](https://ubmod.ccr.buffalo.edu/) (VPN required) provides detailed information about your group's average wait times over a selected period of time such as weeks or months.  
 
 ## Why do I get an ‘Invalid Account, Partition, or QOS Specification’ error when I try to run a job?  
 
